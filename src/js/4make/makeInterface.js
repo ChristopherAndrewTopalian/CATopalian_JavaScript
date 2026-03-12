@@ -13,7 +13,7 @@ function makeInterface(whichArray, whichEntry)
 
     let frameContainer = ce("div");
     frameContainer.style.position = "absolute";
-    frameContainer.style.left = 90 + "px";
+    frameContainer.style.left = 100 + "px";
     frameContainer.style.top = 20 + "px";
     frameContainer.id = "frameContainer";
     ba(frameContainer);
@@ -36,7 +36,7 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.position = 'absolute';
     buttonContainer.style.left = '0px';
     buttonContainer.style.top = '10px';
-    buttonContainer.style.width = '90px';
+    buttonContainer.style.width = '100px';
     ba(buttonContainer);
 
     //-//
