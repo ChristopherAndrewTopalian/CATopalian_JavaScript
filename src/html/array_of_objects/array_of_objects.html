@@ -1,0 +1,89 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- array_of_objects.html -->
+
+<html>
+<head>
+<title> Array of Objects </title>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body>
+
+<div>
+
+<h1> Arrays of Objects </h1>
+
+<h2> What is an Array of Objects? </h2>
+<p> So far, we have used arrays to store simple lists of strings or numbers, like a list of ship names. But what if we need to store a lot of details about each ship? </p>
+
+<p> By placing <b>Objects</b> (which hold data in key-value pairs) inside an <b>Array</b> (which keeps things in an ordered list), we can build a highly organized, easily searchable database. </p>
+
+<hr>
+
+<h2> Building the Fleet Database </h2>
+<p> Notice that the array is still wrapped in square brackets <b>[ ]</b>, but every individual item inside the list is an object wrapped in curly braces <b>{ }</b>. </p>
+
+<pre><code class="custom-code">let starfleet = [
+    {
+        name: "Enterprise",
+        class: "Galaxy",
+        captain: "Picard"
+    },
+    {
+        name: "Defiant",
+        class: "Escort",
+        captain: "Sisko"
+    },
+    {
+        name: "Voyager",
+        class: "Intrepid",
+        captain: "Janeway"
+    }
+];</code></pre>
+
+<hr>
+
+<h2> Accessing the Data </h2>
+<p> To read data from an array of objects, we have to combine two tools: <b>Bracket Notation</b> to find the exact object in the line, and <b>Dot Notation</b> to pull the specific property out of that object. </p>
+
+<pre><code class="custom-code">// 1. First, we target the first ship in the array (Index 0)
+// 2. Then, we ask for its "name" property
+
+let flagship = starfleet[0].name; 
+console.log(flagship); // Returns "Enterprise"
+
+let toughShip = starfleet[1].class;
+console.log(toughShip); // Returns "Escort"
+
+let lostCaptain = starfleet[2].captain;
+console.log(lostCaptain); // Returns "Janeway"
+</code></pre>
+
+<hr>
+
+<h2> Why is this so powerful? </h2>
+<p> Because this structure perfectly mimics how data is sent across the internet (like JSON). Once your data is formatted as an array of objects, you can easily use JavaScript to filter out specific ships, sort them by class, or loop through the entire list to display them on a screen! </p>
+
+</div>
+
+</body>
+
+</html>
+

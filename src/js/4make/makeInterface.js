@@ -23,7 +23,7 @@ function makeInterface(whichArray, whichEntry)
     let theFrame = ce("iframe");
     theFrame.src = whichArray[whichEntry].urlOffline;
     theFrame.id = "thePdfId";
-    theFrame.style.width = '550px';
+    theFrame.style.width = '650px';
     theFrame.style.height = '300px';
     frameContainer.append(theFrame);
 
@@ -112,6 +112,44 @@ function makeInterface(whichArray, whichEntry)
                 theFrame.src = whichArray[x].urlOffline;
             };
             arrayDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let aooDetails = ce('details');
+    aooDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    aooDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(aooDetails);
+
+    //-//
+
+    let aooSummary = ce('summary');
+    aooSummary.textContent = 'AOO';
+    aooDetails.append(aooSummary);
+
+    for (let x = 0; x < whichArray.length; x++)
+    {
+        if (whichArray[x].category == 'array_of_objects')
+        {
+            let theButton = ce("button");
+            theButton.textContent = whichArray[x].name;
+            theButton.onmouseover = function()
+            {
+                // hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = whichArray[x].urlOffline;
+            };
+            aooDetails.append(theButton);
         }
     }
 }
