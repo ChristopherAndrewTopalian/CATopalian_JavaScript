@@ -3,6 +3,8 @@ A JavaScript app designed for teaching JavaScript and anything else.
 
 ---
 
+Video: https://www.youtube.com/watch?v=E57H8gL9Fv8
+
 Video: https://www.youtube.com/watch?v=Uo_JDMm4sH0
 
 Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript/CATopalian_JavaScript.html
