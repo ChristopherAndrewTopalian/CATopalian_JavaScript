@@ -2,8 +2,10 @@
 
 body
 {
+    margin: 1px 5px;
     background-color: rgb(0, 0, 0);
     font-family: Arial;
+    color: rgb(255, 255, 255);
 }
 
 a:link
@@ -86,11 +88,6 @@ details[open] > summary::before
     /*background-color: rgb(140,140,140);*/
 }
 
-div
-{
-    color: rgb(255, 255, 255);
-}
-
 /* make the scrollbar thinner */
 ::-webkit-scrollbar {
   width: 8px; /* Adjust the thickness here */
@@ -138,27 +135,20 @@ h3
     margin-left: 15px;
 }
 
-/*
-b
+p
 {
-    padding: 2px;
-    text-align: center;
-    display: inline-block; 
-    width: 20px;
-    border: solid 1px rgb(0, 255, 255);
-    background-color: rgb(0, 0, 0);
+    margin: 1px;
 }
-    */
 
-b
+.symbol
 {
     display: inline-flex; /* like inline-block, but allows centering tools */
     align-items: center; /* centers vertically */
     justify-content: center; /* centers horizontally */
-    
+
     width: 40px; /* slightly wider to give symbols room */
     height: 20px; /* set height equal to width for a square */
-    
+
     padding: 5px;
     border: solid 0.5px rgb(0, 255, 255);
     border-radius: 8px;
@@ -167,15 +157,71 @@ b
     color: rgb(0, 255, 255);
 }
 
-b:hover
+.symbol:hover
 {
     background-color: rgb(0, 14, 163);
+}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+code
+{
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Syntax Highlighting Colors */
+
+.green
+{
+    color: rgb(150, 200, 150);
+}
+
+.pink
+{
+    color: pink;
+}
+
+.skyblue
+{
+    color: skyblue;
+}
+
+.yellow
+{
+    color: yellow;
+}
+
+.lightGray
+{
+    color: rgb(200, 200, 200);
+}
+
+.magenta
+{
+    color: rgb(255, 138, 255);
+}
+
+.objects
+{
+    color: rgb(155, 195, 255);
+}
+
+.flowControl
+{
+    color: magenta;
 }
 
 /*----*/
 
 /* Dedicated to God the Father */
-/* All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025 */
+/* All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 */
 /* https://github.com/ChristopherTopalian */
 /* https://github.com/ChristopherAndrewTopalian */
 /* https://sites.google.com/view/CollegeOfScripting */

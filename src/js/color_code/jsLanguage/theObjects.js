@@ -1,15 +1,14 @@
-// whenLoaded.js
+// theObjects.js
 
-function whenLoaded()
-{
-    makeInterface(operators, 0);
-
-    // 3. Run the engine as soon as the page loads
-    window.onload = function()
-    {
-        applyCustomHighlighting();
-    };
-}
+let theObjects = 
+[
+    'console',
+    'document',
+    'window',
+    'Date',
+    'Math',
+    'JSON',
+];
 
 //----//
 

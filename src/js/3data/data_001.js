@@ -4,18 +4,50 @@ let operators = [
     {
         name: "Arithmetic Operators",
         urlOffline: "src/html/operators/arithmetic_operators.html",
+        category: 'arithmetic_operators'
     },
 
     {
         name: "Assignment Operators",
         urlOffline: "src/html/operators/assignment_operators.html",
+        category: 'assignment_operators'
+    },
+
+    {
+        name: "Array",
+        urlOffline: "src/html/array/array.html",
+        category: 'array'
+    }, 
+
+    {
+        name: "push()",
+        urlOffline: "src/html/array/push.html",
+        category: 'array'
+    },
+
+    {
+        name: "pop()",
+        urlOffline: "src/html/array/pop.html",
+        category: 'array'
+    },
+
+    {
+        name: "unshift()",
+        urlOffline: "src/html/array/unshift.html",
+        category: 'array'
+    },
+
+    {
+        name: "shift()",
+        urlOffline: "src/html/array/shift.html",
+        category: 'array'
     }
 ];
 
 //----//
 
 // Dedicated to God the Father
-// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025
+// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026
 // https://github.com/ChristopherTopalian
 // https://github.com/ChristopherAndrewTopalian
 // https://sites.google.com/view/CollegeOfScripting

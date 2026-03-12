@@ -1,14 +1,8 @@
-// whenLoaded.js
+// escapeHtml.js
 
-function whenLoaded()
+function escapeHtml(code)
 {
-    makeInterface(operators, 0);
-
-    // 3. Run the engine as soon as the page loads
-    window.onload = function()
-    {
-        applyCustomHighlighting();
-    };
+    return code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 //----//

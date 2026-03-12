@@ -1,0 +1,95 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- array.html -->
+
+<html>
+<head>
+<title> Array </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Array </h1>
+
+<h2> What is an Array? </h2>
+<p> Think of an array as a single container that can hold a list of multiple items at once. Instead of creating a separate variable for every single thing, you group related items together in an ordered, numbered list. </p>
+
+<hr>
+
+<h2> Creating an Array </h2>
+<p> Arrays are created using square brackets <b>[ ]</b>. Each item inside the array is separated by a comma. </p>
+
+<hr>
+
+<pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];</code></pre>
+
+<hr>
+
+<h2> Accessing Items (The Index) </h2>
+<p> JavaScript arrays are <b>zero-indexed</b>. This is a crucial concept: the computer starts counting at 0, not 1! To access an item, you use its index number inside square brackets. </p>
+
+<hr>
+
+<pre><code class="custom-code">fleet[0]; // Returns "Enterprise"<br>
+fleet[1]; // Returns "Defiant"<br>
+fleet[2]; // Returns "Voyager"
+</code></pre>
+
+<hr>
+
+<h2> Modifying the List </h2>
+<p> Arrays are dynamic, meaning you can add or remove items after the array has been created using built-in commands called "methods". </p>
+
+<h2><b> .push() </b> Adds an item to the end of the array </h2>
+
+<hr>
+
+<pre><code class="custom-code">fleet.push("Discovery");</code></pre>
+
+<hr>
+
+<h2><b> .pop() </b> Removes the last item from the array </h2>
+
+<hr>
+
+<pre><code class="custom-code">fleet.pop();</code></pre>
+
+<hr>
+
+<h2><b> .length </b> Checking the size </h2>
+
+<hr>
+
+<p> We can always check how many items are currently in your array using the length property. </p>
+
+<hr>
+
+<pre><code class = "custom-code">fleet.length; // Returns 3</code></pre>
+
+<hr>
+
+</div>
+
+</body>
+
+</html>
+

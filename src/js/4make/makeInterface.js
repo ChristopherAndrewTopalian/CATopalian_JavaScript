@@ -2,6 +2,8 @@
 
 function makeInterface(whichArray, whichEntry)
 {
+    ba(makeTitleOfApp());
+
     // if frameContainer exists
     if (ge("frameContainer"))
     {
@@ -12,7 +14,7 @@ function makeInterface(whichArray, whichEntry)
     let frameContainer = ce("div");
     frameContainer.style.position = "absolute";
     frameContainer.style.left = 90 + "px";
-    frameContainer.style.top = 10 + "px";
+    frameContainer.style.top = 20 + "px";
     frameContainer.id = "frameContainer";
     ba(frameContainer);
 
@@ -21,7 +23,7 @@ function makeInterface(whichArray, whichEntry)
     let theFrame = ce("iframe");
     theFrame.src = whichArray[whichEntry].urlOffline;
     theFrame.id = "thePdfId";
-    theFrame.style.width = '350px';
+    theFrame.style.width = '550px';
     theFrame.style.height = '300px';
     frameContainer.append(theFrame);
 
@@ -39,27 +41,85 @@ function makeInterface(whichArray, whichEntry)
 
     //-//
 
+    let symbolsDetails = ce('details');
+    symbolsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    symbolsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(symbolsDetails);
+
+    //-//
+
+    let symbolsSummary = ce('summary');
+    symbolsSummary.textContent = 'Symbols';
+    symbolsDetails.append(symbolsSummary);
+
     for (let x = 0; x < whichArray.length; x++)
     {
-        let theButton = ce("button");
-        theButton.textContent = whichArray[x].name;
-        theButton.onmouseover = function()
+        if (whichArray[x].category == 'arithmetic_operators' || whichArray[x].category == 'assignment_operators')
         {
-            hoverSound();
-        };
-        theButton.onclick = function()
+            let theButton = ce("button");
+            theButton.textContent = whichArray[x].name;
+            theButton.onmouseover = function()
+            {
+                //hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = whichArray[x].urlOffline;
+            };
+            symbolsDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let arrayDetails = ce('details');
+    arrayDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    arrayDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(arrayDetails);
+
+    //-//
+
+    let arraySummary = ce('summary');
+    arraySummary.textContent = 'Array';
+    arrayDetails.append(arraySummary);
+
+    for (let x = 0; x < whichArray.length; x++)
+    {
+        if (whichArray[x].category == 'array')
         {
-            clickSound();
-            theFrame.src = whichArray[x].urlOffline;
-        };
-        buttonContainer.append(theButton);
+            let theButton = ce("button");
+            theButton.textContent = whichArray[x].name;
+            theButton.onmouseover = function()
+            {
+                // hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = whichArray[x].urlOffline;
+            };
+            arrayDetails.append(theButton);
+        }
     }
 }
 
 //----//
 
 // Dedicated to God the Father
-// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025
+// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026
 // https://github.com/ChristopherTopalian
 // https://github.com/ChristopherAndrewTopalian
 // https://sites.google.com/view/CollegeOfScripting
