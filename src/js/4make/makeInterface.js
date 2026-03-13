@@ -37,6 +37,8 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.left = '0px';
     buttonContainer.style.top = '10px';
     buttonContainer.style.width = '100px';
+    buttonContainer.style.height = '320px';
+    buttonContainer.style.overflowY = 'scroll';
     ba(buttonContainer);
 
     //-//
