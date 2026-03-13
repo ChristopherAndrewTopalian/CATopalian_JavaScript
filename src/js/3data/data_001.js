@@ -22,24 +22,28 @@ let operators = [
     {
         name: "push()",
         urlOffline: "src/html/array/push.html",
+        description: 'Add to the END of the Array',
         category: 'array'
     },
 
     {
         name: "pop()",
         urlOffline: "src/html/array/pop.html",
+        description: 'Remove the Last Element of the Array',
         category: 'array'
     },
 
     {
         name: "unshift()",
         urlOffline: "src/html/array/unshift.html",
+        description: 'Add to the BEGINNING of the Array',
         category: 'array'
     },
 
     {
         name: "shift()",
         urlOffline: "src/html/array/shift.html",
+        description: 'Remove the 1st element of the Array',
         category: 'array'
     },
 

@@ -13,7 +13,7 @@ function makeInterface(whichArray, whichEntry)
 
     let frameContainer = ce("div");
     frameContainer.style.position = "absolute";
-    frameContainer.style.left = 100 + "px";
+    frameContainer.style.left = 120 + "px";
     frameContainer.style.top = 20 + "px";
     frameContainer.id = "frameContainer";
     ba(frameContainer);
@@ -23,7 +23,7 @@ function makeInterface(whichArray, whichEntry)
     let theFrame = ce("iframe");
     theFrame.src = whichArray[whichEntry].urlOffline;
     theFrame.id = "thePdfId";
-    theFrame.style.width = '650px';
+    theFrame.style.width = '600px';
     theFrame.style.height = '300px';
     frameContainer.append(theFrame);
 
@@ -36,9 +36,10 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.position = 'absolute';
     buttonContainer.style.left = '0px';
     buttonContainer.style.top = '10px';
-    buttonContainer.style.width = '100px';
-    buttonContainer.style.height = '320px';
+    buttonContainer.style.width = '120px';
+    buttonContainer.style.height = '300px';
     buttonContainer.style.overflowY = 'scroll';
+    buttonContainer.style.overflowX = 'scroll';
     ba(buttonContainer);
 
     //-//
@@ -141,6 +142,7 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = whichArray[x].name;
+            theButton.title = whichArray[x].description || '';
             theButton.onmouseover = function()
             {
                 // hoverSound();
