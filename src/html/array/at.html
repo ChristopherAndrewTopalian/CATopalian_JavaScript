@@ -1,0 +1,60 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- at.html -->
+
+<html>
+<head>
+<title> at() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> at() </h1>
+
+<hr>
+
+<p> The <code>at()</code> method takes an integer value and returns the item at that specific index. While it works just like standard bracket notation <code>[0]</code>, its true superpower is that it allows <b>negative integers</b> to count backward from the end of the array! </p>
+
+<p> This means we can easily target the last ship in the fleet without needing to calculate <code>fleet.length - 1</code>. </p>
+
+<hr>
+
+<pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
+
+// Target the first ship
+let flagship = fleet.at(0);
+console.log(flagship); // Result: "Enterprise"
+
+// Target the very last ship in the formation
+let rearGuard = fleet.at(-1); 
+console.log(rearGuard); // Result: "Voyager"
+</code></pre>
+
+<hr>
+
+<a href = 'https://www.youtube.com/watch?v=qtVHTiHR2KA' target = '_blank'> Star Fleet Video Tutorial </a>
+
+</div>
+
+</body>
+
+</html>
+
