@@ -1,0 +1,52 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- find.html -->
+
+<html>
+<head>
+<title> find() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> find() </h1>
+
+<hr>
+
+<p> While <code>filter()</code> returns a list of everything that matches your search, <code>find()</code> is a precision strike. It sweeps the array and returns the <b>very first item</b> that matches your condition, and then it immediately stops looking. </p>
+
+<hr>
+
+<pre><code class="custom-code">let crew = ["Riker", "Data", "Worf", "Data"];
+
+// Locate the first instance of "Data" in the array
+let androidTarget = crew.find(member => member === "Data");
+
+console.log(androidTarget); 
+// Result: "Data" (It ignores the second one at the end of the list)
+</code></pre>
+
+</div>
+
+</body>
+
+</html>
+

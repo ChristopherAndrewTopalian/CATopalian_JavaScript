@@ -34,13 +34,14 @@ button
     border-width: 1px;
     border-color: rgb(100, 100, 255);
     border-radius: 4px;
-    padding: 4px 7px;
+    padding: 2px 5px;
     opacity: 1.0;
     font-size: 12px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    text-align: center;
+    text-align: left;
     cursor: pointer;
+    width: 90%;
     line-height: 12px;
 }
 
