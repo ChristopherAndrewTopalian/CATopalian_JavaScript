@@ -1,0 +1,48 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- fill.html -->
+
+<html>
+<head>
+<title> fill() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> fill() </h1>
+
+<p> <code>fill()</code> is a heavy-handed command. It takes an existing array and overwrites the items inside it with a static, identical value. You can overwrite the entire array, or specify a start and end index to only overwrite a specific sector. </p>
+
+<hr>
+
+<pre><code class="custom-code">let dockingBays = ["Empty", "Empty", "Empty", "Empty"];
+
+// A fleet just arrived. Fill bays starting at Index 1 up to Index 3.
+dockingBays.fill("Occupied", 1, 3);
+
+console.log(dockingBays); 
+// Result: ["Empty", "Occupied", "Occupied", "Empty"]
+</code></pre>
+
+</div>
+
+</body>
+</html>
