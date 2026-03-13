@@ -41,6 +41,43 @@ function makeInterface(whichArray, whichEntry)
 
     //-//
 
+    let collapseExpandContainer = ce('div');
+    collapseExpandContainer.style.display = 'flex';
+    collapseExpandContainer.style.flexDirection = 'row';
+    buttonContainer.append(collapseExpandContainer);
+
+    //-//
+
+    let collapseAllDetailsBtn = ce('button');
+    collapseAllDetailsBtn.textContent = '_';
+    collapseAllDetailsBtn.onmouseover = function()
+    {
+        hoverSound();
+    };
+    collapseAllDetailsBtn.onclick = function()
+    {
+        clickSound();
+        collapseAllDetails();
+    };
+    collapseExpandContainer.append(collapseAllDetailsBtn);
+
+    //-//
+
+    let exapandAllDetailsBtn = ce('button');
+    exapandAllDetailsBtn.textContent = 'O';
+    exapandAllDetailsBtn.onmouseover = function()
+    {
+        hoverSound();
+    };
+    exapandAllDetailsBtn.onclick = function()
+    {
+        clickSound();
+        expandAllDetails();
+    };
+    collapseExpandContainer.append(exapandAllDetailsBtn);
+
+    //-//
+
     let symbolsDetails = ce('details');
     symbolsDetails.onmouseover = function()
     {
