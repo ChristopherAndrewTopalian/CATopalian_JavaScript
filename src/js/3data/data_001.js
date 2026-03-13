@@ -62,6 +62,12 @@ let operators = [
     },
 
     {
+        name: "join()",
+        urlOffline: "src/html/array/join.html",
+        category: 'array'
+    },
+
+    {
         name: "Array of Objects",
         urlOffline: "src/html/array_of_objects/array_of_objects.html",
         category: 'array_of_objects'
