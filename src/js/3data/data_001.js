@@ -234,6 +234,12 @@ let operators = [
     },
 
     {
+        name: "toSpliced()",
+        urlOffline: "src/html/array/toSpliced.html",
+        category: 'array'
+    },
+
+    {
         name: "Array of Objects",
         urlOffline: "src/html/array_of_objects/array_of_objects.html",
         category: 'array_of_objects'
