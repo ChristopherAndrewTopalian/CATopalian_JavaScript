@@ -1,0 +1,52 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- some.html -->
+
+<html>
+<head>
+<title> some() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> some() </h1>
+
+<p> Earlier we used <code>every()</code> to check if the entire fleet passed a test. <code>some()</code> is much more sensitive. It sweeps the array and returns <code>true</code> if <b>at least one single item</b> matches your condition. </p>
+
+<p> The moment it finds a single match, it immediately triggers the alert and stops scanning. </p>
+
+<hr>
+
+<pre><code class="custom-code">let shieldGrids = [100, 100, 45, 100];
+
+// Scan the fleet to see if ANY ship has shields below 50%
+let redAlert = shieldGrids.some(level => level < 50);
+
+console.log(redAlert); 
+// Result: true (Because that 45 triggered the sensor!)
+</code></pre>
+
+</div>
+
+</body>
+
+</html>
+
