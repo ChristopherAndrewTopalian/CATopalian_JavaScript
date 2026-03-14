@@ -23,8 +23,9 @@ function makeInterface(whichArray, whichEntry)
     let theFrame = ce("iframe");
     theFrame.src = whichArray[whichEntry].urlOffline;
     theFrame.id = "thePdfId";
-    theFrame.style.width = '600px';
+    theFrame.style.width = '620px';
     theFrame.style.height = '300px';
+    theFrame.style.overflowX = 'scroll';
     frameContainer.append(theFrame);
 
     //-//

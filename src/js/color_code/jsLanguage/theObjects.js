@@ -2,12 +2,17 @@
 
 let theObjects = 
 [
+    'Array',
     'console',
     'document',
     'window',
     'Date',
+    'Error',
     'Math',
+    'Number',
     'JSON',
+    'Set',
+    'String',
 ];
 
 //----//
