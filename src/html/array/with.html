@@ -1,0 +1,52 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- with.html -->
+
+<html>
+<head>
+<title> with() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> with() </h1>
+
+<p> If we want to change a single ship in our array, we normally have to overwrite it directly (like <code>fleet[1] = "Discovery"</code>). </p>
+
+<p> <code>with()</code> allows us to replace an item at a specific index and returns a brand-new array, keeping our original data completely secure. </p>
+
+<hr>
+
+<pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
+
+// Create a new array *with* Index 1 replaced by "Farragut"
+let alternateFleet = fleet.with(1, "Farragut");
+
+console.log(alternateFleet); 
+// Result: ["Enterprise", "Farragut", "Voyager"]
+</code></pre>
+
+</div>
+
+</body>
+
+</html>
+
