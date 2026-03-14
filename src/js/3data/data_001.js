@@ -108,6 +108,12 @@ let operators = [
     },
 
     {
+        name: "filter()",
+        urlOffline: "src/html/array/filter.html",
+        category: 'array'
+    },
+
+    {
         name: "find()",
         urlOffline: "src/html/array/find.html",
         category: 'array'
