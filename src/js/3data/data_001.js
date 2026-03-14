@@ -162,6 +162,12 @@ let operators = [
     },
 
     {
+        name: "indexOf()",
+        urlOffline: "src/html/array/indexOf.html",
+        category: 'array'
+    },
+
+    {
         name: "Array of Objects",
         urlOffline: "src/html/array_of_objects/array_of_objects.html",
         category: 'array_of_objects'
