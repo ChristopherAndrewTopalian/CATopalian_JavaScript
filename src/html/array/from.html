@@ -1,0 +1,48 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- from.html -->
+
+<html>
+<head>
+<title> from() </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+<h1> from() </h1>
+
+<p> <code>Array.from()</code> is a unique command. It is a "Static Method," meaning you don't use it on a fleet you already built. Instead, you use it to instantly build a brand-new array out of raw, unstructured data (like a string of text) or data that <i>looks</i> like an array but isn't one (like a NodeList from your HTML). </p>
+
+<hr>
+
+<pre><code class="custom-code">let transmission = "WARP";
+
+// Take a raw text string and break it into a perfectly formatted array
+let signalArray = Array.from(transmission);
+
+console.log(signalArray); 
+// Result: ["W", "A", "R", "P"]
+</code></pre>
+
+</div>
+
+</body>
+</html>
