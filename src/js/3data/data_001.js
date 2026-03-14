@@ -252,6 +252,12 @@ let operators = [
     },
 
     {
+        name: "toLocaleString()",
+        urlOffline: "src/html/array/toLocaleString.html",
+        category: 'array'
+    },
+
+    {
         name: "valueOf()",
         urlOffline: "src/html/array/valueOf.html",
         category: 'array'
