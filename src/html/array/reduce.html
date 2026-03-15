@@ -45,6 +45,34 @@ console.log(totalPersonnel);
 // Result: 1650
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.reduce(function(accumulator, currentValue, currentIndex, array) { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.reduce((accumulator, currentValue, currentIndex, array) => { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Any (Returns a single compiled value, like a Number, String, or even an Object) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This is the absolute heavyweight champion of JavaScript. It sweeps through the entire array and "reduces" all the items down into <b>one single output value</b> (like calculating the total crew count of an entire fleet). It uses an "accumulator" to keep a running total as it moves from ship to ship. We always provide an <code>initialValue</code> (like <code>0</code>) at the end of the method to ensure the accumulator starts safely from zero. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
