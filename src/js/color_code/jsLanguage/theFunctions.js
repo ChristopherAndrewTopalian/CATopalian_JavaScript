@@ -66,7 +66,7 @@ let theFunctions =
     'fill',
     'filter',
     'find',
-    'fintIndex',
+    'findIndex',
     'flat',
     'flatMap',
     'floor',
