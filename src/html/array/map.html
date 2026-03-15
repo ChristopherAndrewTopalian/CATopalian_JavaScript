@@ -48,6 +48,32 @@ console.log(oldFleet);
 // Result: ["Enterprise", "Defiant", "Voyager"]
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.map(function(element, index, array) { 
+    /* return the modified element */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.map((element, index, array) => { /* return the modified element */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A brand-new array) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This method executes a complete fleet-wide retrofit. It sweeps through the array, takes every single item, runs our function to modify that item, and then constructs a <b>brand-new array</b> out of the upgraded results. It is the ultimate tool for safely upgrading data without permanently altering our original database records. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
