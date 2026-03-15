@@ -68,6 +68,7 @@ let theFunctions =
     'find',
     'findIndex',
     'findLast',
+    'findLastIndex',
     'flat',
     'flatMap',
     'floor',
