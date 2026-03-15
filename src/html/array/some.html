@@ -44,6 +44,32 @@ console.log(redAlert);
 // Result: true (Because that 45 triggered the sensor!)
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.some(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.some((element, index, array) => { /* return true or false */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This method is our highly sensitive early warning system. It sweeps the array and checks if <b>at least one single item</b> matches our specific condition. The absolute millisecond it finds a single match, it immediately triggers the alert (returns <code>true</code>) and stops scanning. If the sweep completes and it finds absolutely nothing, it returns <code>false</code>. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
