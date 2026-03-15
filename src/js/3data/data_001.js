@@ -216,6 +216,12 @@ let operators = [
     },
 
     {
+        name: "sort()",
+        urlOffline: "src/html/array/sort.html",
+        category: 'array'
+    },
+
+    {
         name: "some()",
         urlOffline: "src/html/array/some.html",
         category: 'array'
