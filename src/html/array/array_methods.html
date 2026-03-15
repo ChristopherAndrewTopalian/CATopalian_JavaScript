@@ -1,0 +1,217 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- array_methods.html -->
+
+<html>
+<head>
+<title> Array Methods </title>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+<style>
+/* Adding a quick style rule to format the new table layout */
+.tactical-slogan {
+    display: block;
+    color: #8be9fd;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+.method-link {
+    text-decoration: none;
+}
+.method-link:hover {
+    text-decoration: underline;
+    color: #ffb86c;
+}
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div class="tactical-database">
+    <h1> Array Command Database </h1>
+    <p> Welcome to the Command Dashboard. Below is the complete index of standardized fleet maneuvers. Click on any command to load its full technical specification. </p>
+
+    <hr class="tech-divider">
+
+    <h2> Division 1: The Docking Bay (Boundary Operations) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="push.html" class="method-link"><code>push()</code></a></td>
+            <td>Adds one or more items to the end of an array.<span class="tactical-slogan">Tactical: Reinforcing the Rear Guard</span></td>
+        </tr>
+        <tr>
+            <td><a href="pop.html" class="method-link"><code>pop()</code></a></td>
+            <td>Removes the last item from an array and returns it.<span class="tactical-slogan">Tactical: Extracting the Rear Guard</span></td>
+        </tr>
+        <tr>
+            <td><a href="unshift.html" class="method-link"><code>unshift()</code></a></td>
+            <td>Adds one or more items to the beginning of an array.<span class="tactical-slogan">Tactical: Reinforcing the Vanguard</span></td>
+        </tr>
+        <tr>
+            <td><a href="shift.html" class="method-link"><code>shift()</code></a></td>
+            <td>Removes the first item from an array and returns it.<span class="tactical-slogan">Tactical: Extracting the Vanguard</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+
+    <h2> Division 2: Tactical Scanners (Target Locks & Diagnostics) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="includes.html" class="method-link"><code>includes()</code></a></td>
+            <td>Checks if an array contains a specific value (returns true/false).<span class="tactical-slogan">Tactical: The Proximity Scanner</span></td>
+        </tr>
+        <tr>
+            <td><a href="indexOf.html" class="method-link"><code>indexOf()</code></a></td>
+            <td>Returns the first index position of a specified value.<span class="tactical-slogan">Tactical: The Forward Target Lock</span></td>
+        </tr>
+        <tr>
+            <td><a href="lastIndexOf.html" class="method-link"><code>lastIndexOf()</code></a></td>
+            <td>Returns the last index position of a specified value.<span class="tactical-slogan">Tactical: The Rear Guard Target Lock</span></td>
+        </tr>
+        <tr>
+            <td><a href="find.html" class="method-link"><code>find()</code></a></td>
+            <td>Returns the value of the first item that passes a test function.<span class="tactical-slogan">Tactical: The Precision Target Lock</span></td>
+        </tr>
+        <tr>
+            <td><a href="findIndex.html" class="method-link"><code>findIndex()</code></a></td>
+            <td>Returns the index of the first item that passes a test function.<span class="tactical-slogan">Tactical: Locating Target Coordinates</span></td>
+        </tr>
+        <tr>
+            <td><a href="findLast.html" class="method-link"><code>findLast()</code></a></td>
+            <td>Returns the value of the last item that passes a test function.<span class="tactical-slogan">Tactical: Scanning the Rear Guard</span></td>
+        </tr>
+        <tr>
+            <td><a href="findLastIndex.html" class="method-link"><code>findLastIndex()</code></a></td>
+            <td>Returns the index of the last item that passes a test function.<span class="tactical-slogan">Tactical: Pinpointing the Latest Target</span></td>
+        </tr>
+        <tr>
+            <td><a href="some.html" class="method-link"><code>some()</code></a></td>
+            <td>Checks if at least one item passes a test function (returns true/false).<span class="tactical-slogan">Tactical: The Intruder Alert Scan</span></td>
+        </tr>
+        <tr>
+            <td><a href="every.html" class="method-link"><code>every()</code></a></td>
+            <td>Checks if all items in the array pass a test function (returns true/false).<span class="tactical-slogan">Tactical: The Strict System Diagnostic</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+
+    <h2> Division 3: Fleet Engineering (Advanced Iteration) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="filter.html" class="method-link"><code>filter()</code></a></td>
+            <td>Creates a new array filled with all elements that pass a test function.<span class="tactical-slogan">Tactical: The Tactical Sensor Sweep</span></td>
+        </tr>
+        <tr>
+            <td><a href="map.html" class="method-link"><code>map()</code></a></td>
+            <td>Creates a new array by executing a function on every single element.<span class="tactical-slogan">Tactical: The Fleet-Wide Retrofit</span></td>
+        </tr>
+        <tr>
+            <td><a href="reduce.html" class="method-link"><code>reduce()</code></a></td>
+            <td>Executes a reducer function on each element to return a single compiled value.<span class="tactical-slogan">Tactical: The Fleet-Wide Compilation</span></td>
+        </tr>
+        <tr>
+            <td><a href="forEach.html" class="method-link"><code>forEach()</code></a></td>
+            <td>Executes a provided function once for each array element.<span class="tactical-slogan">Tactical: The Fleet-Wide Roll Call</span></td>
+        </tr>
+        <tr>
+            <td><a href="flatMap.html" class="method-link"><code>flatMap()</code></a></td>
+            <td>Maps each element using a function, then flattens the result into a new array.<span class="tactical-slogan">Tactical: The Coordinated Deployment</span></td>
+        </tr>
+        <tr>
+            <td><a href="entries.html" class="method-link"><code>entries()</code></a></td>
+            <td>Returns a new Array Iterator object containing key/value pairs for each index.<span class="tactical-slogan">Tactical: The Encrypted Manifest</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+
+    <h2> Division 4: Fleet Formations (Extraction & Assembly) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="slice.html" class="method-link"><code>slice()</code></a></td>
+            <td>Extracts a section of an array and returns it as a new array.<span class="tactical-slogan">Tactical: The Safe Extraction</span></td>
+        </tr>
+        <tr>
+            <td><a href="concat.html" class="method-link"><code>concat()</code></a></td>
+            <td>Merges two or more arrays together into a brand-new array.<span class="tactical-slogan">Tactical: The Armada Assembly</span></td>
+        </tr>
+        <tr>
+            <td><a href="join.html" class="method-link"><code>join()</code></a></td>
+            <td>Combines all elements of an array into a single string.<span class="tactical-slogan">Tactical: The Communications Array</span></td>
+        </tr>
+        <tr>
+            <td><a href="flat.html" class="method-link"><code>flat()</code></a></td>
+            <td>Creates a new array with all sub-array elements concatenated into it.<span class="tactical-slogan">Tactical: The Squadron Unpacker</span></td>
+        </tr>
+        <tr>
+            <td><a href="at.html" class="method-link"><code>at()</code></a></td>
+            <td>Returns the element at a specific index (allows negative integers).<span class="tactical-slogan">Tactical: The Precision Coordinate Lock</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+
+    <h2> Division 5: Heavy Maneuvers (Destructive Commands) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="splice.html" class="method-link"><code>splice()</code></a></td>
+            <td>Adds, removes, or replaces elements directly within the original array.<span class="tactical-slogan">Tactical: The Tactical Refit</span></td>
+        </tr>
+        <tr>
+            <td><a href="sort.html" class="method-link"><code>sort()</code></a></td>
+            <td>Sorts the elements of the original array in place.<span class="tactical-slogan">Tactical: The Fleet Reorganization</span></td>
+        </tr>
+        <tr>
+            <td><a href="reverse.html" class="method-link"><code>reverse()</code></a></td>
+            <td>Reverses the order of the elements within the original array in place.<span class="tactical-slogan">Tactical: The Fleet About-Face</span></td>
+        </tr>
+        <tr>
+            <td><a href="fill.html" class="method-link"><code>fill()</code></a></td>
+            <td>Changes all elements in an array to a static value.<span class="tactical-slogan">Tactical: The Blanket Replacement</span></td>
+        </tr>
+        <tr>
+            <td><a href="copyWithin.html" class="method-link"><code>copyWithin()</code></a></td>
+            <td>Copies array elements to another position within the same array.<span class="tactical-slogan">Tactical: The Internal Cloning Maneuver</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+
+    <h2> Division 6: Master Computer (Static Methods) </h2>
+    <table class="tech-table">
+        <tr>
+            <td><a href="from.html" class="method-link"><code>Array.from()</code></a></td>
+            <td>Creates a new array instance from an iterable or array-like object.<span class="tactical-slogan">Tactical: The Conscription Protocol</span></td>
+        </tr>
+        <tr>
+            <td><a href="isArray.html" class="method-link"><code>Array.isArray()</code></a></td>
+            <td>Determines whether the passed value is an Array.<span class="tactical-slogan">Tactical: The Friend-or-Foe Scanner</span></td>
+        </tr>
+    </table>
+
+    <hr class="tech-divider">
+</div>
+
+</body>
+
+</html>
+

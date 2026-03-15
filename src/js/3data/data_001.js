@@ -20,6 +20,18 @@ let operators = [
     }, 
 
     {
+        name: "Methods",
+        urlOffline: "src/html/array/array_methods.html",
+        category: 'array'
+    }, 
+
+    {
+        name: "Add/Remove",
+        urlOffline: "src/html/array/array_push_pop_unshift_shift.html",
+        category: 'array'
+    }, 
+
+    {
         name: "push()",
         urlOffline: "src/html/array/push.html",
         description: 'Add to the END of the Array',

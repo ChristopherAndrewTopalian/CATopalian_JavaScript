@@ -199,6 +199,25 @@ code
     margin: 0px;
 }
 
+.tech-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.tech-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #44475a;
+}
+.tech-table td:first-child {
+    width: 30%;
+    color: rgb(255, 255, 0);
+}
+.tech-table td:last-child {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
 /* Syntax Highlighting Colors */
 
 .green
