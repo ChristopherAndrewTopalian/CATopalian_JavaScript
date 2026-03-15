@@ -46,7 +46,35 @@ console.log(latestInterference);
 // Result: "Static"
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.findLast(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.findLast((element, index, array) => { /* return true or false */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This method operates exactly like <code>find()</code>, but it executes its sensor sweep in reverse! It starts at the absolute end of the array and works its way backward toward the front. It returns the <b>very first item it encounters</b> that passes our test. This is incredibly useful for reviewing chronological data, like a Captain's Log, when we need to locate the most recent occurrence of a specific event without scanning the entire history. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
+
 </html>
+
