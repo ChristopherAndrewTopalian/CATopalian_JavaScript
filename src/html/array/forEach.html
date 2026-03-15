@@ -48,6 +48,32 @@ fleet.forEach(ship => {
 // Voyager is holding position and awaiting orders.
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.forEach(function(element, index, array) { 
+    /* execute command (e.g., console.log) */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.forEach((element, index, array) => { /* execute command */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> <code>undefined</code> </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This method initiates a strict, fleet-wide roll call. It takes a function and executes it exactly one time for every single item currently sitting in the array. Unlike our other tactical methods, it is a strict action command. It does <b>not</b> create or return a new array. It simply runs down the line and triggers an event (like logging a message to the communications terminal) for each item it targets. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
