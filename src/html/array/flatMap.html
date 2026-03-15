@@ -44,7 +44,35 @@ console.log(deployedShuttles);
 // Result: ["Enterprise Shuttle 1", "Enterprise Shuttle 2", "Voyager Shuttle 1", "Voyager Shuttle 2"]
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.flatMap(function(element, index, array) { 
+    /* return the modified and unpacked element */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.flatMap((element, index, array) => { /* return the modified and unpacked element */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A brand-new, completely unpacked array) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This advanced command executes two distinct tactical maneuvers at the exact same time. First, it sweeps the fleet and modifies each item (just like <code>map()</code>). But then, if any of those modified items are themselves an array (like a carrier ship holding a squadron of fighters), it immediately "unpacks" them, flattening everything out into one single, unified <b>brand-new array</b>. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
+
 </html>
+
