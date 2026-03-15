@@ -46,6 +46,32 @@ console.log(highWarpOnly);
 
 <p> Notice that the original <code>warpSpeeds</code> array remains completely unchanged. <code>filter()</code> always generates a safe, modified copy of your data. </p>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.filter(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.filter((element, index, array) => { /* return true or false */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A brand-new array) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> This method executes a system-wide sensor sweep. It tests every single item in the array against a specific condition that we define. If an item passes the test (evaluates to <code>true</code>), it is copied into a <b>brand-new array</b>. If it fails, it is left behind. Our original fleet remains completely untouched and safely docked. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>

@@ -44,6 +44,32 @@ console.log(androidTarget);
 // Result: "Data" (It ignores the second one at the end of the list)
 </code></pre>
 
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax (Classic ES5) </b></h4>
+    <pre><code class="custom-code">array.find(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+    <hr class="tech-divider">
+
+    <h4><b> Syntax (Modern ES6) </b></h4>
+    <pre><code class="custom-code">array.find((element, index, array) => { /* return true or false */ })</code></pre>
+
+    <hr class="tech-divider">
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
+
+    <hr class="tech-divider">
+
+    <h2> Description: </h2>
+    <p> While <code>filter()</code> gathers every ship that matches a condition, <code>find()</code> is a precision strike. It sweeps the array from left to right and returns the <b>very first item</b> that successfully passes our test. The absolute millisecond it finds a match, the method stops scanning to save processing power. If the entire sweep finishes and nothing matches, it safely returns <code>undefined</code>. </p>
+
+    <hr class="tech-divider">
+</div>
+
 </div>
 
 </body>
