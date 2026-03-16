@@ -27,15 +27,38 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> reduce() </h1>
+    <h1> reduce() </h1>
 
-<p> <code>reduce()</code> is arguably the most powerful (and most complex) method in JavaScript. It sweeps through your entire array and "reduces" all the items down into <b>one single output value</b> (like a total sum, or a master text string). </p>
+    <hr class="tech-divider">
 
-<p> It uses an "Accumulator" (a running total) that gets updated every time it looks at the next ship in the line. </p>
+    <p> <code>reduce()</code> is arguably the most powerful (and most complex) method in JavaScript. It sweeps through your entire array and "reduces" all the items down into <b>one single output value</b> (like a total sum, or a master text string). </p>
 
-<hr>
+    <p> It uses an "Accumulator" (a running total) that gets updated every time it looks at the next ship in the line. </p>
 
-<pre><code class="custom-code">let crewComplements = [1000, 150, 500];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let crewComplements = [1000, 150, 500];
+
+// Calculate the total number of personnel in the fleet
+// 'total' is the accumulator, 'crew' is the current ship being counted
+let totalPersonnel = crewComplements.reduce(function(total, crew) {
+    return total + crew;
+}, 0); // <-- This 0 is our initialValue!
+
+console.log(totalPersonnel); 
+// Result: 1650
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let crewComplements = [1000, 150, 500];
 
 // Calculate the total number of personnel in the fleet
 // 'total' is the accumulator, 'crew' is the current ship being counted
@@ -44,34 +67,33 @@ let totalPersonnel = crewComplements.reduce((total, crew) => total + crew, 0);
 console.log(totalPersonnel); 
 // Result: 1650
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.reduce(function(accumulator, currentValue, currentIndex, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.reduce(function(accumulator, currentValue, currentIndex, array) { 
     /* return the updated accumulator */ 
 }, initialValue)</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.reduce((accumulator, currentValue, currentIndex, array) => { 
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.reduce((accumulator, currentValue, currentIndex, array) => { 
     /* return the updated accumulator */ 
 }, initialValue)</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Any (Returns a single compiled value, like a Number, String, or even an Object) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Any (Returns a single compiled value, like a Number, String, or even an Object) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This is the absolute heavyweight champion of JavaScript. It sweeps through the entire array and "reduces" all the items down into <b>one single output value</b> (like calculating the total crew count of an entire fleet). It uses an "accumulator" to keep a running total as it moves from ship to ship. We always provide an <code>initialValue</code> (like <code>0</code>) at the end of the method to ensure the accumulator starts safely from zero. </p>
+        <h2> Description: </h2>
+        <p> This is the absolute heavyweight champion of JavaScript. It sweeps through the entire array and "reduces" all the items down into <b>one single output value</b> (like calculating the total crew count of an entire fleet). It uses an "accumulator" to keep a running total as it moves from ship to ship. We always provide an <code>initialValue</code> (like <code>0</code>) at the end of the method to ensure the accumulator starts safely from zero. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
