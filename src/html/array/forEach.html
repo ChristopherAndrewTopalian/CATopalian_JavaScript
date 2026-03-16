@@ -27,15 +27,39 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> forEach() </h1>
+    <h1> forEach() </h1>
 
-<p> The <code>forEach()</code> method is the modern equivalent of the traditional <code>for</code> loop. It takes a function and executes it exactly one time for every single item currently sitting in the array. </p>
+    <hr class="tech-divider">
 
-<p> It is a strict action command. Unlike <code>filter()</code> or <code>map()</code>, it does not create a new array. It simply runs down the line and triggers an event (like logging a message or updating a display) for each item it targets. </p>
+    <p> The <code>forEach()</code> method is the modern equivalent of the traditional <code>for</code> loop. It takes a function and executes it exactly one time for every single item currently sitting in the array. </p>
 
-<hr>
+    <p> It is a strict action command. Unlike <code>filter()</code> or <code>map()</code>, it does not create a new array. It simply runs down the line and triggers an event (like logging a message or updating a display) for each item it targets. </p>
 
-<pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let fleet = ["Enterprise", "Defiant", "Voyager"];
+
+// Initiate a standard roll call for the entire formation
+fleet.forEach(function(ship) {
+    console.log(ship + " is holding position and awaiting orders.");
+});
+
+// Output:
+// Enterprise is holding position and awaiting orders.
+// Defiant is holding position and awaiting orders.
+// Voyager is holding position and awaiting orders.
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let fleet = ["Enterprise", "Defiant", "Voyager"];
 
 // Initiate a standard roll call for the entire formation
 fleet.forEach(ship => {
@@ -47,32 +71,31 @@ fleet.forEach(ship => {
 // Defiant is holding position and awaiting orders.
 // Voyager is holding position and awaiting orders.
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.forEach(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.forEach(function(element, index, array) { 
     /* execute command (e.g., console.log) */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.forEach((element, index, array) => { /* execute command */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.forEach((element, index, array) => { /* execute command */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> <code>undefined</code> </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> <code>undefined</code> </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This method initiates a strict, fleet-wide roll call. It takes a function and executes it exactly one time for every single item currently sitting in the array. Unlike our other tactical methods, it is a strict action command. It does <b>not</b> create or return a new array. It simply runs down the line and triggers an event (like logging a message to the communications terminal) for each item it targets. </p>
+        <h2> Description: </h2>
+        <p> This method initiates a strict, fleet-wide roll call. It takes a function and executes it exactly one time for every single item currently sitting in the array. Unlike our other tactical methods, it is a strict action command. It does <b>not</b> create or return a new array. It simply runs down the line and triggers an event (like logging a message to the communications terminal) for each item it targets. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
