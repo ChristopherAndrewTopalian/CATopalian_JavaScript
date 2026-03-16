@@ -27,15 +27,35 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> every() </h1>
+    <h1> every() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> The <code>every()</code> method runs a strict test on our entire array. It checks if <b>every single item</b> in the list passes a specific condition that we define. If even one item fails, the entire sweep returns <code>false</code>. </p>
+    <p> The <code>every()</code> method runs a strict test on our entire array. It checks if <b>every single item</b> in the list passes a specific condition that we define. If even one item fails, the entire sweep returns <code>false</code>. </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let shieldLevels = [100, 100, 100, 95, 100];
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let shieldLevels = [100, 100, 100, 95, 100];
+
+// Check if every shield grid is perfectly maxed out
+let allShieldsMaximum = shieldLevels.every(function(level) {
+    return level === 100;
+});
+
+console.log(allShieldsMaximum); 
+// Result: false (Because that 95 broke the perfect streak!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let shieldLevels = [100, 100, 100, 95, 100];
 
 // Check if every shield grid is perfectly maxed out
 let allShieldsMaximum = shieldLevels.every(level => level === 100);
@@ -43,32 +63,31 @@ let allShieldsMaximum = shieldLevels.every(level => level === 100);
 console.log(allShieldsMaximum); 
 // Result: false (Because that 95 broke the perfect streak!)
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.every(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.every(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.every((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.every((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This method runs a strict, system-wide diagnostic on the entire array. It checks if <b>every single item</b> in the formation passes a specific condition that we define. If even one single ship fails the test, the entire sweep immediately aborts and returns <code>false</code>. It only returns <code>true</code> if the entire fleet is in perfect compliance. </p>
+        <h2> Description: </h2>
+        <p> This method runs a strict, system-wide diagnostic on the entire array. It checks if <b>every single item</b> in the formation passes a specific condition that we define. If even one single ship fails the test, the entire sweep immediately aborts and returns <code>false</code>. It only returns <code>true</code> if the entire fleet is in perfect compliance. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
