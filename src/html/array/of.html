@@ -27,14 +27,17 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> of() </h1>
+    <h1> of() </h1>
 
-<p> Just like <code>from()</code>, <code>Array.of()</code> is a <b>Static Method</b> called directly on the global Array object. It takes whatever individual arguments you hand it and instantly packs them into a brand-new array. </p>
+    <hr class="tech-divider">
 
-<p> It was specifically engineered to fix a weird quirk in older JavaScript where typing <code>Array(7)</code> would create an array with 7 empty ghost slots, but typing <code>Array.of(7)</code> correctly creates an array containing the actual number 7! </p>
+    <p> Just like <code>from()</code>, <code>Array.of()</code> is a <b>Static Method</b> called directly on the global Array object. It takes whatever individual arguments we hand it and instantly packs them into a brand-new array. </p>
 
-<hr>
+    <p> It was specifically engineered to fix a weird quirk in older JavaScript where typing <code>Array(7)</code> would create an array with 7 empty ghost slots, but typing <code>Array.of(7)</code> correctly creates an array containing the actual number 7! </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">// Requisition a new Away Team from scratch
 let awayTeam = Array.of("Worf", "Data", "Riker");
 
@@ -45,6 +48,24 @@ console.log(awayTeam);
 console.log(Array.of(7)); 
 // Result: [7]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">Array.of(element0, element1, /* ..., */ elementN)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new, officially commissioned array) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <b>Notice: This is a Static Method!</b> Called directly on the <code>Array</code> master computer, this command directly requisitions a new fleet from a list of independent ships or data points. It bypasses the historical "ghost fleet" anomaly (where <code>Array(7)</code> generates seven empty slots) and guarantees that exactly what we request is exactly what gets loaded into the new array format. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
