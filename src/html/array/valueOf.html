@@ -27,14 +27,15 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> valueOf() </h1>
+    <h1> valueOf() </h1>
 
-<p> The <code>valueOf()</code> method is a foundational JavaScript command that operates under the hood. When you call it on an array, it simply returns the exact array itself. </p>
+    <hr class="tech-divider">
 
-<p> You will rarely ever type this command out manually, as JavaScript automatically uses it behind the scenes whenever it needs to evaluate the raw data of your object. </p>
+    <p> The <code>valueOf()</code> method is a foundational JavaScript command that operates under the hood. When we call it on an array, it simply returns the exact array itself. </p>
 
-<hr>
+    <hr class="tech-divider">
 
+    <div class="example-module">
 <pre><code class="custom-code">let fleet = ["Enterprise", "Defiant"];
 
 // Request the primitive value of the array
@@ -43,6 +44,24 @@ let actualValue = fleet.valueOf();
 console.log(actualValue); 
 // Result: ["Enterprise", "Defiant"]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.valueOf()</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (The original array itself) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method is the default behavior for arrays when JavaScript needs to see the "raw" object. While we will rarely ever type this command out manually, as JavaScript automatically invokes it behind the scenes whenever it needs to evaluate the raw data. It is useful for ensuring we are referencing the array object in its original form. It does not change the original array. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
