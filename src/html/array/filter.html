@@ -27,15 +27,36 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> filter() </h1>
+    <h1> filter() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> <code>filter()</code> is one of the most powerful tools in JavaScript. It sweeps through an array, tests every single item against a specific rule, and returns a <b>brand-new array</b> containing only the items that passed the test! </p>
+    <p> <code>filter()</code> is one of the most powerful tools in JavaScript. It sweeps through an array, tests every single item against a specific rule, and returns a <b>brand-new array</b> containing only the items that passed the test! </p>
 
-<hr>
+    <hr class="tech-divider">
+</div>
 
-<pre><code class="custom-code">let warpSpeeds = [2, 9, 4, 8, 1, 6];
+<div class="example-module" style="margin-bottom: 40px;">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let warpSpeeds = [2, 9, 4, 8, 1, 6];
+
+// The Rule: Only keep speeds greater than or equal to Warp 5
+let highWarpOnly = warpSpeeds.filter(function(speed) {
+    return speed >= 5;
+});
+
+console.log(highWarpOnly); 
+// Result: [9, 8, 6]
+</code></pre>
+</div>
+
+<hr class = 'largeDivider'>
+
+<div class="example-module" style="margin-bottom: 40px;">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let warpSpeeds = [2, 9, 4, 8, 1, 6];
 
 // The Rule: Only keep speeds greater than or equal to Warp 5
 let highWarpOnly = warpSpeeds.filter(speed => speed >= 5);
@@ -44,11 +65,10 @@ console.log(highWarpOnly);
 // Result: [9, 8, 6]
 </code></pre>
 
-<p> Notice that the original <code>warpSpeeds</code> array remains completely unchanged. <code>filter()</code> always generates a safe, modified copy of your data. </p>
+    <p> Notice that the original <code>warpSpeeds</code> array remains completely unchanged in both examples. <code>filter()</code> always generates a safe, modified copy of your data, no matter which syntax you use to write it. </p>
+</div>
 
-<hr>
-
-<div class="technical-specs">
+<div class="technical-specs" style="margin-top: 40px;">
     <h4><b> Syntax (Classic ES5) </b></h4>
     <pre><code class="custom-code">array.filter(function(element, index, array) { 
     /* return true or false */ 
@@ -70,8 +90,6 @@ console.log(highWarpOnly);
     <p> This method executes a system-wide sensor sweep. It tests every single item in the array against a specific condition that we define. If an item passes the test (evaluates to <code>true</code>), it is copied into a <b>brand-new array</b>. If it fails, it is left behind. Our original fleet remains completely untouched and safely docked. </p>
 
     <hr class="tech-divider">
-</div>
-
 </div>
 
 </body>

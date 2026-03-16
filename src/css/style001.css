@@ -218,6 +218,12 @@ code
     font-weight: bold;
 }
 
+.largeDivider
+{
+    height: 20px;
+    background-color: rgb(40, 40, 40);
+}
+
 /* Syntax Highlighting Colors */
 
 .green
