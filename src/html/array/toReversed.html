@@ -27,12 +27,15 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> toReversed() </h1>
+    <h1> toReversed() </h1>
 
-<p> The classic <code>reverse()</code> method is dangerous because it physically alters your original array. The modern <code>toReversed()</code> method solves this by executing the exact same 180-degree flip, but it safely returns the result as a <b>brand-new array</b>. </p>
+    <hr class="tech-divider">
 
-<hr>
+    <p> The classic <code>reverse()</code> method is dangerous because it physically alters the original array. The modern <code>toReversed()</code> method solves this by executing the exact same 180-degree flip, but it safely returns the result as a <b>brand-new array</b>. </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let standardFormation = ["Flagship", "Escort", "Rear Guard"];
 
 // Execute the maneuver safely
@@ -45,6 +48,24 @@ console.log(invertedFormation);
 console.log(standardFormation); 
 // Result: ["Flagship", "Escort", "Rear Guard"]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.toReversed()</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array in reverse order) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> Introduced in the modern ES2023 update, this is the completely safe, non-destructive alternative to the classic <code>reverse()</code> command. It executes a complete 180-degree fleet about-face, moving the rear guard to the vanguard and vice versa. However, instead of mutating our existing data, it returns the newly ordered formation as a <b>brand-new array</b>. Our original fleet remains perfectly intact. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
