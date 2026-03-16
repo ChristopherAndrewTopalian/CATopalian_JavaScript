@@ -27,15 +27,35 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> sort() </h1>
+    <h1> sort() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> The <code>sort()</code> method is a permanent, fleet-wide reorganization command. By default, it sorts items alphabetically as strings. If we need to sort numerical data (like ship registry numbers), we must provide a <b>compare function</b> so the system knows exactly how to rank them! </p>
+    <p> The <code>sort()</code> method is a permanent, fleet-wide reorganization command. By default, it sorts items alphabetically as strings. If we need to sort numerical data (like ship registry numbers), we must provide a <b>compare function</b> so the system knows exactly how to rank them! </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let registries = [74656, 1701, 75633, 1864]; // Voyager, Enterprise, Defiant, Reliant
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let registries = [74656, 1701, 75633, 1864]; // Voyager, Enterprise, Defiant, Reliant
+
+// Reorganize the fleet numerically from lowest to highest
+registries.sort(function(a, b) {
+    return a - b;
+});
+
+console.log(registries); 
+// Result: [1701, 1864, 74656, 75633] (The original array is permanently altered)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let registries = [74656, 1701, 75633, 1864]; // Voyager, Enterprise, Defiant, Reliant
 
 // Reorganize the fleet numerically from lowest to highest
 registries.sort((a, b) => a - b);
@@ -43,32 +63,31 @@ registries.sort((a, b) => a - b);
 console.log(registries); 
 // Result: [1701, 1864, 74656, 75633] (The original array is permanently altered)
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.sort(function(a, b) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.sort(function(a, b) { 
     /* return a negative number, positive number, or zero */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.sort((a, b) => { /* return a negative, positive, or zero */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.sort((a, b) => { /* return a negative, positive, or zero */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Array (The <b>original</b> array, completely reordered) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (The <b>original</b> array, completely reordered) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This is the ultimate reorganization command. The Admiral issues a metric (like tonnage, registry number, or alphabetical order), and the entire fleet physically shifts positions to comply. We pass it a "compare function" that looks at two ships at a time (<code>a</code> and <code>b</code>) to determine their rank. <b>Warning:</b> This is a destructive maneuver! It does not create a new array; it permanently alters the formation of the original array. </p>
+        <h2> Description: </h2>
+        <p> This is the ultimate reorganization command. The Admiral issues a metric (like tonnage, registry number, or alphabetical order), and the entire fleet physically shifts positions to comply. We pass it a "compare function" that looks at two ships at a time (<code>a</code> and <code>b</code>) to determine their rank. <b>Warning:</b> This is a destructive maneuver! It does not create a new array; it permanently alters the formation of the original array. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
