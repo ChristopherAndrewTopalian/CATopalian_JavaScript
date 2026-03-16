@@ -27,12 +27,15 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> toSpliced() </h1>
+    <h1> toSpliced() </h1>
 
-<p> The classic <code>splice()</code> is a heavy-duty tool that rips items out of your array. <code>toSpliced()</code> allows you to remove or inject items at a specific index, but it generates a fresh, updated copy of the array instead of tearing the original one apart. </p>
+    <hr class="tech-divider">
 
-<hr>
+    <p> The classic <code>splice()</code> is a heavy-duty tool that rips items out of the array. <code>toSpliced()</code> allows us to remove or inject items at a specific index, but it generates a fresh, updated copy of the array instead of tearing the original one apart. </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
 
 // Target index 1. Remove 1 ship (Defiant). Insert "Discovery".
@@ -40,7 +43,29 @@ let updatedFleet = fleet.toSpliced(1, 1, "Discovery");
 
 console.log(updatedFleet); 
 // Result: ["Enterprise", "Discovery", "Voyager"]
+
+// Proof that the original fleet is completely untouched!
+console.log(fleet); 
+// Result: ["Enterprise", "Defiant", "Voyager"]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.toSpliced(start, deleteCount, item1, item2, /* …, */ itemN)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array with the specified modifications applied) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> Introduced in the ES2023 update, this is the completely safe, non-destructive alternative to the classic <code>splice()</code> maneuver. It allows you to target a specific coordinate (index), remove a specific number of ships, and instantly deploy new ships into that exact gap. However, instead of permanently mutilating the original data, it executes these heavy modifications and returns the result as a <b>brand-new array</b>. Our original fleet remains safely docked. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
