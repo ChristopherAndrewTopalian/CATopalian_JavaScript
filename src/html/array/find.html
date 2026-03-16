@@ -27,15 +27,35 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> find() </h1>
+    <h1> find() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> While <code>filter()</code> returns a list of everything that matches your search, <code>find()</code> is a precision strike. It sweeps the array and returns the <b>very first item</b> that matches your condition, and then it immediately stops looking. </p>
+    <p> While <code>filter()</code> returns a list of everything that matches your search, <code>find()</code> is a precision strike. It sweeps the array and returns the <b>very first item</b> that matches your condition, and then it immediately stops looking. </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let crew = ["Riker", "Data", "Worf", "Data"];
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let crew = ["Riker", "Data", "Worf", "Data"];
+
+// Locate the first instance of "Data" in the array
+let androidTarget = crew.find(function(member) {
+    return member === "Data";
+});
+
+console.log(androidTarget); 
+// Result: "Data" (It ignores the second one at the end of the list)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let crew = ["Riker", "Data", "Worf", "Data"];
 
 // Locate the first instance of "Data" in the array
 let androidTarget = crew.find(member => member === "Data");
@@ -43,32 +63,31 @@ let androidTarget = crew.find(member => member === "Data");
 console.log(androidTarget); 
 // Result: "Data" (It ignores the second one at the end of the list)
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.find(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.find(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.find((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.find((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> While <code>filter()</code> gathers every ship that matches a condition, <code>find()</code> is a precision strike. It sweeps the array from left to right and returns the <b>very first item</b> that successfully passes our test. The absolute millisecond it finds a match, the method stops scanning to save processing power. If the entire sweep finishes and nothing matches, it safely returns <code>undefined</code>. </p>
+        <h2> Description: </h2>
+        <p> While <code>filter()</code> gathers every ship that matches a condition, <code>find()</code> is a precision strike. It sweeps the array from left to right and returns the <b>very first item</b> that successfully passes our test. The absolute millisecond it finds a match, the method stops scanning to save processing power. If the entire sweep finishes and nothing matches, it safely returns <code>undefined</code>. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
