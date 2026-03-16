@@ -27,15 +27,37 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> some() </h1>
+    <h1> some() </h1>
 
-<p> Earlier we used <code>every()</code> to check if the entire fleet passed a test. <code>some()</code> is much more sensitive. It sweeps the array and returns <code>true</code> if <b>at least one single item</b> matches your condition. </p>
+    <hr class="tech-divider">
 
-<p> The moment it finds a single match, it immediately triggers the alert and stops scanning. </p>
+    <p> Earlier we used <code>every()</code> to check if the entire fleet passed a test. <code>some()</code> is much more sensitive. It sweeps the array and returns <code>true</code> if <b>at least one single item</b> matches your condition. </p>
 
-<hr>
+    <p> The moment it finds a single match, it immediately triggers the alert and stops scanning. </p>
 
-<pre><code class="custom-code">let shieldGrids = [100, 100, 45, 100];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let shieldGrids = [100, 100, 45, 100];
+
+// Scan the fleet to see if ANY ship has shields below 50%
+let redAlert = shieldGrids.some(function(level) {
+    return level < 50;
+});
+
+console.log(redAlert); 
+// Result: true (Because that 45 triggered the sensor!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let shieldGrids = [100, 100, 45, 100];
 
 // Scan the fleet to see if ANY ship has shields below 50%
 let redAlert = shieldGrids.some(level => level < 50);
@@ -43,32 +65,31 @@ let redAlert = shieldGrids.some(level => level < 50);
 console.log(redAlert); 
 // Result: true (Because that 45 triggered the sensor!)
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.some(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.some(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.some((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.some((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This method is our highly sensitive early warning system. It sweeps the array and checks if <b>at least one single item</b> matches our specific condition. The absolute millisecond it finds a single match, it immediately triggers the alert (returns <code>true</code>) and stops scanning. If the sweep completes and it finds absolutely nothing, it returns <code>false</code>. </p>
+        <h2> Description: </h2>
+        <p> This method is our highly sensitive early warning system. It sweeps the array and checks if <b>at least one single item</b> matches our specific condition. The absolute millisecond it finds a single match, it immediately triggers the alert (returns <code>true</code>) and stops scanning. If the sweep completes and it finds absolutely nothing, it returns <code>false</code>. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
