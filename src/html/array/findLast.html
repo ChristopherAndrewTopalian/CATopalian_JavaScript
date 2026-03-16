@@ -27,17 +27,37 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> findLast() </h1>
+    <h1> findLast() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> The <code>findLast()</code> method does the exact same job as <code>find()</code>, but it executes its sweep in reverse! It starts at the absolute end of the array and works its way backward toward the front. </p>
+    <p> The <code>findLast()</code> method does the exact same job as <code>find()</code>, but it executes its sweep in reverse! It starts at the absolute end of the array and works its way backward toward the front. </p>
 
-<p> This is incredibly useful for reviewing chronological data, like a Captain's Log, when you need to quickly locate the <b>most recent</b> occurrence of a specific event. </p>
+    <p> This is incredibly useful for reviewing chronological data, like a Captain's Log, when you need to quickly locate the <b>most recent</b> occurrence of a specific event. </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
+
+// Find the most recent (last) instance of "Static"
+let latestInterference = commsLog.findLast(function(signal) {
+    return signal === "Static";
+});
+
+console.log(latestInterference); 
+// Result: "Static"
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
 
 // Find the most recent (last) instance of "Static"
 let latestInterference = commsLog.findLast(signal => signal === "Static");
@@ -45,32 +65,31 @@ let latestInterference = commsLog.findLast(signal => signal === "Static");
 console.log(latestInterference); 
 // Result: "Static"
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.findLast(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.findLast(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.findLast((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.findLast((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Any (Returns the item itself, or <code>undefined</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This method operates exactly like <code>find()</code>, but it executes its sensor sweep in reverse! It starts at the absolute end of the array and works its way backward toward the front. It returns the <b>very first item it encounters</b> that passes our test. This is incredibly useful for reviewing chronological data, like a Captain's Log, when we need to locate the most recent occurrence of a specific event without scanning the entire history. </p>
+        <h2> Description: </h2>
+        <p> This method operates exactly like <code>find()</code>, but it executes its sensor sweep in reverse! It starts at the absolute end of the array and works its way backward toward the front. It returns the <b>very first item it encounters</b> that passes our test. This is incredibly useful for reviewing chronological data, like a Captain's Log, when we need to locate the most recent occurrence of a specific event without scanning the entire history. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
