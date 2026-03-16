@@ -27,15 +27,35 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> findLastIndex() </h1>
+    <h1> findLastIndex() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> Combining the logic of the previous two commands, <code>findLastIndex()</code> scans your array in reverse (starting from the back) and returns the <b>index number</b> of the very first match it encounters. </p>
+    <p> Combining the logic of the previous two commands, <code>findLastIndex()</code> scans our array in reverse (starting from the back) and returns the <b>index number</b> of the very first match it encounters. </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
+
+// Find the exact index number of the most recent "Static" burst
+let latestInterferenceIndex = commsLog.findLastIndex(function(signal) {
+    return signal === "Static";
+});
+
+console.log(latestInterferenceIndex); 
+// Result: 3 
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let commsLog = ["Clear", "Static", "Clear", "Static", "Clear"];
 
 // Find the exact index number of the most recent "Static" burst
 let latestInterferenceIndex = commsLog.findLastIndex(signal => signal === "Static");
@@ -43,32 +63,31 @@ let latestInterferenceIndex = commsLog.findLastIndex(signal => signal === "Stati
 console.log(latestInterferenceIndex); 
 // Result: 3 
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.findLastIndex(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.findLastIndex(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.findLastIndex((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.findLastIndex((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Number (The index position, or <code>-1</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Number (The index position, or <code>-1</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> Combining the logic of the previous commands, <code>findLastIndex()</code> scans our array in reverse (starting from the back) and returns the <b>exact index number (coordinates)</b> of the very first match it encounters. If the rear-guard sweep finishes and detects absolutely nothing, it safely returns a <code>-1</code>. </p>
+        <h2> Description: </h2>
+        <p> Combining the logic of the previous commands, <code>findLastIndex()</code> scans our array in reverse (starting from the back) and returns the <b>exact index number (coordinates)</b> of the very first match it encounters. If the rear-guard sweep finishes and detects absolutely nothing, it safely returns a <code>-1</code>. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
