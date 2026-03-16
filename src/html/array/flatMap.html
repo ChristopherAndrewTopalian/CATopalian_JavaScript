@@ -27,15 +27,37 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> flatMap() </h1>
+    <h1> flatMap() </h1>
 
-<p> The <code>flatMap()</code> method is a highly efficient, two-in-one command. First, it sweeps through your array and runs a function on every item (just like a standard <code>map()</code>). Then, it automatically takes the results and flattens them into a single, one-dimensional array. </p>
+    <hr class="tech-divider">
 
-<p> It is the perfect tool for when you need to deploy multiple items (like shuttles) from a list of ships, but you want all those deployed items to end up in one unified list, rather than a bunch of separate, nested lists. </p>
+    <p> The <code>flatMap()</code> method is a highly efficient, two-in-one command. First, it sweeps through your array and runs a function on every item (just like a standard <code>map()</code>). Then, it automatically takes the results and flattens them into a single, one-dimensional array. </p>
 
-<hr>
+    <p> It is the perfect tool for when we need to deploy multiple items (like shuttles) from a list of ships, but we want all those deployed items to end up in one unified list, rather than a bunch of separate, nested lists. </p>
 
-<pre><code class="custom-code">let ships = ["Enterprise", "Voyager"];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let ships = ["Enterprise", "Voyager"];
+
+// Command each ship to deploy two shuttles
+let deployedShuttles = ships.flatMap(function(ship) {
+    return [ship + " Shuttle 1", ship + " Shuttle 2"];
+});
+
+console.log(deployedShuttles); 
+// Result: ["Enterprise Shuttle 1", "Enterprise Shuttle 2", "Voyager Shuttle 1", "Voyager Shuttle 2"]
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let ships = ["Enterprise", "Voyager"];
 
 // Command each ship to deploy two shuttles
 let deployedShuttles = ships.flatMap(ship => [ship + " Shuttle 1", ship + " Shuttle 2"]);
@@ -43,32 +65,31 @@ let deployedShuttles = ships.flatMap(ship => [ship + " Shuttle 1", ship + " Shut
 console.log(deployedShuttles); 
 // Result: ["Enterprise Shuttle 1", "Enterprise Shuttle 2", "Voyager Shuttle 1", "Voyager Shuttle 2"]
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.flatMap(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.flatMap(function(element, index, array) { 
     /* return the modified and unpacked element */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.flatMap((element, index, array) => { /* return the modified and unpacked element */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.flatMap((element, index, array) => { /* return the modified and unpacked element */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Array (A brand-new, completely unpacked array) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new, completely unpacked array) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This advanced command executes two distinct tactical maneuvers at the exact same time. First, it sweeps the fleet and modifies each item (just like <code>map()</code>). But then, if any of those modified items are themselves an array (like a carrier ship holding a squadron of fighters), it immediately "unpacks" them, flattening everything out into one single, unified <b>brand-new array</b>. </p>
+        <h2> Description: </h2>
+        <p> This advanced command executes two distinct tactical maneuvers at the exact same time. First, it sweeps the fleet and modifies each item (just like <code>map()</code>). But then, if any of those modified items are themselves an array (like a carrier ship holding a squadron of fighters), it immediately "unpacks" them, flattening everything out into one single, unified <b>brand-new array</b>. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
