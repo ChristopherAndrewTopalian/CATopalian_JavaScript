@@ -27,13 +27,35 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> reduceRight() </h1>
+    <h1> reduceRight() </h1>
 
-<p> <code>reduceRight()</code> does the exact same massive computation as <code>reduce()</code>, compiling the entire array into a single value. The only difference is its tactical approach: it starts accumulating from the absolute end of the array and works its way backward to the front. </p>
+    <hr class="tech-divider">
 
-<hr>
+    <p> <code>reduceRight()</code> does the exact same massive computation as <code>reduce()</code>, compiling the entire array into a single value. The only difference is its tactical approach: it starts accumulating from the absolute end of the array and works its way backward to the front. </p>
 
-<pre><code class="custom-code">let encryptedSignal = ["A", "H", "P", "L", "A"];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let encryptedSignal = ["A", "H", "P", "L", "A"];
+
+// Decode the signal by reading it backward and combining the letters
+let decodedWord = encryptedSignal.reduceRight(function(total, letter) {
+    return total + letter;
+}, ""); // <-- This empty string is our initialValue!
+
+console.log(decodedWord); 
+// Result: "ALPHA"
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let encryptedSignal = ["A", "H", "P", "L", "A"];
 
 // Decode the signal by reading it backward and combining the letters
 let decodedWord = encryptedSignal.reduceRight((total, letter) => total + letter, "");
@@ -41,6 +63,33 @@ let decodedWord = encryptedSignal.reduceRight((total, letter) => total + letter,
 console.log(decodedWord); 
 // Result: "ALPHA"
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.reduceRight(function(accumulator, currentValue, currentIndex, array) { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.reduceRight((accumulator, currentValue, currentIndex, array) => { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Any (Returns a single compiled value, like a String, Number, or Object) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This heavyweight command performs the exact same fleet-wide compilation as <code>reduce()</code>, but it executes its sequence in reverse. Starting from the rear guard and working its way to the vanguard, it uses an "accumulator" to keep a running total or, in this case, a combined string. It is the perfect tool for decrypting backward transmissions or processing a queue from last-in to first-out. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
