@@ -27,17 +27,37 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> findIndex() </h1>
+    <h1> findIndex() </h1>
 
-<hr>
+    <hr class="tech-divider">
 
-<p> While <code>find()</code> returns the actual item you are looking for, <code>findIndex()</code> returns the <b>exact position (the index number)</b> of that item inside the array. </p>
+    <p> While <code>find()</code> returns the actual item we are looking for, <code>findIndex()</code> returns the <b>exact position (the index number)</b> of that item inside the array. </p>
 
-<p> It sweeps from left to right. The moment it finds the first match, it reports the index number and stops scanning. If it scans the entire array and finds absolutely nothing, it will safely return <code>-1</code>. </p>
+    <p> It sweeps from left to right. The moment it finds the first match, it reports the index number and stops scanning. If it scans the entire array and finds absolutely nothing, it will safely return <code>-1</code>. </p>
 
-<hr>
+    <hr class="tech-divider">
 
-<pre><code class="custom-code">let fleet = ["Voyager", "Enterprise", "Defiant"];
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let fleet = ["Voyager", "Enterprise", "Defiant"];
+
+// Find the exact docking bay (index) of the Enterprise
+let targetCoordinates = fleet.findIndex(function(ship) {
+    return ship === "Enterprise";
+});
+
+console.log(targetCoordinates); 
+// Result: 1 (Because arrays always start counting at 0!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let fleet = ["Voyager", "Enterprise", "Defiant"];
 
 // Find the exact docking bay (index) of the Enterprise
 let targetCoordinates = fleet.findIndex(ship => ship === "Enterprise");
@@ -45,32 +65,31 @@ let targetCoordinates = fleet.findIndex(ship => ship === "Enterprise");
 console.log(targetCoordinates); 
 // Result: 1 (Because arrays always start counting at 0!)
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.findIndex(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.findIndex(function(element, index, array) { 
     /* return true or false */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.findIndex((element, index, array) => { /* return true or false */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.findIndex((element, index, array) => { /* return true or false */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Number (The index position, or <code>-1</code>) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Number (The index position, or <code>-1</code>) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> While <code>find()</code> returns the actual item we are looking for, <code>findIndex()</code> returns the <b>exact position (the index number)</b> of that item inside the array. It sweeps from left to right. The moment it finds the first match, it reports the index number (the coordinates) and stops scanning. If it scans the entire array and finds absolutely nothing, it safely returns a <code>-1</code>. </p>
+        <h2> Description: </h2>
+        <p> While <code>find()</code> returns the actual item we are looking for, <code>findIndex()</code> returns the <b>exact position (the index number)</b> of that item inside the array. It sweeps from left to right. The moment it finds the first match, it reports the index number (the coordinates) and stops scanning. If it scans the entire array and finds absolutely nothing, it safely returns a <code>-1</code>. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
