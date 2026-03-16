@@ -27,12 +27,15 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> toString() </h1>
+    <h1> toString() </h1>
 
-<p> While <code>join()</code> allows us to stitch an array together using custom spaces or characters, <code>toString()</code> is a raw, unformatted data dump. It simply converts the entire array into one long text string, separating every item with a standard comma. </p>
+    <hr class="tech-divider">
 
-<hr>
+    <p> While <code>join()</code> allows us to stitch an array together using custom spaces or characters, <code>toString()</code> is a raw, unformatted data dump. It simply converts the entire array into one long text string, separating every item with a standard comma. </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let coordinates = [10, 45, 99];
 
 // Convert the numerical array into a raw transmission string
@@ -41,6 +44,24 @@ let transmission = coordinates.toString();
 console.log(transmission); 
 // Result: "10,45,99"
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.toString()</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> String (A single, comma-separated text string) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method performs a raw data dump of the fleet's coordinates or manifests. It takes every single item currently inside the array, converts them all into standard text, and fuses them together into one continuous string separated only by commas. Unlike <code>join()</code>, we cannot specify custom separators (like spaces or dashes). It is the fastest, most rigid way to serialize an array for a basic communications transmission. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
