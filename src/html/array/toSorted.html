@@ -27,12 +27,15 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> toSorted() </h1>
+    <h1> toSorted() </h1>
 
-<p> <code>toSorted()</code> is the modern, purely functional version of the classic <code>sort()</code> command. It organizes your items (alphabetically or numerically) and hands you a brand-new, safely copied array without mutating the original list. </p>
+    <hr class="tech-divider">
 
-<hr>
+    <p> <code>toSorted()</code> is the modern, purely functional version of the classic <code>sort()</code> command. It organizes your items (alphabetically or numerically) and hands you a brand-new, safely copied array without mutating the original list. </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let roster = ["Riker", "Picard", "Data", "Crusher"];
 
 // Sort the crew alphabetically without destroying the original roster
@@ -40,7 +43,41 @@ let alphabeticalRoster = roster.toSorted();
 
 console.log(alphabeticalRoster); 
 // Result: ["Crusher", "Data", "Picard", "Riker"]
+
+// Proof that the original fleet is completely untouched:
+console.log(roster);
+// Result: ["Riker", "Picard", "Data", "Crusher"]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (Default Alphabetical) </b></h4>
+        <pre><code class="custom-code">array.toSorted()</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (With ES5 Compare Function) </b></h4>
+        <pre><code class="custom-code">array.toSorted(function(a, b) { 
+    /* return a negative number, positive number, or zero */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (With ES6 Compare Function) </b></h4>
+        <pre><code class="custom-code">array.toSorted((a, b) => { /* return a negative, positive, or zero */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b>, reorganized array) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is the safe, non-destructive version of the classic <code>sort()</code> command. Introduced in modern JavaScript (ES2023), it performs the exact same fleet reorganization, but instead of mutating the original array, it returns a <b>brand-new array</b> containing the sorted elements. If no compare function is provided, it sorts the items alphabetically as strings. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
