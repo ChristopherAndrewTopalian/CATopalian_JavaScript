@@ -27,14 +27,17 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> toLocaleString() </h1>
+    <h1> toLocaleString() </h1>
 
-<p> The <code>toLocaleString()</code> method is a brilliant formatting tool. It takes the items in your array and converts them into a single string, but it automatically formats things like large numbers, currencies, and dates based on specific regional languages and rules. </p>
+    <hr class="tech-divider">
 
-<p> If an Admiral in London and an Admiral in New York both view the same array of mission costs, this method ensures they each see the numbers perfectly formatted for their own local region! </p>
+    <p> The <code>toLocaleString()</code> method is a brilliant formatting tool. It takes the items in our array and converts them into a single string, but it automatically formats things like large numbers, currencies, and dates based on specific regional languages and rules. </p>
 
-<hr>
+    <p> If an Admiral in London and an Admiral in New York both view the same array of mission costs, this method ensures they each see the numbers perfectly formatted for their own local region! </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let missionCosts = [1500.50, 2500, 3500.75];
 
 // Translate the raw array data into a formatted US Dollar string
@@ -53,6 +56,24 @@ let localizedDate = launchDate.toLocaleString('en-GB');
 console.log(localizedDate);
 // Result: "14/03/2026, 10:00:00" (Notice the Day/Month format for the UK!)
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.toLocaleString(locales, options)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> String (A single, localized text string representing the elements of the array) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method acts as the Universal Translator for our data output. It performs a data dump similar to <code>toString()</code>, but routes every item through a localized formatting protocol before fusing them together. By passing specific <code>locales</code> (like 'en-US' or 'de-DE') and <code>options</code> (like currency styles or timezones), it automatically restructures massive numbers, financial data, and date/time objects into perfectly readable formats for different sectors of the galaxy. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
