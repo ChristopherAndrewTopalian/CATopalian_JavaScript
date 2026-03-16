@@ -27,14 +27,17 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> with() </h1>
+    <h1> with() </h1>
 
-<p> If we want to change a single ship in our array, we normally have to overwrite it directly (like <code>fleet[1] = "Discovery"</code>). </p>
+    <hr class="tech-divider">
 
-<p> <code>with()</code> allows us to replace an item at a specific index and returns a brand-new array, keeping our original data completely secure. </p>
+    <p> If we want to change a single ship in our array, we normally have to overwrite it directly (like <code>fleet[1] = "Discovery"</code>). </p>
 
-<hr>
+    <p> <code>with()</code> allows us to replace an item at a specific index and returns a brand-new array, keeping our original data completely secure. </p>
 
+    <hr class="tech-divider">
+
+    <div class="example-module">
 <pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
 
 // Create a new array *with* Index 1 replaced by "Farragut"
@@ -42,7 +45,29 @@ let alternateFleet = fleet.with(1, "Farragut");
 
 console.log(alternateFleet); 
 // Result: ["Enterprise", "Farragut", "Voyager"]
+
+// The original array remains safe!
+console.log(fleet);
+// Result: ["Enterprise", "Defiant", "Voyager"]
 </code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.with(index, value)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array with the element replaced) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This modern ES2023 maneuver is the safe alternative to direct bracket notation assignment (e.g., <code>fleet[1] = "Farragut"</code>). Instead of overwriting the original ship at that coordinate and permanently altering our database, <code>with()</code> swaps the ship and immediately returns the result as a <b>brand-new array</b>. This allows us to run tactical simulations and alternate fleet configurations without risking our primary data. </p>
+
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
