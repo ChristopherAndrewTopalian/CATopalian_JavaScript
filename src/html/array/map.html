@@ -27,15 +27,41 @@
 <body onload = 'applyCustomHighlighting();'>
 
 <div>
-<h1> map() </h1>
+    <h1> map() </h1>
 
-<p> <code>map()</code> is arguably one of the most used methods in all of JavaScript. It sweeps through your original array, takes every single item, runs a function to modify that item, and then constructs a <b>brand-new array</b> out of the upgraded results. </p>
+    <hr class="tech-divider">
 
-<p> It is the ultimate tool for running a fleet-wide retrofit without permanently altering your original database records. </p>
+    <p> <code>map()</code> is arguably one of the most used methods in all of JavaScript. It sweeps through our original array, takes every single item, runs a function to modify that item, and then constructs a <b>brand-new array</b> out of the upgraded results. </p>
 
-<hr>
+    <p> It is the ultimate tool for running a fleet-wide retrofit without permanently altering our original database records. </p>
 
-<pre><code class="custom-code">let oldFleet = ["Enterprise", "Defiant", "Voyager"];
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let oldFleet = ["Enterprise", "Defiant", "Voyager"];
+
+// Upgrade every ship by appending the word "Refit" to its name
+let upgradedFleet = oldFleet.map(function(ship) {
+    return ship + " (Refit)";
+});
+
+console.log(upgradedFleet); 
+// Result: ["Enterprise (Refit)", "Defiant (Refit)", "Voyager (Refit)"]
+
+// The original fleet remains untouched!
+console.log(oldFleet);
+// Result: ["Enterprise", "Defiant", "Voyager"]
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let oldFleet = ["Enterprise", "Defiant", "Voyager"];
 
 // Upgrade every ship by appending the word "Refit" to its name
 let upgradedFleet = oldFleet.map(ship => ship + " (Refit)");
@@ -47,32 +73,31 @@ console.log(upgradedFleet);
 console.log(oldFleet);
 // Result: ["Enterprise", "Defiant", "Voyager"]
 </code></pre>
+    </div>
 
-<hr>
-
-<div class="technical-specs">
-    <h4><b> Syntax (Classic ES5) </b></h4>
-    <pre><code class="custom-code">array.map(function(element, index, array) { 
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.map(function(element, index, array) { 
     /* return the modified element */ 
 })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h4><b> Syntax (Modern ES6) </b></h4>
-    <pre><code class="custom-code">array.map((element, index, array) => { /* return the modified element */ })</code></pre>
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.map((element, index, array) => { /* return the modified element */ })</code></pre>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Return Value </h2>
-    <p> <b>Type:</b> Array (A brand-new array) </p>
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new array) </p>
 
-    <hr class="tech-divider">
+        <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This method executes a complete fleet-wide retrofit. It sweeps through the array, takes every single item, runs our function to modify that item, and then constructs a <b>brand-new array</b> out of the upgraded results. It is the ultimate tool for safely upgrading data without permanently altering our original database records. </p>
+        <h2> Description: </h2>
+        <p> This method executes a complete fleet-wide retrofit. It sweeps through the array, takes every single item, runs our function to modify that item, and then constructs a <b>brand-new array</b> out of the upgraded results. It is the ultimate tool for safely upgrading data without permanently altering our original database records. </p>
 
-    <hr class="tech-divider">
-</div>
+        <hr class="tech-divider">
+    </div>
 
 </div>
 
