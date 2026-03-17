@@ -288,6 +288,30 @@ let operators = [
     },
 
     {
+        name: "push()",
+        urlOffline: "src/html/array_of_objects/push.html",
+        category: 'array_of_objects'
+    },
+
+    {
+        name: "pop()",
+        urlOffline: "src/html/array_of_objects/pop.html",
+        category: 'array_of_objects'
+    },
+
+    {
+        name: "unshift()",
+        urlOffline: "src/html/array_of_objects/unshift.html",
+        category: 'array_of_objects'
+    },
+
+    {
+        name: "shift()",
+        urlOffline: "src/html/array_of_objects/shift.html",
+        category: 'array_of_objects'
+    },
+
+    {
         name: "at()",
         urlOffline: "src/html/array_of_objects/at.html",
         category: 'array_of_objects'
@@ -426,18 +450,6 @@ let operators = [
     },
 
     {
-        name: "pop()",
-        urlOffline: "src/html/array_of_objects/pop.html",
-        category: 'array_of_objects'
-    },
-
-    {
-        name: "push()",
-        urlOffline: "src/html/array_of_objects/push.html",
-        category: 'array_of_objects'
-    },
-
-    {
         name: "reduce()",
         urlOffline: "src/html/array_of_objects/reduce.html",
         category: 'array_of_objects'
@@ -452,12 +464,6 @@ let operators = [
     {
         name: "reverse()",
         urlOffline: "src/html/array_of_objects/reverse.html",
-        category: 'array_of_objects'
-    },
-
-    {
-        name: "shift()",
-        urlOffline: "src/html/array_of_objects/shift.html",
         category: 'array_of_objects'
     },
 
@@ -512,12 +518,6 @@ let operators = [
     {
         name: "toString()",
         urlOffline: "src/html/array_of_objects/toString.html",
-        category: 'array_of_objects'
-    },
-
-    {
-        name: "unshift()",
-        urlOffline: "src/html/array_of_objects/unshift.html",
         category: 'array_of_objects'
     },
 
