@@ -556,19 +556,6 @@ let apps = [
     videoURL: 'https://www.youtube.com/watch?v=c0sc3ZmoBVs'
 },
 
-// CATopalian JavaScript NW.js Markdown Navigator
-{
-    name: 'CATopalian JavaScript NW.js Markdown Navigator',
-
-    appURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_NW.js_Markdown_Navigator',
-
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_NW.js_Markdown_Navigator',
-
-    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_NW.js_Markdown_Navigator.PNG',
-
-    videoURL: 'https://www.youtube.com/watch?v=5lbBFD2ouBA'
-},
-
 // CATopalian JavaScript College of Scripting - Scroll Version
 {
     name: 'CATopalian JavaScript College of Scripting',
