@@ -454,6 +454,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/reverse.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "shift()",
+        urlOffline: "src/html/array_of_objects/shift.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
