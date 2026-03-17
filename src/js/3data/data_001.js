@@ -424,6 +424,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/of.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "pop()",
+        urlOffline: "src/html/array_of_objects/pop.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
