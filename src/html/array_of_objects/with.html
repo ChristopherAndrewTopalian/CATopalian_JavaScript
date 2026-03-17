@@ -1,0 +1,97 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- with.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> with() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> with() </h1>
+
+    <hr class="tech-divider">
+
+    <p> If we want to change a single ship in our array, we normally have to overwrite it directly (like <code>fleet[1] = newShip</code>). </p>
+
+    <p> The <code>with()</code> command allows us to replace an object at a specific index and returns a <b>brand-new array</b>, keeping our original data formation completely secure. </p>
+
+    <p> <b>Crucial Note (The Shallow Copy):</b> While the array itself is brand new, the unreplaced objects inside it are still pointing to the exact same memory references as our original array! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let fleet = [
+    { name: "Enterprise", class: "Cruiser" }, // Index 0
+    { name: "Defiant", class: "Escort" },     // Index 1
+    { name: "Voyager", class: "Intrepid" }    // Index 2
+];
+
+// Create a new array *with* Index 1 safely replaced by the "Farragut" object
+let alternateFleet = fleet.with(1, { name: "Farragut", class: "Cruiser" });
+
+console.log(alternateFleet); 
+/* Result: [
+    { name: "Enterprise", class: "Cruiser" },
+    { name: "Farragut", class: "Cruiser" },
+    { name: "Voyager", class: "Intrepid" }
+] */
+
+// The original array's formation remains perfectly safe!
+console.log(fleet[1].name);
+// Result: "Defiant" (The Defiant is still securely docked at Index 1!)
+
+// PROVING THE SHALLOW COPY:
+alternateFleet[2].class = "Warship";
+console.log(fleet[2].class);
+// Result: "Warship" (Changing the unreplaced Voyager in the new array changes the old one too!)
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.with(index, value)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array containing shallow copies, with the targeted element replaced) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This modern ES2023 maneuver is the safe alternative to direct bracket notation assignment (e.g., <code>fleet[1] = newShipObject</code>). Instead of overwriting the original ship at that coordinate and permanently altering our database, <code>with()</code> swaps the ship out and immediately returns the result as a <b>brand-new array</b>. This allows us to run tactical simulations and alternate fleet configurations without risking our primary data. Just remember the <b>shallow copy</b> rule: the objects that weren't replaced still share the same memory as the originals! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
