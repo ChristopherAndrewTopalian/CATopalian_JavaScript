@@ -1,0 +1,118 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- reduceRight.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> reduceRight() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> reduceRight() </h1>
+
+    <hr class="tech-divider">
+
+    <p> <code>reduceRight()</code> does the exact same massive computation as <code>reduce()</code>, compiling data from the entire array into a single value. The only difference is its tactical approach: it starts accumulating from the absolute end of the array and works its way backward to the front. </p>
+
+    <p> <b>Crucial Note:</b> Just like standard <code>reduce()</code>, when we are extracting data from an array of objects, we <i>must</i> provide an <code>initialValue</code> (like an empty string <code>""</code>)! If we forget it, the method will accidentally grab the entire last object and ruin the compilation! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let interceptedPackets = [
+    { id: 1, fragment: "A" },
+    { id: 2, fragment: "H" },
+    { id: 3, fragment: "P" },
+    { id: 4, fragment: "L" },
+    { id: 5, fragment: "A" }
+];
+
+// Decode the signal by reading the objects backward and combining their fragments
+let decodedWord = interceptedPackets.reduceRight(function(total, packet) {
+    return total + packet.fragment;
+}, ""); // <-- This empty string is our CRITICAL initialValue!
+
+console.log(decodedWord); 
+// Result: "ALPHA"
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let interceptedPackets = [
+    { id: 1, fragment: "A" },
+    { id: 2, fragment: "H" },
+    { id: 3, fragment: "P" },
+    { id: 4, fragment: "L" },
+    { id: 5, fragment: "A" }
+];
+
+// Decode the signal by reading the objects backward and combining their fragments
+let decodedWord = interceptedPackets.reduceRight((total, packet) => total + packet.fragment, "");
+
+console.log(decodedWord); 
+// Result: "ALPHA"
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.reduceRight(function(accumulator, currentValue, currentIndex, array) { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.reduceRight((accumulator, currentValue, currentIndex, array) => { 
+    /* return the updated accumulator */ 
+}, initialValue)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Any (Returns a single compiled value, like a String, Number, or Object) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This heavyweight command performs the exact same fleet-wide compilation as <code>reduce()</code>, but it executes its sequence in reverse. Starting from the rear guard and working its way to the vanguard, it uses an "accumulator" to keep a running total or, in this case, a combined string. It is the perfect tool for decrypting backward transmissions or processing a queue of objects from last-in to first-out. Always remember our <code>initialValue</code> when working with objects! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
