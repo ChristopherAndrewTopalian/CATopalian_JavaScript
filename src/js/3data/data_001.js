@@ -478,6 +478,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/sort.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "splice()",
+        urlOffline: "src/html/array_of_objects/splice.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//

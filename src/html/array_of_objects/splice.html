@@ -1,0 +1,93 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- splice.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> splice() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> splice() </h1>
+
+    <hr class="tech-divider">
+
+    <p> <code>splice()</code> is the ultimate array tool. It allows us to add, remove, or replace objects anywhere inside the array. We just tell it exactly what index number to start at, and how many objects to delete before adding new ones. </p>
+
+    <p> <b>Warning:</b> This is a highly destructive command! It permanently mutates the original array. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let fleet = [
+    { name: "Enterprise", class: "Cruiser" }, // Index 0
+    { name: "Defiant", class: "Escort" },     // Index 1
+    { name: "Voyager", class: "Intrepid" }    // Index 2
+];
+
+// Start at Index 1. Delete 0 ships. Insert the "Discovery" object.
+let removedShips = fleet.splice(1, 0, { name: "Discovery", class: "Science" }); 
+
+console.log(fleet); 
+/* Result: [
+    { name: "Enterprise", class: "Cruiser" },
+    { name: "Discovery", class: "Science" },
+    { name: "Defiant", class: "Escort" },
+    { name: "Voyager", class: "Intrepid" }
+] (The Discovery successfully pushed its way into Index 1!) */
+
+// splice() always returns an array of the removed objects
+console.log(removedShips);
+// Result: [] (Because we told it to delete 0 ships!)
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.splice(start, deleteCount, item1, item2, /* ..., */ itemN)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A new array containing the removed objects, or an empty array if nothing was deleted) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is a heavy-duty, destructive command. It physically alters the original array by removing objects, inserting new ones, or doing both simultaneously. It begins at the <code>start</code> index, removes the exact number of objects specified by the <code>deleteCount</code>, and then inserts any new objects directly into that gap. It actively returns an array containing any ship objects that were successfully removed from the formation so we don't lose their data! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
