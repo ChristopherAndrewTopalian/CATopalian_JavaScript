@@ -370,6 +370,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/forEach.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "from()",
+        urlOffline: "src/html/array_of_objects/from.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
