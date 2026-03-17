@@ -520,6 +520,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/unshift.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "valueOf()",
+        urlOffline: "src/html/array_of_objects/valueOf.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
