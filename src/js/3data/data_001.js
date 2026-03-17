@@ -306,6 +306,12 @@ let operators = [
     },
 
     {
+        name: "entries()",
+        urlOffline: "src/html/array_of_objects/entries.html",
+        category: 'array_of_objects'
+    },
+
+    {
         name: "filter()",
         urlOffline: "src/html/array_of_objects/filter.html",
         category: 'array_of_objects'
