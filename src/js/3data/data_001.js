@@ -448,6 +448,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/reduceRight.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "reverse()",
+        urlOffline: "src/html/array_of_objects/reverse.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
