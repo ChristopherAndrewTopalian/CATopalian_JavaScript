@@ -194,6 +194,41 @@ function makeInterface(whichArray, whichEntry)
             aooDetails.append(theButton);
         }
     }
+
+    //----//
+
+    let appsDetails = ce('details');
+    appsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    appsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(appsDetails);
+
+    //-//
+
+    let appsSummary = ce('summary');
+    appsSummary.textContent = 'Apps';
+    appsDetails.append(appsSummary);
+
+    for (let x = 0; x < apps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = apps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = apps[x].appURL;
+        };
+        appsDetails.append(theButton);
+    }
 }
 
 //----//
