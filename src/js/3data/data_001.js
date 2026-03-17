@@ -502,6 +502,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/toSorted.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "toSpliced()",
+        urlOffline: "src/html/array_of_objects/toSpliced.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//

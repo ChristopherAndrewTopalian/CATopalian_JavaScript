@@ -1,0 +1,90 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- toSpliced.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> toSpliced() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> toSpliced() </h1>
+
+    <hr class="tech-divider">
+
+    <p> The classic <code>splice()</code> is a heavy-duty, destructive tool that permanently rips objects out of the original array. The modern <code>toSpliced()</code> allows us to remove or inject objects at a specific index, but it generates a fresh, updated copy of the array instead of tearing the original one apart. </p>
+
+    <p> <b>Crucial Note (The Return Value):</b> Unlike the classic method which hands us back the <i>deleted</i> objects, <code>toSpliced()</code> hands us the <b>entire new array</b>. And because it creates a new array, remember that it is a <b>Shallow Copy</b>, the objects inside still share the same memory references as the original! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let fleet = [
+    { name: "Enterprise", class: "Cruiser" }, // Index 0
+    { name: "Defiant", class: "Escort" },     // Index 1
+    { name: "Voyager", class: "Intrepid" }    // Index 2
+];
+
+// Target Index 1. Remove 1 ship (Defiant). Insert the Discovery object.
+let updatedFleet = fleet.toSpliced(1, 1, { name: "Discovery", class: "Science" });
+
+console.log(updatedFleet); 
+/* Result: [
+    { name: "Enterprise", class: "Cruiser" },
+    { name: "Discovery", class: "Science" },
+    { name: "Voyager", class: "Intrepid" }
+] (The Discovery successfully took Index 1 in the NEW array!) */
+
+// Proof that the original fleet is completely untouched!
+console.log(fleet[1].name); 
+// Result: "Defiant" (It is still safely sitting at Index 1 in the old array!)
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.toSpliced(start, deleteCount, item1, item2, /* …, */ itemN)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array containing shallow copies, with the specified modifications applied) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> Introduced in the modern ES2023 update, this is the completely safe, non-destructive alternative to the classic <code>splice()</code> maneuver. It allows you to target a specific coordinate (index), remove a specific number of ships, and instantly deploy new ship objects into that exact gap. However, instead of permanently mutilating the original data, it executes these heavy modifications and returns the final result as a <b>brand-new array</b>. Our original fleet remains safely docked and perfectly intact. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
