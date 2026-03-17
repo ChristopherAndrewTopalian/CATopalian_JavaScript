@@ -460,6 +460,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/shift.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "slice()",
+        urlOffline: "src/html/array_of_objects/slice.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//

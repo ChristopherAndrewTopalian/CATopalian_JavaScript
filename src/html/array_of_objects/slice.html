@@ -1,0 +1,93 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- slice.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> slice() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> slice() </h1>
+
+    <hr class="tech-divider">
+
+    <p> Sometimes we need to look at a section of our array without destroying the original list. <code>slice()</code> makes a perfect copy of a specific chunk of the array. It takes a starting index and an ending index. </p>
+
+    <p> <b>Crucial Note (The Shallow Copy):</b> When using <code>slice()</code> on an array of objects, it copies the <i>references</i> to those objects, not the objects themselves! If we alter an object in our new sliced array, that same object will also change in our original array! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let fleet = [
+    { name: "Enterprise", class: "Cruiser" }, // Index 0
+    { name: "Discovery", class: "Science" },  // Index 1
+    { name: "Defiant", class: "Escort" },     // Index 2
+    { name: "Voyager", class: "Intrepid" }    // Index 3
+];
+
+// Copy from Index 1 up to (but not including) Index 3
+let assaultTeam = fleet.slice(1, 3); 
+
+console.log(assaultTeam); 
+/* Result: [
+    { name: "Discovery", class: "Science" },
+    { name: "Defiant", class: "Escort" }
+] */
+
+// PROVING THE SHALLOW COPY:
+assaultTeam[0].class = "Warship";
+console.log(fleet[1].class); 
+// Result: "Warship" (The original Discovery was altered too!)
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.slice(start, /* optional: */ end)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new array containing shallow copies of the extracted objects) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method safely extracts a specific sector of our array and returns it as a new array. It begins copying at the <code>start</code> index and stops <i>right before</i> the <code>end</code> index. If we do not provide an <code>end</code> index, it copies everything from the start point all the way to the end of the line. The original fleet array remains structurally untouched, but beware: because this is a <b>shallow copy</b>, both arrays are still pointing to the exact same ship objects in our computer's memory! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
