@@ -484,6 +484,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/splice.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "toLocaleString()",
+        urlOffline: "src/html/array_of_objects/toLocaleString.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
