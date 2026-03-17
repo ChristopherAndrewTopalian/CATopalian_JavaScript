@@ -346,6 +346,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/findLast.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "findLastIndex()",
+        urlOffline: "src/html/array_of_objects/findLastIndex.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
