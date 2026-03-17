@@ -1,0 +1,98 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- lastIndexOf.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> lastIndexOf() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> lastIndexOf() </h1>
+
+    <hr class="tech-divider">
+
+    <p> The <code>lastIndexOf()</code> method is a highly tactical search tool. It does the exact same job as <code>indexOf()</code>, locating a specific object and returning its index number, but it executes its scan <b>in reverse</b>. </p>
+
+    <p> It starts at the absolute end of the array and sweeps backward. If we have the exact same object reference stationed in our fleet multiple times, it will pinpoint the one furthest in the back. </p>
+
+    <p> <b>Crucial Note:</b> Remember our lesson from <code>indexOf()</code>! This command requires <i>strict equality</i>. It searches for the exact object in our computer's memory, not just a clone with matching data! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let escortShip = { 
+    name: "Defiant", 
+    class: "Escort" 
+};
+
+let fleet = [
+    escortShip, // Stationed as the forward guard at Index 0
+    { 
+        name: "Enterprise", 
+        class: "Cruiser" 
+    },
+    { 
+        name: "Voyager", 
+        class: "Intrepid" 
+    },
+    escortShip  // Stationed AGAIN as the rear guard at Index 3
+];
+
+// Locate the rearmost position of this exact ship reference
+let rearGuardPosition = fleet.lastIndexOf(escortShip);
+
+console.log(rearGuardPosition); 
+// Result: 3 (It sweeps backward and hits Index 3 first, completely ignoring Index 0!)
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.lastIndexOf(searchElement, /* optional: */ fromIndex)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Number (The exact index position, or <code>-1</code> if not found) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This command operates exactly like the forward scanner, but it initiates its sweep from the absolute rear of the formation and works backward. Because it uses <b>strict equality</b>, it is perfect for finding the <b>last known position</b> of a specific, original object stationed multiple times in the array. Just like its forward counterpart, if the rear-guard sweep finishes and detects absolutely nothing that matches that memory reference, it safely returns a <code>-1</code>. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
