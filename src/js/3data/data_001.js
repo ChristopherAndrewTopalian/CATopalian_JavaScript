@@ -528,6 +528,12 @@ let operators = [
     },
 
     {
+        name: "values()",
+        urlOffline: "src/html/array_of_objects/values.html",
+        category: 'array_of_objects'
+    },
+
+    {
         name: "with()",
         urlOffline: "src/html/array_of_objects/with.html",
         category: 'array_of_objects'
