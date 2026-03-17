@@ -364,6 +364,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/flatMap.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "forEach()",
+        urlOffline: "src/html/array_of_objects/forEach.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
