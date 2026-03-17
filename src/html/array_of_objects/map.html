@@ -1,0 +1,131 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- map.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> map() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> map() </h1>
+
+    <hr class="tech-divider">
+
+    <p> <code>map()</code> is arguably one of the most used methods in all of JavaScript. It sweeps through our original array, takes every single object, runs a function to modify it, and then constructs a <b>brand-new array</b> out of the upgraded results. </p>
+
+    <p> It is the ultimate tool for running a fleet-wide retrofit without permanently altering our original database records. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let oldFleet = [
+    { name: "Enterprise", class: "Cruiser" },
+    { name: "Defiant", class: "Escort" },
+    { name: "Voyager", class: "Intrepid" }
+];
+
+// Upgrade the fleet by creating brand-new objects with a "status" property
+let upgradedFleet = oldFleet.map(function(ship) {
+    return {
+        name: ship.name,
+        class: ship.class,
+        status: "Refitted"
+    };
+});
+
+console.log(upgradedFleet); 
+/* Result: [
+    { name: "Enterprise", class: "Cruiser", status: "Refitted" },
+    { name: "Defiant", class: "Escort", status: "Refitted" },
+    { name: "Voyager", class: "Intrepid", status: "Refitted" }
+] */
+
+// The original fleet remains safely untouched!
+console.log(oldFleet[0].status); // Result: undefined
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let oldFleet = [
+    { name: "Enterprise", class: "Cruiser" },
+    { name: "Defiant", class: "Escort" },
+    { name: "Voyager", class: "Intrepid" }
+];
+
+// In ES6, wrap the returned object {} in parentheses () to avoid syntax errors!
+let upgradedFleet = oldFleet.map(ship => ({
+    name: ship.name,
+    class: ship.class,
+    status: "Refitted"
+}));
+
+console.log(upgradedFleet); 
+/* Result: [
+    { name: "Enterprise", class: "Cruiser", status: "Refitted" },
+    { name: "Defiant", class: "Escort", status: "Refitted" },
+    { name: "Voyager", class: "Intrepid", status: "Refitted" }
+] */
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.map(function(element, index, array) { 
+    /* return the modified object */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.map((element, index, array) => { /* return the modified object */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new array containing the upgraded objects) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method executes a complete fleet-wide retrofit. It sweeps through the array, takes every single object, runs our function to extract or modify its data, and then constructs a <b>brand-new array</b> out of the upgraded results. Because we construct completely new objects inside the return statement, it is the ultimate tool for safely upgrading data without permanently mutating our original fleet records. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
