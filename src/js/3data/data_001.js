@@ -490,6 +490,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/toLocaleString.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "toReversed()",
+        urlOffline: "src/html/array_of_objects/toReversed.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
