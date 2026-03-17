@@ -1,0 +1,114 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- some.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> some() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> some() </h1>
+
+    <hr class="tech-divider">
+
+    <p> Earlier we used <code>every()</code> to check if the entire fleet passed a test. <code>some()</code> is much more sensitive. It sweeps the array of objects and returns <code>true</code> if <b>at least one single object</b> matches the condition. </p>
+
+    <p> The absolute millisecond it finds a single match, it immediately triggers the alert and <b>stops scanning</b> the rest of the array to save processing power! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let fleet = [
+    { name: "Enterprise", shields: 100 },
+    { name: "Discovery", shields: 100 },
+    { name: "Defiant", shields: 45 },
+    { name: "Voyager", shields: 100 }
+];
+
+// Scan the fleet to see if ANY ship object has shields below 50%
+let redAlert = fleet.some(function(ship) {
+    return ship.shields < 50;
+});
+
+console.log(redAlert); 
+// Result: true (Because the Defiant's shields at 45 triggered the sensor!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let fleet = [
+    { name: "Enterprise", shields: 100 },
+    { name: "Discovery", shields: 100 },
+    { name: "Defiant", shields: 45 },
+    { name: "Voyager", shields: 100 }
+];
+
+// Scan the fleet to see if ANY ship object has shields below 50%
+let redAlert = fleet.some(ship => ship.shields < 50);
+
+console.log(redAlert); 
+// Result: true (Because the Defiant's shields at 45 triggered the sensor!)
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.some(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.some((element, index, array) => { /* return true or false */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean (<code>true</code> or <code>false</code>) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method is our highly sensitive early warning system. It sweeps the array and checks if <b>at least one single object</b> matches our specific condition (like dipping below a certain shield threshold). The absolute millisecond it finds a single match, it immediately triggers the alert (returns <code>true</code>) and halts the scan. If the sweep completes the entire formation and finds absolutely no matches, it safely returns <code>false</code>. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
