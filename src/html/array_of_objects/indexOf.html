@@ -1,0 +1,97 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- indexOf.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> indexOf() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> indexOf() </h1>
+
+    <hr class="tech-divider">
+
+    <p> The <code>indexOf()</code> method is a lightning-fast locator beacon. We hand it a specific object, and it sweeps the array from left to right to find it. The moment it detects a perfect match, it returns the <b>Index Number</b> of that object. </p>
+
+    <p> <b>Crucial Note:</b> Just like <code>includes()</code>, this method checks for the <i>exact memory reference</i> of the object! If we give it an identical-looking clone, it will fail the scan and return <code>-1</code>. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">let flagship = { 
+    name: "Enterprise", 
+    class: "Cruiser" 
+};
+
+let fleet = [
+    { name: "Voyager", class: "Intrepid" },
+    flagship, // Docking the exact object reference at Index 1
+    { name: "Defiant", class: "Escort" }
+];
+
+// Request the exact docking index of the Enterprise reference
+let bayNumber = fleet.indexOf(flagship);
+
+console.log(bayNumber); 
+// Result: 1 (Remember, arrays always start counting at 0!)
+
+// What happens if we scan for a clone instead of the original?
+let cloneNumber = fleet.indexOf({ name: "Enterprise", class: "Cruiser" });
+
+console.log(cloneNumber); 
+// Result: -1 (Because the clone is a different object in memory!)
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">array.indexOf(searchElement, /* optional: */ fromIndex)</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Number (The exact index position, or <code>-1</code> if not found) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This method locks onto a specific target object and sweeps the fleet from front to back. Because it requires <b>strict equality</b> (the exact object reference), we must pass it the original variable, not just matching data. The absolute millisecond it detects the original object, it returns the <b>exact index number (coordinates)</b> of that first match and stops scanning. If the target is nowhere to be found, it safely returns a <code>-1</code>. </p>
+        
+        <p> <i>Pro-Tip: When working with arrays of objects, developers usually prefer <code>findIndex()</code> over <code>indexOf()</code> so they can search by property names instead of strict memory references!</i> </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

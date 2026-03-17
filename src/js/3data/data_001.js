@@ -382,6 +382,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/includes.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "indexOf()",
+        urlOffline: "src/html/array_of_objects/indexOf.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
