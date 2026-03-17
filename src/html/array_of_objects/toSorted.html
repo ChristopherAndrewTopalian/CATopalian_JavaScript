@@ -1,0 +1,124 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- toSorted.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> toSorted() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> toSorted() </h1>
+
+    <hr class="tech-divider">
+
+    <p> <code>toSorted()</code> is the modern, purely functional version of the classic <code>sort()</code> command. It organizes our objects using a compare function and hands us a brand-new, safely copied array without mutating the original list's formation! </p>
+
+    <p> <b>Crucial Note (The Shallow Copy):</b> While the new array's order is completely independent of the old array, the objects inside are identical memory references! If we change a ship's property in the sorted array, it will change in the original array too. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let fleet = [
+    { name: "Voyager", registry: 74656 },
+    { name: "Enterprise", registry: 1701 },
+    { name: "Defiant", registry: 75633 }
+];
+
+// Sort the fleet numerically without destroying the original formation
+let sortedFleet = fleet.toSorted(function(a, b) {
+    return a.registry - b.registry;
+});
+
+console.log(sortedFleet); 
+/* Result: [
+    { name: "Enterprise", registry: 1701 },
+    { name: "Voyager", registry: 74656 },
+    { name: "Defiant", registry: 75633 }
+] */
+
+// Proof that the original array formation is completely untouched:
+console.log(fleet[0].name);
+// Result: "Voyager" (It is still parked at Index 0!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let fleet = [
+    { name: "Voyager", registry: 74656 },
+    { name: "Enterprise", registry: 1701 },
+    { name: "Defiant", registry: 75633 }
+];
+
+// Sort the fleet numerically without destroying the original formation
+let sortedFleet = fleet.toSorted((a, b) => a.registry - b.registry);
+
+console.log(sortedFleet); 
+/* Result: [
+    { name: "Enterprise", registry: 1701 },
+    { name: "Voyager", registry: 74656 },
+    { name: "Defiant", registry: 75633 }
+] */
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (With ES5 Compare Function) </b></h4>
+        <pre><code class="custom-code">array.toSorted(function(a, b) { 
+    /* return a negative number, positive number, or zero */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (With ES6 Compare Function) </b></h4>
+        <pre><code class="custom-code">array.toSorted((a, b) => { /* return a negative, positive, or zero */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A <b>brand-new</b> array containing shallow copies in their new sorted order) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is the completely safe, non-destructive version of the classic <code>sort()</code> command. Introduced in the ES2023 update, it performs the exact same fleet reorganization using a compare function to evaluate object properties. But instead of mutating the original array, it returns a <b>brand-new array</b> containing the sorted elements. The original fleet's physical formation remains perfectly intact. Just remember that the new array contains <b>shallow copies</b> of the original objects! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

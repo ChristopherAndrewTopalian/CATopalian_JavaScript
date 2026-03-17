@@ -496,6 +496,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/toReversed.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "toSorted()",
+        urlOffline: "src/html/array_of_objects/toSorted.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
