@@ -1,0 +1,124 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- sort.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> sort() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> sort() </h1>
+
+    <hr class="tech-divider">
+
+    <p> The <code>sort()</code> method is a permanent, fleet-wide reorganization command. By default, it sorts items alphabetically as strings. But when we have an array of complex objects, we must provide a <b>compare function</b> so the system knows exactly which property to use for the ranking! </p>
+
+    <p> <b>Warning:</b> This method physically alters our original array rather than making a safe copy! </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let fleet = [
+    { name: "Voyager", registry: 74656 },
+    { name: "Enterprise", registry: 1701 },
+    { name: "Defiant", registry: 75633 },
+    { name: "Reliant", registry: 1864 }
+];
+
+// Reorganize the fleet objects numerically from lowest to highest registry
+fleet.sort(function(a, b) {
+    return a.registry - b.registry;
+});
+
+console.log(fleet); 
+/* Result: [
+    { name: "Enterprise", registry: 1701 },
+    { name: "Reliant", registry: 1864 },
+    { name: "Voyager", registry: 74656 },
+    { name: "Defiant", registry: 75633 }
+] (The original array is permanently altered!) */
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let fleet = [
+    { name: "Voyager", registry: 74656 },
+    { name: "Enterprise", registry: 1701 },
+    { name: "Defiant", registry: 75633 },
+    { name: "Reliant", registry: 1864 }
+];
+
+// Reorganize the fleet objects numerically from lowest to highest registry
+fleet.sort((a, b) => a.registry - b.registry);
+
+console.log(fleet); 
+/* Result: [
+    { name: "Enterprise", registry: 1701 },
+    { name: "Reliant", registry: 1864 },
+    { name: "Voyager", registry: 74656 },
+    { name: "Defiant", registry: 75633 }
+] (The original array is permanently altered!) */
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.sort(function(a, b) { 
+    /* return a negative number, positive number, or zero */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.sort((a, b) => { /* return a negative, positive, or zero */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (The <b>original</b> array, completely reordered) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is the ultimate reorganization command. The Admiral issues a metric (like tonnage, alphabetical order, or a specific object property like registry number), and the entire fleet physically shifts positions to comply. We pass it a "compare function" that looks at two ship objects at a time (<code>a</code> and <code>b</code>) to determine their rank by subtracting their target properties. <b>Warning:</b> This is a destructive maneuver! It does not create a new array; it permanently alters the physical formation of the original array. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

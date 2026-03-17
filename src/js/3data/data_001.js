@@ -472,6 +472,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/some.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "sort()",
+        urlOffline: "src/html/array_of_objects/sort.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
