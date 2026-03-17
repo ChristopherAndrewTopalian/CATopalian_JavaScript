@@ -514,6 +514,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/toString.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "unshift()",
+        urlOffline: "src/html/array_of_objects/unshift.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
