@@ -325,15 +325,6 @@ let apps = [
     description: "CATopalian_JavaScript_Journal"
 },
 
-// CATopalian JavaScript Library
-{
-    name: "CATopalian JavaScript Library",
-    appURL: "https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Library",
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Library',
-    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Library.PNG',
-    description: "CATopalian_JavaScript_Library"
-},
-
 // CATopalian JavaScript List Generator
 {
     name: "CATopalian JavaScript List Generator",
