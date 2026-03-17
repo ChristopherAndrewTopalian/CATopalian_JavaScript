@@ -300,6 +300,12 @@ let operators = [
     },
 
     {
+        name: "copyWithin()",
+        urlOffline: "src/html/array_of_objects/copyWithin.html",
+        category: 'array_of_objects'
+    },
+
+    {
         name: "filter()",
         urlOffline: "src/html/array_of_objects/filter.html",
         category: 'array_of_objects'
