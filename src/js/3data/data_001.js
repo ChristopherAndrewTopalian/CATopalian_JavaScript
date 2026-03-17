@@ -418,6 +418,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/map.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "of()",
+        urlOffline: "src/html/array_of_objects/of.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
