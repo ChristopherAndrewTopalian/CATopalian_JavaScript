@@ -1,0 +1,138 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- flatMap.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> flatMap() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> flatMap() </h1>
+
+    <hr class="tech-divider">
+
+    <p> The <code>flatMap()</code> method is a highly efficient, two-in-one command. First, it sweeps through our array and runs a function on every object (just like a standard <code>map()</code>). Then, it automatically takes the results and flattens them into a single, one-dimensional array. </p>
+
+    <p> It is the perfect tool for when we need to deploy multiple sub-objects (like shuttles) from a list of parent ships, but we want all those deployed objects to end up in one unified list, rather than a bunch of separate, nested lists. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let ships = [
+    {
+        name: "Enterprise",
+        class: "Cruiser"
+    },
+    {
+        name: "Voyager",
+        class: "Intrepid"
+    }
+];
+
+// Command each ship object to deploy an array of two shuttle objects
+let deployedShuttles = ships.flatMap(function(ship) {
+    return [
+        { parent: ship.name, designation: "Shuttle 1" },
+        { parent: ship.name, designation: "Shuttle 2" }
+    ];
+});
+
+console.log(deployedShuttles); 
+/* Result: [
+    { parent: "Enterprise", designation: "Shuttle 1" },
+    { parent: "Enterprise", designation: "Shuttle 2" },
+    { parent: "Voyager", designation: "Shuttle 1" },
+    { parent: "Voyager", designation: "Shuttle 2" }
+] */
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let ships = [
+    {
+        name: "Enterprise",
+        class: "Cruiser"
+    },
+    {
+        name: "Voyager",
+        class: "Intrepid"
+    }
+];
+
+// Command each ship object to deploy an array of two shuttle objects
+let deployedShuttles = ships.flatMap(ship => [
+    { parent: ship.name, designation: "Shuttle 1" },
+    { parent: ship.name, designation: "Shuttle 2" }
+]);
+
+console.log(deployedShuttles); 
+/* Result: [
+    { parent: "Enterprise", designation: "Shuttle 1" },
+    { parent: "Enterprise", designation: "Shuttle 2" },
+    { parent: "Voyager", designation: "Shuttle 1" },
+    { parent: "Voyager", designation: "Shuttle 2" }
+] */
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.flatMap(function(element, index, array) { 
+    /* return the modified and unpacked object */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.flatMap((element, index, array) => { /* return the modified and unpacked object */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (A brand-new, completely unpacked array of objects) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This advanced command executes two distinct tactical maneuvers at the exact same time. First, it sweeps the fleet and modifies each object (just like <code>map()</code>). But then, if any of those modified results are themselves an array (like returning a squadron of fighter objects from a carrier), it immediately "unpacks" them, flattening everything out into one single, unified <b>brand-new array</b>. Note that it only flattens one level deep. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
