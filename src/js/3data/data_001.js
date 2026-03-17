@@ -394,6 +394,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/isArray.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "join()",
+        urlOffline: "src/html/array_of_objects/join.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
