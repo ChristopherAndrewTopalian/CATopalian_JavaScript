@@ -436,6 +436,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/push.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "reduce()",
+        urlOffline: "src/html/array_of_objects/reduce.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
