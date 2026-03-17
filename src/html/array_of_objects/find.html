@@ -1,0 +1,138 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- find.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> find() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+    <h1> find() </h1>
+
+    <hr class="tech-divider">
+
+    <p> While <code>filter()</code> returns an array of everything that matches our search, <code>find()</code> is a precision strike. It sweeps the array and returns the <b>very first object</b> that matches the condition, and then it immediately stops looking. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: ES5 Version
+
+let crew = [
+    {
+        name: "Riker",
+        role: "First Officer"
+    },
+    {
+        name: "Data",
+        role: "Operations"
+    },
+    {
+        name: "Worf",
+        role: "Tactical"
+    },
+    {
+        name: "Data", // A backup hologram Data
+        role: "Hologram"
+    }
+];
+
+// Locate the first instance where the name is "Data"
+let androidTarget = crew.find(function(member) {
+    return member.name === "Data";
+});
+
+console.log(androidTarget); 
+// Result: { name: "Data", role: "Operations" }
+// (It completely ignores the hologram Data at the end of the list!)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: ES6 Version
+
+let crew = [
+    {
+        name: "Riker",
+        role: "First Officer"
+    },
+    {
+        name: "Data",
+        role: "Operations"
+    },
+    {
+        name: "Worf",
+        role: "Tactical"
+    },
+    {
+        name: "Data", // A backup hologram Data
+        role: "Hologram"
+    }
+];
+
+// Locate the first instance where the name is "Data"
+let androidTarget = crew.find(member => member.name === "Data");
+
+console.log(androidTarget); 
+// Result: { name: "Data", role: "Operations" }
+// (It completely ignores the hologram Data at the end of the list!)
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code">array.find(function(element, index, array) { 
+    /* return true or false */ 
+})</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code">array.find((element, index, array) => { /* return true or false */ })</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object (Returns the matching object itself, or <code>undefined</code> if not found) </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> While <code>filter()</code> gathers every ship object that matches a condition into a new array, <code>find()</code> is a precision strike. It sweeps the array from left to right and returns the <b>very first object</b> that successfully passes our test. The absolute millisecond it finds a match, the method stops scanning to save processing power. If the entire sweep finishes and no object matches the condition, it safely returns <code>undefined</code>. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
