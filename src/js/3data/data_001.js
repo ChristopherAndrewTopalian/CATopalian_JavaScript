@@ -400,6 +400,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/join.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "keys()",
+        urlOffline: "src/html/array_of_objects/keys.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
