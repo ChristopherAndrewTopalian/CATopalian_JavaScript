@@ -388,6 +388,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/indexOf.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "isArray()",
+        urlOffline: "src/html/array_of_objects/isArray.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
