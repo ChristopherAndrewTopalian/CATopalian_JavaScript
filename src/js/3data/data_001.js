@@ -334,6 +334,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/find.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "findIndex()",
+        urlOffline: "src/html/array_of_objects/findIndex.html",
+        category: 'array_of_objects'
+    },
 ];
 
 //----//
