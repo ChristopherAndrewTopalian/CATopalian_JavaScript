@@ -9,7 +9,7 @@ let apps = [
     name: 'CATopalian JavaScript Space Weather Data Center',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Space_Weather_Data_Center/CATopalian_JavaScript_Space_Weather_Data_Center.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Space_Weather_Data_Center',
-    category: 'text'
+    category: 'science'
 },
 
 {
@@ -363,7 +363,7 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Earthquake_Data_Center',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Earthquake_Data_Center.PNG',
     description: "CATopalian_JavaScript_Earthquake_Data_Center",
-    category: 'text'
+    category: 'science'
 },
 
 // CATopalian JavaScript Filter Functions
@@ -392,7 +392,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Genetics_Navigator',
     videoURL: 'https://www.youtube.com/watch?v=MwZH8slqW8Q',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Genetics_Navigator.PNG',
-    description: "CATopalian_JavaScript_Genetics_Navigator"
+    description: "CATopalian_JavaScript_Genetics_Navigator",
+    category: 'science'
 },
 
 // CATopalian JavaScript Graph
@@ -547,7 +548,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Sun_Report/CATopalian_JavaScript_Sun_Report.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Sun_Report',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Sun_Report.PNG',
-    description: "CATopalian_JavaScript_Sun_Report"
+    description: "CATopalian_JavaScript_Sun_Report",
+    category: 'science'
 },
 
 // CATopalian JavaScript Teacher

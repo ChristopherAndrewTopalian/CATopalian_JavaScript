@@ -621,6 +621,51 @@ function makeInterface(whichArray, whichEntry)
         };
         musicAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let scienceApps = cleanApps.filter(function(item)
+    {
+        return item.category === "science";
+    });
+
+    let scienceAppsDetails = ce('details');
+    scienceAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    scienceAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(scienceAppsDetails);
+
+    //-//
+
+    let scienceAppsSummary = ce('summary');
+    scienceAppsSummary.textContent = 'Science';
+    scienceAppsDetails.append(scienceAppsSummary);
+
+    for (let x = 0; x < scienceApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = scienceApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(scienceApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = scienceApps[x].appURL;
+        };
+        scienceAppsDetails.append(theButton);
+    }
 }
 
 //----//
