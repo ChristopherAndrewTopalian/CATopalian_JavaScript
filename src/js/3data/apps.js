@@ -83,6 +83,12 @@ let apps = [
 },
 
 {
+    name: 'CATopalian JavaScript BabylonJS Town of Auburn MA',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA'
+},
+
+{
     name: "CATopalian JavaScript BabylonJS College of Scripting",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_College_of_Scripting',
