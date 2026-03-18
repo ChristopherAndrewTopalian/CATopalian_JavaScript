@@ -202,9 +202,9 @@ function makeInterface(whichArray, whichEntry)
 
     //-//
 
-    let appsTitle = ce('div');
-    appsTitle.textContent = 'Apps';
-    buttonContainer.append(appsTitle);
+    //let appsTitle = ce('div');
+    //appsTitle.textContent = 'Apps';
+    //buttonContainer.append(appsTitle);
 
     //-//
 
@@ -224,6 +224,29 @@ function makeInterface(whichArray, whichEntry)
         cleanApps.push(updatedApp);
     }
 
+    //-//
+
+    let appsMainDetails = ce('details');
+    appsMainDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    appsMainDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(appsMainDetails);
+
+    //-//
+
+    let appsMainSummary = ce('summary');
+    appsMainSummary.textContent = 'Apps';
+    appsMainSummary.style.fontWeight = 'bold';
+    appsMainSummary.style.color = 'rgb(100, 255, 255)';
+    appsMainDetails.append(appsMainSummary);
+
+    //-//
+
     let appsDetails = ce('details');
     appsDetails.onmouseover = function()
     {
@@ -233,7 +256,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(appsDetails);
+    appsMainDetails.append(appsDetails);
 
     //-//
 
@@ -278,7 +301,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(textAppsDetails);
+    appsMainDetails.append(textAppsDetails);
 
     //-//
 
@@ -323,7 +346,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(trueAIAppsDetails);
+    appsMainDetails.append(trueAIAppsDetails);
 
     //-//
 
@@ -368,7 +391,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(videoAppsDetails);
+    appsMainDetails.append(videoAppsDetails);
 
     //-//
 
@@ -413,7 +436,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(editorAppsDetails);
+    appsMainDetails.append(editorAppsDetails);
 
     //-//
 
@@ -458,7 +481,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(timeDateAppsDetails);
+    appsMainDetails.append(timeDateAppsDetails);
 
     //-//
 
@@ -503,7 +526,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(game2DAppsDetails);
+    appsMainDetails.append(game2DAppsDetails);
 
     //-//
 
@@ -548,7 +571,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(game3DAppsDetails);
+    appsMainDetails.append(game3DAppsDetails);
 
     //-//
 
@@ -593,7 +616,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(musicAppsDetails);
+    appsMainDetails.append(musicAppsDetails);
 
     //-//
 
@@ -638,7 +661,7 @@ function makeInterface(whichArray, whichEntry)
     {
         clickSound();
     };
-    buttonContainer.append(scienceAppsDetails);
+    appsMainDetails.append(scienceAppsDetails);
 
     //-//
 

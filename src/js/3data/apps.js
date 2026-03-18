@@ -461,7 +461,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Math_Generator',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Math_Generator.PNG',
     videoURL: 'https://www.youtube.com/watch?v=Az30vLbG-Co',
-    description: "CATopalian_JavaScript_Math_Generator"
+    description: "CATopalian_JavaScript_Math_Generator",
+    category: 'text'
 },
 
 // CATopalian JavaScript Motion Detection
