@@ -36,7 +36,7 @@ let apps = [
     name: 'CATopalian JavaScript Alarm Clock',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Alarm_Clock/CATopalian_JavaScript_Alarm_Clock.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Alarm_Clock',
-    category: 'text'
+    category: 'time_date'
 },
 
 {
@@ -83,7 +83,7 @@ let apps = [
     name: 'CATopalian JavaScript Calendar',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Calendar/CATopalian_JavaScript_Calendar.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Calendar',
-    category: 'text'
+    category: 'time_date'
 },
 
 {
@@ -286,7 +286,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Clock_with_Moving_Seconds/CATopalian_JavaScript_Clock_with_Moving_Seconds.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Clock_with_Moving_Seconds',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Clock_with_Moving_Seconds.PNG',
-    description: "CATopalian_JavaScript_Clock_with_Moving_Seconds"
+    description: "CATopalian_JavaScript_Clock_with_Moving_Seconds",
+    category: 'time_date'
 },
 
 // CATopalian JavaScript Clock
@@ -295,7 +296,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Clock/CATopalian_JavaScript_Clock.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Clock',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Clock.PNG',
-    description: "CATopalian_JavaScript_Clock"
+    description: "CATopalian_JavaScript_Clock",
+    category: 'time_date'
 },
 
 // CATopalian JavaScript Code Editor
@@ -659,7 +661,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_World_Clock',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_World_Clock.PNG',
     videoURL: 'https://www.youtube.com/watch?v=NGan3hT_0-g',
-    description: "CATopalian_JavaScript_World_Clock"
+    description: "CATopalian_JavaScript_World_Clock",
+    category: 'time_date'
 },
 
 //--//

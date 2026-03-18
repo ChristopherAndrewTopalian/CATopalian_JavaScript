@@ -430,6 +430,51 @@ function makeInterface(whichArray, whichEntry)
         };
         editorAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let timeDateApps = cleanApps.filter(function(item)
+    {
+        return item.category === "time_date";
+    });
+
+    let timeDateAppsDetails = ce('details');
+    timeDateAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    timeDateAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(timeDateAppsDetails);
+
+    //-//
+
+    let timeDateAppsSummary = ce('summary');
+    timeDateAppsSummary.textContent = 'Time/Date Apps';
+    timeDateAppsDetails.append(timeDateAppsSummary);
+
+    for (let x = 0; x < timeDateApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = timeDateApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(timeDateApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = timeDateApps[x].appURL;
+        };
+        timeDateAppsDetails.append(theButton);
+    }
 }
 
 //----//
