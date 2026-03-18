@@ -5,8 +5,6 @@
 // Open Objects = Ctrl + K  Ctrl + J
 
 let apps = [
-// CATopalian JavaScript BabylonJS College of Scripting
-
 {
     name: 'CATopalian JavaScript Space Weather Data Center',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Space_Weather_Data_Center/CATopalian_JavaScript_Space_Weather_Data_Center.html',
@@ -64,6 +62,12 @@ let apps = [
     name: 'CATopalian JavaScript Cost Calculator',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Cost_Calculator/CATopalian_JavaScript_Cost_Calculator.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Cost_Calculator'
+},
+
+{
+    name: 'CATopalian JavaScript College of Scripting Universe',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_College_of_Scripting_Universe/CATopalian_JavaScript_College_of_Scripting_Universe.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_College_of_Scripting_Universe'
 },
 
 {
