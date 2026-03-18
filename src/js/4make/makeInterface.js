@@ -39,8 +39,8 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.top = '10px';
     buttonContainer.style.width = '120px';
     buttonContainer.style.height = '300px';
-    buttonContainer.style.overflowY = 'scroll';
-    buttonContainer.style.overflowX = 'scroll';
+    buttonContainer.style.overflow = 'scroll';
+    buttonContainer.style.gap = '1px';
     ba(buttonContainer);
 
     //-//
@@ -227,7 +227,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let appsSummary = ce('summary');
-    appsSummary.textContent = 'Apps';
+    appsSummary.textContent = 'All Apps';
     appsDetails.append(appsSummary);
 
     for (let x = 0; x < cleanApps.length; x++)
@@ -249,6 +249,51 @@ function makeInterface(whichArray, whichEntry)
             theFrame.src = apps[x].appURL;
         };
         appsDetails.append(theButton);
+    }
+
+    //----//
+
+    let textApps = cleanApps.filter(function(ship)
+    {
+        return ship.category === "text";
+    });
+
+    let textAppsDetails = ce('details');
+    textAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    textAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(textAppsDetails);
+
+    //-//
+
+    let textAppsSummary = ce('summary');
+    textAppsSummary.textContent = 'Text Apps';
+    textAppsDetails.append(textAppsSummary);
+
+    for (let x = 0; x < textApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = textApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(textApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = textApps[x].appURL;
+        };
+        textAppsDetails.append(theButton);
     }
 }
 

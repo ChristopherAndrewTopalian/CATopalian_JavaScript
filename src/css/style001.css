@@ -42,7 +42,7 @@ button
     text-align: left;
     cursor: pointer;
     width: 90%;
-    line-height: 12px;
+    /*line-height: 12px;*/
 }
 
 button:hover
