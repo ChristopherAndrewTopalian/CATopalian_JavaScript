@@ -117,7 +117,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Guitar',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Guitar.PNG',
     videoURL: 'https://www.youtube.com/watch?v=wnMWfRLsSFM',
-    description: "CATopalian_JavaScript_Guitar"
+    description: "CATopalian_JavaScript_Guitar",
+    category: 'music'
 },
 
 // CATopalian JavaScript Piano
@@ -127,7 +128,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Piano',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Piano.PNG',
     videoURL: 'https://www.youtube.com/watch?v=HHFOHwQNcW8',
-    description: "CATopalian_JavaScript_Piano"
+    description: "CATopalian_JavaScript_Piano",
+    category: 'music'
 },
 
 // CATopalian Game Engine

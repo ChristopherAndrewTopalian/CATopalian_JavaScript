@@ -575,6 +575,51 @@ function makeInterface(whichArray, whichEntry)
         };
         game3DAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let musicApps = cleanApps.filter(function(item)
+    {
+        return item.category === "music";
+    });
+
+    let musicAppsDetails = ce('details');
+    musicAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    musicAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(musicAppsDetails);
+
+    //-//
+
+    let musicAppsSummary = ce('summary');
+    musicAppsSummary.textContent = 'Music';
+    musicAppsDetails.append(musicAppsSummary);
+
+    for (let x = 0; x < musicApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = musicApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(musicApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = musicApps[x].appURL;
+        };
+        musicAppsDetails.append(theButton);
+    }
 }
 
 //----//
