@@ -485,6 +485,96 @@ function makeInterface(whichArray, whichEntry)
         };
         timeDateAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let game2DApps = cleanApps.filter(function(item)
+    {
+        return item.category === "game_2d";
+    });
+
+    let game2DAppsDetails = ce('details');
+    game2DAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    game2DAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(game2DAppsDetails);
+
+    //-//
+
+    let game2DAppsSummary = ce('summary');
+    game2DAppsSummary.textContent = 'Game 2D';
+    game2DAppsDetails.append(game2DAppsSummary);
+
+    for (let x = 0; x < game2DApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = game2DApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(game2DApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = game2DApps[x].appURL;
+        };
+        game2DAppsDetails.append(theButton);
+    }
+
+    //----//
+
+    let game3DApps = cleanApps.filter(function(item)
+    {
+        return item.category === "game_3d";
+    });
+
+    let game3DAppsDetails = ce('details');
+    game3DAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    game3DAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(game3DAppsDetails);
+
+    //-//
+
+    let game3DAppsSummary = ce('summary');
+    game3DAppsSummary.textContent = 'Game 3D';
+    game3DAppsDetails.append(game3DAppsSummary);
+
+    for (let x = 0; x < game3DApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = game3DApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(game3DApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = game3DApps[x].appURL;
+        };
+        game3DAppsDetails.append(theButton);
+    }
 }
 
 //----//

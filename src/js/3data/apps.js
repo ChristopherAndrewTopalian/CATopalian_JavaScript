@@ -96,7 +96,8 @@ let apps = [
 {
     name: 'CATopalian JavaScript BabylonJS Town of Auburn MA',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA.html',
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA'
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_Town_of_Auburn_MA',
+    category: 'game_3d'
 },
 
 {
@@ -105,7 +106,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_College_of_Scripting',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_BabyonJS_College_of_Scripting_001.PNG',
     videoURL: 'https://www.youtube.com/watch?v=oS_YV_Q3mfI',
-    description: "The 3D College of Scripting Music & Science"
+    description: "The 3D College of Scripting Music & Science",
+    category: 'game_3d'
 },
 
 // CATopalian JavaScript Guitar
@@ -135,7 +137,8 @@ let apps = [
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_Game_Engine/CATopalian_Game_Engine.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_Game_Engine',
     videoURL: 'https://www.youtube.com/watch?v=LkMl75oG2RM',
-    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Game_Engine.PNG'
+    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Game_Engine.PNG',
+    category: 'game_2d'
 },
 
 // CATopalian Game Engine Data Navigator
@@ -145,7 +148,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_Game_Engine_Data_Navigator',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_Game_Engine_Data_Navigator/CATopalian_Game_Engine_Data_Navigator.html',
     textureOffline: 'src/media/textures/screenshots/CATopalian_Game_Engine_Data_Navigator.PNG',
-    videoURL: 'https://www.youtube.com/watch?v=tsyJYv9Mx74'
+    videoURL: 'https://www.youtube.com/watch?v=tsyJYv9Mx74',
+    category: 'game_2d'
 },
 
 // CATopalian JavaScript Calculation Engine
@@ -317,7 +321,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Comic_Book_Creator',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Comic_Book_Creator.PNG',
     videoURL: 'https://www.youtube.com/watch?v=aswd3T2nVdU',
-    description: "CATopalian_JavaScript_Comic_Book_Creator"
+    description: "CATopalian_JavaScript_Comic_Book_Creator",
+    category: 'game_2d'
 },
 
 // CATopalian JavaScript Data Navigator
@@ -502,7 +507,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Object_Oriented_Game_Design/CATopalian_JavaScript_Object_Oriented_Game_Design.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Object_Oriented_Game_Design',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Object_Oriented_Game_Design.PNG',
-    description: "CATopalian_JavaScript_Object_Oriented_Game_Design"
+    description: "CATopalian_JavaScript_Object_Oriented_Game_Design",
+    category: 'game_2d'
 },
 
 // CATopalian JavaScript Password Generator
