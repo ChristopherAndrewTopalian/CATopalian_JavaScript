@@ -43,6 +43,18 @@ let apps = [
 },
 
 {
+    name: 'CATopalian JavaScript True AI 16 Gates Symmetry',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_16_Gates_Symmetry/CATopalian_JavaScript_True_AI_16_Gates_Symmetry.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates_Symmetry'
+},
+
+{
+    name: 'CATopalian JavaScript Video Navigator',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Video_Navigator/CATopalian_JavaScript_Video_Navigator.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Video_Navigator'
+},
+
+{
     name: "CATopalian JavaScript BabylonJS College of Scripting",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_College_of_Scripting',
