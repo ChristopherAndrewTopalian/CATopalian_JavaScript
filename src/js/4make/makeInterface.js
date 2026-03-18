@@ -253,9 +253,9 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
-    let textApps = cleanApps.filter(function(ship)
+    let textApps = cleanApps.filter(function(item)
     {
-        return ship.category === "text";
+        return item.category === "text";
     });
 
     let textAppsDetails = ce('details');
@@ -294,6 +294,51 @@ function makeInterface(whichArray, whichEntry)
             theFrame.src = textApps[x].appURL;
         };
         textAppsDetails.append(theButton);
+    }
+
+    //----//
+
+    let trueAIApps = cleanApps.filter(function(item)
+    {
+        return item.category === "true_ai";
+    });
+
+    let trueAIAppsDetails = ce('details');
+    trueAIAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    trueAIAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(trueAIAppsDetails);
+
+    //-//
+
+    let trueAIAppsSummary = ce('summary');
+    trueAIAppsSummary.textContent = 'True AI Apps';
+    trueAIAppsDetails.append(trueAIAppsSummary);
+
+    for (let x = 0; x < trueAIApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = trueAIApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(trueAIApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = trueAIApps[x].appURL;
+        };
+        trueAIAppsDetails.append(theButton);
     }
 }
 

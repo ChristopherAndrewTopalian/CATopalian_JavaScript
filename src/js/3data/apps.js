@@ -41,13 +41,15 @@ let apps = [
 
 {
     name: 'CATopalian JavaScript True AI Logic Gate',
-    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_Logic_Gates/CATopalian_JavaScript_True_AI_Logic_Gates.html'
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_Logic_Gates/CATopalian_JavaScript_True_AI_Logic_Gates.html',
+    category: 'true_ai'
 },
 
 {
     name: 'CATopalian JavaScript True AI 16 Gates Symmetry',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_16_Gates_Symmetry/CATopalian_JavaScript_True_AI_16_Gates_Symmetry.html',
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates_Symmetry'
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates_Symmetry',
+    category: 'true_ai'
 },
 
 {
@@ -581,7 +583,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_16_Gates/CATopalian_JavaScript_True_AI_16_Gates.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_True_AI_16_Gates.PNG',
-    description: "CATopalian_JavaScript_True_AI_16_Gates"
+    description: "CATopalian_JavaScript_True_AI_16_Gates",
+    category: 'true_ai'
 },
 
 // CATopalian JavaScript True AI
@@ -590,7 +593,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI/CATopalian_JavaScript_True_AI.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_True_AI.PNG',
-    description: "CATopalian_JavaScript_True_AI"
+    description: "CATopalian_JavaScript_True_AI",
+    category: 'true_ai'
 },
 
 // CATopalian JavaScript True AI 16 Gates Number Recognition
@@ -599,7 +603,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition.PNG',
-    description: "CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition"
+    description: "CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition",
+    category: 'true_ai'
 },
 
 // CATopalian JavaScript True AI 16 Gates Number Recognition 3x3
@@ -608,7 +613,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3.PNG',
-    description: "CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3"
+    description: "CATopalian_JavaScript_True_AI_16_Gates_Number_Recognition_3x3",
+    category: 'true_ai'
 },
 
 // CATopalian JavaScript Truth Detection
