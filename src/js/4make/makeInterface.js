@@ -197,6 +197,22 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    // we create an empty docking bay for our cleaned app names
+    let cleanApps = [];
+
+    // loop through the original array
+    for (let i = 0; i < apps.length; i++)
+    {
+        // create a copy of the current app, but replace the name
+        let updatedApp = {
+            ...apps[i], 
+            name: apps[i].name.replace("CATopalian JavaScript ", "")
+        };
+
+        // send the new, clean object into our new array
+        cleanApps.push(updatedApp);
+    }
+
     let appsDetails = ce('details');
     appsDetails.onmouseover = function()
     {
@@ -214,10 +230,10 @@ function makeInterface(whichArray, whichEntry)
     appsSummary.textContent = 'Apps';
     appsDetails.append(appsSummary);
 
-    for (let x = 0; x < apps.length; x++)
+    for (let x = 0; x < cleanApps.length; x++)
     {
         let theButton = ce("button");
-        theButton.textContent = apps[x].name;
+        theButton.textContent = cleanApps[x].name;
         theButton.onmouseover = function()
         {
             // hoverSound();
