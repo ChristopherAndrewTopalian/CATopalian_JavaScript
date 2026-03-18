@@ -6,6 +6,31 @@
 
 let apps = [
 // CATopalian JavaScript BabylonJS College of Scripting
+
+{
+    name: 'CATopalian JavaScript Space Weather Data Center',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Space_Weather_Data_Center/CATopalian_JavaScript_Space_Weather_Data_Center.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Space_Weather_Data_Center',
+},
+
+{
+    name: 'CATopalian JavaScript Texture Changer',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Texture_Changer/CATopalian_JavaScript_Texture_Changer.html', 
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Texture_Changer'
+},
+
+{
+    name: 'CATopalian JavaScript Book Navigator',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Book_Navigator/CATopalian_JavaScript_Book_Navigator.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Book_Navigator'
+},
+
+{
+    name: 'CATopalian JavaScript Barometer Sensor',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Barometer_Sensor/CATopalian_JavaScript_Barometer_Sensor.html', 
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Barometer_Sensor'
+},
+
 {
     name: "CATopalian JavaScript BabylonJS College of Scripting",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting.html",
