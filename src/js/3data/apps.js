@@ -55,6 +55,18 @@ let apps = [
 },
 
 {
+    name: 'CATopalian JavaScript Location Navigator',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Location_Navigator/CATopalian_JavaScript_Location_Navigator.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Location_Navigator'
+},
+
+{
+    name: 'CATopalian JavaScript Cost Calculator',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Cost_Calculator/CATopalian_JavaScript_Cost_Calculator.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Cost_Calculator'
+},
+
+{
     name: "CATopalian JavaScript BabylonJS College of Scripting",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_College_of_Scripting',
