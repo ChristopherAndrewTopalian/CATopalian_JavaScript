@@ -224,6 +224,12 @@ code
     background-color: rgb(40, 40, 40);
 }
 
+hr
+{
+    margin: 1px;
+    width: 100%;
+}
+
 /* Syntax Highlighting Colors */
 
 .green

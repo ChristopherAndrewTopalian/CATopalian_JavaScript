@@ -197,6 +197,16 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    buttonContainer.append(ce('hr'));
+
+    //-//
+
+    let appsTitle = ce('div');
+    appsTitle.textContent = 'Apps';
+    buttonContainer.append(appsTitle);
+
+    //-//
+
     // we create an empty docking bay for our cleaned app names
     let cleanApps = [];
 
@@ -227,7 +237,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let appsSummary = ce('summary');
-    appsSummary.textContent = 'All Apps';
+    appsSummary.textContent = 'All';
     appsDetails.append(appsSummary);
 
     for (let x = 0; x < cleanApps.length; x++)
@@ -272,7 +282,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let textAppsSummary = ce('summary');
-    textAppsSummary.textContent = 'Text Apps';
+    textAppsSummary.textContent = 'Text';
     textAppsDetails.append(textAppsSummary);
 
     for (let x = 0; x < textApps.length; x++)
@@ -317,7 +327,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let trueAIAppsSummary = ce('summary');
-    trueAIAppsSummary.textContent = 'True AI Apps';
+    trueAIAppsSummary.textContent = 'True AI';
     trueAIAppsDetails.append(trueAIAppsSummary);
 
     for (let x = 0; x < trueAIApps.length; x++)
@@ -362,7 +372,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let videoAppsSummary = ce('summary');
-    videoAppsSummary.textContent = 'Video Apps';
+    videoAppsSummary.textContent = 'Video';
     videoAppsDetails.append(videoAppsSummary);
 
     for (let x = 0; x < videoApps.length; x++)
@@ -407,7 +417,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let editorAppsSummary = ce('summary');
-    editorAppsSummary.textContent = 'Editor Apps';
+    editorAppsSummary.textContent = 'Editors';
     editorAppsDetails.append(editorAppsSummary);
 
     for (let x = 0; x < editorApps.length; x++)
@@ -452,7 +462,7 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let timeDateAppsSummary = ce('summary');
-    timeDateAppsSummary.textContent = 'Time/Date Apps';
+    timeDateAppsSummary.textContent = 'Time/Date';
     timeDateAppsDetails.append(timeDateAppsSummary);
 
     for (let x = 0; x < timeDateApps.length; x++)
