@@ -41,6 +41,7 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.height = '300px';
     buttonContainer.style.overflow = 'scroll';
     buttonContainer.style.gap = '1px';
+    buttonContainer.style.fontSize = '15px';
     ba(buttonContainer);
 
     //-//
