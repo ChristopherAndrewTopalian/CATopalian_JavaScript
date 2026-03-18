@@ -32,6 +32,17 @@ let apps = [
 },
 
 {
+    name: 'CATopalian JavaScript Alarm Clock',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Alarm_Clock/CATopalian_JavaScript_Alarm_Clock.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Alarm_Clock'
+},
+
+{
+    name: 'CATopalian JavaScript True AI Logic Gate',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_Logic_Gates/CATopalian_JavaScript_True_AI_Logic_Gates.html'
+},
+
+{
     name: "CATopalian JavaScript BabylonJS College of Scripting",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting/CATopalian_JavaScript_BabylonJS_College_of_Scripting.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_BabylonJS_College_of_Scripting',

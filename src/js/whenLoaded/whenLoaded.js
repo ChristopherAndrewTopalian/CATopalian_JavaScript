@@ -4,11 +4,17 @@ function whenLoaded()
 {
     makeInterface(operators, 0);
 
-    // 3. Run the engine as soon as the page loads
+    // run the engine as soon as the page loads
     window.onload = function()
     {
         applyCustomHighlighting();
     };
+
+    // disable the context menu from opening upon right click
+    document.addEventListener('contextmenu', function(event)
+    {
+        event.preventDefault();
+    });
 }
 
 //----//

@@ -238,6 +238,11 @@ function makeInterface(whichArray, whichEntry)
         {
             // hoverSound();
         };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(apps[x].codeURL);
+        };
         theButton.onclick = function()
         {
             //clickSound();
