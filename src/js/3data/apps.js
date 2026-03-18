@@ -55,7 +55,8 @@ let apps = [
 {
     name: 'CATopalian JavaScript Video Navigator',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Video_Navigator/CATopalian_JavaScript_Video_Navigator.html',
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Video_Navigator'
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Video_Navigator',
+    category: 'video'
 },
 
 {
@@ -147,7 +148,7 @@ let apps = [
     videoURL: 'https://www.youtube.com/watch?v=tsyJYv9Mx74'
 },
 
-// * CATopalian JavaScript Calculation Engine
+// CATopalian JavaScript Calculation Engine
 {
     name: "CATopalian JavaScript Calculation Engine",
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Calculation_Engine/CATopalian_JavaScript_Calculation_Engine.html",
@@ -165,7 +166,7 @@ let apps = [
     description: "Users can Type or Load Markdown formatted text into a textarea and this app converts it to HTML in the other textarea.",
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Markdown_to_HTML_Editor.PNG',
     videoURL: 'https://www.youtube.com/watch?v=JmkKWgdGg9M',
-    category: 'text'
+    category: 'editor'
 },
 
 // CATopalian JavaScript File Navigator
@@ -215,7 +216,7 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_HTML_JavaScript_Code_Editor',
     textureOffline: 'src/media/textures/screenshots/CATopalian_HTML_JavaScript_Code_Editor.PNG',
     description: "CATopalian_HTML_JavaScript_Code_Editor",
-    category: 'text'
+    category: 'editor'
 },
 
 // CATopalian HTML JavaScript Editor
@@ -225,7 +226,7 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_HTML_JavaScript_Editor',
     textureOffline: 'src/media/textures/screenshots/CATopalian_HTML_JavaScript_Editor.PNG',
     description: "CATopalian_HTML_JavaScript_Editor",
-    category: 'text'
+    category: 'editor'
 },
 
 // CATopalian JavaScript 3D Editor
@@ -235,7 +236,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_3D_Editor',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_3D_Editor.PNG',
     videoURL: 'https://www.youtube.com/watch?v=iqjjMmaAqMQ',
-    description: "CATopalian_JavaScript_3D_Editor"
+    description: "CATopalian_JavaScript_3D_Editor",
+    category: 'editor',
 },
 
 // CATopalian JavaScript Accordion Interface
@@ -303,7 +305,7 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Code_Editor',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Code_Editor.PNG',
     description: "CATopalian_JavaScript_Code_Editor",
-    category: 'text'
+    category: 'editor'
 },
 
 // CATopalian JavaScript Comic Book Creator
@@ -458,7 +460,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Motion_Detection/CATopalian_JavaScript_Motion_Detection.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Motion_Detection',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Motion_Detection.PNG',
-    description: "CATopalian_JavaScript_Motion_Detection"
+    description: "CATopalian_JavaScript_Motion_Detection",
+    category: '' // video
 },
 
 // CATopalian JavaScript Motion Tracking
@@ -467,7 +470,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Motion_Tracking/CATopalian_JavaScript_Motion_Tracking.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Motion_Tracking',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Motion_Tracking.PNG',
-    description: "CATopalian_JavaScript_Motion_Tracking"
+    description: "CATopalian_JavaScript_Motion_Tracking",
+    category: '', // video
 },
 
 // CATopalian JavaScript Note Taker
@@ -564,7 +568,7 @@ let apps = [
     codeURL: 'https://github.com/christopherandrewtopalian/CATopalian_JavaScript_Text_Editor',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Text_Editor.PNG',
     description: "CATopalian_JavaScript_Text_Editor",
-    category: 'text'
+    category: 'editor'
 },
 
 // CATopalian JavaScript Text Investigator
@@ -623,7 +627,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Truth_Detection/CATopalian_JavaScript_Truth_Detection.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Truth_Detection',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Truth_Detection.PNG',
-    description: "CATopalian_JavaScript_Truth_Detection"
+    description: "CATopalian_JavaScript_Truth_Detection",
+    category: 'video',
 },
 
 // CATopalian JavaScript Video Gallery
@@ -633,7 +638,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Video_Gallery',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Video_Gallery.PNG',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Video_Gallery.PNG',
-    description: "CATopalian_JavaScript_Video_Gallery"
+    description: "CATopalian_JavaScript_Video_Gallery",
+    category: 'video'
 },
 
 // CATopalian JavaScript Video Investigator
@@ -642,7 +648,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Video_Investigator/CATopalian_JavaScript_Video_Investigator.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Video_Investigator',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Video_Investigator.PNG',
-    description: "CATopalian_JavaScript_Video_Investigator"
+    description: "CATopalian_JavaScript_Video_Investigator",
+    category: 'video'
 },
 
 // CATopalian JavaScript World Clock

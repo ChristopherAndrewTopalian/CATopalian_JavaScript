@@ -340,6 +340,96 @@ function makeInterface(whichArray, whichEntry)
         };
         trueAIAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let videoApps = cleanApps.filter(function(item)
+    {
+        return item.category === "video";
+    });
+
+    let videoAppsDetails = ce('details');
+    videoAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    videoAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(videoAppsDetails);
+
+    //-//
+
+    let videoAppsSummary = ce('summary');
+    videoAppsSummary.textContent = 'Video Apps';
+    videoAppsDetails.append(videoAppsSummary);
+
+    for (let x = 0; x < videoApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = videoApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(videoApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = videoApps[x].appURL;
+        };
+        videoAppsDetails.append(theButton);
+    }
+
+    //----//
+
+    let editorApps = cleanApps.filter(function(item)
+    {
+        return item.category === "editor";
+    });
+
+    let editorAppsDetails = ce('details');
+    editorAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    editorAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(editorAppsDetails);
+
+    //-//
+
+    let editorAppsSummary = ce('summary');
+    editorAppsSummary.textContent = 'Editor Apps';
+    editorAppsDetails.append(editorAppsSummary);
+
+    for (let x = 0; x < editorApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = editorApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(editorApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = editorApps[x].appURL;
+        };
+        editorAppsDetails.append(theButton);
+    }
 }
 
 //----//
