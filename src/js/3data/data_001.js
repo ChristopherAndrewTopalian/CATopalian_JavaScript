@@ -641,6 +641,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "padStart()",
+        urlOffline: "src/html/string/padStart.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

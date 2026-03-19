@@ -163,6 +163,8 @@ let theFunctions =
     'Number',
     'of',
     'open',
+    'padEnd',
+    'padStart',
     'parse',
     'parseFloat',
     'parseInt',
