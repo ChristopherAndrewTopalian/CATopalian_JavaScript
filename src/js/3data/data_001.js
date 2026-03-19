@@ -683,6 +683,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "startsWith()",
+        urlOffline: "src/html/string/startsWith.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
