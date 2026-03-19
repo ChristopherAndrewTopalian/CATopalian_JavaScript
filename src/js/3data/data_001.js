@@ -647,6 +647,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "repeat()",
+        urlOffline: "src/html/string/repeat.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
