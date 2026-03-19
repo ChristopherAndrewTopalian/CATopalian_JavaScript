@@ -737,6 +737,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "trimEnd()",
+        urlOffline: "src/html/string/trimEnd.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

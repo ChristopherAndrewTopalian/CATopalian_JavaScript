@@ -1,0 +1,84 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- trimEnd.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> trimEnd() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> trimEnd() </h1>
+
+<p> The <code>trimEnd()</code> method is a precision back-end scrubber. It actively hunts down and deletes any invisible whitespace characters (like spaces, tabs, or hidden line breaks) that are clinging to the very <i>end</i> of a string, while completely protecting any spaces at the beginning. </p>
+
+<hr>
+
+<pre><code class="custom-code">let engineeringLog = "     Warp core stable.     ";
+
+// We absolutely MUST keep the 5 spaces at the beginning to maintain 
+// the strict visual indentation of our database reports!
+// But the spaces at the end are just wasting memory.
+
+let cleanedEnd = engineeringLog.trimEnd();
+
+console.log(cleanedEnd); 
+// Result: "     Warp core stable." (The front is protected, the back is clean!)
+
+// Professional Trivia: We might also see this written as trimRight() in older code!
+let legacyCode = "Engage.   ".trimRight();
+
+console.log(legacyCode);
+// Result: "Engage."
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.trimEnd()</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand-new string with all trailing whitespace removed. The original string remains untouched.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>trimEnd()</code> method is the exact mirror of <code>trimStart()</code>. It is a highly specialized tool used by developers to clean up the right side of user input without destroying the left side. This is especially critical when dealing with text where indentation matters. Just like its twin, <b>Historical Note:</b> this method was originally called <code>trimRight()</code> in the early days of JavaScript. It was officially renamed to <code>trimEnd()</code> to match the naming convention of <code>padEnd()</code>, but <code>trimRight()</code> still works perfectly today as an alias to ensure ancient websites don't crash! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
