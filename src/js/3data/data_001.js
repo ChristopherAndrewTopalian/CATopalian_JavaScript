@@ -671,6 +671,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "slice()",
+        urlOffline: "src/html/string/slice.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
