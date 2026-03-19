@@ -689,6 +689,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "substring()",
+        urlOffline: "src/html/string/substring.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
