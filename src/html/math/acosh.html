@@ -1,0 +1,85 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- acosh.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.acosh() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.acosh() </h1>
+
+<p> The <code>Math.acosh()</code> method stands for "Hyperbolic Arccosine." We can think of it as our "Escape Trajectory Plotter." While normal arccosine deals with spinning in circles, hyperbolic arccosine helps us calculate the exact curve a starship makes when it slingshots around a heavy gravity well and shoots out into deep space! </p>
+
+<hr>
+
+<pre><code class="custom-code">// We are caught in a massive gravity well and need to plot a hyperbolic escape!
+// The navigation computer gives us a Gravitational Stress Factor of 1.5.
+let stressFactor = 1.5;
+
+// We ask the computer to calculate our hyperbolic escape angle:
+let escapeCurve = Math.acosh(stressFactor);
+
+console.log(escapeCurve); 
+// Result: 0.9624236501192069 (Trajectory locked! Engage impulse engines!)
+
+// THE FATAL TRAP: 
+// In hyperbolic math, the input number MUST be exactly 1 or greater! 
+// If the stress factor is less than 1, we don't have enough energy to escape.
+let weakThrust = Math.acosh(0.5);
+
+console.log(weakThrust);
+// Result: NaN (Not-a-Number! The math physically breaks down, and the ship crashes!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.acosh(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The hyperbolic arccosine of the given number. If the number is less than 1, it returns <code>NaN</code>.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> In advanced game engines and 3D space simulators, we use hyperbolic math to calculate orbital mechanics and particle physics. The most critical engineering rule we must remember for this method is its strict limitation: <b>the value of x must always be greater than or equal to 1.</b> If we feed it a number smaller than 1, or a negative number, the equation becomes impossible to solve in real numbers, and JavaScript immediately returns <code>NaN</code> to warn us that our physics simulation has broken down! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

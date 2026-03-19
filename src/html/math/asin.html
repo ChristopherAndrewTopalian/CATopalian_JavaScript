@@ -1,0 +1,91 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- asin.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.asin() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.asin() </h1>
+
+<p> The <code>Math.asin()</code> method stands for "Arcsine." In our game engines, we can think of this as our "Vertical Elevation Decoder." When our local radar detects a target moving above or below our ship's neutral plane, we feed the vertical ratio into this method. It instantly calculates the exact angle we need to pitch our ship up or down to intercept! </p>
+
+
+
+<hr>
+
+<pre><code class="custom-code">// Tactical radar detects a target moving above our local grid plane.
+// The targeting computer provides a vertical height ratio of 0.707.
+let verticalRatio = 0.707;
+
+// We ask the computer to decode this ratio into an elevation angle:
+let elevationInRadians = Math.asin(verticalRatio);
+
+console.log(elevationInRadians); 
+// Result: 0.785398... (Radians are great for the CPU, but bad for the pilot!)
+
+// The Professional Solution: We translate Radians into Degrees!
+let elevationInDegrees = elevationInRadians * (180 / Math.PI);
+
+// We use Math.round() to make it a clean, readable number for the UI.
+console.log(Math.round(elevationInDegrees));
+// Result: 45 (Pitch the ship up exactly 45 degrees to intercept!)
+
+// THE FATAL TRAP: Just like acos(), the input MUST be between -1 and 1!
+let brokenSensor = Math.asin(1.5);
+console.log(brokenSensor);
+// Result: NaN (Sensor failure! Target lost!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.asin(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The arcsine of the given number, returned in radians between -Pi/2 and Pi/2. Returns <code>NaN</code> if the number is outside the -1 to 1 range.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Whenever we build a 3D game or a tracking system, we use a local coordinate grid. The <code>Math.asin()</code> method takes a number representing a vertical ratio (which must be between -1 and 1) and returns the angle of elevation. A positive ratio means the target is above us, and a negative ratio means the target is below us. Because JavaScript calculates angles in <b>Radians</b>, we must always apply our translation formula, multiplying the result by <code>(180 / Math.PI)</code>, to convert the data into standard degrees so we can display it clearly on our user interfaces and radar screens! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

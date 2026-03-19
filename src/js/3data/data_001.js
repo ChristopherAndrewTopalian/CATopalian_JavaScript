@@ -767,6 +767,18 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "acosh()",
+        urlOffline: "src/html/math/acosh.html",
+        category: 'math'
+    },
+
+    {
+        name: "asin()",
+        urlOffline: "src/html/math/asin.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
