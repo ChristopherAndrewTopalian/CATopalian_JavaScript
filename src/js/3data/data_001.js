@@ -605,6 +605,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "lastIndexOf()",
+        urlOffline: "src/html/string/lastIndexOf.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

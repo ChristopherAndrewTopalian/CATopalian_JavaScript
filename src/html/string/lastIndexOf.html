@@ -1,0 +1,85 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- lastIndexOf.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> lastIndexOf() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> lastIndexOf() </h1>
+
+<p> The <code>lastIndexOf()</code> method is a reverse targeting scanner. Instead of reading left-to-right, it scans the string from right-to-left to find the <i>last</i> occurrence of a specific word or character. However, it still returns the standard left-to-right index coordinate! </p>
+
+<hr>
+
+<pre><code class="custom-code">let log = "Entering Sector 4. Patrolling Sector 4. Leaving Sector 4.";
+
+// Lock onto the exact starting coordinate of the VERY LAST "Sector"
+let mostRecentLog = log.lastIndexOf("Sector");
+console.log(mostRecentLog); 
+// Result: 48 (The "S" in the final "Sector" is at Index 48)
+
+// Search for a threat that isn't there
+let missingThreat = log.lastIndexOf("Borg");
+console.log(missingThreat);
+// Result: -1 (Target not found!)
+
+// Advanced: Start scanning backwards from a specific coordinate!
+// We tell the reverse-scanner to start at Index 30 and go backwards.
+let middleLog = log.lastIndexOf("Sector", 30);
+console.log(middleLog);
+// Result: 30 (It found the middle "Sector" and ignored the last one!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.lastIndexOf(searchString, position)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The index of the first character of the <i>last</i> found text. Returns <code>-1</code> if the text is not found anywhere.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> This method operates exactly like <code>indexOf()</code>, but in reverse. It is incredibly useful for parsing long data files where we only care about the most recent entry. The biggest trap for beginners is the optional <code>position</code> parameter. In <code>indexOf()</code>, the position tells the computer to skip the front and scan forward. In <code>lastIndexOf()</code>, the position tells the computer to skip the end and scan <b>backward</b> toward the front of the string (Index 0). Remember, even though it scans backward, the index number it returns is still the standard coordinate counted from the left! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
