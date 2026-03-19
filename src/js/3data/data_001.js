@@ -677,6 +677,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "split()",
+        urlOffline: "src/html/string/split.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

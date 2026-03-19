@@ -1,0 +1,90 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- split.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> split() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> split() </h1>
+
+<p> The <code>split()</code> method is a structural demolition tool. It takes a single string, hunts for a specific "separator" character (like a comma or a space), and physically shatters the string at every location where that character exists. It then gathers all the broken pieces and returns them to us inside a brand-new Array. </p>
+
+<hr>
+
+<pre><code class="custom-code">let crewRoster = "Kirk,Spock,McCoy,Uhura";
+
+// Shatter the string every time it sees a comma!
+let crewArray = crewRoster.split(",");
+
+console.log(crewArray); 
+// Result: ["Kirk", "Spock", "McCoy", "Uhura"]
+
+// What if we want to split a sentence into individual words?
+// We use a blank space " " as the separator!
+let command = "Fire photon torpedoes";
+let wordsArray = command.split(" ");
+
+console.log(wordsArray);
+// Result: ["Fire", "photon", "torpedoes"]
+
+// Advanced: We can put a strict limit on the number of pieces!
+// Let's chop the roster, but only keep the first two crew members.
+let awayTeam = crewRoster.split(",", 2);
+
+console.log(awayTeam);
+// Result: ["Kirk", "Spock"]
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.split(separator, limit)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A brand-new Array containing the extracted substrings.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> This method is universally used to process CSV (Comma-Separated Values) files and user input. The <code>separator</code> parameter dictates exactly where the axe falls. If we omit the separator completely (<code>split()</code>), it will just shove the entire unbroken string into an Array. The most powerful trick to remember is the <b>Empty String Hack</b>: if we pass an empty string with absolutely no space inside it (<code>split("")</code>), the engine will aggressively shatter the text between <i>every single letter</i>, turning a word into an array of individual characters! The optional <code>limit</code> parameter allows us to tell the computer to stop chopping after a certain number of pieces have been collected. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
