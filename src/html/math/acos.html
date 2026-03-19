@@ -1,0 +1,90 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- acos.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.acos() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.acos() </h1>
+
+<p> The <code>Math.acos()</code> method stands for "Arccosine." We can think of it as our tactical "Angle Decoder." When we know the distances between two objects on our 2D radar screen, we feed that ratio into this method, and it calculates the exact angle we need to point our ship or our deflector shields! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Tactical sensors have locked onto an incoming target.
+// Based on its coordinates, our targeting computer gives us a ratio of 0.5
+let targetingRatio = 0.5;
+
+// We ask the computer to decode this ratio into an angle:
+let angleInRadians = Math.acos(targetingRatio);
+
+console.log(angleInRadians); 
+// Result: 1.0471975511965976 
+// (Wait! The computer thinks in "Radians", but human officers think in "Degrees"!)
+
+// The Professional Solution: We translate Radians into Degrees!
+// We multiply by 180 and divide by Math.PI
+let angleInDegrees = angleInRadians * (180 / Math.PI);
+
+console.log(angleInDegrees);
+// Result: 60 (Success! Angle the deflector shields to exactly 60 degrees!)
+
+// THE FATAL TRAP: The input ratio MUST be between -1 and 1!
+let brokenSensor = Math.acos(2);
+console.log(brokenSensor);
+// Result: NaN (Not-a-Number! The shields will fail to deploy!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.acos(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The arccosine of the given number, returned in radians between 0 and Pi. Returns <code>NaN</code> if the number is outside the -1 to 1 range.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> In our game engine, we constantly need to figure out which direction things are facing. The <code>Math.acos()</code> method takes a number representing a mathematical ratio (which absolutely must be between -1 and 1) and returns the angle. The biggest hurdle we face as developers is that JavaScript mathematics use <b>Radians</b> instead of Degrees. A full circle is 360 degrees, but in JavaScript, a full circle is roughly 6.28 radians! To make this data useful for a human-readable UI, like building a circular Pie Menu or a radar overlay, we must always remember to convert the result into degrees by multiplying it by <code>(180 / Math.PI)</code>. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

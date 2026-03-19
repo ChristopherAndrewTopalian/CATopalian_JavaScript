@@ -761,6 +761,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "acos()",
+        urlOffline: "src/html/math/acos.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
