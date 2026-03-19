@@ -593,6 +593,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "indexOf()",
+        urlOffline: "src/html/string/indexOf.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
