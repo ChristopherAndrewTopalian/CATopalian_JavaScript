@@ -544,6 +544,12 @@ let operators = [
         urlOffline: "src/html/string/at.html",
         category: 'string'
     },
+
+    {
+        name: "charAt()",
+        urlOffline: "src/html/string/charAt.html",
+        category: 'string'
+    },
 ];
 
 //----//
