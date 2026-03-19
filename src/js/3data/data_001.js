@@ -623,6 +623,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "matchAll()",
+        urlOffline: "src/html/string/matchAll.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
