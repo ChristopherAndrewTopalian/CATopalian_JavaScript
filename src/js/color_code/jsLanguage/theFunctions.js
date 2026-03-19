@@ -137,6 +137,7 @@ let theFunctions =
     'isSafeInteger',
     'isSameNode',
     'isSupported',
+    'isWellFormed',
     'item',
     'join',
     'key',

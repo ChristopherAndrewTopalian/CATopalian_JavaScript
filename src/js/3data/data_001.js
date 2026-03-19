@@ -599,6 +599,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "isWellFormed()",
+        urlOffline: "src/html/string/isWellFormed.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
