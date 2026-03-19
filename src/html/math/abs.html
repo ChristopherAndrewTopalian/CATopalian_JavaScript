@@ -1,0 +1,86 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- abs.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.abs() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.abs() </h1>
+
+<p> The <code>Math.abs()</code> method stands for "Absolute Value." It acts as a mathematical magnitude filter. If we give it a negative number, it instantly strips away the minus sign and returns the positive version of that number. If we give it a positive number, it leaves it completely alone. We universally use this in game engines to calculate the true distance between two coordinates! </p>
+
+<hr>
+
+<pre><code class="custom-code">let starshipZ = 450;
+let spatialAnomalyZ = 800;
+
+// Standard math might give us a negative number if we subtract in the wrong order!
+let rawCalculation = starshipZ - spatialAnomalyZ;
+
+console.log(rawCalculation); 
+// Result: -350 (Sensors failing: distance cannot be negative!)
+
+// The Professional Solution: We use Math.abs() to get the absolute magnitude!
+let trueDistance = Math.abs(starshipZ - spatialAnomalyZ);
+
+console.log(trueDistance);
+// Result: 350 (The anomaly is exactly 350 units away, regardless of direction.)
+
+// It also works directly on raw numbers:
+console.log(Math.abs(-99.5)); // Result: 99.5
+console.log(Math.abs(42));    // Result: 42
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.abs(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The absolute, positive value of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> In mathematics, the absolute value of <i>x</i> is written as |<i>x</i>|. It represents the distance of a number from zero on a number line, which means it is physically impossible for it to be negative. <code>Math.abs()</code> is a static method, meaning we never create a "new Math" object; we simply call it directly. It is a critical tool for collision detection in game development. If we pass an empty string or an empty array into this method, it will secretly convert it to a <code>0</code>. If we pass it text that cannot be converted into a number, it will return <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

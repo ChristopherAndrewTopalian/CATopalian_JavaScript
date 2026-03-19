@@ -236,6 +236,44 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let mathDetails = ce('details');
+    mathDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    mathDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(mathDetails);
+
+    //-//
+
+    let mathSummary = ce('summary');
+    mathSummary.textContent = 'Math';
+    mathDetails.append(mathSummary);
+
+    for (let x = 0; x < whichArray.length; x++)
+    {
+        if (whichArray[x].category == 'math')
+        {
+            let theButton = ce("button");
+            theButton.textContent = whichArray[x].name;
+            theButton.onmouseover = function()
+            {
+                // hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = whichArray[x].urlOffline;
+            };
+            mathDetails.append(theButton);
+        }
+    }
+
+    //----//
+
     buttonContainer.append(ce('hr'));
 
     //-//

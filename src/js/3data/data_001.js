@@ -755,6 +755,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "abs()",
+        urlOffline: "src/html/math/abs.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
