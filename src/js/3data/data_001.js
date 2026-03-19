@@ -665,6 +665,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "search()",
+        urlOffline: "src/html/string/search.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

@@ -1,0 +1,86 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- search.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> search() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> search() </h1>
+
+<p> The <code>search()</code> method is a RegEx-powered targeting scanner. It behaves very much like <code>indexOf()</code> by returning the exact index coordinate of a target. However, instead of looking for a specific word, it hunts for a <i>pattern</i>, allowing us to find the location of data even when we don't know exactly what that data says! </p>
+
+<hr>
+
+<pre><code class="custom-code">let sensorLog = "Sector 4 clear. Unknown anomaly detected at grid 88-Tango.";
+
+// We don't know the exact grid name, but we know the pattern: 
+// Two digits, a hyphen, and a word. (RegEx: /\d{2}-\w+/)
+let targetCoordinate = sensorLog.search(/\d{2}-\w+/);
+
+console.log(targetCoordinate); 
+// Result: 47 (The "8" in "88-Tango" is located at Index 47)
+
+// If the scanner fails to find the pattern anywhere in the log:
+let borgSignature = sensorLog.search(/Borg/);
+console.log(borgSignature);
+// Result: -1 (Target pattern not found!)
+
+// Note: If we pass it a standard string, it secretly converts it to RegEx for us!
+let standardSearch = sensorLog.search("Sector");
+console.log(standardSearch);
+// Result: 0
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.search(regexp)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The index coordinate of the first match. Returns <code>-1</code> if the pattern is not found.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> To master JavaScript, we must comprehend the difference between <code>search()</code>, <code>indexOf()</code>, and <code>match()</code>. Use <code>indexOf()</code> when we are looking for a simple, exact word, it is much faster and uses less computer memory. Use <code>match()</code> when we want to actually extract the data and put it into an Array. Use <code>search()</code> when we only need to know the <b>location</b> (the index number) of a complex Regular Expression pattern. Keep in mind that <code>search()</code> entirely ignores the "g" (global) flag; it will always stop scanning the absolute second it finds the very first match. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
