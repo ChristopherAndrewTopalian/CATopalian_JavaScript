@@ -272,6 +272,7 @@ let theFunctions =
     'toTimeString',
     'toUpperCase',
     'toUTCString',
+    'toWellFormed',
     'trace',
     'trim',
     'trunc',

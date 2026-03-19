@@ -726,6 +726,12 @@ let operators = [
     },
 
     {
+        name: "toWellFormed()",
+        urlOffline: "src/html/string/toWellFormed.html",
+        category: 'string'
+    },
+
+    {
         name: "trim()",
         urlOffline: "src/html/string/trim.html",
         category: 'string'
