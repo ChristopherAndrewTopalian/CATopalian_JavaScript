@@ -570,8 +570,14 @@ let operators = [
     },
 
     {
-        name: "String_fromCodePoint()",
+        name: "String.fromCodePoint()",
         urlOffline: "src/html/string/String_fromCodePoint.html",
+        category: 'string'
+    },
+
+    {
+        name: "concat()",
+        urlOffline: "src/html/string/concat.html",
         category: 'string'
     },
 
