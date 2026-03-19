@@ -1,0 +1,84 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- normalize.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> normalize() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> normalize() </h1>
+
+<p> The <code>normalize()</code> method is a data aligner. It forces strings that contain special characters or accents to use the exact same underlying Unicode format. It prevents bugs where two strings that look perfectly identical to a human are rejected by the computer for being different under the hood. </p>
+
+<hr>
+
+<pre><code class="custom-code">// We receive the name of a Vulcan ambassador spelled two different ways:
+// 1. Using a single, pre-built character (\u00E9 is "é")
+let recordA = "Ambassador S\u00E9rel"; 
+
+// 2. Using a standard "e" combined with a floating accent mark (\u0301)
+let recordB = "Ambassador Se\u0301rel";
+
+// To a human reading the screen, they look exactly the same!
+// But the security computer sees different raw data:
+console.log(recordA === recordB); 
+// Result: false (Security clearance denied!)
+
+// The normalize() method forces both strings into the exact same memory structure:
+let matchedRecords = recordA.normalize() === recordB.normalize();
+console.log(matchedRecords);
+// Result: true (Clearance granted!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.normalize(form)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand new string containing the standardized Unicode Normalization Form of the original text.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> There are two ways to build an accented letter in Unicode: we can use a single, pre-packaged character, or we can take a normal English letter and electronically "glue" a floating accent mark on top of it. If User A types it the first way, and User B types it the second way, JavaScript will think they typed two entirely different words! The <code>normalize()</code> method fixes this by converting the text into a standard format (usually "NFC", which stands for Canonical Composition) before comparing them. Whenever we are building a search bar or a password login that accepts foreign names and accents, we must run the input through <code>normalize()</code> to ensure it matches our database! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

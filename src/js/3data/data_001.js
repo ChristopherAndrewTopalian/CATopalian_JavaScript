@@ -629,6 +629,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "normalize()",
+        urlOffline: "src/html/string/normalize.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
