@@ -538,6 +538,12 @@ let operators = [
         urlOffline: "src/html/array_of_objects/with.html",
         category: 'array_of_objects'
     },
+
+    {
+        name: "at()",
+        urlOffline: "src/html/string/at.html",
+        category: 'string'
+    },
 ];
 
 //----//

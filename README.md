@@ -6,9 +6,9 @@ A JavaScript app designed for teaching JavaScript and anything else.
 <details>
 <summary>  Videos </summary>
 
-* Video: https://www.youtube.com/watch?v=E57H8gL9Fv8   
+* https://www.youtube.com/watch?v=E57H8gL9Fv8   
 
-* Video: https://www.youtube.com/watch?v=Uo_JDMm4sH0
+* https://www.youtube.com/watch?v=Uo_JDMm4sH0
 
 </details>
 

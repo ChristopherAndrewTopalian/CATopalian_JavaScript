@@ -198,6 +198,44 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let stringDetails = ce('details');
+    stringDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    stringDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(stringDetails);
+
+    //-//
+
+    let stringSummary = ce('summary');
+    stringSummary.textContent = 'String';
+    stringDetails.append(stringSummary);
+
+    for (let x = 0; x < whichArray.length; x++)
+    {
+        if (whichArray[x].category == 'string')
+        {
+            let theButton = ce("button");
+            theButton.textContent = whichArray[x].name;
+            theButton.onmouseover = function()
+            {
+                // hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = whichArray[x].urlOffline;
+            };
+            stringDetails.append(theButton);
+        }
+    }
+
+    //----//
+
     buttonContainer.append(ce('hr'));
 
     //-//
