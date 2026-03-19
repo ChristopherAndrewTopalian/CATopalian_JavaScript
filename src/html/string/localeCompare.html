@@ -1,0 +1,92 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- localeCompare.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> localeCompare() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> localeCompare() </h1>
+
+<p> The <code>localeCompare()</code> method is a human-dictionary engine. It compares two strings and returns a number indicating whether the first string belongs before, after, or is identical to the second string in a perfectly alphabetized list. </p>
+
+
+
+<hr>
+
+<pre><code class="custom-code">let species1 = "Zindi";
+let species2 = "andorian";
+
+// Standard JavaScript math thinks capital "Z" (90) is smaller than "a" (97)!
+console.log(species1 < species2); 
+// Result: true (This is terrible for alphabetizing a list!)
+
+// localeCompare() understands actual human language rules:
+let dictionarySort = species1.localeCompare(species2);
+console.log(dictionarySort); 
+// Result: 1 (Positive number means "Zindi" belongs AFTER "andorian")
+
+// Advanced: We can tell it exactly which language rules to follow!
+// In German, "ä" comes BEFORE "z". In Swedish, "ä" comes AFTER "z".
+let letter = "ä";
+console.log(letter.localeCompare("z", "de")); // German (Returns -1)
+console.log(letter.localeCompare("z", "sv")); // Swedish (Returns 1)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">referenceStr.localeCompare(compareString, locales, options)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number </p>
+    <ul>
+        <li> <b>Negative Number (usually -1):</b> The reference string occurs <i>before</i> the compare string. </li>
+        <li> <b>Positive Number (usually 1):</b> The reference string occurs <i>after</i> the compare string. </li>
+        <li> <b>0:</b> The strings are completely equivalent. </li>
+    </ul>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Whenever we are building an app that sorts a list of user names, cities, or files alphabetically, we must use <code>localeCompare()</code>. If we rely on basic math operators, all capitalized words will group together at the top, ignoring actual alphabetical order. This method is incredibly powerful because of the optional <code>locales</code> parameter. By passing in a language code (like "de" for German, "fr" for French, or "sv" for Swedish), the engine instantly adapts to the unique grammatical sorting rules and accented characters of that specific culture. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

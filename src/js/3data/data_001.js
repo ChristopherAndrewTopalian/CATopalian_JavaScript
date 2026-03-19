@@ -611,6 +611,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "localeCompare()",
+        urlOffline: "src/html/string/localeCompare.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
