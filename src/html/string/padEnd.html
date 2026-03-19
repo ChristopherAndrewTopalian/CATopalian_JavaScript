@@ -1,0 +1,86 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- padEnd.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> padEnd() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> padEnd() </h1>
+
+<p> The <code>padEnd()</code> method is a structural formatting tool. It forces a string to reach a specific, exact length by repeatedly adding a filler character (like a space, a dot, or a dash) to the <i>end</i> of the text. It is absolutely essential for building clean tables, receipts, and perfectly aligned data columns. </p>
+
+<hr>
+
+<pre><code class="custom-code">let ship1 = "Enterprise";
+let ship2 = "Defiant";
+
+// We want every ship name to take up exactly 15 characters of space.
+// We will fill the empty space at the end with dots to make it easy to read!
+let formattedShip1 = ship1.padEnd(15, ".");
+let formattedShip2 = ship2.padEnd(15, ".");
+
+console.log(formattedShip1 + "Sector 4"); 
+// Result: "Enterprise.....Sector 4"
+
+console.log(formattedShip2 + "Sector 4");
+// Result: "Defiant........Sector 4"
+
+// If the string is ALREADY longer than the target length, it does nothing:
+let longShip = "Interstellar Transport";
+console.log(longShip.padEnd(15, "."));
+// Result: "Interstellar Transport" (It doesn't chop the text!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.padEnd(targetLength, padString)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand new string of the specified target length, with the pad string applied to the end.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>padEnd()</code> method is non-destructive and creates a new string. The first parameter is the <code>targetLength</code> (the total number of characters we want the final string to be). The second parameter is the <code>padString</code> (the character we want to use as filler). If we do not provide a <code>padString</code>, JavaScript will automatically use an empty, invisible space as the default filler. It is incredibly smart: if our filler string is too long to fit into the remaining space, the computer will automatically chop the filler string so everything fits perfectly. Also, it will never delete our original text; if our starting word is already longer than our target length, it simply returns the original word untouched. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

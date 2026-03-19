@@ -635,6 +635,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "padEnd()",
+        urlOffline: "src/html/string/padEnd.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
