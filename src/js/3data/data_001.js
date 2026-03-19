@@ -556,6 +556,12 @@ let operators = [
         urlOffline: "src/html/string/charCodeAt.html",
         category: 'string'
     },
+
+    {
+        name: "codePointAt()",
+        urlOffline: "src/html/string/codePointAt.html",
+        category: 'string'
+    },
 ];
 
 //----//

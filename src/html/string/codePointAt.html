@@ -1,0 +1,85 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- codePointAt.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> codePointAt() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> codePointAt() </h1>
+
+<p> The <code>codePointAt()</code> method is the modern upgrade to <code>charCodeAt()</code>. It returns the full Unicode value of a character. Its true superpower is that it can correctly read complex, modern characters like emojis and rare alien symbols that are too massive to fit into standard 16-bit data blocks. </p>
+
+<hr>
+
+<pre><code class="custom-code">let transmission = "🖖 Peace and long life";
+
+// Let's look at the Vulcan Salute emoji at Index 0.
+// The old method breaks the emoji in half and returns garbage data!
+let oldMethod = transmission.charCodeAt(0);
+console.log(oldMethod); 
+// Result: 55357 (This is just half of the emoji's code!)
+
+// The modern method grabs the entire, massive Unicode value:
+let modernMethod = transmission.codePointAt(0);
+console.log(modernMethod); 
+// Result: 128406 (The true numeric code for 🖖)
+
+// Just like the old method, standard letters still work perfectly:
+let pCode = transmission.codePointAt(2); 
+console.log(pCode);
+// Result: 80 (The code for capital "P")
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.codePointAt(index)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (A non-negative integer representing the full Unicode code point value. Returns <code>undefined</code> if the index is out of bounds.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> When JavaScript was created, the creators assumed every character in the world could fit into a single 16-bit block of memory (UTF-16). But as the internet grew to include thousands of emojis and complex ancient languages, they ran out of space. To fix this, complex characters are now split across <i>two</i> 16-bit blocks (called a "surrogate pair"). The classic <code>charCodeAt()</code> method is blind to this; it only reads the first half of the pair and returns a broken number. The modern <code>codePointAt()</code> method is smart enough to detect these massive characters, read both blocks of memory simultaneously, and return the true, complete numeric value. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
