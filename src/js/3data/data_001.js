@@ -719,6 +719,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "toString()",
+        urlOffline: "src/html/string/toString.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
