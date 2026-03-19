@@ -581,6 +581,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "endsWith()",
+        urlOffline: "src/html/string/endsWith.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

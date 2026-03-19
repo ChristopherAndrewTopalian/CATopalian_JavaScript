@@ -1,0 +1,87 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- endsWith.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> endsWith() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> endsWith() </h1>
+
+<p> The <code>endsWith()</code> method is a boolean checker. It inspects the very end of a string to see if it perfectly matches a specific character or word we are looking for. It will only ever return <code>true</code> or <code>false</code>. </p>
+
+
+
+<hr>
+
+<pre><code class="custom-code">let registry = "NCC-1701-D";
+
+// Let's check if this is the Enterprise-D
+let isGalaxyClass = registry.endsWith("D");
+console.log(isGalaxyClass); 
+// Result: true
+
+// What if we check for lowercase "d"?
+let caseSensitiveCheck = registry.endsWith("d");
+console.log(caseSensitiveCheck);
+// Result: false (It must be an exact match!)
+
+// Advanced: We can pass a second number to fake the "end" of the string!
+// Let's pretend the string is only 8 characters long ("NCC-1701")
+let checkOriginal = registry.endsWith("1701", 8);
+console.log(checkOriginal);
+// Result: true
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.endsWith(searchString, endPosition)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Boolean (<code>true</code> if the end of the string perfectly matches the search characters; otherwise, <code>false</code>.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> This method is highly case-sensitive, meaning a capital "D" is not the same as a lowercase "d". Its true secret weapon is the optional <code>endPosition</code> parameter. By default, the computer looks at the very end of the string. But if we pass in a number as a second argument, we can artificially chop the string down to that length before the computer checks it. In our example, passing an <code>8</code> tells the computer to ignore the "-D" entirely and treat "NCC-1701" as the end of the string! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
