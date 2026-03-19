@@ -707,6 +707,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "toLowerCase()",
+        urlOffline: "src/html/string/toLowerCase.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

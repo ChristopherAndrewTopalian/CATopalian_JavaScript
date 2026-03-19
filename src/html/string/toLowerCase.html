@@ -1,0 +1,87 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- toLowerCase.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> toLowerCase() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> toLowerCase() </h1>
+
+<p> The <code>toLowerCase()</code> method is an input sanitizer. It reads a string and converts every single uppercase letter into a lowercase letter. It is completely non-destructive and is the absolute standard way to format user input (like email addresses or usernames) so the computer can compare data accurately without getting confused by random capitalizations. </p>
+
+<hr>
+
+<pre><code class="custom-code">let databaseUsername = "riker_01";
+
+// The user accidentally left their Caps Lock key on!
+let userInput = "RiKeR_01";
+
+// If the security system compares them directly, access is denied:
+console.log(databaseUsername === userInput); 
+// Result: false (JavaScript is strictly case-sensitive!)
+
+// The Professional Solution: Sanitize the input first!
+let sanitizedInput = userInput.toLowerCase();
+
+console.log(sanitizedInput === databaseUsername);
+// Result: true (Access granted!)
+
+// Notice that numbers and symbols are completely unaffected:
+let mixedData = "NCC-1701-D!".toLowerCase();
+console.log(mixedData);
+// Result: "ncc-1701-d!"
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.toLowerCase()</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand-new string where all the alphabetic characters have been converted to lowercase.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Because JavaScript uses raw numeric values to compare text, a capital "R" (82) is mathematically entirely different from a lowercase "r" (114). If we are building a search bar or a login screen, we must run the user's typed text through <code>toLowerCase()</code> before we try to match it against our database. This method only affects letters; it completely ignores spaces, numbers, and punctuation marks. Remember that this is the standard English-based converter. If our app is worldwide and deals with unique foreign alphabets (like Turkish), we should upgrade to <code>toLocaleLowerCase()</code> to prevent accidental misspellings! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
