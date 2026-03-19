@@ -731,6 +731,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "trimStart()",
+        urlOffline: "src/html/string/trimStart.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
