@@ -1,0 +1,87 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- toUpperCase.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> toUpperCase() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> toUpperCase() </h1>
+
+<p> The <code>toUpperCase()</code> method is a capitalization engine. It reads a string and converts every single lowercase letter into an uppercase letter. It is non-destructive and is frequently used to format constant variables, standardize identification codes, or generate visual emphasis in user interfaces. </p>
+
+<hr>
+
+<pre><code class="custom-code">let tacticalSensor = "warning: shields at 20 percent";
+
+// The message is too quiet! We need it to grab the Captain's attention!
+let visualAlert = tacticalSensor.toUpperCase();
+
+console.log(visualAlert); 
+// Result: "WARNING: SHIELDS AT 20 PERCENT"
+
+// Standardizing identification codes for the database:
+let userInputId = "ncc-1701-d";
+let officialId = userInputId.toUpperCase();
+
+console.log(officialId);
+// Result: "NCC-1701-D" (Now it matches official Starfleet records!)
+
+// Remember, numbers and symbols are completely ignored:
+let mixedData = "warp 9.9!".toUpperCase();
+console.log(mixedData);
+// Result: "WARP 9.9!"
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.toUpperCase()</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand-new string where all the alphabetic characters have been converted to uppercase.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>toUpperCase()</code> method is the mirror opposite of the lowercase converter. It is a fantastic tool for normalizing data that absolutely must be capitalized, like postal codes, license plates, or ship registries. Because it creates a completely new string, it will never accidentally overwrite the original data. Just like its twin, this method only affects alphabetic letters and completely ignores spaces, numbers, and punctuation. Also remember that this uses standard English mapping rules; if we are building an application for global users with complex alphabets, we should use the <code>toLocaleUpperCase()</code> method instead! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

@@ -713,6 +713,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "toUpperCase()",
+        urlOffline: "src/html/string/toUpperCase.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
