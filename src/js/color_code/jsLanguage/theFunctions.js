@@ -186,6 +186,7 @@ let theFunctions =
     'removeItem',
     'repeat',
     'replace',
+    'replaceAll',
     'replaceChild',
     'requestAnimationFrame',
     'requestFullscreen',

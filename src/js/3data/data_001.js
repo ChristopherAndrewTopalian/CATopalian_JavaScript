@@ -659,6 +659,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "replaceAll()",
+        urlOffline: "src/html/string/replaceAll.html",
+        category: 'string'
+    },
+
 ];
 
 //----//

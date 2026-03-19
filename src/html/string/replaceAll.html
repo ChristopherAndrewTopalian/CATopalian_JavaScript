@@ -1,0 +1,85 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- replaceAll.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> replaceAll() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> replaceAll() </h1>
+
+<p> The <code>replaceAll()</code> method is the modern, heavy-duty upgrade to the standard replace command. It completely eliminates the "first occurrence trap." If we hand it a standard text string, it will automatically hunt down and replace <i>every single instance</i> of that word throughout the entire document, no Regular Expressions required! </p>
+
+<hr>
+
+<pre><code class="custom-code">let missionBrief = "Dock at Starbase 12. Refuel at Starbase 12. Defend Starbase 12.";
+
+// The modern miracle: We can replace them ALL using just standard text!
+let updatedBrief = missionBrief.replaceAll("Starbase 12", "Deep Space 9");
+
+console.log(updatedBrief); 
+// Result: "Dock at Deep Space 9. Refuel at Deep Space 9. Defend Deep Space 9."
+
+// THE REGEX TRAP: If we DO decide to use Regular Expressions with this method,
+// we absolutely MUST include the "g" (global) flag, or it will crash!
+
+// let brokenBrief = missionBrief.replaceAll(/Starbase 12/i, "Outpost"); 
+// -> THIS WILL THROW A FATAL TYPE ERROR!
+
+let safeRegExBrief = missionBrief.replaceAll(/Starbase 12/g, "Outpost");
+console.log(safeRegExBrief);
+// Result: "Dock at Outpost. Refuel at Outpost. Defend Outpost."
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.replaceAll(searchFor, replaceWith)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand-new string where every single match of the target text has been replaced.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Introduced in ECMAScript 2021, <code>replaceAll()</code> was created to save developers from having to write complex Regular Expressions just to do a simple, document-wide word swap. Like its predecessor, it is strictly case-sensitive and completely non-destructive to the original variable. The most important rule to teach our fingers is the <b>RegEx Crash Rule</b>: because the entire purpose of this method is to replace <i>everything</i>, if we pass a Regular Expression into it that is missing the global <code>/g</code> flag, JavaScript will assume we made a mistake and instantly throw a <code>TypeError</code> to protect our data from partial edits. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
