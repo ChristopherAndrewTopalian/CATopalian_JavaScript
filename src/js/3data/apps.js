@@ -64,7 +64,7 @@ let apps = [
     name: 'CATopalian JavaScript Location Navigator',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Location_Navigator/CATopalian_JavaScript_Location_Navigator.html',
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Location_Navigator',
-    category: 'text'
+    category: 'earth'
 },
 
 {
@@ -355,7 +355,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Earth/CATopalian_JavaScript_Earth.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Earth',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Earth.PNG',
-    description: "CATopalian_JavaScript_Earth"
+    description: "CATopalian_JavaScript_Earth",
+    category: 'earth'
 },
 
 // CATopalian JavaScript Earth Canvas
@@ -364,7 +365,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Earth_Canvas/CATopalian_JavaScript_Earth_Canvas.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Earth_Canvas',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Earth_Canvas.PNG',
-    description: "CATopalian_JavaScript_Earth_Canvas"
+    description: "CATopalian_JavaScript_Earth_Canvas",
+    category: 'earth'
 },
 
 // CATopalian JavaScript Earthquake Data Center

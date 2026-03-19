@@ -734,6 +734,51 @@ function makeInterface(whichArray, whichEntry)
         };
         fileNavAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let earthApps = cleanApps.filter(function(item)
+    {
+        return item.category === "earth";
+    });
+
+    let earthAppsDetails = ce('details');
+    earthAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    earthAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    appsMainDetails.append(earthAppsDetails);
+
+    //-//
+
+    let earthAppsSummary = ce('summary');
+    earthAppsSummary.textContent = 'Earth';
+    earthAppsDetails.append(earthAppsSummary);
+
+    for (let x = 0; x < earthApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = earthApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(earthApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = earthApps[x].appURL;
+        };
+        earthAppsDetails.append(theButton);
+    }
 }
 
 //----//
