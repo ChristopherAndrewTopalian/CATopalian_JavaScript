@@ -1,0 +1,87 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- replace.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> replace() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> replace() </h1>
+
+<p> The <code>replace()</code> method is a powerful find-and-replace engine. It scans a string for a specific word or pattern, removes it, and seamlessly inserts brand-new text in its place. It is completely non-destructive, meaning it leaves our original string perfectly intact and hands us a brand-new edited copy. </p>
+
+<hr>
+
+<pre><code class="custom-code">let commsLog = "Captain Picard to the bridge. Picard out.";
+
+// Let's replace "Picard" with "Sisko".
+// TRAP: If we just pass a normal string, it ONLY replaces the very first one!
+let editedLog = commsLog.replace("Picard", "Sisko");
+
+console.log(editedLog); 
+// Result: "Captain Sisko to the bridge. Picard out." (The second one was ignored!)
+
+// The Professional Solution: Use RegEx with the "g" (global) flag!
+// This tells the engine to hunt down and replace EVERY single occurrence.
+let redactedLog = commsLog.replace(/Picard/g, "[CLASSIFIED]");
+
+console.log(redactedLog);
+// Result: "Captain [CLASSIFIED] to the bridge. [CLASSIFIED] out."
+
+// Remember, the original transmission is untouched:
+console.log(commsLog);
+// Result: "Captain Picard to the bridge. Picard out."
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.replace(searchFor, replaceWith)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand-new string with some or all matches of a pattern replaced by the new replacement text.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>replace()</code> method requires two arguments: what we want to find (<code>searchFor</code>), and what we want to swap it with (<code>replaceWith</code>). The biggest mistake beginners make is passing a standard text string as the first argument, assuming it will fix the whole document. <b>Standard text strings only replace the very first match they find!</b> To unleash the true power of this command and replace multiple words at once, we must use a Regular Expression with the global flag (<code>/pattern/g</code>). It is also highly case-sensitive, so searching for "Picard" will not replace "picard". </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
