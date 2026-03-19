@@ -264,7 +264,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Accordion_Interface',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Accordion_Interface.PNG',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Accordion_Interface.PNG',
-    description: "CATopalian_JavaScript_Accordion_Interface"
+    description: "CATopalian_JavaScript_Accordion_Interface",
+    category: 'interface'
 },
 
 // CATopalian JavaScript Background Check Navigator
@@ -434,7 +435,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Grid_Interface/CATopalian_JavaScript_Grid_Interface.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Grid_Interface',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Grid_Interface.PNG',
-    description: "CATopalian_JavaScript_Grid_Interface"
+    description: "CATopalian_JavaScript_Grid_Interface",
+    category: 'interface'
 },
 
 // CATopalian JavaScript Identity Generator
@@ -498,6 +500,13 @@ let apps = [
     category: '', // video
 },
 
+{
+    name: 'CATopalian JavaScript Motion Sensor',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Motion_Sensor/CATopalian_JavaScript_Motion_Sensor.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Motion_Sensor',
+    category: 'mobile'
+},
+
 // CATopalian JavaScript Note Taker
 {
     name: "CATopalian JavaScript Note Taker",
@@ -544,7 +553,8 @@ let apps = [
     appURL: "https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Pie_Menu/CATopalian_JavaScript_Pie_Menu.html",
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Pie_Menu',
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Pie_Menu.PNG',
-    description: "CATopalian_JavaScript_Pie_Menu"
+    description: "CATopalian_JavaScript_Pie_Menu",
+    category: 'interface'
 },
 
 // CATopalian JavaScript Robot AI

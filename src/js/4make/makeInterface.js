@@ -779,6 +779,96 @@ function makeInterface(whichArray, whichEntry)
         };
         earthAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let mobileApps = cleanApps.filter(function(item)
+    {
+        return item.category === "mobile";
+    });
+
+    let mobileAppsDetails = ce('details');
+    mobileAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    mobileAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    appsMainDetails.append(mobileAppsDetails);
+
+    //-//
+
+    let mobileAppsSummary = ce('summary');
+    mobileAppsSummary.textContent = 'Mobile';
+    mobileAppsDetails.append(mobileAppsSummary);
+
+    for (let x = 0; x < mobileApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = mobileApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(mobileApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = mobileApps[x].appURL;
+        };
+        mobileAppsDetails.append(theButton);
+    }
+
+    //----//
+
+    let interfaceApps = cleanApps.filter(function(item)
+    {
+        return item.category === "interface";
+    });
+
+    let interfaceAppsDetails = ce('details');
+    interfaceAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    interfaceAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    appsMainDetails.append(interfaceAppsDetails);
+
+    //-//
+
+    let interfaceAppsSummary = ce('summary');
+    interfaceAppsSummary.textContent = 'Interface';
+    interfaceAppsDetails.append(interfaceAppsSummary);
+
+    for (let x = 0; x < interfaceApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = interfaceApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(interfaceApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = interfaceApps[x].appURL;
+        };
+        interfaceAppsDetails.append(theButton);
+    }
 }
 
 //----//
