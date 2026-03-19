@@ -3,11 +3,12 @@ A JavaScript app designed for teaching JavaScript and anything else.
 
 ---
 
-Video: https://www.youtube.com/watch?v=E57H8gL9Fv8
-
 <details>
-<summary> archive video </summary>
-Video: https://www.youtube.com/watch?v=Uo_JDMm4sH0
+<summary>  Videos </summary>
+
+* Video: https://www.youtube.com/watch?v=E57H8gL9Fv8   
+
+* Video: https://www.youtube.com/watch?v=Uo_JDMm4sH0
 
 </details>
 
