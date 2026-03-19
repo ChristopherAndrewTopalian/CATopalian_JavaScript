@@ -1,0 +1,86 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- toLocaleUpperCase.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> toLocaleUpperCase() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> toLocaleUpperCase() </h1>
+
+<p> The <code>toLocaleUpperCase()</code> method is the culturally aware capitalization tool. It converts every letter in a string to uppercase, but actively checks the specific grammatical rules of the user's native language to ensure that special characters and unique alphabets are capitalized correctly. </p>
+
+<hr>
+
+<pre><code class="custom-code">let starbaseLocation = "istanbul";
+
+// STANDARD UPPERCASE (The American/English default):
+// The computer blindly changes the dotted lowercase "i" to a dotless "I"
+let standardUpper = starbaseLocation.toUpperCase();
+console.log(standardUpper); 
+// Result: "ISTANBUL" (The spelling is now corrupted in Turkey!)
+
+// LOCALE AWARE UPPERCASE (Using the 'tr-TR' language tag for Turkish):
+// In Turkish, a dotted lowercase "i" MUST become a dotted capital "İ"
+let turkishUpper = starbaseLocation.toLocaleUpperCase('tr-TR');
+console.log(turkishUpper);
+// Result: "İSTANBUL" (The Universal Translator respects the grammar!)
+
+// If we just want to shout using the browser's default language:
+let incomingThreat = "shields up";
+console.log(incomingThreat.toLocaleUpperCase());
+// Result: "SHIELDS UP"
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">string.toLocaleUpperCase(locales)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> String (A brand new string converted to uppercase according to specific locale grammar rules.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Just like its lowercase twin, <code>toLocaleUpperCase()</code> was created to fix the "Turkish I" problem. In standard English, a lowercase "i" becomes a dotless capital "I". But in Turkish, a lowercase "i" must retain its dot when capitalized, becoming "İ". If we build a worldwide search engine and use the standard method, our Turkish users won't be able to find the files they are looking for because the computer changed the spelling of their search terms! By passing a language tag like "tr-TR" into the <code>locales</code> parameter, or by leaving it blank so it auto-detects the user's operating system language, we guarantee that our app handles international text flawlessly. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

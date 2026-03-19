@@ -695,6 +695,18 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "toLocaleLowerCase()",
+        urlOffline: "src/html/string/toLocaleLowerCase.html",
+        category: 'string'
+    },
+
+    {
+        name: "toLocaleUpperCase()",
+        urlOffline: "src/html/string/toLocaleUpperCase.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
