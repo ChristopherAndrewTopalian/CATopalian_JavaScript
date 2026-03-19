@@ -689,6 +689,51 @@ function makeInterface(whichArray, whichEntry)
         };
         scienceAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let fileNavApps = cleanApps.filter(function(item)
+    {
+        return item.category === "file_navigation";
+    });
+
+    let fileNavAppsDetails = ce('details');
+    fileNavAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    fileNavAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    appsMainDetails.append(fileNavAppsDetails);
+
+    //-//
+
+    let fileNavAppsSummary = ce('summary');
+    fileNavAppsSummary.textContent = 'File Nav';
+    fileNavAppsDetails.append(fileNavAppsSummary);
+
+    for (let x = 0; x < fileNavApps.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = fileNavApps[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(fileNavApps[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = fileNavApps[x].appURL;
+        };
+        fileNavAppsDetails.append(theButton);
+    }
 }
 
 //----//

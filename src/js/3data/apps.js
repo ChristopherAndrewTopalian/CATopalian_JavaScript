@@ -15,7 +15,8 @@ let apps = [
 {
     name: 'CATopalian JavaScript Texture Changer',
     appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Texture_Changer/CATopalian_JavaScript_Texture_Changer.html', 
-    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Texture_Changer'
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Texture_Changer',
+    category: 'file_navigation'
 },
 
 {
@@ -183,7 +184,15 @@ let apps = [
     description: "CATopalian_JavaScript_File_Navigator",
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_File_Navigator.PNG',
     videoURL: 'https://www.youtube.com/watch?v=wlvtbbXEvXM',
-    category: 'text'
+    category: 'file_navigation'
+},
+
+//CATopalian JavaScript File Reader
+{
+    name: 'CATopalian JavaScript File Reader',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_File_Reader/CATopalian_JavaScript_File_Reader.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_File_Reader',
+    category: 'file_navigation'
 },
 
 // CATopalian JavaScript Art Studio
@@ -193,7 +202,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Art_Studio',
     description: "CATopalian_JavaScript_Art_Studio",
     textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Art_Studio.PNG',
-    videoURL: 'https://www.youtube.com/watch?v=uS9HeW1YxZg'
+    videoURL: 'https://www.youtube.com/watch?v=uS9HeW1YxZg',
+    category: 'file_navigation'
 },
 
 // * CATopalian JavaScript Saving Feral Felines
@@ -212,7 +222,8 @@ let apps = [
     codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Character_Studio',
     description: "CATopalian_JavaScript_Character_Studio",
     videoURL: 'https://www.youtube.com/watch?v=M3kGdxYry1E',
-    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Character_Studio.PNG'
+    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Character_Studio.PNG',
+    category: 'file_navigation'
 },
 
 // CATopalian HTML JavaScript Code Editor
