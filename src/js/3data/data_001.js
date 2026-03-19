@@ -587,6 +587,12 @@ let operators = [
         category: 'string'
     },
 
+    {
+        name: "includes()",
+        urlOffline: "src/html/string/includes.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
