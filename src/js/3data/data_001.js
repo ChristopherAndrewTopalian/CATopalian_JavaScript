@@ -562,6 +562,19 @@ let operators = [
         urlOffline: "src/html/string/codePointAt.html",
         category: 'string'
     },
+
+    {
+        name: "String.fromCharCode()",
+        urlOffline: "src/html/string/String_fromCharCode.html",
+        category: 'string'
+    },
+
+    {
+        name: "String_fromCodePoint()",
+        urlOffline: "src/html/string/String_fromCodePoint.html",
+        category: 'string'
+    },
+
 ];
 
 //----//
