@@ -1,0 +1,96 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- cos.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.cos() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.cos() </h1>
+
+<p> The <code>Math.cos()</code> method stands for "Cosine." In our navigational computers, we use this mathematical function to figure out the exact horizontal position (the X-coordinate) of an object relative to us, based on its angle and distance. If we send a scout ship out at a specific angle, <code>Math.cos()</code> tells us exactly how far left or right they have traveled on our tactical grid. It is an essential building block for creating circular movement, radar sweeps, and advanced flight paths in our simulation engines! </p>
+
+<hr>
+
+<pre><code class="custom-code">// In JavaScript, trigonometric functions always expect angles in "radians", not degrees.
+// First, we create a standard function to convert degrees into radians for the main computer.
+function degreesToRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
+
+// Now, let's track a scout ship.
+let distance = 5000; // The scout ship is 5000 kilometers away.
+let flightAngle = 60; // They launched at a 60-degree angle.
+
+// Convert the angle, then calculate the horizontal X-coordinate using Math.cos()
+let radians = degreesToRadians(flightAngle);
+let horizontalPosition = distance * Math.cos(radians);
+
+console.log(horizontalPosition); 
+// Result: 2500.0000000000005 (The scout ship is precisely 2500 km to our "right" on the X-axis)
+
+// We can wrap this up in a neat function for the tactical console:
+function calculateXTarget(targetDistance, targetAngle) {
+    let rad = degreesToRadians(targetAngle);
+    let xCoord = targetDistance * Math.cos(rad);
+    
+    // We can even round it off so the display is clean!
+    console.log("Target's horizontal X-coordinate is: " + Math.round(xCoord));
+}
+
+calculateXTarget(10000, 180);
+// Result: Target's horizontal X-coordinate is: -10000 (Exactly 10000 km to our "left")
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.cos(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (Returns a numeric value between -1 and 1, which represents the cosine of the angle.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>Math.cos()</code> static method returns the cosine of the specified angle. It is important to remember that the parameter <i>x</i> must be an angle measured in <b>radians</b>, not degrees. If we pass a 0 into it, it returns 1. If we pass it Math.PI (which is 180 degrees), it returns -1. By multiplying this baseline -1 to 1 result by our total distance (the radius or hypotenuse), we scale it up to find our true position on the grid. If we feed the method empty strings or non-numeric data, our ship's computer will return <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

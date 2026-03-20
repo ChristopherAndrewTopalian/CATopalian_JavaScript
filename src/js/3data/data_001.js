@@ -821,6 +821,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "cos()",
+        urlOffline: "src/html/math/cos.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
