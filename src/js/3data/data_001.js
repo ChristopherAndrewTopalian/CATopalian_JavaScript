@@ -845,6 +845,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "floor()",
+        urlOffline: "src/html/math/floor.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

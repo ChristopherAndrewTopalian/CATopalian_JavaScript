@@ -35,23 +35,23 @@
 
 <h1> Math.exp() </h1>
 
-<p> The <code>Math.exp()</code> method stands for "Exponential." In engineering, we use this to calculate the massive energy curves required by our warp engines. While standard impulse thrusters use fuel at a steady, predictable rate, warp drives require an exponential amount of power for every tiny increase in speed. This method takes Euler's number (a special mathematical constant approximately equal to 2.718) and raises it to the power of whatever number we give it. We use this to ensure we don't accidentally drain the entire anti-matter reserve when accelerating to escape velocity! </p>
+<p> The <code>Math.exp()</code> method stands for "Exponential." In engineering, we use this to calculate the massive energy curves required by our warp engines. While standard impulse thrusters use fuel at a steady, predictable rate, warp drives require an exponential amount of power for every tiny increase in speed. This method takes Eulers number (a special mathematical constant approximately equal to 2.718) and raises it to the power of whatever number we give it. We use this to ensure we don't accidentally drain the entire anti-matter reserve when accelerating to escape velocity! </p>
 
 <hr>
 
-<pre><code class="custom-code">// Let's calculate the power multiplier for Warp Factor 1.
+<pre><code class="custom-code">// Let us calculate the power multiplier for Warp Factor 1.
 let warpOnePower = Math.exp(1);
 
 console.log(warpOnePower); 
-// Result: 2.718281828459045 (This is the baseline Euler's number, often written as 'e')
+// Result: 2.718281828459045 (This is the baseline Eulers number, often written as 'e')
 
-// Now, let's see what happens if we try to push the engines to Warp Factor 5!
+// Now, let us see what happens if we try to push the engines to Warp Factor 5!
 let warpFivePower = Math.exp(5);
 
 console.log(warpFivePower);
 // Result: 148.4131591025766 (Notice how the energy demand didn't just multiply by 5; it exploded!)
 
-// Let's write an engineering safety function to monitor our anti-matter reserves:
+// Let us write an engineering safety function to monitor our anti-matter reserves:
 function calculateWarpDrain(warpFactor) {
     let energyRequired = Math.exp(warpFactor);
     
@@ -78,7 +78,7 @@ calculateWarpDrain(6);
     <hr>
 
     <h2> Return Value </h2>
-<p> <b>Type:</b> Number (Returns <code>e<sup>x</sup></code>, where <code>e</code> is Euler's number and <code>x</code> is the argument given.) </p>
+<p> <b>Type:</b> Number (Returns <code>e<sup>x</sup></code>, where <code>e</code> is Eulers number and <code>x</code> is the argument given.) </p>
 
     <hr>
 
