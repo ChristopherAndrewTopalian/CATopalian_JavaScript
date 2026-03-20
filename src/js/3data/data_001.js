@@ -863,6 +863,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "imul()",
+        urlOffline: "src/html/math/imul.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

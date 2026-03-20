@@ -1,0 +1,92 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- imul.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.imul() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.imul() </h1>
+
+<p> The <code>Math.imul()</code> method stands for "Integer Multiplication." When we explore deep space, we sometimes need to interface with ancient alien beacons or legacy 32-bit systems on derelict space stations. These older systems cannot process modern 64-bit numbers with complex decimals; they only understand pure, whole integers. If our sensors pick up a transmission with decimal "noise" and we need to multiply the values to generate a decryption key, we use <code>Math.imul()</code>. It instantly strips away the decimals and performs a fast, hardware-level multiplication on the remaining whole numbers! </p>
+
+<hr>
+
+<pre><code class="custom-code">// We receive two distorted signal fragments with decimal "noise".
+let signalA = 5.99;
+let signalB = 3.85;
+
+// Standard multiplication keeps all the noise:
+let noisyResult = signalA * signalB;
+
+console.log(noisyResult); 
+// Result: 23.0615 (An ancient 32-bit computer will reject this key!)
+
+// We use Math.imul() to strip the noise and calculate pure 32-bit integers:
+let pureResult = Math.imul(signalA, signalB);
+
+console.log(pureResult);
+// Result: 15 (It converted them to 5 and 3, and multiplied them perfectly!)
+
+// Let's create a decryption function for interfacing with legacy airlocks:
+function decryptLegacyAirlock(part1, part2) {
+    let accessKey = Math.imul(part1, part2);
+    console.log("Legacy access key generated: " + accessKey + ". Airlock opening!");
+}
+
+decryptLegacyAirlock(10.9, 4.2); 
+// Result: Legacy access key generated: 40. Airlock opening!
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.imul(a, b)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The result of the C-like 32-bit multiplication of the two given arguments.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.imul()</code> is a highly specialized static method. It exists to provide fast, C-language-style 32-bit integer multiplication inside JavaScript. Before it multiplies the two numbers you give it, it forces them into 32-bit integers, meaning it completely chops off any decimal points (similar to what <code>Math.trunc()</code> does) without rounding them up or down. Because it ignores decimals, it is incredibly fast and useful for cryptographic calculations or hardware simulations. If we pass it non-numeric text, it treats it as a <code>0</code> and returns <code>0</code>. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

@@ -122,6 +122,7 @@ let theFunctions =
     'hasFocus',
     'hypot',
     'importNode',
+    'imul',
     'includes',
     'indexOf',
     'info',
