@@ -815,6 +815,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "clz32()",
+        urlOffline: "src/html/math/clz32.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
