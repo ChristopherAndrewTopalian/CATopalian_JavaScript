@@ -917,6 +917,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "round()",
+        urlOffline: "src/html/math/round.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
