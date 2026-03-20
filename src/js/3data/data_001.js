@@ -947,6 +947,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "tan()",
+        urlOffline: "src/html/math/tan.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
