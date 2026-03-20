@@ -941,6 +941,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "sqrt()",
+        urlOffline: "src/html/math/sqrt.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

@@ -237,6 +237,7 @@ let theFunctions =
     'sort',
     'splice',
     'split',
+    'sqrt',
     'startsWith',
     'String',
     'stop',
