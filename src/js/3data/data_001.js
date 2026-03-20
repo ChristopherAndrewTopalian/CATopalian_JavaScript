@@ -899,6 +899,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "min()",
+        urlOffline: "src/html/math/min.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

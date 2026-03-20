@@ -1,0 +1,95 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- min.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.min() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.min() </h1>
+
+<p> The <code>Math.min()</code> method stands for "Minimum." When we are coordinating defenses on the bridge, we often need to find the smallest value in a vast sea of data. If our radar tracks several incoming rogue asteroids and we need to know which one will cross our path first, we are looking for the shortest distance! We use this method to instantly compare a list of numbers and return only the absolute lowest value. It is critical for calculating minimum safe distances and identifying our most immediate, close-range priorities! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Tactical tracks three rogue asteroids on an intercept course.
+let asteroidAlphaDist = 1200; // Kilometers away
+let asteroidBetaDist = 450;
+let asteroidGammaDist = 3100;
+
+// We use Math.min() to instantly find the closest, most urgent threat.
+let closestAsteroid = Math.min(asteroidAlphaDist, asteroidBetaDist, asteroidGammaDist);
+
+console.log(closestAsteroid); 
+// Result: 450 (Asteroid Beta is the closest and needs immediate attention!)
+
+// Just like with Math.max(), we can use the "spread" operator (...) to scan an array.
+// Let's check our various cargo bays to see which one has the lowest power level.
+let cargoBayPowerLevels = [85, 92, 41, 78, 99];
+let lowestPower = Math.min(...cargoBayPowerLevels);
+
+console.log(lowestPower);
+// Result: 41 (One of our bays is dropping to 41% power, we should reroute energy!)
+
+// Let us create a standard function for the navigation team:
+function verifySafeDistance(shipA, shipB, shipC) {
+    let nearestVessel = Math.min(shipA, shipB, shipC);
+    console.log("Navigation, our nearest neighbor is exactly " + nearestVessel + " km away.");
+}
+
+verifySafeDistance(5000, 2200, 8900); 
+// Result: Navigation, our nearest neighbor is exactly 2200 km away.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.min(value1, value2, ...)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The smallest of the given numbers.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.min()</code> is the direct counterpart to the maximum method. It takes any amount of numbers separated by commas, evaluates them all, and returns the lowest one. If any of the values we pass to it cannot be converted into a number by the ship's computer, the entire calculation fails and returns <code>NaN</code> (Not-a-Number). Fascinatingly, if we call <code>Math.min()</code> and give it no arguments at all, the computer returns <code>Infinity</code>. This is the exact opposite of what happens when we pass empty arguments to the maximum method! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
