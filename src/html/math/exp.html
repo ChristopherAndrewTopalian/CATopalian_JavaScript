@@ -1,0 +1,96 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- exp.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.exp() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.exp() </h1>
+
+<p> The <code>Math.exp()</code> method stands for "Exponential." In engineering, we use this to calculate the massive energy curves required by our warp engines. While standard impulse thrusters use fuel at a steady, predictable rate, warp drives require an exponential amount of power for every tiny increase in speed. This method takes Euler's number (a special mathematical constant approximately equal to 2.718) and raises it to the power of whatever number we give it. We use this to ensure we don't accidentally drain the entire anti-matter reserve when accelerating to escape velocity! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Let's calculate the power multiplier for Warp Factor 1.
+let warpOnePower = Math.exp(1);
+
+console.log(warpOnePower); 
+// Result: 2.718281828459045 (This is the baseline Euler's number, often written as 'e')
+
+// Now, let's see what happens if we try to push the engines to Warp Factor 5!
+let warpFivePower = Math.exp(5);
+
+console.log(warpFivePower);
+// Result: 148.4131591025766 (Notice how the energy demand didn't just multiply by 5; it exploded!)
+
+// Let's write an engineering safety function to monitor our anti-matter reserves:
+function calculateWarpDrain(warpFactor) {
+    let energyRequired = Math.exp(warpFactor);
+    
+    if (energyRequired > 100) {
+        console.log("Warning! High energy drain detected: " + energyRequired + " terajoules.");
+    } else {
+        console.log("Energy drain stable at: " + energyRequired + " terajoules.");
+    }
+}
+
+calculateWarpDrain(2);
+// Result: Energy drain stable at: 7.38905609893065 terajoules.
+
+calculateWarpDrain(6);
+// Result: Warning! High energy drain detected: 403.4287934927351 terajoules.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.exp(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+<p> <b>Type:</b> Number (Returns <code>e<sup>x</sup></code>, where <code>e</code> is Euler's number and <code>x</code> is the argument given.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>Math.exp()</code> static method is a core component for advanced physics simulations. Because e is the base of the natural logarithm, this method is fundamentally tied to how things grow naturally in the universe, from expanding nebulas to rapid energy consumption. If we pass <code>0</code> into the function, it will always return <code>1</code>, because any number raised to the power of zero is one. If we pass it an empty string or an empty array, it quietly treats it as a zero. However, if we feed it random text that cannot be calculated, the computer will alert us by returning <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

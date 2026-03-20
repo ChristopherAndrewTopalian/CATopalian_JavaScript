@@ -833,6 +833,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "exp()",
+        urlOffline: "src/html/math/exp.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
