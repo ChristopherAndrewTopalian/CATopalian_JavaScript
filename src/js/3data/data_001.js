@@ -857,6 +857,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "hypot()",
+        urlOffline: "src/html/math/hypot.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

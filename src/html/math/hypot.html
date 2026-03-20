@@ -1,0 +1,98 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- hypot.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.hypot() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.hypot() </h1>
+
+<p> The <code>Math.hypot()</code> method stands for "Hypotenuse." This is one of the most frequently used functions on the tactical bridge! When our radar detects an incoming object, it usually gives us the object's coordinates on a grid (like an X and Y position). But if we need to lock a tractor beam onto that object, we need to know the exact, straight-line distance to it. <code>Math.hypot()</code> takes those grid coordinates and instantly calculates the direct diagonal distance from our ship to the target. It is essential for targeting systems and proximity alerts! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A rogue asteroid is detected on the 2D tactical grid.
+let gridX = 300; // 300 kilometers to our starboard (right)
+let gridY = 400; // 400 kilometers off our bow (forward)
+
+// We use Math.hypot() to find the direct, straight-line distance.
+let directDistance = Math.hypot(gridX, gridY);
+
+console.log(directDistance); 
+// Result: 500 (The asteroid is exactly 500 kilometers away from our ship!)
+
+// It even works in 3D space! Let us add an elevation (Z-axis) to the mix:
+let spatialDistance = Math.hypot(300, 400, 1200);
+
+console.log(spatialDistance);
+// Result: 1300 (The true 3D distance to the target is 1300 kilometers.)
+
+// Let us create a standard tactical function to check if a target is in range:
+function checkWeaponRange(xDist, yDist) {
+    let targetDistance = Math.hypot(xDist, yDist);
+    let maxRange = 1000;
+    
+    if (targetDistance <= maxRange) {
+        console.log("Target locked at " + targetDistance + " km. We are in range!");
+    } else {
+        console.log("Target is " + targetDistance + " km away. Out of range.");
+    }
+}
+
+checkWeaponRange(800, 600); 
+// Result: Target locked at 1000 km. We are in range!
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.hypot(value1, value2, ...)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The square root of the sum of squares of the given arguments.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.hypot()</code> is a static method that calculates the length of the hypotenuse of a right-angled triangle. Because it accepts multiple arguments, it is incredibly versatile. We can pass it two numbers for a 2D radar grid, three numbers for a 3D spatial map, or even more for multi-dimensional physics calculations. If we pass it no arguments at all, it simply returns <code>0</code>. However, if even one of the arguments we pass to it cannot be converted into a number (like sending it garbled text from a damaged sensor), the entire method will immediately return <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

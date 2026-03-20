@@ -120,6 +120,7 @@ let theFunctions =
     'hasAttributes',
     'hasChildNodes',
     'hasFocus',
+    'hypot',
     'importNode',
     'includes',
     'indexOf',
