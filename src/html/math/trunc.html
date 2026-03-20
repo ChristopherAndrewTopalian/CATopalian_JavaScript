@@ -1,0 +1,93 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- trunc.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.trunc() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.trunc() </h1>
+
+<p> The <code>Math.trunc()</code> method stands for "Truncate." In engineering, to truncate something means to chop off the end of it. Sometimes during a mission, we don't want the computer to politely round a number up or down, we just want it to take a laser scalpel and completely slice away the decimal! If our matter fabricator says we have enough raw material to print 4.9 warp coils, we only actually have 4 complete, usable coils. The rest is just scrap. <code>Math.trunc()</code> instantly strips away that fractional scrap and gives us the pure, whole number we can rely on! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Engineering is printing emergency warp coils.
+let coilMaterial = 4.99; 
+
+// We use Math.trunc() to find out how many complete coils we get.
+let completeCoils = Math.trunc(coilMaterial);
+
+console.log(completeCoils); 
+// Result: 4 (It completely ignored the .99! We only have 4 solid coils.)
+
+// Watch how it handles negative space differently than Math.floor()!
+// Math.floor(-4.5) would push the number down to -5.
+// Math.trunc() just chops the decimal off, leaving the core number intact:
+console.log(Math.trunc(-4.5)); 
+// Result: -4 (Perfect for isolating grid sectors in negative coordinate space!)
+
+// Let us create a logistics function for the cargo bay:
+function countCompleteCrates(rawTonnage, crateCapacity) {
+    let exactYield = rawTonnage / crateCapacity;
+    let sealedCrates = Math.trunc(exactYield);
+    
+    console.log("Logistics: We have securely packed " + sealedCrates + " complete crates for transport.");
+}
+
+countCompleteCrates(1050, 100); 
+// Result: Logistics: We have securely packed 10 complete crates for transport.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.trunc(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The integer part of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.trunc()</code> is a highly efficient static method that simply removes any fractional digits from a number. It does not round the number at all. Because it simply drops the decimal, it behaves slightly differently than <code>Math.floor()</code> when dealing with negative numbers, making it incredibly useful for finding absolute coordinates without shifting the target further away. If we pass it <code>0</code> or an empty string, it returns <code>0</code>. If we pass it text that cannot be evaluated, the ship's computer returns <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

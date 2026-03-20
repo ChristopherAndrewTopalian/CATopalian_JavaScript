@@ -959,6 +959,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "trunc()",
+        urlOffline: "src/html/math/trunc.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
