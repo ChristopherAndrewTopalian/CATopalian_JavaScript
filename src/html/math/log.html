@@ -1,0 +1,91 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- log.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.log() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.log() </h1>
+
+<p> The <code>Math.log()</code> method stands for "Natural Logarithm." In our sensor arrays, we use this to calculate how things fade away naturally in the universe, like the dissipating energy of a massive ion storm. Because these phenomena do not just disappear instantly or evenly, they fade on a mathematical curve, we use the natural logarithm to figure out exactly how much time we need to wait before it is safe to drop our shields and proceed on our mission! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Sensors detect an ion storm with a specific energy intensity.
+let stormIntensity = 20.085536923187668; 
+
+// We use Math.log() to find out how many hours until it hits a baseline safe level.
+let hoursToSafeLevel = Math.log(stormIntensity);
+
+console.log(hoursToSafeLevel);
+// Result: 3 (We need to hold position for exactly 3 hours while it decays!)
+
+// The natural logarithm of Euler's number (Math.E) is exactly 1.
+console.log(Math.log(Math.E)); // Result: 1
+
+// Let us create a tactical function to calculate safe passage for the helm:
+function calculateWaitTime(intensity) {
+    let waitHours = Math.log(intensity);
+    
+    if (waitHours > 0) {
+        console.log("Helm, hold position. The storm will dissipate in " + waitHours + " hours.");
+    }
+}
+
+calculateWaitTime(54.598); 
+// Result: Helm, hold position. The storm will dissipate in 3.9999824673661073 hours.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.log(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The natural logarithm, base <code>e</code>, of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.log()</code> is a static method that returns the natural logarithm of a number. It is the mathematical opposite of <code>Math.exp()</code>. It is very important for our sensor officers to know that if we feed <code>Math.log()</code> a negative number, it represents a physical impossibility in this context, and the computer will immediately return <code>NaN</code> (Not-a-Number). If we pass it exactly <code>0</code>, it returns <code>-Infinity</code>. Because it relies on the natural base of the universe, Euler's number, it is an essential tool for predicting natural decay, cooling rates, and signal degradation over vast distances. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
