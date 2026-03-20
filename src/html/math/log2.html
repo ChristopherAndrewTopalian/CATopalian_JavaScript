@@ -1,0 +1,93 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- log2.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.log2() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.log2() </h1>
+
+<p> The <code>Math.log2()</code> method stands for "Base-2 Logarithm." Because our main ship computers operate entirely on binary (1s and 0s), this mathematical function is vital for processing data efficiently. When we use our targeting scanners to search a massive grid, the computer speeds up the process by dividing the search area in half with every sweep. We use <code>Math.log2()</code> to calculate the maximum number of sweeps it will take to isolate a single target out of thousands. It tells us the exact efficiency of our computer's search algorithms! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A dense asteroid field contains 1,024 distinct sectors.
+let totalSectors = 1024;
+
+// We use Math.log2() to find the maximum number of sweeps needed to find a hidden ship.
+let maxSweepsRequired = Math.log2(totalSectors);
+
+console.log(maxSweepsRequired); 
+// Result: 10 (By cutting the grid in half each time, we find the target in just 10 sweeps!)
+
+// If the grid was twice as large (2,048 sectors), it only takes one extra sweep!
+let massiveGrid = 2048; 
+
+console.log(Math.log2(massiveGrid));
+// Result: 11 (This is the incredible power of binary halving!)
+
+// Let's create a tactical function to estimate our scanning time:
+function estimateSweepTime(sectorCount) {
+    let sweeps = Math.log2(sectorCount);
+    
+    // Each sweep takes 1 second
+    console.log("Tactical lock will be acquired in a maximum of " + sweeps + " seconds.");
+}
+
+estimateSweepTime(4096); 
+// Result: Tactical lock will be acquired in a maximum of 12 seconds.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.log2(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The base-2 logarithm of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.log2()</code> is a standard static method used heavily in computer science and data storage calculations. If we pass it the number <code>2</code>, it returns <code>1</code>. If we pass it <code>8</code>, it returns <code>3</code> (because 2 * 2 * 2 = 8). Because it represents how many times we can divide a number by two, it is a perfect tool for optimizing how our navigation arrays process vast amounts of data. However, if we pass it exactly <code>0</code>, it returns <code>-Infinity</code>. And just like our other logarithmic methods, if we pass it a negative number, the computer recognizes the mathematical impossibility and returns <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

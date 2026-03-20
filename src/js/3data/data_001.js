@@ -887,6 +887,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "log2()",
+        urlOffline: "src/html/math/log2.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
