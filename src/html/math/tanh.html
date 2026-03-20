@@ -1,0 +1,97 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- tanh.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.tanh() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.tanh() </h1>
+
+<p> The <code>Math.tanh()</code> method stands for "Hyperbolic Tangent." On our starship, we use this advanced mathematical function as our primary Energy Stabilizer and Inertial Dampener! Space is full of chaotic anomalies. If an ion storm hits our shields with massive, fluctuating energy spikes, those spikes could overload our internal relays. <code>Math.tanh()</code> takes any raw input number, no matter how infinitely large or dangerously negative, and safely compresses it into a strict, manageable output between <code>-1</code> and <code>1</code>. It ensures our ship's power grid never blows a fuse during a crisis! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A chaotic plasma storm hits the ship with a massive energy spike!
+let plasmaSpike = 50000; 
+
+// We route the raw energy through the Math.tanh() dampener.
+let dampenedEnergy = Math.tanh(plasmaSpike);
+
+console.log(dampenedEnergy); 
+// Result: 1 (The massive spike was safely caught and constrained to our maximum safe level of 1!)
+
+// Suddenly, the storm creates a massive negative energy void!
+let energyVoid = -85000; 
+
+console.log(Math.tanh(energyVoid));
+// Result: -1 (The void is constrained to our lowest safe baseline of -1.)
+
+// Let us create an engineering function to automate our inertial dampeners:
+function stabilizePowerGrid(rawFluctuation) {
+    let safeOutput = Math.tanh(rawFluctuation);
+    
+    if (safeOutput === 1 || safeOutput === -1) {
+        console.log("Extreme fluctuation detected! Dampeners holding the line at: " + safeOutput);
+    } else {
+        // Numbers close to 0 aren't compressed as heavily.
+        console.log("Minor fluctuation absorbed. Output: " + safeOutput);
+    }
+}
+
+stabilizePowerGrid(0.5); 
+// Result: Minor fluctuation absorbed. Output: 0.46211715726000974
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.tanh(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The hyperbolic tangent of the given number, always resulting in a value between -1 and 1.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.tanh()</code> is a highly specialized static method. It acts as a mathematical compressor. If we pass it exactly <code>0</code>, it returns exactly <code>0</code>. But as the numbers we pass into it get larger (either positive or negative), the result aggressively flattens out, never physically crossing the boundary of <code>1</code> or <code>-1</code>. Because of this unique compressing behavior, it is actually one of the core mathematical functions used to build Artificial Intelligence and Neural Networks! If we pass it non-numeric text, it protects the system by returning <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

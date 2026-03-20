@@ -953,6 +953,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "tanh()",
+        urlOffline: "src/html/math/tanh.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
