@@ -1,0 +1,95 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- max.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.max() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.max() </h1>
+
+<p> The <code>Math.max()</code> method stands for "Maximum." On the bridge, we are constantly monitoring streams of data from multiple sources. If our tactical sensors detect several incoming vessels and we need to instantly identify the one with the highest energy signature, or if engineering gives us a list of available shield frequencies and we need the strongest one, we use this function. It takes a list of numbers, instantly compares them all, and returns only the absolute largest value. It is the perfect tool for prioritizing our actions during an encounter! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Tactical detects three incoming energy signatures.
+let signatureAlpha = 450;
+let signatureBeta = 890;
+let signatureGamma = 320;
+
+// We use Math.max() to instantly find the most powerful threat.
+let primaryTarget = Math.max(signatureAlpha, signatureBeta, signatureGamma);
+
+console.log(primaryTarget); 
+// Result: 890 (Signature Beta is the highest priority target!)
+
+// We can also use it with an array of numbers using the "spread" operator (...)
+// This is great for scanning an entire fleets distance from our ship!
+let fleetDistances = [1200, 4500, 800, 3100];
+let furthestShip = Math.max(...fleetDistances);
+
+console.log(furthestShip);
+// Result: 4500 (The furthest ship is 4500 kilometers out.)
+
+// Let us create a standard function for the deflector shields:
+function optimizeShields(freq1, freq2, freq3) {
+    let bestFrequency = Math.max(freq1, freq2, freq3);
+    console.log("Setting deflector shields to maximum frequency: " + bestFrequency + " THz.");
+}
+
+optimizeShields(105.4, 112.8, 98.9); 
+// Result: Setting deflector shields to maximum frequency: 112.8 THz.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.max(value1, value2, ...)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The largest of the given numbers.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.max()</code> is a highly versatile static method that can accept any amount of numbers separated by commas. It simply looks at the entire list and returns the highest one. It is important to remember that if we accidentally pass it a piece of text that cannot be converted to a number, the entire function will fail and return <code>NaN</code> (Not-a-Number), because it cannot compare a number to a word. Interestingly, if we call <code>Math.max()</code> and give it absolutely no arguments at all, it will return <code>-Infinity</code>, which is the absolute lowest number possible in the computer's memory! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

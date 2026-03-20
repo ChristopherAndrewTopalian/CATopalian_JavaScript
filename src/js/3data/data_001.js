@@ -893,6 +893,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "max()",
+        urlOffline: "src/html/math/max.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
