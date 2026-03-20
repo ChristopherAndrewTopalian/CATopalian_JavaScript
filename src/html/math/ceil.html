@@ -1,0 +1,95 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ceil.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.ceil() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.ceil() </h1>
+
+<p> The <code>Math.ceil()</code> method stands for "Ceiling." Whenever our navigational computers or life-support sensors return a decimal, but we absolutely need a whole number, we use this function to round <em>up</em> to the next highest integer. It is crucial for Starfleet logistics! If we calculate that we need 4.2 shuttlecraft to evacuate a scientific outpost, we cannot send a fraction of a ship; we must round the requirement up to the ceiling to ensure we send 5 full shuttles. </p>
+
+<hr>
+
+<pre><code class="custom-code">let escapingScientists = 42;
+let shuttleCapacity = 10;
+
+// A raw division gives us a decimal fraction.
+let exactShuttlesNeeded = escapingScientists / shuttleCapacity;
+
+console.log(exactShuttlesNeeded); 
+// Result: 4.2 (We can't fly 0.2 of a shuttle!)
+
+// We use Math.ceil() to always round up to the nearest whole integer.
+let actualShuttlesLaunched = Math.ceil(exactShuttlesNeeded);
+
+console.log(actualShuttlesLaunched);
+// Result: 5 (All 42 scientists are safely accommodated!)
+
+// Notice how it handles negative subspace coordinates. 
+// It rounds UP, meaning it moves towards zero!
+console.log(Math.ceil(-7.8)); // Result: -7
+
+// Let's write a standard function for the flight deck to automate this:
+function prepareShuttles(crewCount, seats) {
+    let shuttles = Math.ceil(crewCount / seats);
+    console.log("Flight deck, please prep " + shuttles + " shuttles for immediate departure.");
+}
+
+prepareShuttles(105, 20); 
+// Result: Flight deck, please prep 6 shuttles for immediate departure.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.ceil(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The smallest integer that is greater than or equal to the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> In mathematics, the ceiling function maps a real number to the smallest succeeding integer. <code>Math.ceil()</code> is a static method, meaning we just call it directly from the ship's main computer without needing to construct a "new Math" object. It is important for our engineering teams to remember that if the number is already a perfect integer, or if we pass it <code>0</code> or <code>-0</code>, it simply returns that exact same number. If we encounter a sensor glitch and pass it a value that cannot be converted to a number, it will alert us by returning <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

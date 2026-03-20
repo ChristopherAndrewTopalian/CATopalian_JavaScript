@@ -809,6 +809,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "ceil()",
+        urlOffline: "src/html/math/ceil.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
