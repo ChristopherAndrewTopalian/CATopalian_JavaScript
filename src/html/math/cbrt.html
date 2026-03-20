@@ -1,0 +1,89 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- cbrt.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.cbrt() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.cbrt() </h1>
+
+<p> The <code>Math.cbrt()</code> method stands for "Cube Root." When we are exploring deep space and our sensors detect the total volume of a perfect cube (like a mysterious alien artifact or a massive cargo pod), we use this function to instantly calculate the exact length of one of its sides. It mathematically reverse-engineers the 3D volume back into its original, single-dimension length. It is an essential tool for our navigation and engineering teams! </p>
+
+<hr>
+
+<pre><code class="custom-code">let alienArtifactVolume = 27000; // The total volume in cubic meters
+
+// Sensors indicate the artifact is a perfect cube.
+// We need to calculate the length of one side so our shuttle can navigate around it.
+let sideLength = Math.cbrt(alienArtifactVolume);
+
+console.log(sideLength); 
+// Result: 30 (Each side of the artifact is exactly 30 meters long!)
+
+// Unlike square roots, cube roots work perfectly on negative numbers.
+// This is highly useful when we calculate inverse subspace distortions.
+console.log(Math.cbrt(-64)); // Result: -4
+
+// Let's create a standard sensor function for the main deflector array:
+function analyzeAnomaly(volume) {
+    let edge = Math.cbrt(volume);
+    console.log("Anomaly edge length verified at: " + edge + " meters.");
+}
+
+analyzeAnomaly(125); 
+// Result: Anomaly edge length verified at: 5 meters.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.cbrt(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The cube root of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> In mathematics, the cube root of a number is a value that, when multiplied by itself three times, gives us the original number (for example, 3 * 3 * 3 = 27, so the cube root of 27 is 3). Because multiplying a negative number by itself three times still results in a negative number (-4 * -4 * -4 = -64), <code>Math.cbrt()</code> will happily process negative values without throwing errors. Just like our other math tools, <code>Math.cbrt()</code> is a static method, so we never have to build a "new Math" object to use it; we just call upon it directly from the ship's computer. If we pass it something that isn't a number, it will return <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

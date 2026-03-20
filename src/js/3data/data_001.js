@@ -797,6 +797,18 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "atanh()",
+        urlOffline: "src/html/math/atanh.html",
+        category: 'math'
+    },
+
+    {
+        name: "cbrt()",
+        urlOffline: "src/html/math/cbrt.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
