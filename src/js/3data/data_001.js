@@ -911,6 +911,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "random()",
+        urlOffline: "src/html/math/random.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

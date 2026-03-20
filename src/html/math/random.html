@@ -1,0 +1,95 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- random.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.random() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.random() </h1>
+
+<p> The <code>Math.random()</code> method stands for "Random." When we are running combat simulations or programming our ship's automated evasive maneuvers, we absolutely cannot have our flight paths be perfectly predictable! If our movements are a simple, repeating pattern, a hostile targeting computer will easily lock onto our hull. We use this method to introduce pure unpredictability. By itself, it only generates a tiny decimal number, but by multiplying it, we can create random coordinates anywhere on the tactical grid, keeping our ship completely unpredictable and safe from attack! </p>
+
+<hr>
+
+<pre><code class="custom-code">// The computer generates a raw, unpredictable decimal.
+let evasiveFactor = Math.random();
+
+console.log(evasiveFactor); 
+// Result: 0.458291048... (A completely random decimal between 0 and 1)
+
+// To make it useful for navigation, we multiply it by our grid size (e.g., 100 kilometers).
+let randomGridCoordinate = Math.random() * 100;
+
+console.log(randomGridCoordinate);
+// Result: 73.81930... (A random coordinate somewhere between 0 and 99.999...)
+
+// For a clean whole number, we combine it with our old friend, Math.floor()!
+let pureCoordinate = Math.floor(Math.random() * 100);
+
+console.log(pureCoordinate);
+// Result: 73 (A perfect, whole-number random coordinate!)
+
+// Let us create an evasive maneuver function for the helm:
+function executeEvasivePattern() {
+    let randomX = Math.floor(Math.random() * 500);
+    let randomY = Math.floor(Math.random() * 500);
+    console.log("Helm, initiate Evasive Pattern! Target new coordinates: X-" + randomX + " / Y-" + randomY);
+}
+
+executeEvasivePattern(); 
+// Result: Helm, initiate Evasive Pattern! Target new coordinates: X-342 / Y-115
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.random()</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (A floating-point, pseudo-random number between 0 (inclusive) and 1 (exclusive).) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.random()</code> is a static method that takes zero arguments. Every time we call it, the ship's computer generates a floating-point number from <code>0</code> up to, but not including, <code>1</code>. This means it might occasionally generate a perfect <code>0</code>, but it will never generate a perfect <code>1</code> (the highest it goes is 0.999...). Because computers are highly logical machines, true randomness is technically impossible; therefore, this method produces what we call "pseudo-random" numbers based on an incredibly complex underlying algorithm. It is the absolute best tool we have for generating unpredictable scenarios! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
