@@ -923,6 +923,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "sign()",
+        urlOffline: "src/html/math/sign.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
