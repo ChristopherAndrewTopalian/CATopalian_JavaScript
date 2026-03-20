@@ -1,0 +1,96 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- log10.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.log10() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.log10() </h1>
+
+<p> The <code>Math.log10()</code> method stands for "Base-10 Logarithm." When we are scanning deep space, the raw energy output of a star or a distress beacon can be hundreds of millions of units. We cannot easily read a number that long on our tactical displays during a crisis! We use this method to compress those massive numbers into a simple, readable scale. Because it operates on Base-10, every time the energy multiplies by ten, our display number only increases by one. It is the perfect mathematical tool for translating raw, overwhelming sensor data into a clear 1-to-10 threat level! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard communications beacon outputs 1,000 gigawatts of power.
+let beaconPower = 1000;
+
+// We use Math.log10() to calculate its readable signal level.
+let signalLevel = Math.log10(beaconPower);
+
+console.log(signalLevel); 
+// Result: 3 (Because 10 * 10 * 10 = 1000. It is a Level 3 signal!)
+
+// Suddenly, we detect a massive stellar flare!
+let flarePower = 100000; 
+
+console.log(Math.log10(flarePower));
+// Result: 5 (The energy is 100 times stronger, but the level only goes up to 5!)
+
+// Let us create a tactical alert function for the main viewscreen:
+function analyzeEnergySpike(rawEnergy) {
+    let threatLevel = Math.log10(rawEnergy);
+    
+    if (threatLevel >= 6) {
+        console.log("Red Alert! Level " + threatLevel + " energy spike detected!");
+    } else {
+        console.log("Energy spike is a manageable Level " + threatLevel + ".");
+    }
+}
+
+analyzeEnergySpike(1000000); 
+// Result: Red Alert! Level 6 energy spike detected!
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.log10(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The base-10 logarithm of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.log10()</code> is a standard static method used constantly in sensor arrays and communications arrays. If we pass it the number <code>10</code>, it returns <code>1</code>. If we pass it <code>100</code>, it returns <code>2</code>. It is a very clean, predictable mathematical function. However, if our sensors malfunction and pass a negative number into the method, it will return <code>NaN</code> (Not-a-Number), because calculating the base-10 logarithm of a negative number is mathematically impossible in standard space. If we pass it exactly <code>0</code>, it alerts the computer by returning <code>-Infinity</code>. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
