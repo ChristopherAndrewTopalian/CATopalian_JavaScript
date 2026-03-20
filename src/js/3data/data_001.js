@@ -929,6 +929,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "sin()",
+        urlOffline: "src/html/math/sin.html",
+        category: 'math'
+    },
+
 ];
 
 //----//

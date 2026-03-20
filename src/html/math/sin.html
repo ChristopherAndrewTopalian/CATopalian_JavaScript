@@ -1,0 +1,98 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- sin.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.sin() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.sin() </h1>
+
+<p> The <code>Math.sin()</code> method stands for "Sine." In our tactical systems, it acts as the vital partner to the cosine method. While cosine calculates the horizontal left-or-right position of a target, the sine method calculates the vertical up-or-down position (the Y-coordinate) based on its angle and distance from our ship. By using both of these methods together, we can track the exact circular orbit of a satellite or plot a perfect sweeping pattern for our radar dishes! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Just like with cosine, we must convert our angles into "radians" first.
+// We keep this standard conversion function handy in the computer core:
+function degreesToRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
+
+// Let us track a satellite currently in orbit around our ship.
+let distance = 5000; // The satellite is 5000 kilometers away.
+let orbitalAngle = 30; // It is currently at a 30-degree angle on the grid.
+
+// Convert the angle, then calculate the vertical Y-coordinate using Math.sin()
+let radians = degreesToRadians(orbitalAngle);
+let verticalPosition = distance * Math.sin(radians);
+
+console.log(verticalPosition); 
+// Result: 2499.9999999999995 (The satellite is exactly 2500 km "up" on the Y-axis)
+
+// Let us build a targeting function that maps both X and Y coordinates!
+function lockOnTarget(targetDist, targetAngle) {
+    let rads = degreesToRadians(targetAngle);
+    
+    // We use Math.cos() for the X-axis and Math.sin() for the Y-axis!
+    let xCoord = Math.round(targetDist * Math.cos(rads));
+    let yCoord = Math.round(targetDist * Math.sin(rads));
+    
+    console.log("Target locked at grid coordinates: X:" + xCoord + " / Y:" + yCoord);
+}
+
+lockOnTarget(10000, 90);
+// Result: Target locked at grid coordinates: X:0 / Y:10000 (Exactly 10000 km straight ahead!)
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.sin(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (Returns a numeric value between -1 and 1, which represents the sine of the angle.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>Math.sin()</code> static method returns the sine of a given angle. It is crucial for the navigation team to remember that the parameter <i>x</i> must be an angle measured in <b>radians</b>, not degrees. If we pass exactly 0 into it, it returns 0 (meaning there is no vertical elevation at a 0-degree angle). If we pass it Math.PI / 2 (which is exactly 90 degrees), it returns 1 (maximum vertical height). By multiplying this -1 to 1 range by our radar's distance, we map out exact physical coordinates. If our systems feed it non-numeric text, it returns <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
