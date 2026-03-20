@@ -1,0 +1,91 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- pow.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.pow() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.pow() </h1>
+
+<p> The <code>Math.pow()</code> method stands for "Power." When we need to calculate massive, multiplying numbers on the fly, this is our primary tool. If the tactical team is arming a photon torpedo with a base yield of 10, and they set the magnetic compression to level 3, the computer does not just multiply 10 by 3. It raises 10 to the <em>power</em> of 3 (10 * 10 * 10). We use this method constantly in engineering to calculate explosive blast radiuses, shield grid harmonics, and thruster output curves! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Tactical is arming a compressed photon torpedo.
+let baseYield = 10; // 10 megatons of base energy
+let compressionLevel = 3; // Compressing the energy 3 times over
+
+// We use Math.pow() to find the total explosive yield.
+let totalBlastYield = Math.pow(baseYield, compressionLevel);
+
+console.log(totalBlastYield); 
+// Result: 1000 (The torpedo will output an incredible 1,000 megatons of energy!)
+
+// We can also use it to calculate shield harmonics! 
+// A base frequency of 2, layered 8 times:
+console.log(Math.pow(2, 8)); 
+// Result: 256 (The shields are operating at 256 terajoules!)
+
+// Let's create a standard engineering function to boost our deflectors:
+function boostDeflectors(basePower, gridMultiplier) {
+    let shieldCapacity = Math.pow(basePower, gridMultiplier);
+    console.log("Deflectors boosted! Total shield capacity is now " + shieldCapacity + " terajoules.");
+}
+
+boostDeflectors(5, 4); 
+// Result: Deflectors boosted! Total shield capacity is now 625 terajoules.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.pow(base, exponent)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (Returns the <code>base</code> raised to the <code>exponent</code> power.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.pow()</code> is a highly versatile static method that takes exactly two arguments: the base number first, followed by the exponent. It evaluates the mathematical expression <code>base<sup>exponent</sup></code>. It is fascinating to note that if we pass an exponent of <code>0</code>, it will always return <code>1</code>, no matter how massive the base number is. If we pass an exponent of <code>1</code>, it simply returns the exact same base number we started with. However, if the ship's computer cannot convert one of our arguments into a valid number, the method will fail and return <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

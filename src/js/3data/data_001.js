@@ -905,6 +905,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "pow()",
+        urlOffline: "src/html/math/pow.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
