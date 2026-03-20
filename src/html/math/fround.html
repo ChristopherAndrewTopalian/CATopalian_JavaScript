@@ -1,0 +1,89 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- fround.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Math.fround() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../css/style001.css'>
+
+<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Math.fround() </h1>
+
+<p> The <code>Math.fround()</code> method stands for "Float Round." By default, our modern ship computers store every number using an extremely precise 64-bit format. However, when we need to beam telemetry data to an older observation satellite, or push a message through a highly compressed subspace channel, we cannot use that much memory. We use this method to intentionally downgrade our 64-bit numbers into 32-bit single-precision numbers. We lose a microscopic fraction of decimal accuracy, but it guarantees our data is small enough to be successfully transmitted! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Let us say we have a highly precise coordinate for a rogue comet.
+let preciseCoordinate = 1.337;
+
+// If we check this normally, the computer sees exactly 1.337.
+console.log(preciseCoordinate); 
+// Result: 1.337
+
+// Now, we compress it for the 32-bit subspace array using Math.fround()
+let compressedCoordinate = Math.fround(preciseCoordinate);
+
+console.log(compressedCoordinate);
+// Result: 1.3370000123977661 (Notice the tiny variation at the end due to the 32-bit conversion!)
+
+// Let us create a communications function to prepare data for broadcast:
+function sendSubspaceTelemetry(sensorData) {
+    let broadcastReadyData = Math.fround(sensorData);
+    console.log("Telemetry compressed to 32-bit. Ready to transmit: " + broadcastReadyData);
+}
+
+sendSubspaceTelemetry(8.555); 
+// Result: Telemetry compressed to 32-bit. Ready to transmit: 8.555000305175781
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">Math.fround(x)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Number (The nearest 32-bit single precision float representation of the given number.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>Math.fround()</code> is a static method that operates close to the hardware level. JavaScript normally uses double-precision floats (64-bit) for all numbers, but this method forces the number into a single-precision float (32-bit). Certain numbers, like <code>1.5</code>, can be perfectly represented in both formats, so they won't look any different. But numbers with complex decimals will show slight alterations when forced into the smaller 32-bit box. Just like our other methods, if we pass it <code>0</code> or an empty string, it returns <code>0</code>. If we pass it non-numeric text, it returns <code>NaN</code> (Not-a-Number). </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

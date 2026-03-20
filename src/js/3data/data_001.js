@@ -851,6 +851,12 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "fround()",
+        urlOffline: "src/html/math/fround.html",
+        category: 'math'
+    },
+
 ];
 
 //----//
