@@ -51,7 +51,7 @@ let deepScanResults = fleetData.matchAll(regexPattern);
 // matchAll returns an Iterator, so we use Array.from() to turn it into a readable array
 let resultsArray = Array.from(deepScanResults);
 
-// Let's look at the highly detailed dossier for the first ship found:
+// Let us look at the highly detailed dossier for the first ship found:
 console.log(resultsArray[0]); 
 // Result: ["USS Enterprise (NCC-1701)", "Enterprise", "1701", index: 6, input: "Ship: USS..."]
 
