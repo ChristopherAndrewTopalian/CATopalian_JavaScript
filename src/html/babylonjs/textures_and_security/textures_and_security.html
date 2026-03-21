@@ -172,7 +172,7 @@ window.addEventListener("resize", function () {
         const klingonMaterial = new BABYLON.StandardMaterial("KlingonMat", scene);
         // Note: For the live HTML to work, they will need an actual image at this path, or it will render blank!
         klingonMaterial.diffuseTexture = new BABYLON.Texture("textures/klingon_hull.jpg", scene);
-        klingonMaterial.diffuseColor = new BABYLON.Color3(0.5, 0, 0); // Fallback color just so the script doesn't crash if the image is missing
+        //klingonMaterial.diffuseColor = new BABYLON.Color3(0.5, 0, 0); // Fallback color just so the script doesn't crash if the image is missing
         anomalySphere.material = klingonMaterial;
 
         const innerDrone = BABYLON.MeshBuilder.CreateSphere("InnerScout", {diameter: 0.8, segments: 16}, scene);
@@ -181,7 +181,7 @@ window.addEventListener("resize", function () {
         
         const starfleetMaterial = new BABYLON.StandardMaterial("StarfleetMat", scene);
         starfleetMaterial.diffuseTexture = new BABYLON.Texture("textures/recon_drone.jpg", scene);
-        starfleetMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0.5); 
+        //starfleetMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0.5); 
         innerDrone.material = starfleetMaterial;
 
         return scene;
