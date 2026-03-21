@@ -1,0 +1,18 @@
+{
+    "name": "textures-and-security",
+
+    "version": "1.0.0",
+
+    "main": "textures_and_security.html",
+
+    "window": {
+        "width": 800,
+        "height": 600,
+        "icon": "src/media/textures/icon/icon.png"
+    },
+    "keywords": [],
+  "author": "Christopher Andrew Topalian",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {}
+}

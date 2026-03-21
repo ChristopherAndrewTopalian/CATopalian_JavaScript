@@ -21,6 +21,11 @@ let babylonjs3d =
         name: 'Animation and Patrol Routes with Outer Perimeter',
         appURL: 'src/html/babylonjs/animation_and_patrol_routes_with_outer_perimeter/animation_and_patrol_routes_with_outer_perimeter.html'
     },
+
+    {
+        name: 'Textures and Security',
+        appURL: 'src/html/babylonjs/textures/textures.html'
+    },
     
 ];
 
