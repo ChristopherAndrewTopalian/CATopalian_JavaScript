@@ -5,6 +5,16 @@ let babylonjs3d =
     {
         name: 'Initializing the Plane',
         appURL: 'src/html/babylonjs/initializing_plane/initializing_plane.html'
+    },
+
+    {
+        name: 'Materials and Grid',
+        appURL: 'src/html/babylonjs/materials_and_grid/materials_and_grid.html'
+    },
+
+    {
+        name: 'Animation and Patrol Routes',
+        appURL: 'src/html/babylonjs/animation_and_patrol_routes/animation_and_patrol_routes.html'
     }
 ];
 

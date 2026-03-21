@@ -287,7 +287,17 @@ let theFunctions =
     'watchPosition',
     'with',
     'write',
-    'writeln'
+    'writeln',
+
+    'addEventListener',
+
+    'ArcRotateCamera',
+    'attachControl',
+    'CreateGround',
+    'CreateSphere',
+    'HemisphericLight',
+    'runRenderLoop',
+    'StandardMaterial'
 ];
 
 //----//

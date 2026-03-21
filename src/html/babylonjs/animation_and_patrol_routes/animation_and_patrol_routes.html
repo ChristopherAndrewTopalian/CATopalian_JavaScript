@@ -1,0 +1,196 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- animation_and_patrol_routes.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Animation and Patrol Routes </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+    #renderCanvas {
+        width: 100%;
+        height: 400px;
+        touch-action: none;
+        border: 2px solid rgb(70, 70, 70);
+        border-radius: 8px;
+        background-color: rgb(0, 0, 0); 
+    }
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Animation and Patrol Routes </h1>
+
+<p> A tactical display is only useful if it tracks movement! Our sensors have detected an unknown red anomaly, and Starfleet has deployed an automated scout drone to investigate. To keep the drone safe, it needs to maintain a continuous, circular patrol route around the target. This is where our applied math comes in! By using <code>Math.cos()</code> and <code>Math.sin()</code> inside our engine's render loop, we can update the drones coordinates 60 times a second, bringing our 3D universe to life with perfect orbital mechanics! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+// We need a variable to track the drones angle over time!
+let patrolAngle = 0;
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 12, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Grid and Anomaly
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 15, height: 15, subdivisions: 15}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.8, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    anomalySphere.position.y = 1;
+    const alertMaterial = new BABYLON.StandardMaterial("AlertMat", scene);
+    alertMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0); 
+    anomalySphere.material = alertMaterial;
+
+    // Deploy the Friendly Scout Drone! (A smaller sphere)
+    const scoutDrone = BABYLON.MeshBuilder.CreateSphere("ScoutOne", {diameter: 0.8, segments: 16}, scene);
+    scoutDrone.position.y = 1; // Keep it hovering above the grid
+    
+    // Give it a friendly Aqua/Cyan color!
+    const friendlyMaterial = new BABYLON.StandardMaterial("FriendlyMat", scene);
+    friendlyMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); // Glowing Aqua
+    scoutDrone.material = friendlyMaterial;
+
+    // We return BOTH the scene and the drone so the render loop can access the drone!
+    return { scene: scene, drone: scoutDrone };
+};
+
+// Extract the scene and the drone from our initialization function
+const holodeckData = createScene();
+const tacticalScene = holodeckData.scene;
+const activeDrone = holodeckData.drone;
+
+// The Render Loop: The Heartbeat of our Game Engine!
+engine.runRenderLoop(function () {
+    
+    // Increase the angle slightly every single frame to create movement
+    patrolAngle += 0.02;
+    
+    // The radius of our orbit (how far away from the center it stays)
+    let patrolRadius = 4;
+    
+    // Apply Trigonometry to update the drone's position on the X and Z axes!
+    activeDrone.position.x = patrolRadius * Math.cos(patrolAngle);
+    activeDrone.position.z = patrolRadius * Math.sin(patrolAngle);
+
+    // Finally, draw the updated frame!
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> The Mechanics of Animation </h2>
+    <p> <b>The Render Loop:</b> Because <code>engine.runRenderLoop()</code> fires approximately 60 times per second, any changes we make to a Mesh's position *inside* this loop will result in smooth, continuous animation. It is the core logic loop of almost every custom game engine! </p>
+    <p> <b>Trigonometric Orbits:</b> By increasing our <code>patrolAngle</code> variable slightly every frame, we act exactly like a clock ticking forward. We feed that ticking angle into <code>Math.cos()</code> to get our horizontal position, and <code>Math.sin()</code> to get our depth position. Combined with a <code>patrolRadius</code> of 4, the drone perfectly sweeps a circle 4 units wide around the anomaly! </p>
+</div>
+
+</div>
+
+<script>
+
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+let patrolAngle = 0;
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 12, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+    
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 15, height: 15, subdivisions: 15}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.8, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    anomalySphere.position.y = 1;
+    const alertMaterial = new BABYLON.StandardMaterial("AlertMat", scene);
+    alertMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0); 
+    anomalySphere.material = alertMaterial;
+
+    const scoutDrone = BABYLON.MeshBuilder.CreateSphere("ScoutOne", {diameter: 0.8, segments: 16}, scene);
+    scoutDrone.position.y = 1; 
+    
+    const friendlyMaterial = new BABYLON.StandardMaterial("FriendlyMat", scene);
+    friendlyMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); 
+    scoutDrone.material = friendlyMaterial;
+
+    return { scene: scene, drone: scoutDrone };
+};
+
+const holodeckData = createScene();
+const tacticalScene = holodeckData.scene;
+const activeDrone = holodeckData.drone;
+
+engine.runRenderLoop(function () {
+    patrolAngle += 0.02;
+    let patrolRadius = 4;
+    
+    activeDrone.position.x = patrolRadius * Math.cos(patrolAngle);
+    activeDrone.position.z = patrolRadius * Math.sin(patrolAngle);
+
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+
+</script>
+
+</body>
+
+</html>
+

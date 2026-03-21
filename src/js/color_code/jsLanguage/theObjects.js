@@ -13,6 +13,8 @@ let theObjects =
     'JSON',
     'Set',
     'String',
+
+    'BABYLON'
 ];
 
 //----//
