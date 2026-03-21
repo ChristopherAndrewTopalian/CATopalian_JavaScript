@@ -24,7 +24,7 @@ let babylonjs3d =
 
     {
         name: 'Textures and Security',
-        appURL: 'src/html/babylonjs/textures/textures.html'
+        appURL: 'src/html/babylonjs/textures/textures_and_security.html'
     },
     
 ];
