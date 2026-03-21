@@ -945,6 +945,50 @@ function makeInterface(whichArray, whichEntry)
         };
         interfaceAppsDetails.append(theButton);
     }
+
+    //----//
+
+    buttonContainer.append(ce('hr'));
+
+    //----//
+
+    let babylonjsAppsDetails = ce('details');
+    babylonjsAppsDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    babylonjsAppsDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(babylonjsAppsDetails);
+
+    //-//
+
+    let babylonjsAppsSummary = ce('summary');
+    babylonjsAppsSummary.textContent = 'BabylonJS';
+    babylonjsAppsDetails.append(babylonjsAppsSummary);
+
+    for (let x = 0; x < babylonjs3d.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = babylonjs3d[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            window.open(babylonjs3d[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = babylonjs3d[x].appURL;
+        };
+        babylonjsAppsDetails.append(theButton);
+    }
 }
 
 //----//

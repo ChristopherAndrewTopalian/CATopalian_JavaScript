@@ -965,6 +965,13 @@ let operators = [
         category: 'math'
     },
 
+    {
+        name: "Time to Intercept()",
+        urlOffline: "src/html/math/formulas/time/time_to_intercept.html",
+        category: 'math'
+    },
+    
+
 ];
 
 //----//

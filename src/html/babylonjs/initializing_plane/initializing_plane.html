@@ -1,0 +1,162 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- initializing_plane.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Initializing the Tactical Plane </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+    /* We need a specific canvas for the 3D engine to draw onto! */
+    #renderCanvas {
+        width: 100%;
+        height: 400px;
+        touch-action: none;
+        border: 2px solid rgb(70, 70, 70);
+        border-radius: 8px;
+        background-color: rgb(0, 0, 0); /* Deep space background */
+    }
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Initializing the Tactical Plane </h1>
+
+<p> Welcome to Advanced 3D Tactical Rendering! Before we can visualize complex robotic sensors or incoming enemy vessels, we must learn how to construct our environment from scratch. In Babylon.js, every simulation requires four essential components: The <strong>Engine</strong> (the computer's raw drawing power), the <strong>Scene</strong> (the empty holodeck room), a <strong>Camera</strong> (our eyes in the space), and a <strong>Light</strong> (so we aren't completely in the dark). Let's power up the holodeck, lay down our foundational universal plane, and generate a target sphere! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Target the canvas element on our tactical display
+const canvas = document.getElementById("renderCanvas");
+
+// Initialize the Babylon Engine 
+// We add "true" at the very end for 'adaptToDeviceRatio' so it stays crisp on massive 4K TVs!
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+// Create a function to build our 3D universe
+const createScene = function () {
+    // Generate a new blank Scene (The Holodeck)
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); // Dark space blue
+
+    // Add a Camera (ArcRotateCamera lets us orbit around a target)
+    // We position it slightly elevated so we can look down at our plane
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 10, BABYLON.Vector3.Zero(), scene);
+    
+    // Attach the camera controls to the canvas so the user can click and drag to look around
+    camera.attachControl(canvas, true);
+
+    // Add a Light to illuminate the scene (Hemispheric light acts like ambient starlight)
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Generate the foundational universal plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 10, height: 10}, scene);
+
+    // Generate our 3D object: A basic sphere (representing a planetary anomaly)
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    
+    // The sphere is generated exactly at the center (0,0,0). 
+    // Since it is 2 units tall, we move it UP by 1 on the Y-axis so it rests perfectly on the plane!
+    anomalySphere.position.y = 1;
+
+    return scene;
+};
+
+// Call the function to build the scene
+const tacticalScene = createScene();
+
+// Tell the Engine to constantly update and render the scene (60 frames per second!)
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+// Ensure the 3D window resizes correctly if the cadet resizes their browser
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Core Rendering Architecture </h2>
+    <p> <b>The Canvas:</b> Babylon.js cannot draw directly onto a standard web page. It requires an HTML5 <code>&lt;canvas&gt;</code> element, which acts as a dedicated viewport into the 3D graphics card. </p>
+    <p> <b>The Render Loop:</b> 3D graphics are not static images. The <code>engine.runRenderLoop()</code> is the beating heart of the simulation. It completely redraws the entire scene 60 times a second, which is what allows us to see smooth movement, orbit the camera, and track moving targets in real-time! </p>
+</div>
+
+</div>
+
+<script>
+
+const canvas = document.getElementById("renderCanvas");
+
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 10, BABYLON.Vector3.Zero(), scene);
+
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+    
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 10, height: 10}, scene);
+
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    anomalySphere.position.y = 1;
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+
+</script>
+
+</body>
+
+</html>
+

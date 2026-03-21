@@ -1,0 +1,74 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- time_to_intercept.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Tactical Engine: Time to Intercept </title>
+
+<meta charset = 'UTF-8'>
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../../css/style001.css'>
+
+<script src = '../../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Calculate: Time to Intercept </h1>
+
+<p> In the heat of battle, knowing exactly when your ordnance will strike the enemy is the difference between victory and defeat. If a Klingon Bird of Prey is attempting to retreat, and Tactical fires a photon torpedo, we need to know exactly how many seconds it will take for the torpedo to cross the void and make impact. By dividing the distance to the target by the speed of our torpedo, we find our exact time to intercept! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Tactical Function: Calculate Time to Intercept
+// Formula: Time = Distance / Speed
+
+function calculateImpactTime(targetDistance, torpedoSpeed) {
+    // We divide the total distance by how fast the torpedo is traveling
+    let secondsToImpact = targetDistance / torpedoSpeed;
+    
+    // We use Math.round() to keep the tactical display clean!
+    let cleanTime = Math.round(secondsToImpact);
+    
+    console.log("Torpedo away! Impact in exactly " + cleanTime + " seconds.");
+    return cleanTime;
+}
+
+// A Klingon ship is 15,000 kilometers away.
+// Our torpedo travels at 2,500 kilometers per second.
+calculateImpactTime(15000, 2500); 
+// Result: Torpedo away! Impact in exactly 6 seconds.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> The Math Behind the Code: </h2>
+    <p> <b>Kinematics: <code>t = d / v</code></b> </p>
+    <p> This function relies on the fundamental physics equation where Time (t) equals Distance (d) divided by Velocity or Speed (v). In scripting, isolating this into a simple function with only two inputs makes it incredibly easy for the ship's main computer to run this calculation thousands of times a second for multiple targets without crashing the system! </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
