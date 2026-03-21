@@ -15,7 +15,13 @@ let babylonjs3d =
     {
         name: 'Animation and Patrol Routes',
         appURL: 'src/html/babylonjs/animation_and_patrol_routes/animation_and_patrol_routes.html'
-    }
+    },
+
+    {
+        name: 'Animation and Patrol Routes with Outer Perimeter',
+        appURL: 'src/html/babylonjs/animation_and_patrol_routes_with_outer_perimeter/animation_and_patrol_routes_with_outer_perimeter.html'
+    },
+    
 ];
 
 //----//

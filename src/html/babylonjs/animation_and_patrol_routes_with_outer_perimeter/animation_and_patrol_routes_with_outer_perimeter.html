@@ -1,0 +1,255 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- animation_and_patrol_routes_with_outer_perimeter.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Outer Perimeter and Square Logic </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Outer Perimeter and Square Logic </h1>
+
+<p> Our inner scout drone is maintaining a perfect circular orbit, but Starfleet protocol requires an outer perimeter patrol as well! We are deploying a second, darker blue drone to fly a rigid, square patrol route around the entire sector. While circular orbits use flowing trigonometry, a square route requires precise, straight lines and sharp 90-degree turns. To achieve this, we will use a time cycle and <code>if / else if</code> logic to command the drone exactly which edge of the square it should be flying along at any given moment! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+// Variables for our two different animation styles!
+let circularAngle = 0;
+let squareTimer = 0;
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Pushed the camera out to 15 to see the wider patrol route!
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 15, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Grid and the Anomaly
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 20, height: 20, subdivisions: 20}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.6, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    anomalySphere.position.y = 1;
+    const alertMaterial = new BABYLON.StandardMaterial("AlertMat", scene);
+    alertMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0); 
+    anomalySphere.material = alertMaterial;
+
+    // Inner Patrol Drone (Aqua)
+    const innerDrone = BABYLON.MeshBuilder.CreateSphere("InnerScout", {diameter: 0.8, segments: 16}, scene);
+    innerDrone.position.y = 1; 
+    const aquaMaterial = new BABYLON.StandardMaterial("AquaMat", scene);
+    aquaMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); 
+    innerDrone.material = aquaMaterial;
+
+    // Outer Perimeter Drone (Dark Blue)
+    const outerDrone = BABYLON.MeshBuilder.CreateSphere("OuterScout", {diameter: 0.8, segments: 16}, scene);
+    outerDrone.position.y = 1; 
+    const darkBlueMaterial = new BABYLON.StandardMaterial("DarkBlueMat", scene);
+    darkBlueMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 1); 
+    outerDrone.material = darkBlueMaterial;
+
+    return { scene: scene, drone1: innerDrone, drone2: outerDrone };
+};
+
+const holodeckData = createScene();
+const tacticalScene = holodeckData.scene;
+const droneAqua = holodeckData.drone1;
+const droneBlue = holodeckData.drone2;
+
+// The Render Loop: Running both animations simultaneously!
+engine.runRenderLoop(function () {
+    
+    // --- ANIMATION 1: The Circular Orbit ---
+    circularAngle += 0.02;
+    let radius = 4;
+    droneAqua.position.x = radius * Math.cos(circularAngle);
+    droneAqua.position.z = radius * Math.sin(circularAngle);
+
+    // --- ANIMATION 2: The Square Perimeter ---
+    // Increase the timer slowly
+    squareTimer += 0.015; 
+    
+    // The modulo (%) operator keeps the cycle looping perfectly from 0 up to 4
+    let cycle = squareTimer % 4; 
+    let squareSize = 6; // How far out the square is from the center
+
+    // Determine which of the 4 edges the drone is currently on!
+    if (cycle < 1) {
+        // Top Edge: Moving right
+        droneBlue.position.x = -squareSize + (cycle * squareSize * 2);
+        droneBlue.position.z = squareSize;
+    } else if (cycle < 2) {
+        // Right Edge: Moving down
+        droneBlue.position.x = squareSize;
+        droneBlue.position.z = squareSize - ((cycle - 1) * squareSize * 2);
+    } else if (cycle < 3) {
+        // Bottom Edge: Moving left
+        droneBlue.position.x = squareSize - ((cycle - 2) * squareSize * 2);
+        droneBlue.position.z = -squareSize;
+    } else {
+        // Left Edge: Moving up
+        droneBlue.position.x = -squareSize;
+        droneBlue.position.z = -squareSize + ((cycle - 3) * squareSize * 2);
+    }
+
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Tracking Time Cycles </h2>
+    <p> <b>The Modulo Operator (<code>%</code>):</b> This is one of the greatest tricks in game design! By calculating <code>squareTimer % 4</code>, we force a constantly growing number to loop cleanly. Even when the timer hits 1,000, the <code>cycle</code> variable will only ever be a number between <code>0</code> and <code>3.999</code>. </p>
+    <p> <b>Piecewise Animation:</b> We use <code>if / else if</code> to slice our repeating 4-second cycle into four quarters (0 to 1, 1 to 2, 2 to 3, and 3 to 4). During each specific quarter, the computer calculates a straight line for the X or Z coordinates, keeping the other coordinate perfectly locked in place to create the flat sides of the square! </p>
+</div>
+
+</div>
+
+<script>
+
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+let circularAngle = 0;
+let squareTimer = 0;
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 15, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+    
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 20, height: 20, subdivisions: 20}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.6, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    const anomalySphere = BABYLON.MeshBuilder.CreateSphere("AnomalyAlpha", {diameter: 2, segments: 32}, scene);
+    anomalySphere.position.y = 1;
+    const alertMaterial = new BABYLON.StandardMaterial("AlertMat", scene);
+    alertMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0); 
+    anomalySphere.material = alertMaterial;
+
+    const innerDrone = BABYLON.MeshBuilder.CreateSphere("InnerScout", {diameter: 0.8, segments: 16}, scene);
+    innerDrone.position.y = 1; 
+    const aquaMaterial = new BABYLON.StandardMaterial("AquaMat", scene);
+    aquaMaterial.emissiveColor = new BABYLON.Color3(0, 1, 1); 
+    innerDrone.material = aquaMaterial;
+
+    const outerDrone = BABYLON.MeshBuilder.CreateSphere("OuterScout", {diameter: 0.8, segments: 16}, scene);
+    outerDrone.position.y = 1; 
+    const darkBlueMaterial = new BABYLON.StandardMaterial("DarkBlueMat", scene);
+    darkBlueMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 1); 
+    outerDrone.material = darkBlueMaterial;
+
+    return { scene: scene, drone1: innerDrone, drone2: outerDrone };
+};
+
+const holodeckData = createScene();
+const tacticalScene = holodeckData.scene;
+const droneAqua = holodeckData.drone1;
+const droneBlue = holodeckData.drone2;
+
+engine.runRenderLoop(function () {
+    circularAngle += 0.02;
+    let radius = 4;
+    droneAqua.position.x = radius * Math.cos(circularAngle);
+    droneAqua.position.z = radius * Math.sin(circularAngle);
+
+    squareTimer += 0.015; 
+    let cycle = squareTimer % 4; 
+    let squareSize = 6; 
+
+    if (cycle < 1) {
+        droneBlue.position.x = -squareSize + (cycle * squareSize * 2);
+        droneBlue.position.z = squareSize;
+    } else if (cycle < 2) {
+        droneBlue.position.x = squareSize;
+        droneBlue.position.z = squareSize - ((cycle - 1) * squareSize * 2);
+    } else if (cycle < 3) {
+        droneBlue.position.x = squareSize - ((cycle - 2) * squareSize * 2);
+        droneBlue.position.z = -squareSize;
+    } else {
+        droneBlue.position.x = -squareSize;
+        droneBlue.position.z = -squareSize + ((cycle - 3) * squareSize * 2);
+    }
+
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+
+</script>
+
+</body>
+
+</html>
+
