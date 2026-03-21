@@ -507,6 +507,13 @@ let apps = [
     category: 'mobile'
 },
 
+{
+    name: 'CATopalian NodeJS Windows Mobile Hotspot',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_NodeJS_Windows_Mobile_Hotspot/CATopalian_NodeJS_Windows_Hotspot.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_NodeJS_Windows_Mobile_Hotspot',
+    category: 'mobile'
+},
+
 // CATopalian JavaScript Note Taker
 {
     name: "CATopalian JavaScript Note Taker",
