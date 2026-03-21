@@ -1,0 +1,218 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- interfaces_and_interactivity.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Holographic Interfaces and Interactivity </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Holographic Interfaces and Interactivity </h1>
+
+<p> A tactical display isn't just for watching drones fly in circles; officers need to be able to command the system! Today, we are building a 3D Holographic Navigation Console. We will replace our spheres with flat, rectangular meshes to act as physical buttons on our grid. To make them interactive, we will introduce the <strong>ActionManager</strong>. By assigning an <code>OnPickTrigger</code> to a mesh, the engine will detect when the user left-clicks it and execute standard JavaScript, in this case, opening an external data archive in a new window! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 12, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 15, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.4, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // A Helper Function to Build our 3D Buttons!
+    // This saves us from writing the same code 4 times.
+    function createConsoleButton(name, color, xPosition, targetUrl) {
+        // Create a flat rectangle (width 2, height 0.5, depth 1.5)
+        let btnMesh = BABYLON.MeshBuilder.CreateBox(name, {width: 2, height: 0.5, depth: 1.5}, scene);
+        btnMesh.position.y = 0.25; // Rest it exactly on the ground
+        btnMesh.position.x = xPosition; // Space them out on the console
+
+        // Apply the color
+        let btnMat = new BABYLON.StandardMaterial(name + "Mat", scene);
+        btnMat.diffuseColor = color;
+        btnMat.emissiveColor = color.scale(0.5); // Give it a slight internal glow
+        btnMesh.material = btnMat;
+
+        // INTERACTIVITY
+        // Give the mesh an ActionManager
+        btnMesh.actionManager = new BABYLON.ActionManager(scene);
+        
+        // Register a Left-Click Trigger (OnPickTrigger)
+        btnMesh.actionManager.registerAction(
+            new BABYLON.ExecuteCodeAction(
+                BABYLON.ActionManager.OnPickTrigger,
+                function () {
+                    // Standard JS to open a link in a new tab!
+                    window.open(targetUrl, "_blank");
+                }
+            )
+        );
+        // Notice: The ActionManager automatically changes your mouse cursor to a hand when you hover over it!
+    }
+
+    // Deploy the 4 Interface Buttons!
+    // Aqua Button -> General Sector Search
+    createConsoleButton("GoogleBtn", new BABYLON.Color3(0, 1, 1), -4.5, "https://www.google.com");
+    
+    // Yellow Button -> Engineering Schematics
+    createConsoleButton("GitHubBtn", new BABYLON.Color3(1, 1, 0), -1.5, "https://github.com");
+    
+    // Orange Button -> Galactic Encyclopedia
+    createConsoleButton("WikiBtn", new BABYLON.Color3(1, 0.5, 0), 1.5, "https://www.wikipedia.org");
+    
+    // Purple Button -> Spaceweater Science
+    createConsoleButton("SunBtn", new BABYLON.Color3(0.5, 0, 1), 4.5, "https://www.spaceweather.gov/");
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> The ActionManager </h2>
+    <p> <b>Bridging 3D and 2D:</b> The <code>ActionManager</code> is the ultimate translator. It takes 3D spatial events (like a laser raycast hitting a mesh's specific geometry) and translates them into standard JavaScript commands. </p>
+    <p> <b>OnPickTrigger:</b> This specific trigger fires when the user presses and releases the left mouse button while the cursor is directly over the 3D object. In future lessons, we can explore other triggers like <code>OnPointerOverTrigger</code> (hovering) or right-clicking! </p>
+    <p> <b>DRY Programming:</b> By wrapping our button creation inside a custom <code>createConsoleButton()</code> function, we followed the <i>Don't Repeat Yourself</i> (DRY) principle, keeping our codebase clean and efficient! </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 12, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(1, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 15, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.4, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        function createConsoleButton(name, color, xPosition, targetUrl) {
+            let btnMesh = BABYLON.MeshBuilder.CreateBox(name, {width: 2, height: 0.5, depth: 1.5}, scene);
+            btnMesh.position.y = 0.25; 
+            btnMesh.position.x = xPosition; 
+
+            let btnMat = new BABYLON.StandardMaterial(name + "Mat", scene);
+            btnMat.diffuseColor = color;
+            btnMat.emissiveColor = color.scale(0.5); 
+            btnMesh.material = btnMat;
+
+            btnMesh.actionManager = new BABYLON.ActionManager(scene);
+            
+            btnMesh.actionManager.registerAction(
+                new BABYLON.ExecuteCodeAction(
+                    BABYLON.ActionManager.OnPickTrigger,
+                    function () {
+                        window.open(targetUrl, "_blank");
+                    }
+                )
+            );
+        }
+
+        createConsoleButton("GoogleBtn", new BABYLON.Color3(0, 1, 1), -4.5, "https://www.google.com");
+        
+        createConsoleButton("GitHubBtn", new BABYLON.Color3(1, 1, 0), -1.5, "https://github.com");
+
+        createConsoleButton("WikiBtn", new BABYLON.Color3(1, 0.5, 0), 1.5, "https://www.wikipedia.org");
+
+        createConsoleButton("SunBtn", new BABYLON.Color3(0.5, 0, 1), 4.5, "https://www.spaceweather.gov/");
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+

@@ -26,6 +26,11 @@ let babylonjs3d =
         name: 'Textures and Security',
         appURL: 'src/html/babylonjs/textures_and_security/textures_and_security.html'
     },
+
+    {
+        name: 'Interfaces and Interactivity',
+        appURL: 'src/html/babylonjs/interfaces_and_interactivity/interfaces_and_interactivity.html'
+    },
     
 ];
 
