@@ -1,0 +1,122 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterByMonthDay.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterByMonthDay() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterByMonthDay() </h1>
+
+<p> What if we want to find an event that happens on the exact same day every single year? If we are looking for a crew member's birthday, the year they were born doesn't matter; we only care about the Month and the Day! To pull this off, we use the <code>.split('/')</code> method to chop the date string into three pieces. We completely ignore the first piece (the Year at index <code>[0]</code>), and we use the Logical AND operator (<code>&&</code>) to check if both the Month (index <code>[1]</code>) and the Day (index <code>[2]</code>) match our target! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing the crews birth records
+let crewBirthdays = [
+    { officer: "James T. Kirk", date: "2233/03/22" },
+    { officer: "Jean-Luc Picard", date: "2305/07/13" },
+    { officer: "William Riker", date: "2335/08/19" },
+    { officer: "Beverly Crusher", date: "2324/10/13" },
+    { officer: "Sylvia Tilly", date: "2233/03/22" } // Shared birthday!
+];
+
+// We want to find everyone who celebrates a birthday on March 22nd
+let targetMonth = "03"; 
+let targetDay = "22";
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterByMonthDayManual(whichArray, whichMonth, whichDay) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // Chop the date string into 3 pieces: ["2305", "07", "13"]
+        let parts = whichArray[z].date.split('/');
+
+        // We ignore parts[0], and check if BOTH parts[1] and parts[2] match!
+        if (parts[1] === whichMonth && parts[2] === whichDay) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterByMonthDay(whichArray, whichMonth, whichDay) {
+    return whichArray.filter(function(item) {
+        let parts = item.date.split('/');
+        
+        // If the Month matches AND the Day matches, the item is kept!
+        return parts[1] === whichMonth && parts[2] === whichDay; 
+    });
+}
+
+let partyList = filterByMonthDay(crewBirthdays, targetMonth, targetDay);
+console.log(partyList); 
+// Result: We extract Kirk and Tilly's records, completely ignoring their birth years!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> We can use this inline to scan for Federation holidays! If we are programming the ship's calendar interface and we need to highlight all historical events that took place on "First Contact Day" (April 5th), we can isolate that specific month and day directly into a new variable. </p>
+
+<pre><code class="custom-code">// A massive database of historical Federation events
+let historicalEvents = [
+    { event: "Cochrane's Warp Flight", date: "2063/04/05" },
+    { event: "Khitomer Accords", date: "2293/08/13" },
+    { event: "First Contact Day Celebration", date: "2373/04/05" },
+    { event: "Romulan Supernova", date: "2387/11/02" }
+];
+
+// Filter on the fly to find anything that happened on April 5th (04/05)
+let aprilFifthEvents = historicalEvents.filter(function(record) {
+    let parts = record.date.split('/');
+    return parts[1] === "04" && parts[2] === "05";
+});
+
+console.log(aprilFifthEvents);
+// We instantly extract Cochrane's flight and the 2373 celebration!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> This module perfectly highlights the power of arrays. Because <code>.split('/')</code> turns our date string into a predictable, ordered array, we can safely ignore the data we don't care about. By never checking index <code>[0]</code>, we effectively tell the computer that the Year is irrelevant. We then use the Logical AND operator (<code>&&</code>) as a strict double-check gateway to ensure both the Month at index <code>[1]</code> and the Day at index <code>[2]</code> are exact matches before saving the object to our new list. </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

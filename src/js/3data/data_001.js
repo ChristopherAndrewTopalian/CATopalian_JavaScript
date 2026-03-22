@@ -1031,6 +1031,12 @@ let operators = [
         category: 'aoo_filter'
     },
 
+    {
+        name: "filterByMonthDay",
+        urlOffline: "src/html/array_of_objects/filter/filterByMonthDay.html",
+        category: 'aoo_filter'
+    },
+
 ];
 
 //----//
