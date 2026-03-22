@@ -1,0 +1,125 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- showAllNames.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO showAllNames() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO showAllNames() </h1>
+
+<p> Just like we extracted a clean column of dates, we often need to extract a clean list of names. If we are building a communications interface, we don't need the computer to load the entire personnel file (with ranks, medical history, and service records) just to populate the contact list. We only need the names! Using the exact same <code>.map()</code> technique, we can sweep the array and ask the JavaScript engine to return only the <code>name</code> property from every single object. </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing detailed personnel files
+let crewDatabase = [
+    { name: "Kathryn Janeway", rank: "Captain", department: "Command" },
+    { name: "Chakotay", rank: "Commander", department: "Command" },
+    { name: "Tuvok", rank: "Lieutenant Commander", department: "Security" },
+    { name: "B'Elanna Torres", rank: "Lieutenant", department: "Engineering" }
+];
+
+// THE OLD WAY (Manual Sensor Sweep)
+function showAllNamesManual(whichArray) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // We manually push just the 'name' property into our new array
+        result.push(whichArray[z].name);
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function showAllNames(whichArray) {
+    // The .map() method automatically builds and returns the new array for us!
+    return whichArray.map(function(item) {
+        // We tell the map exactly which piece of text to extract
+        return item.name; 
+    });
+}
+
+// We run our function to generate a clean roster
+let crewRoster = showAllNames(crewDatabase);
+console.log(crewRoster); 
+// Result: ["Kathryn Janeway", "Chakotay", "Tuvok", "B'Elanna Torres"]
+// The complex objects are safely ignored, leaving us with pure text!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Extraction (On The Fly!) </h2>
+    <p> Let's deploy this inline! Imagine we are programming the transporter room interface. The transporter chief has selected a specific away team, and we need to instantly generate a simple list of their names to display on the main locking screen. </p>
+
+<pre><code class="custom-code">// A temporary array representing the selected Away Team
+let awayTeam = [
+    { name: "Worf", role: "Tactical Lead", health: 100 },
+    { name: "Data", role: "Science Officer", health: 100 },
+    { name: "Geordi La Forge", role: "Chief Engineer", health: 100 }
+];
+
+// Extract just the names on the fly to populate the Transporter UI
+let transporterDisplayNames = awayTeam.map(function(member) {
+    return member.name;
+});
+
+console.log(transporterDisplayNames);
+// We instantly have our locking targets: ["Worf", "Data", "Geordi La Forge"]
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">let newArray = oldArray.map(function(item) {
+    return item.name; 
+});</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A completely new array containing the exact same number of items as the original array, but populated only with the text strings we extracted.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> Because <code>.map()</code> acts as a 1-to-1 data transformer, whatever property we return inside the callback function becomes the new item in our extracted array. By simply typing <code>item.name</code> (or whatever the specific property is called in our objects, like <code>item.ship</code> or <code>item.planet</code>), we tell the JavaScript engine to reach inside the object, pull out that single piece of text, and assemble it into a beautifully clean list. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

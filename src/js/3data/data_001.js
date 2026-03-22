@@ -1043,6 +1043,12 @@ let operators = [
         category: 'aoo_filter'
     },
 
+    {
+        name: "showAllNames",
+        urlOffline: "src/html/array_of_objects/filter/showAllNames.html",
+        category: 'aoo_filter'
+    },
+
 ];
 
 //----//
