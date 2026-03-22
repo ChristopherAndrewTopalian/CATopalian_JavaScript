@@ -1,0 +1,139 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- showAllNamesAndDates.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO showAllNamesAndDates() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO showAllNamesAndDates() </h1>
+
+<p> What if we need more than just a single column of text, but we still want to get rid of all the heavy, unnecessary data? If we are reviewing an ancient Starfleet personnel manifest, we might want to know <em>Who</em> was involved and <em>When</em> it happened, but we don't care about their rank, serial number, or department. We can use <code>.map()</code> to physically reshape our data! Instead of returning a single string, we tell the map to build us a <strong>brand new, smaller object</strong> containing only the two properties we want. </p>
+
+<hr>
+
+<pre><code class="custom-code">// A massive, data-heavy Array of Objects (AOO)
+let historicalManifest = [
+    { name: "Jonathan Archer", rank: "Captain", ship: "NX-01", status: "Active", date: "2151/04/16" },
+    { name: "T'Pol", rank: "Sub-Commander", ship: "NX-01", status: "Active", date: "2151/04/16" },
+    { name: "Soval", rank: "Ambassador", ship: "Vulcan Command", status: "Diplomat", date: "2151/05/20" }
+];
+
+// THE OLD WAY (Manual Sensor Sweep)
+function showAllNamesAndDatesManual(whichArray) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // We manually construct a new, smaller object and push it to the array
+        result.push({
+            name: whichArray[z].name,
+            date: whichArray[z].date
+        });
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function showAllNamesAndDates(whichArray) {
+    return whichArray.map(function(item) {
+        // We return a brand new object containing only our requested data!
+        return {
+            name: item.name,
+            date: item.date
+        }; 
+    });
+}
+
+// We run our function to generate the simplified database
+let simplifiedManifest = showAllNamesAndDates(historicalManifest);
+console.log(simplifiedManifest); 
+// Result: 
+// [
+//   { name: "Jonathan Archer", date: "2151/04/16" },
+//   { name: "T'Pol", date: "2151/04/16" },
+//   { name: "Soval", date: "2151/05/20" }
+// ]
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Reshaping (On The Fly!) </h2>
+    <p> This technique is absolutely critical for building fast, responsive interfaces. Imagine we are building a security checkpoint interface for Deep Space 9. The station's central computer holds massive files on every visitor, including their species, cargo, and clearance codes. Our security terminal only needs to display the visitor's name and arrival date. We can reshape the data on the fly! </p>
+
+<pre><code class="custom-code">// A highly detailed security database
+let ds9Arrivals = [
+    { name: "Quark", species: "Ferengi", cargo: "Root Beer", clearance: "Level 1", date: "2369/01/04" },
+    { name: "Garak", species: "Cardassian", cargo: "Tailoring Supplies", clearance: "Level 2", date: "2369/02/15" },
+    { name: "Weyoun", species: "Vorta", cargo: "Diplomatic Pouch", clearance: "Level 4", date: "2373/10/22" }
+];
+
+// Map the array inline to strip away the classified data!
+let securityDisplay = ds9Arrivals.map(function(visitor) {
+    return {
+        name: visitor.name,
+        date: visitor.date
+    };
+});
+
+console.log(securityDisplay);
+// Our terminal now only holds the names and dates, keeping our computer's memory perfectly optimized!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">let newArray = oldArray.map(function(item) {
+    return {
+        newKeyName: item.oldPropertyName,
+        anotherKey: item.anotherProperty
+    }; 
+});</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array of Objects (A completely new array containing the exact same number of items, but the objects inside have been replaced by our custom-built, leaner versions.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>.map()</code> method is not limited to returning simple text. Because JavaScript treats the curly braces <code>{ }</code> as the literal creation of an object, returning those braces inside our callback function tells the engine to physically construct a new object for every single item in the original array. This process, known as <strong>Data Projection</strong>, allows us to hide sensitive variables, rename object properties, and optimize our ship's memory by discarding gigabytes of unnecessary data before we render our interfaces! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
