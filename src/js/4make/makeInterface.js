@@ -989,6 +989,51 @@ function makeInterface(whichArray, whichEntry)
         };
         babylonjsAppsDetails.append(theButton);
     }
+
+    //----//
+
+    let aooFilter = operators.filter(function(item)
+    {
+        return item.category === "aoo_filter";
+    });
+
+    let aooFilterDetails = ce('details');
+    aooFilterDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    aooFilterDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(aooFilterDetails);
+
+    //-//
+
+    let aooFilterSummary = ce('summary');
+    aooFilterSummary.textContent = 'AOO Filter';
+    aooFilterDetails.append(aooFilterSummary);
+
+    for (let x = 0; x < aooFilter.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = aooFilter[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            //window.open(aooFilter[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = aooFilter[x].urlOffline;
+        };
+        aooFilterDetails.append(theButton);
+    }
 }
 
 //----//

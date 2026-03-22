@@ -976,6 +976,18 @@ let operators = [
         urlOffline: "src/html/math/formulas/time/time.html",
         category: 'math'
     },
+
+    {
+        name: "Filter",
+        urlOffline: "src/html/array_of_objects/filter/filter.html",
+        category: 'aoo_filter'
+    },
+
+    {
+        name: "filterByMonth",
+        urlOffline: "src/html/array_of_objects/filter/filterByMonth.html",
+        category: 'aoo_filter'
+    },
 ];
 
 //----//

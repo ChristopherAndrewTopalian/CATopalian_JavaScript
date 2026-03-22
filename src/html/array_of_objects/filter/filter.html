@@ -1,0 +1,101 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filter.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Array.filter() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Array.filter() </h1>
+
+<p> The <code>.filter()</code> method is our primary automated sensor sweep. Instead of manually writing a <code>for</code> loop to inspect every single item in an array, we give <code>.filter()</code> a specific condition. It automatically scans the entire array, pulls out only the items that pass our test, and hands us back a brand new, purified array. We use this constantly to sort through ship logs, sensor contacts, and crew manifests! </p>
+
+<hr>
+
+<pre><code class="custom-code">// Imagine we have a database of ship logs
+let starfleetLogs = [
+    { entry: "Left Spacedock", date: "2026-01-01" },
+    { entry: "Encountered Anomaly", date: "2026-03-15" },
+    { entry: "Arrived at Vulcan", date: "2026-05-20" }
+];
+
+let targetDate = new Date("2026-02-01");
+
+// THE OLD WAY (Manual Sensor Sweep)
+// We used to build an empty array and manually loop through the data...
+let manualResults = [];
+for (let z = 0; z < starfleetLogs.length; z++) {
+    let itemTime = new Date(starfleetLogs[z].date);
+    if (itemTime > targetDate) {
+        manualResults.push(starfleetLogs[z]);
+    }
+}
+// This works perfectly, but it takes a lot of code!
+
+// THE MODERN WAY (Automated Filtering)
+
+// We use the native .filter() method to do the exact same thing in just a few lines!
+let modernResults = starfleetLogs.filter(function(log) {
+    let itemTime = new Date(log.date);
+    // If we return 'true', the filter keeps the item!
+    return itemTime > targetDate; 
+});
+
+console.log(modernResults); 
+// Both methods give us the exact same clean array, but .filter() is much easier to read!
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">let newArray = oldArray.filter(function(item) {
+    return // a condition that evaluates to true or false
+});</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A completely new array containing only the elements that passed the test.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> <code>filter()</code> is an iteration method. It does not destroy or alter the original array we are searching through; it acts purely as a copying mechanism. When we call it, it runs our provided callback function on every single element. If our function returns <code>true</code>, that element is copied into the new array. If it returns <code>false</code>, the element is ignored. While a manual <code>for</code> loop is technically faster on a microsecond scale, <code>.filter()</code> is the modern industry standard because it drastically reduces the chances of introducing bugs into our code! </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
