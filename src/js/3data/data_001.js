@@ -1001,6 +1001,12 @@ let operators = [
         category: 'aoo_filter'
     },
 
+    {
+        name: "filterByName",
+        urlOffline: "src/html/array_of_objects/filter/filterByName.html",
+        category: 'aoo_filter'
+    },
+
 ];
 
 //----//

@@ -1,0 +1,114 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterByName.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterByName() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterByName() </h1>
+
+<p> When we manage crew manifests, equipment inventories, or starship registries, we frequently need to search our arrays for a specific name. Because a name is just a string of text, we can use the exact same logic we used for dates! We simply ask the JavaScript engine to sweep through the objects and check if the <code>name</code> property is strictly equal (<code>===</code>) to our target string. </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) representing our crew manifest
+let crewManifest = [
+    { name: "Picard", rank: "Captain", department: "Command" },
+    { name: "La Forge", rank: "Lieutenant Commander", department: "Engineering" },
+    { name: "Data", rank: "Lieutenant Commander", department: "Operations" },
+    { name: "Crusher", rank: "Commander", department: "Medical" },
+    { name: "Worf", rank: "Lieutenant", department: "Security" }
+];
+
+let targetName = "Data"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterByNameManual(whichArray, whichName) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // We use strict equality to check if the text matches exactly
+        if (whichArray[z].name === whichName) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterByName(whichArray, whichName) {
+    return whichArray.filter(function(item) {
+        // The filter keeps the item only if the name is an exact match!
+        return item.name === whichName; 
+    });
+}
+
+let androidOfficer = filterByName(crewManifest, targetName);
+console.log(androidOfficer); 
+// Result: We extract the exact object containing Commander Data's record!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> Just like we saw with dates, we don't always need to build a reusable function. If we are deep in the middle of writing an interface and we suddenly need to pull the tactical specs for a specific starship, we can run our <code>.filter()</code> directly on the array and assign it straight to a new variable! </p>
+
+<pre><code class="custom-code">// A massive database of active Starfleet vessels
+let fleetRoster = [
+    { name: "USS Enterprise", class: "Galaxy", status: "Active" },
+    { name: "USS Defiant", class: "Defiant", status: "Docked" },
+    { name: "USS Voyager", class: "Intrepid", status: "Delta Quadrant" },
+    { name: "USS Cerritos", class: "California", status: "Active" }
+];
+
+// We need Voyager's stats immediately. Let's filter on the fly!
+let lostShip = fleetRoster.filter(function(ship) {
+    return ship.name === "USS Voyager";
+});
+
+console.log(lostShip);
+// We now have an array containing only the USS Voyager, instantly ready for our UI!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> When using strict equality (<code>===</code>) to filter by text, we must remember that JavaScript is <strong>case-sensitive</strong>. Searching for <code>"data"</code> will not find a record labeled <code>"Data"</code>. In later, more advanced modules, we will learn how to temporarily force all text into lowercase (using <code>.toLowerCase()</code>) to make our searches completely foolproof. For now, matching our exact capital letters ensures our database extracts the precise records we request! </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
