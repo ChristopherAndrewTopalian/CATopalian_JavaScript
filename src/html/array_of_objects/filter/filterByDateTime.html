@@ -1,0 +1,114 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterByDateTime.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterByDateTime() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterByDateTime() </h1>
+
+<p> When reviewing main computer logs, a standard date filter isn't always enough. A starship generates thousands of data points every single day. To isolate a specific event, like a sudden power fluctuation, we need to filter by the exact Date <strong>and</strong> Time. Similar to filtering an array for a specific name or a basic date, we can use strict equality (<code>===</code>) to scan our database for an exact, high-precision timestamp string! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing high-precision ship logs
+let engineeringLogs = [
+    { event: "Diagnostics Normal", timestamp: "2026/03/10 08:00:00" },
+    { event: "Warp Core Start", timestamp: "2026/03/10 08:15:30" },
+    { event: "Power Fluctuation", timestamp: "2026/03/10 08:15:32" },
+    { event: "Auto-Shutdown", timestamp: "2026/03/10 08:15:35" },
+    { event: "Diagnostics Normal", timestamp: "2026/03/10 09:00:00" }
+];
+
+// We want to investigate the exact moment the power fluctuated
+let targetTimestamp = "2026/03/10 08:15:32"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterByDateTimeManual(whichArray, whichDateTime) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // We use strict equality to check if the full timestamp matches perfectly
+        if (whichArray[z].timestamp === whichDateTime) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterByDateTime(whichArray, whichDateTime) {
+    return whichArray.filter(function(item) {
+        // The filter keeps the item only if the date AND time match exactly!
+        return item.timestamp === whichDateTime; 
+    });
+}
+
+let criticalEvent = filterByDateTime(engineeringLogs, targetTimestamp);
+console.log(criticalEvent); 
+// Result: We isolate the exact "Power Fluctuation" log, ignoring everything else!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> If we are building an emergency alert interface, we don't necessarily want to route our data through a separate, reusable function. We can apply our <code>.filter()</code> directly to the array inline, creating a brand new variable that instantly holds the exact timestamp we are looking for! </p>
+
+<pre><code class="custom-code">// A database of incoming subspace communications
+let commsTraffic = [
+    { sender: "Starfleet Command", type: "Routine", datetime: "2026/03/22 09:00:00" },
+    { sender: "Deep Space Station", type: "Distress", datetime: "2026/03/22 10:29:28" },
+    { sender: "Vulcan High Command", type: "Diplomatic", datetime: "2026/03/22 11:45:00" }
+];
+
+// We need to pull the specific transmission received at 10:29:28
+let urgentTransmission = commsTraffic.filter(function(message) {
+    return message.datetime === "2026/03/22 10:29:28";
+});
+
+console.log(urgentTransmission);
+// We immediately extract the Distress signal without any extra function wrappers!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> Because a timestamp like <code>"2026/03/22 10:29:28"</code> is stored as a continuous string of text, we can use the Strict Equality Operator (<code>===</code>) to match it. The JavaScript engine reads the entire string, character by character, ensuring every single space, colon, and number aligns perfectly. This allows us to pinpoint data down to the exact second without needing to perform complex mathematical time conversions! </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
