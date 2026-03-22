@@ -66,7 +66,7 @@ function filterByYearMonthManual(whichArray, whichYear, whichMonth) {
     return result;
 }
 
-// THE MODERN WAY (Automated Filtering)
+// THE MODERN WAY (Reusable Automated Function)
 function filterByYearMonth(whichArray, whichYear, whichMonth) {
     return whichArray.filter(function(item) {
         let parts = item.date.split('/');
@@ -82,6 +82,33 @@ console.log(precisionLogs);
 // The 2024 and 2025 February logs are safely ignored.
 </code></pre>
 
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> We can harness this compound logic right in the middle of our code without writing a separate function. Suppose Starfleet Command asks us to instantly generate a list of all vessels that docked at Earth Spacedock during the holiday season of December 2025. We can chop the string, apply the double condition, and save it straight to a variable! </p>
+
+<pre><code class="custom-code">// A database of fleet movements
+let fleetMovements = [
+    { ship: "USS Hood", location: "Earth", date: "2025/11/28" },
+    { ship: "USS Enterprise", location: "Earth", date: "2025/12/15" },
+    { ship: "USS Defiant", location: "Deep Space 9", date: "2025/12/22" },
+    { ship: "USS Voyager", location: "Earth", date: "2025/12/24" },
+    { ship: "USS Titan", location: "Earth", date: "2026/01/05" }
+];
+
+// Filter inline to find only Earth dockings in December (12) of 2025
+let holidayDockings = fleetMovements.filter(function(movement) {
+    let parts = movement.date.split('/');
+    return movement.location === "Earth" && parts[0] === "2025" && parts[1] === "12";
+});
+
+console.log(holidayDockings);
+// We immediately extract the Enterprise and Voyager! 
+// (The Defiant is ignored because it was at DS9, and the Titan arrived too late in 2026).
+</code></pre>
+</div>
+
 <hr>
 
 <div class="technical-specs">
@@ -96,7 +123,7 @@ console.log(precisionLogs);
     <hr>
 
     <h2> Description: </h2>
-    <p> This advanced filter utilizes the exact same <code>.split('/')</code> string manipulation as our previous tutorial, but introduces compound logic. The double-ampersand symbol (<code>&&</code>) acts as a strict gateway. The JavaScript engine checks the left side of the gateway (does the year match?). If that is false, it instantly discards the item and moves on to save time. If it is true, it then checks the right side of the gateway (does the month match?). An item is only passed into the brand new array if it can successfully pass both tests. </p>
+    <p> This advanced filter utilizes the exact same <code>.split('/')</code> string manipulation as our previous tutorial, but introduces compound logic. The double-ampersand symbol (<code>&&</code>) acts as a strict gateway. The JavaScript engine checks the left side of the gateway (does the year match?). If that is false, it instantly discards the item and moves on to save time. If it is true, it then checks the right side of the gateway (does the month match?). An item is only passed into the brand new array if it can successfully pass both tests. (We can even chain three conditions together, as seen in the Direct Filtering example!) </p>
 
     <hr>
 </div>
