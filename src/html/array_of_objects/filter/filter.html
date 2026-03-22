@@ -39,6 +39,9 @@
 
 <hr>
 
+<h2> Concept 1: Direct Filtering (Inline) </h2>
+<p> If we only need to filter our data once to display it on a screen, we can execute the sweep directly in our code and assign the results straight to a variable. </p>
+
 <pre><code class="custom-code">// Imagine we have a database of ship logs
 let starfleetLogs = [
     { entry: "Left Spacedock", date: "2026-01-01" },
@@ -53,24 +56,70 @@ let targetDate = new Date("2026-02-01");
 let manualResults = [];
 for (let z = 0; z < starfleetLogs.length; z++) {
     let itemTime = new Date(starfleetLogs[z].date);
+    
     if (itemTime > targetDate) {
         manualResults.push(starfleetLogs[z]);
     }
 }
-// This works perfectly, but it takes a lot of code!
 
 // THE MODERN WAY (Automated Filtering)
-
 // We use the native .filter() method to do the exact same thing in just a few lines!
 let modernResults = starfleetLogs.filter(function(log) {
     let itemTime = new Date(log.date);
+    
     // If we return 'true', the filter keeps the item!
     return itemTime > targetDate; 
 });
 
 console.log(modernResults); 
-// Both methods give us the exact same clean array, but .filter() is much easier to read!
 </code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<h2> Concept 2: The Reusable Function </h2>
+<p> What if we need to run this exact same date filter on 10 different arrays across the ship? Writing the inline code above 10 times would clutter our systems. Instead, we wrap our logic inside a named custom function, creating a permanent tool we can call whenever we need it! </p>
+
+<pre><code class="custom-code">
+// THE OLD WAY (Wrapped in a Function)
+function getRecentLogsManual(whichArray, whichDate) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        let itemTime = new Date(whichArray[z].date);
+        
+        if (itemTime > whichDate) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Wrapped in a Function)
+function getRecentLogs(whichArray, whichDate) {
+    // We return the .filter() method itself!
+    return whichArray.filter(function(log) {
+        let itemTime = new Date(log.date);
+        return itemTime > whichDate; 
+    });
+}
+
+// Now we can use our new tool anywhere on the ship!
+let recentComms = getRecentLogs(starfleetLogs, targetDate);
+console.log(recentComms);
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Academy Philosophy: Two Ways to Filter </h2>
+    <p> Throughout these tactical modules, we will deploy the <code>.filter()</code> sweep using both of the distinct methods shown above. As an engineer, choosing the right architecture is critical for building efficient interfaces! </p>
+    
+    <ol style="color: white; line-height: 1.6; font-size: 16px;">
+        <li style="margin-bottom: 10px;"><strong>The Reusable Function:</strong> Ideal for repetitive tasks. It creates a permanent, named tool in our computer's memory that we can reuse endlessly.</li>
+        
+        <li><strong>Direct Filtering (Inline):</strong> Ideal for interface building. If we simply need to grab a list of active Starships to display on a screen once, we don't need a permanent tool. We filter on the fly!</li>
+    </ol>
+    <p> Mastering both techniques gives us absolute control over our ship's database! </p>
+</div>
 
 <hr>
 
