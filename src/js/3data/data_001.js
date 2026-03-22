@@ -994,6 +994,13 @@ let operators = [
         urlOffline: "src/html/array_of_objects/filter/filterByYearMonth.html",
         category: 'aoo_filter'
     },
+
+    {
+        name: "filterByDate",
+        urlOffline: "src/html/array_of_objects/filter/filterByDate.html",
+        category: 'aoo_filter'
+    },
+
 ];
 
 //----//
