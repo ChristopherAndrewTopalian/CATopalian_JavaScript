@@ -1,0 +1,144 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- time.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Tactical Engine: Time to Intercept </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../../../../css/style001.css">
+
+<script src="../../../../js/1shortcuts/shortcuts.js"></script>
+
+<script src="../../../../js/color_code/jsLanguage/theFunctions.js"></script>
+
+<script src="../../../../js/color_code/jsLanguage/theEvents.js"></script>
+
+<script src="../../../../js/color_code/jsLanguage/theObjects.js"></script>
+
+<script src="../../../../js/color_code/applyCustomHighlighting.js"></script>
+
+<script src="../../../../js/color_code/escapeHtml.js"></script>
+
+<script src="../../../../js/color_code/processCodeString.js"></script>
+
+<script>
+
+function runTacticalMathMetric()
+{
+    let d = ge("inputDistanceKm").value;
+    let v = ge("inputSpeedKm").value;
+
+    if (d !== "" && v !== "")
+    {
+        let timeResult = Number(d) / Number(v);
+        // km divided by km/s = seconds
+        ge("outputTimeSec").value = Math.round(timeResult);
+    }
+    else
+    {
+        ge("outputTimeSec").value = ""; 
+    }
+}
+
+function runTacticalMathImperial()
+{
+    let d = ge("inputDistanceMi").value;
+    let v = ge("inputSpeedMph").value;
+
+    if (d !== "" && v !== "")
+    {
+        let timeResult = Number(d) / Number(v);
+        // miles divided by miles/hour = hours. We keep 2 decimal places for accuracy!
+        ge("outputTimeHr").value = timeResult.toFixed(2);
+    }
+    else
+    {
+        ge("outputTimeHr").value = ""; 
+    }
+}
+
+</script>
+
+</head>
+
+<body onload="applyCustomHighlighting();">
+
+<div class="academy-container">
+    
+    <h1> Time to Intercept </h1>
+    <p> In the heat of battle, knowing exactly when your ordnance will strike the enemy is the difference between victory and defeat. Enter the target's distance and the speed of your vessel below to calculate the impact time! </p>
+
+    <div class="calculator-stage">
+        
+        <h3 style="color: rgb(0, 255, 255);"> Starfleet Standard (Metric) </h3>
+        
+        <label for="inputDistanceKm"> Target Distance (km): </label>
+        <input type="number" id="inputDistanceKm" class="calc-input" placeholder="e.g. 15000" oninput="runTacticalMathMetric()">
+        <br>
+        
+        <label for="inputSpeedKm"> Torpedo Speed (km/s): </label>
+        <input type="number" id="inputSpeedKm" class="calc-input" placeholder="e.g. 2500" oninput="runTacticalMathMetric()">
+        <br><br>
+
+        <label for="outputTimeSec" class="calc-result-label"> Time to Impact (Seconds): </label>
+        <input type="text" id="outputTimeSec" class="calc-input-result" readonly placeholder="Result">
+
+        <hr style="border-color: rgb(0, 255, 255); margin: 30px 0; opacity: 0.3;">
+
+        <h3 style="color: rgb(0, 255, 150);"> Atmospheric Flight (Imperial) </h3>
+
+        <label for="inputDistanceMi"> Target Distance (miles): </label>
+        <input type="number" id="inputDistanceMi" class="calc-input" placeholder="e.g. 1000" oninput="runTacticalMathImperial()">
+        <br>
+        
+        <label for="inputSpeedMph"> Vessel Speed (mph): </label>
+        <input type="number" id="inputSpeedMph" class="calc-input" placeholder="e.g. 500" oninput="runTacticalMathImperial()">
+        <br><br>
+
+        <label for="outputTimeHr" class="calc-result-label"> Time to Impact (Hours): </label>
+        <input type="text" id="outputTimeHr" class="calc-input-result" readonly placeholder="Result" style="color: rgb(0, 255, 150); border-color: rgb(0, 255, 150);">
+
+    </div>
+
+    <hr>
+
+    <div class="technical-specs">
+        <h2> How It Works: The Code </h2>
+        
+        <h3> Beginner Level: The Pure Math </h3>
+        <p> At its core, calculating time is just taking the total distance and dividing it by your speed. In a vacuum, the code is beautifully simple: </p>
+        
+        <pre><code class="custom-code">function calculateTime(distance, speed) {
+    let time = distance / speed;
+    return time;
+}</code></pre>
+
+        <h3> Pro Level: Sanitizing the Inputs </h3>
+        <p> Out in the real universe, users make mistakes. They might accidentally type a letter, or leave a box empty. A Pro-level function sterilizes the data first to ensure the ship's computer doesn't crash! </p>
+        
+        <pre><code class="custom-code">function calculateTimePro(distance, speed) {
+    let cleanDistance = Number(distance);
+    let cleanSpeed = Number(speed);
+
+    // Ensure we don't divide by zero!
+    if (isNaN(cleanDistance) || isNaN(cleanSpeed) || cleanSpeed === 0) {
+        return "Invalid Sensor Data";
+    }
+
+    return Math.round(cleanDistance / cleanSpeed);
+}</code></pre>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
