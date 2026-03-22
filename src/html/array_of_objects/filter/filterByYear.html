@@ -1,0 +1,119 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterByYear.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterByYear() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterByYear() </h1>
+
+<p> Sometimes a captain needs to review the big picture, pulling an entire year's worth of mission data at once. If our database stores dates as text strings (like <code>"YYYY/MM/DD"</code>), we already have the perfect tool for the job: the <code>.split('/')</code> method! Just like we did when searching for a specific month, we can chop the date string into an array of smaller pieces. We just need to isolate the very first piece to check if the Year matches our target! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) tracking planetary surveys
+let surveyLogs = [
+    { planet: "Ceti Alpha V", status: "Surveyed", date: "2024/08/14" },
+    { planet: "Risa", status: "Surveyed", date: "2025/03/22" },
+    { planet: "Vulcan", status: "Updated", date: "2026/01/05" },
+    { planet: "Andoria", status: "Updated", date: "2026/04/18" },
+    { planet: "Qo'noS", status: "Pending", date: "2026/11/02" }
+];
+
+let targetYear = "2026"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterByYearManual(whichArray, whichYear) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // Chop the date string into 3 pieces: ["2026", "04", "18"]
+        let parts = whichArray[z].date.split('/');
+
+        // Arrays start at 0! So parts[0] is always the Year.
+        if (parts[0] === whichYear) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterByYear(whichArray, whichYear) {
+    return whichArray.filter(function(item) {
+        let parts = item.date.split('/');
+        
+        // If the Year piece matches our target exactly, keep the item!
+        return parts[0] === whichYear; 
+    });
+}
+
+let currentYearSurveys = filterByYear(surveyLogs, targetYear);
+console.log(currentYearSurveys); 
+// Result: We isolate Vulcan, Andoria, and Qo'noS, ignoring 2024 and 2025!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> Let's use our inline superpower for an annual Starfleet performance review. We don't need to build a permanent <code>filterByYear</code> function if we just need to quickly isolate the list of officers who received commendations in 2025. We can chop the string and filter the array all in one seamless step! </p>
+
+<pre><code class="custom-code">// A database of crew commendations
+let commendations = [
+    { officer: "Lt. Paris", type: "Piloting", date: "2024/11/05" },
+    { officer: "Ens. Kim", type: "Engineering", date: "2025/06/12" },
+    { officer: "Cmdr. Riker", type: "Diplomacy", date: "2025/09/28" },
+    { officer: "Capt. Janeway", type: "Command", date: "2026/02/14" }
+];
+
+// Filter on the fly to find only the 2025 awards
+let previousYearAwards = commendations.filter(function(record) {
+    return record.date.split('/')[0] === "2025";
+});
+
+console.log(previousYearAwards);
+// We instantly extract Ensign Kim and Commander Riker's records!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> This technique is incredibly powerful because it relies on zero-based indexing. When <code>.split('/')</code> turns <code>"2026/04/18"</code> into a temporary array, it places the Year at index <code>[0]</code>, the Month at index <code>[1]</code>, and the Day at index <code>[2]</code>. By specifically checking <code>parts[0]</code> with our strict equality operator (<code>===</code>), we can ignore the rest of the date entirely. This allows us to perform massive annual data sweeps cleanly and efficiently! </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
