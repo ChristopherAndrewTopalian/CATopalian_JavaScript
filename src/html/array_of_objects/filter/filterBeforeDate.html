@@ -1,0 +1,127 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterBeforeDate.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterBeforeDate() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterBeforeDate() </h1>
+
+<p> In our previous modules, we searched for exact text matches. But what if we need to review all ship logs that occurred <em>before</em> a specific chronological event, like an encounter with a spatial anomaly? To do this, we must temporarily upgrade our date strings into powerful <code>Date</code> objects. Once JavaScript recognizes the data as actual time, we can simply use the standard mathematical Less-Than operator (<code>&lt;</code>) to sweep the past! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing chronological ship logs
+let shipLogs = [
+    { event: "Departed Spacedock", date: "2026/01/01" },
+    { event: "Crossed Neutral Zone", date: "2026/02/15" },
+    { event: "Discovered Anomaly", date: "2026/03/10" },
+    { event: "Initiated Evasive Maneuvers", date: "2026/03/12" },
+    { event: "Repaired Hull Plating", date: "2026/03/15" }
+];
+
+let targetDateString = "2026/03/10"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterBeforeDateManual(whichArray, whichDate) {
+    let result = [];
+    // Convert our target text string into a real Time object
+    let targetTime = new Date(whichDate); 
+
+    for (let z = 0; z < whichArray.length; z++) {
+        // Convert the current log's date text into a Time object
+        let itemTime = new Date(whichArray[z].date);
+
+        // If the log's time is LESS THAN (before) our target time, keep it!
+        if (itemTime < targetTime) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterBeforeDate(whichArray, whichDate) {
+    let targetTime = new Date(whichDate);
+
+    return whichArray.filter(function(item) {
+        let itemTime = new Date(item.date);
+        
+        // The filter keeps the item only if it happened before the target!
+        return itemTime < targetTime; 
+    });
+}
+
+let logsBeforeAnomaly = filterBeforeDate(shipLogs, targetDateString);
+console.log(logsBeforeAnomaly); 
+// Result: We only get "Departed Spacedock" and "Crossed Neutral Zone"!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> Just as we learned before, we can run this chronological sweep directly inline. Imagine we are building an interface for the Chief Engineer, and we need to instantly find all maintenance tickets that were submitted prior to a massive system upgrade on January 1st, 2026. We can convert the dates and filter the array all in one smooth motion! </p>
+
+<pre><code class="custom-code">// A database of engineering tickets
+let maintenanceTickets = [
+    { system: "Life Support", status: "Resolved", date: "2025/11/14" },
+    { system: "Deflector Dish", status: "Pending", date: "2025/12/28" },
+    { system: "Warp Coils", status: "Resolved", date: "2026/01/05" },
+    { system: "Transporters", status: "Pending", date: "2026/02/10" }
+];
+
+// We define our threshold (The big system upgrade on Jan 1st)
+let upgradeTime = new Date("2026/01/01");
+
+// Filter on the fly to find tickets from BEFORE the upgrade
+let oldTickets = maintenanceTickets.filter(function(ticket) {
+    return new Date(ticket.date) < upgradeTime;
+});
+
+console.log(oldTickets);
+// We now have an array containing only the 2025 tickets (Life Support & Deflector Dish)!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> The magic of this filter relies entirely on the <code>new Date()</code> constructor. When we pass a properly formatted date string (like <code>"2026/03/10"</code>) into <code>new Date()</code>, JavaScript internally converts it into a massive number representing the exact amount of milliseconds that have passed since January 1st, 1970. Because both dates are suddenly translated into pure numbers, the Less-Than operator (<code>&lt;</code>) works perfectly. It literally asks: "Is the millisecond value of this ship log a smaller number than the millisecond value of our target date?" </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
