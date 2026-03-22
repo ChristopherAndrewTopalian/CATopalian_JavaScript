@@ -1,0 +1,109 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterByYearMonth.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterByYearMonth() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterByYearMonth() </h1>
+
+<p> Filtering by a single metric is useful, but what if our database has logs spanning multiple years? If we just search for "February," we will pull up February logs from 2024, 2025, and 2026 all at once! To perform a precision sweep, we must check both the Year <strong>AND</strong> the Month simultaneously. By using the JavaScript Logical AND operator (<code>&&</code>) inside our <code>.filter()</code> method, we can demand that two completely separate conditions are met before a log is approved for extraction. </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing ship logs across multiple years
+let shipLogs = [
+    { mission: "Maiden Voyage", date: "2024/02/05" },
+    { mission: "Routine Patrol", date: "2025/02/15" },
+    { mission: "Diplomatic Transport", date: "2026/02/08" },
+    { mission: "Warp Core Refit", date: "2026/02/24" },
+    { mission: "Nebula Survey", date: "2026/03/10" }
+];
+
+let targetYear = "2026";
+let targetMonth = "02"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterByYearMonthManual(whichArray, whichYear, whichMonth) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // Chop the date string into 3 pieces: ["2026", "02", "08"]
+        let parts = whichArray[z].date.split('/');
+
+        // We use the Logical AND (&&) to ensure BOTH parts match!
+        if (parts[0] === whichYear && parts[1] === whichMonth) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Automated Filtering)
+function filterByYearMonth(whichArray, whichYear, whichMonth) {
+    return whichArray.filter(function(item) {
+        let parts = item.date.split('/');
+        
+        // If the Year matches AND the Month matches, the item is kept!
+        return parts[0] === whichYear && parts[1] === whichMonth; 
+    });
+}
+
+let precisionLogs = filterByYearMonth(shipLogs, targetYear, targetMonth);
+console.log(precisionLogs); 
+// Result: We ONLY get the two February logs from 2026! 
+// The 2024 and 2025 February logs are safely ignored.
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">function filterByYearMonth(whichArray, whichYear, whichMonth)</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A new array of objects containing only the records that occurred during the specific month of the specific year requested.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> This advanced filter utilizes the exact same <code>.split('/')</code> string manipulation as our previous tutorial, but introduces compound logic. The double-ampersand symbol (<code>&&</code>) acts as a strict gateway. The JavaScript engine checks the left side of the gateway (does the year match?). If that is false, it instantly discards the item and moves on to save time. If it is true, it then checks the right side of the gateway (does the month match?). An item is only passed into the brand new array if it can successfully pass both tests. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
