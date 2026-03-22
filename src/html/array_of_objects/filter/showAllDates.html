@@ -1,0 +1,124 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- showAllDates.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO showAllDates() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO showAllDates() </h1>
+
+<p> Up until now, we have used <code>.filter()</code> to find specific objects and throw away the rest. But what if we don't want to throw anything away? What if we want to look at every single log in the ship's database, but we only want to extract the dates? To rip a single "column" of data out of a massive Array of Objects (AOO), we use the incredibly powerful <code>.map()</code> method! It sweeps through our objects, grabs the exact property we ask for, and hands us a clean array containing only that specific data. </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing detailed ship logs
+let starshipDatabase = [
+    { mission: "Asteroid Mining", sector: "Alpha", date: "2026/01/14" },
+    { mission: "Diplomatic Escort", sector: "Beta", date: "2026/02/05" },
+    { mission: "Nebula Survey", sector: "Gamma", date: "2026/03/22" }
+];
+
+// THE OLD WAY (Manual Sensor Sweep)
+function showAllDatesManual(whichArray) {
+    let result = [];
+    for (let z = 0; z < whichArray.length; z++) {
+        // We manually push just the 'date' property into our new array
+        result.push(whichArray[z].date);
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function showAllDates(whichArray) {
+    // The .map() method automatically builds and returns the new array for us!
+    return whichArray.map(function(item) {
+        // We tell the map exactly which piece of data to extract from the object
+        return item.date; 
+    });
+}
+
+// We run our function to extract the data
+let justTheDates = showAllDates(starshipDatabase);
+console.log(justTheDates); 
+// Result: ["2026/01/14", "2026/02/05", "2026/03/22"]
+// We get a perfect list of strings, completely separated from the complex objects!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Extraction (On The Fly!) </h2>
+    <p> Just like our filter sweeps, we can use <code>.map()</code> directly inline when building user interfaces. Imagine we are building a dropdown menu for the ship's calendar, and we need a simple array of all the dates we currently have logs for. We can extract them on the fly! </p>
+
+<pre><code class="custom-code">// A database of Chief Medical Officer treatment logs
+let medicalLogs = [
+    { patient: "Lt. Sulu", treatment: "Dermal Regenerator", date: "2026/04/10" },
+    { patient: "Ens. Chekov", treatment: "Radiation Detox", date: "2026/04/12" },
+    { patient: "Cmdr. Spock", treatment: "Green Blood Analysis", date: "2026/04/15" }
+];
+
+// Extract just the dates on the fly to populate our UI calendar
+let treatmentDates = medicalLogs.map(function(log) {
+    return log.date;
+});
+
+console.log(treatmentDates);
+// We instantly have our clean array: ["2026/04/10", "2026/04/12", "2026/04/15"]
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h4><b> Syntax </b></h4>
+    <pre><code class="custom-code">let newArray = oldArray.map(function(item) {
+    return item.propertyName; // The exact piece of data you want to extract
+});</code></pre>
+
+    <hr>
+
+    <h2> Return Value </h2>
+    <p> <b>Type:</b> Array (A completely new array containing the exact same number of items as the original array, but populated only with the specific data we extracted.) </p>
+
+    <hr>
+
+    <h2> Description: </h2>
+    <p> The <code>.map()</code> method is the ultimate data transformer. Unlike <code>.filter()</code>, which can return a smaller array if items fail the test, <code>.map()</code> will <strong>always</strong> return an array of the exact same length as the original. If you feed it 100 objects, it will return 100 extracted properties. This makes it the absolute best tool in JavaScript for separating a single column of data (like a list of dates, names, or ID numbers) from a massive, complex database so we can display it cleanly in our interfaces. </p>
+
+    <hr>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
