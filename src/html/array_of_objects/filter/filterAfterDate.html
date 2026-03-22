@@ -1,0 +1,126 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- filterAfterDate.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> AOO filterAfterDate() </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> AOO filterAfterDate() </h1>
+
+<p> When dealing with post-mission reports, discovering which events happened <em>after</em> a specific chronological anchor is critical. We use the exact same strategy as before: we temporarily upgrade our text strings into <code>Date</code> objects. But this time, we use the mathematical Greater-Than operator (<code>&gt;</code>) to isolate all logs that occurred after our target date! </p>
+
+<hr>
+
+<pre><code class="custom-code">// A standard Array of Objects (AOO) containing chronological ship logs
+let shipLogs = [
+    { event: "Departed Spacedock", date: "2026/01/01" },
+    { event: "Crossed Neutral Zone", date: "2026/02/15" },
+    { event: "Discovered Anomaly", date: "2026/03/10" },
+    { event: "Initiated Evasive Maneuvers", date: "2026/03/12" },
+    { event: "Repaired Hull Plating", date: "2026/03/15" }
+];
+
+// We want to see everything that happened AFTER we found the anomaly
+let targetDateString = "2026/03/10"; 
+
+// THE OLD WAY (Manual Sensor Sweep)
+function filterAfterDateManual(whichArray, whichDate) {
+    let result = [];
+    let targetTime = new Date(whichDate); 
+
+    for (let z = 0; z < whichArray.length; z++) {
+        let itemTime = new Date(whichArray[z].date);
+
+        // If the log's time is GREATER THAN (after) our target time, keep it!
+        if (itemTime > targetTime) {
+            result.push(whichArray[z]);
+        }
+    }
+    return result;
+}
+
+// THE MODERN WAY (Reusable Automated Function)
+function filterAfterDate(whichArray, whichDate) {
+    let targetTime = new Date(whichDate);
+
+    return whichArray.filter(function(item) {
+        let itemTime = new Date(item.date);
+        
+        // The filter keeps the item only if it happened after the target!
+        return itemTime > targetTime; 
+    });
+}
+
+let postAnomalyLogs = filterAfterDate(shipLogs, targetDateString);
+console.log(postAnomalyLogs); 
+// Result: We only get "Initiated Evasive Maneuvers" and "Repaired Hull Plating"!
+</code></pre>
+
+<hr style="border: 2px solid rgb(0, 255, 255); margin: 40px 0;">
+
+<div class="direct-filtering" style="background-color: rgba(0, 40, 40, 0.3); padding: 20px; border-radius: 8px;">
+    <h2 style="color: rgb(0, 255, 255);"> Direct Filtering (On The Fly!) </h2>
+    <p> Let's apply our inline filtering superpower to a real Starfleet logistics problem. Imagine we have a massive database of newly commissioned starships, and Command needs a quick list of all vessels launched <em>after</em> the new stardate protocol began on March 1st, 2026. We can grab this precise data without ever building a permanent function! </p>
+
+<pre><code class="custom-code">// A database of starship launch dates
+let fleetLaunches = [
+    { ship: "USS Titan", class: "Luna", launch: "2025/08/10" },
+    { ship: "USS Zheng He", class: "Inquiry", launch: "2025/11/22" },
+    { ship: "USS Stargazer", class: "Sagan", launch: "2026/03/05" },
+    { ship: "USS Excelsior", class: "Excelsior II", launch: "2026/04/18" }
+];
+
+// Our target threshold (The new protocol date)
+let protocolDate = new Date("2026/03/01");
+
+// Filter on the fly to find ships launched AFTER the protocol
+let newVessels = fleetLaunches.filter(function(vessel) {
+    return new Date(vessel.launch) > protocolDate;
+});
+
+console.log(newVessels);
+// We now instantly have the Stargazer and the Excelsior ready for deployment!
+</code></pre>
+</div>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Description: </h2>
+    <p> By upgrading our text into <code>Date</code> objects, we tap into JavaScript's internal chronological clock (which tracks time in pure milliseconds). Because of this, the Greater-Than operator (<code>&gt;</code>) works flawlessly. The engine simply asks: "Does this log's date have a higher millisecond count than our target date?" Because dates further in the future always have a higher millisecond value, the sweep perfectly isolates events that happened after our anchor point! </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
