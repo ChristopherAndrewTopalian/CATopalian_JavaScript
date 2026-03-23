@@ -1,0 +1,228 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- trigonometry_sphere.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: The Trigonometric Sphere </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: The Trigonometric Sphere </h1>
+
+<p> We have successfully charted the XZ, XY, and YZ planes. Now, it is time to combine them into a single, unified holographic structure! By running all three trigonometric formulas simultaneously inside a single loop, we can generate an intersecting spherical matrix. This is the exact underlying geometry used to build deflector shields, navigational gyroscopes, and planetary containment fields! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Position the camera to get a beautiful angled view of the sphere
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 4, Math.PI / 3, 30, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 25, height: 25, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // THE UNIFIED SPHERE
+    const numberOfCubes = 16;
+    const radius = 8; 
+    const heightOffset = 10; // The shared center point hovering above the grid
+
+    // We create our 3 distinct colored materials first so we can reuse them efficiently
+    const matCyan = new BABYLON.StandardMaterial("matCyan", scene);
+    matCyan.emissiveColor = new BABYLON.Color3(0, 0.8, 1);
+
+    const matAmber = new BABYLON.StandardMaterial("matAmber", scene);
+    matAmber.emissiveColor = new BABYLON.Color3(1, 0.6, 0);
+
+    const matMagenta = new BABYLON.StandardMaterial("matMagenta", scene);
+    matMagenta.emissiveColor = new BABYLON.Color3(0.8, 0, 0.8);
+
+    // A single, highly efficient loop generates all 72 cubes!
+    for (let i = 0; i < numberOfCubes; i++) {
+        
+        let theta = (i / numberOfCubes) * (Math.PI * 2);
+
+        // THE HORIZONTAL RING (XZ Plane - Cyan)
+        let cubeXZ = BABYLON.MeshBuilder.CreateBox("xz" + i, {size: 1.2}, scene);
+        cubeXZ.position.x = radius * Math.cos(theta);
+        cubeXZ.position.z = radius * Math.sin(theta);
+        cubeXZ.position.y = heightOffset; // Locked to the center height
+        cubeXZ.rotation.y = -theta;
+        cubeXZ.material = matCyan;
+
+        // THE VERTICAL FRONT RING (XY Plane - Amber)
+        let cubeXY = BABYLON.MeshBuilder.CreateBox("xy" + i, {size: 1.2}, scene);
+        cubeXY.position.x = radius * Math.cos(theta);
+        cubeXY.position.y = (radius * Math.sin(theta)) + heightOffset; 
+        cubeXY.position.z = 0; // Locked to the center depth
+        cubeXY.rotation.z = theta;
+        cubeXY.material = matAmber;
+
+        // THE VERTICAL SIDE RING (YZ Plane - Magenta)
+        let cubeYZ = BABYLON.MeshBuilder.CreateBox("yz" + i, {size: 1.2}, scene);
+        cubeYZ.position.x = 0; // Locked to the center width
+        cubeYZ.position.y = (radius * Math.sin(theta)) + heightOffset; 
+        cubeYZ.position.z = radius * Math.cos(theta);
+        cubeYZ.rotation.x = theta;
+        cubeYZ.material = matMagenta;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: The Shared Origin </h2>
+    <p> <b>Loop Efficiency:</b> Because all three circles require the exact same fractional angle to space their cubes evenly, we do not need three separate <code>for</code> loops. By calculating <code>theta</code> once per cycle, we can perfectly synchronize the construction of the entire sphere. </p>
+    <p> <b>The Unified Core:</b> A sphere is just a series of circles that all share the exact same center point. Notice how every single ring utilizes the <code>heightOffset</code> variable? By locking the XZ ring's Y-position, the XY ring's Z-position, and the YZ ring's X-position to the exact same central coordinate (0, 10, 0), the three dimensions intersect flawlessly. </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 4, Math.PI / 3, 30, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 25, height: 25, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfCubes = 16; 
+        const radius = 8; 
+        const heightOffset = 10; 
+
+        const matCyan = new BABYLON.StandardMaterial("matCyan", scene);
+        matCyan.emissiveColor = new BABYLON.Color3(0, 0.8, 1);
+
+        const matAmber = new BABYLON.StandardMaterial("matAmber", scene);
+        matAmber.emissiveColor = new BABYLON.Color3(1, 0.6, 0);
+
+        const matMagenta = new BABYLON.StandardMaterial("matMagenta", scene);
+        matMagenta.emissiveColor = new BABYLON.Color3(0.8, 0, 0.8);
+
+        for (let i = 0; i < numberOfCubes; i++) {
+            
+            let theta = (i / numberOfCubes) * (Math.PI * 2);
+
+            let cubeXZ = BABYLON.MeshBuilder.CreateBox("xz" + i, {size: 1.2}, scene);
+            cubeXZ.position.x = radius * Math.cos(theta);
+            cubeXZ.position.z = radius * Math.sin(theta);
+            cubeXZ.position.y = heightOffset; 
+            cubeXZ.rotation.y = -theta;
+            cubeXZ.material = matCyan;
+
+            let cubeXY = BABYLON.MeshBuilder.CreateBox("xy" + i, {size: 1.2}, scene);
+            cubeXY.position.x = radius * Math.cos(theta);
+            cubeXY.position.y = (radius * Math.sin(theta)) + heightOffset; 
+            cubeXY.position.z = 0; 
+            cubeXY.rotation.z = theta;
+            cubeXY.material = matAmber;
+
+            let cubeYZ = BABYLON.MeshBuilder.CreateBox("yz" + i, {size: 1.2}, scene);
+            cubeYZ.position.x = 0; 
+            cubeYZ.position.y = (radius * Math.sin(theta)) + heightOffset; 
+            cubeYZ.position.z = radius * Math.cos(theta);
+            cubeYZ.rotation.x = theta;
+            cubeYZ.material = matMagenta;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+
