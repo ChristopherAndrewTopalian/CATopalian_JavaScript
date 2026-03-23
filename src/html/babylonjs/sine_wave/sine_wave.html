@@ -1,0 +1,201 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- sine_wave.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: The Subspace Sine Wave </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: The Subspace Sine Wave </h1>
+
+<p> Trigonometry is not just for building circles; it is the fundamental mathematics of frequencies, vibrations, and energy! When scanning for subspace distress beacons or analyzing warp plasma flow, officers must comprehend wave mechanics. By taking the <code>Math.sin()</code> function and unrolling it across a straight line, we reveal the beautiful, oscillating geometry of a pure Sine Wave. </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Position the camera to look straight at the wave like a 2D monitor
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // THE SUBSPACE SINE WAVE
+    const numberOfNodes = 60; // How many spheres make up our wave
+    const spacing = 0.4;      // How far apart each sphere is
+    const startX = -12;       // Start the wave on the far left of the grid
+    const amplitude = 4;      // How tall the wave gets
+    const heightOffset = 6;   // Lift the whole wave off the floor
+
+    // Create a glowing Subspace Blue material
+    const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+    waveMat.diffuseColor = new BABYLON.Color3(0.2, 0.6, 1);
+    waveMat.emissiveColor = new BABYLON.Color3(0.1, 0.4, 0.8);
+
+    for (let i = 0; i < numberOfNodes; i++) {
+        
+        // Calculate the X position (marching in a straight line)
+        let currentX = startX + (i * spacing);
+
+        // Map the Y position to the Sine of X!
+        // We multiply by amplitude to make the wave taller.
+        let currentY = (Math.sin(currentX) * amplitude) + heightOffset;
+
+        // Create the energy node (sphere)
+        let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.6}, scene);
+
+        // Apply the coordinates
+        energyNode.position.x = currentX;
+        energyNode.position.y = currentY;
+        energyNode.position.z = 0; // Lock it perfectly flat against the Z-axis
+        
+        energyNode.material = waveMat;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: Unrolling the Wave </h2>
+    <p> <b>The Linear X-Axis:</b> In our circle modules, we used fractions of <code>Math.PI</code> to bend our objects into a ring. Here, we simply let the X-axis march forward in a straight line (<code>currentX = startX + spacing</code>). </p>
+    <p> <b>The Oscillating Y-Axis:</b> Because the Sine function naturally outputs a smooth, repeating pattern of numbers between -1 and 1, feeding our linear X-value into <code>Math.sin(currentX)</code> automatically generates the peaks and valleys of a wave! </p>
+    <p> <b>Amplitude:</b> A raw Sine wave is very shallow. By multiplying the result of the Sine calculation by our <code>amplitude</code> variable (<code>Math.sin(currentX) * 4</code>), we stretch the wave vertically, creating massive, towering energy spikes! </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfNodes = 60; 
+        const spacing = 0.4;      
+        const startX = -12;       
+        const amplitude = 4;      
+        const heightOffset = 6;   
+
+        const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+        waveMat.diffuseColor = new BABYLON.Color3(0.2, 0.6, 1);
+        waveMat.emissiveColor = new BABYLON.Color3(0.1, 0.4, 0.8);
+
+        for (let i = 0; i < numberOfNodes; i++) {
+            
+            let currentX = startX + (i * spacing);
+            let currentY = (Math.sin(currentX) * amplitude) + heightOffset;
+
+            let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.6}, scene);
+
+            energyNode.position.x = currentX;
+            energyNode.position.y = currentY;
+            energyNode.position.z = 0; 
+            
+            energyNode.material = waveMat;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+

@@ -52,6 +52,11 @@ let babylonjs3d =
         appURL: 'src/html/babylonjs/trigonometry_sphere/trigonometry_sphere.html'
     },
 
+    {
+        name: 'Trigonometry Sine Wave',
+        appURL: 'src/html/babylonjs/sine_wave/sine_wave.html'
+    },
+
 ];
 
 //----//
