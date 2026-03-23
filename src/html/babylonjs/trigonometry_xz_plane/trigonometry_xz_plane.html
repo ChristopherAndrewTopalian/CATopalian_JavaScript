@@ -1,0 +1,199 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- trigonometry_xz_plane.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Tactical Trigonometry (XZ Plane) </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Tactical Trigonometry (XZ Plane) </h1>
+
+<p> Welcome to the Astrometrics Lab! When deploying a sensor net or building a circular holographic menu, placing every mesh manually is highly inefficient. Instead, we use the magic of Trigonometry. By running a <code>for</code> loop, we can ask the JavaScript engine to calculate the <strong>Sine</strong> and <strong>Cosine</strong> of an angle, instantly generating a perfect ring of 16 tactical data cubes resting on the ground (the XZ plane)! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Position the camera to look down at our circular formation
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 20, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 20, height: 20, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // --- TRIGONOMETRY SENSOR RING ---
+    const numberOfCubes = 16;
+    const radius = 6; // Distance from the center of the grid
+
+    for (let i = 0; i < numberOfCubes; i++)
+    {
+        // Calculate the angle (theta) for this specific cube in Radians
+        // A full circle is Math.PI * 2
+        let theta = (i / numberOfCubes) * (Math.PI * 2);
+
+        // Create the cube
+        let relayCube = BABYLON.MeshBuilder.CreateBox("cube" + i, {size: 1}, scene);
+
+        // Apply the Trigonometry to the X and Z axes!
+        // X = Radius * Cosine(theta)
+        // Z = Radius * Sine(theta)
+        relayCube.position.x = radius * Math.cos(theta);
+        relayCube.position.z = radius * Math.sin(theta);
+        
+        // Rest the cube perfectly on the ground
+        relayCube.position.y = 0.5; 
+
+        // Rotate the cube so it faces the center of the circle!
+        relayCube.rotation.y = -theta;
+
+        // Apply a glowing tactical material
+        let cubeMat = new BABYLON.StandardMaterial("mat" + i, scene);
+        cubeMat.diffuseColor = new BABYLON.Color3(0, 1, 1);
+        cubeMat.emissiveColor = new BABYLON.Color3(0, 0.5, 0.8);
+        relayCube.material = cubeMat;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: Sine & Cosine </h2>
+    <p> <b>Radians vs Degrees:</b> In standard geometry, a circle is 360 degrees. However, programming languages (including JavaScript and Babylon.js) calculate angles using <b>Radians</b>. A full circle in radians is equal to <code>Math.PI * 2</code>. </p>
+    <p> <b>Cosine (The X-Axis):</b> When calculating coordinates on a circle, the Cosine of the angle determines the horizontal distance from the center. </p>
+    <p> <b>Sine (The Z-Axis):</b> Because we are laying our circle flat on the ground, we use the Sine of the angle to determine the forward/backward "depth" distance from the center. </p>
+    <p> <b>Dynamic Rotation:</b> Did you notice how every cube physically points toward the center of the grid? By setting <code>relayCube.rotation.y = -theta</code>, we commanded Babylon to apply our exact trig angle to the physical rotation of the mesh! </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 3, 20, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 20, height: 20, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfCubes = 16;
+        const radius = 6; 
+
+        for (let i = 0; i < numberOfCubes; i++) {
+            
+            let theta = (i / numberOfCubes) * (Math.PI * 2);
+
+            let relayCube = BABYLON.MeshBuilder.CreateBox("cube" + i, {size: 1}, scene);
+
+            relayCube.position.x = radius * Math.cos(theta);
+            relayCube.position.z = radius * Math.sin(theta);
+            relayCube.position.y = 0.5; 
+
+            relayCube.rotation.y = -theta;
+
+            let cubeMat = new BABYLON.StandardMaterial("mat" + i, scene);
+            cubeMat.diffuseColor = new BABYLON.Color3(0, 1, 1);
+            cubeMat.emissiveColor = new BABYLON.Color3(0, 0.5, 0.8);
+            relayCube.material = cubeMat;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+

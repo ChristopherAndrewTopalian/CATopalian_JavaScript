@@ -31,6 +31,11 @@ let babylonjs3d =
         name: 'Interfaces and Interactivity',
         appURL: 'src/html/babylonjs/interfaces_and_interactivity/interfaces_and_interactivity.html'
     },
+
+    {
+        name: 'Trigonometry XZ Plane',
+        appURL: 'src/html/babylonjs/trigonometry_xz_plane/trigonometry_xz_plane.html'
+    },
     
 ];
 
