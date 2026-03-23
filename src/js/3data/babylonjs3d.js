@@ -87,6 +87,11 @@ let babylonjs3d =
         appURL: 'src/html/babylonjs/sine_and_cosine_waves_animated/sine_and_cosine_waves_animated.html'
     },
 
+    {
+        name: 'Trigonometry Tangent Wave Animated',
+        appURL: 'src/html/babylonjs/tangent_wave_animated/tangent_wave_animated.html'
+    },
+
 ];
 
 //----//

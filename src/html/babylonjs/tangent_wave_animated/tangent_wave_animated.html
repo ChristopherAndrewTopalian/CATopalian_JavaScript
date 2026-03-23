@@ -1,0 +1,239 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- tangent_wave_animated.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Babylon.js: Live Tachyon Burst (Animated Tangent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../css/style001.css'>
+
+<script src='../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<script src='../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Live Tachyon Burst (Animated Tangent) </h1>
+
+<p> A stable warp field flows like a Sine wave, but a ruptured subspace manifold is violent and unpredictable. By adding a time-based phase shift to the <code>Math.tan()</code> function, we can observe tachyons propagating through real-space. Watch as the energy nodes spike toward infinity, hit the mathematical asymptote, and re-enter the scan grid from the opposite extreme! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.0, 0.05, 1); // Purple tint
+
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane (Red Alert)
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0.3, 0, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // THE LIVE TACHYON BURST
+    const numberOfNodes = 120; // High node count for smooth curves
+    const spacing = 0.2;      
+    const startX = -12;       
+    const amplitude = 2;      
+    const heightOffset = 6;   
+
+    // Tachyon Orange/Red material
+    const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+    waveMat.diffuseColor = new BABYLON.Color3(1, 0.4, 0.1);
+    waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.2, 0.0);
+
+    // Array to hold our volatile nodes
+    const waveNodes = [];
+
+    for (let i = 0; i < numberOfNodes; i++) {
+        
+        let currentX = startX + (i * spacing);
+        let currentY = (Math.tan(currentX) * amplitude) + heightOffset;
+
+        let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.4}, scene);
+
+        energyNode.position.x = currentX;
+        energyNode.position.y = currentY;
+        energyNode.position.z = 0; 
+        
+        energyNode.material = waveMat;
+
+        // Save the node and its starting X position for the animation loop
+        waveNodes.push({
+            mesh: energyNode,
+            baseX: currentX
+        });
+    }
+
+    // ANIMATION: The Volatile Propagation
+    let time = 0;
+    const waveSpeed = 0.03; // Slightly slower so the cadets can track the spikes
+
+    scene.onBeforeRenderObservable.add(function () {
+        // Increment time every frame
+        time += waveSpeed;
+
+        for (let i = 0; i < waveNodes.length; i++) {
+            let nodeData = waveNodes[i];
+            
+            // The phase shift applied to the Tangent function!
+            let newY = (Math.tan(nodeData.baseX - time) * amplitude) + heightOffset;
+            
+            nodeData.mesh.position.y = newY;
+        }
+    });
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: Asymptotic Motion </h2>
+    
+    <p> <b>The Illusion of Jumping:</b> In Babylon.js, as the <code>time</code> variable pushes the mathematical result of <code>Math.tan()</code> incredibly high, the spheres physically fly off the top edge of our camera view. In the very next microsecond, the math crosses the asymptote, resulting in an incredibly deep negative number, and the sphere instantly appears at the bottom of the grid, rushing upwards again! </p>
+    <p> <b>Speed Regulation:</b> You may notice we set the <code>waveSpeed</code> to <code>0.03</code> instead of the <code>0.05</code> we used for Sine and Cosine. Because the Tangent wave curves so violently near its asymptotes, slowing the animation slightly allows our tactical displays (and human eyes) to process the chaotic movement without blurring. </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.0, 0.05, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0.3, 0, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfNodes = 120; 
+        const spacing = 0.2;      
+        const startX = -12;       
+        const amplitude = 2;      
+        const heightOffset = 6;   
+
+        const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+        waveMat.diffuseColor = new BABYLON.Color3(1, 0.4, 0.1);
+        waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.2, 0.0);
+
+        const waveNodes = [];
+
+        for (let i = 0; i < numberOfNodes; i++) {
+            
+            let currentX = startX + (i * spacing);
+            let currentY = (Math.tan(currentX) * amplitude) + heightOffset;
+
+            let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.4}, scene);
+
+            energyNode.position.x = currentX;
+            energyNode.position.y = currentY;
+            energyNode.position.z = 0; 
+            
+            energyNode.material = waveMat;
+
+            waveNodes.push({
+                mesh: energyNode,
+                baseX: currentX
+            });
+        }
+
+        let time = 0;
+        const waveSpeed = 0.03; 
+
+        scene.onBeforeRenderObservable.add(function () {
+            time += waveSpeed;
+
+            for (let i = 0; i < waveNodes.length; i++) {
+                let nodeData = waveNodes[i];
+                let newY = (Math.tan(nodeData.baseX - time) * amplitude) + heightOffset;
+                nodeData.mesh.position.y = newY;
+            }
+        });
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+</html>
