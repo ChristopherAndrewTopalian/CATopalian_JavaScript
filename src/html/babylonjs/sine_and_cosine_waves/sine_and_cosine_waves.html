@@ -1,0 +1,217 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- sine_and_cosine_waves.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: Sine and Cosine Waves: Interlocking Harmonics </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: Sine and Cosine: Interlocking Harmonics (The 3D Helix) </h1>
+
+<p> A stable warp containment field requires multiple energy frequencies working in perfect 3D synchronization. In nature, when two distinct frequencies (like Sine and Cosine) travel together but oscillate on different dimensional planes, they create <strong>Circular Polarization</strong>. By mapping our Sine wave vertically and our Cosine wave horizontally, we generate a flawless, non-colliding DNA-style energy helix! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Position the camera to look at the wave with a slight angle to see the 3D depth
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2.5, Math.PI / 2.5, 35, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // INTERLOCKING 3D HELIX
+    const numberOfNodes = 80; // Increased to 80 for a longer, smoother helix
+    const spacing = 0.3;      
+    const startX = -12;       
+    const amplitude = 3;      
+    const heightOffset = 6;   
+
+    // Material 1: Subspace Blue (Sine - Vertical)
+    const sineMat = new BABYLON.StandardMaterial("sineMat", scene);
+    sineMat.diffuseColor = new BABYLON.Color3(0.2, 0.6, 1);
+    sineMat.emissiveColor = new BABYLON.Color3(0.1, 0.4, 0.8);
+
+    // Material 2: Engineering Gold (Cosine - Horizontal)
+    const cosMat = new BABYLON.StandardMaterial("cosMat", scene);
+    cosMat.diffuseColor = new BABYLON.Color3(1, 0.8, 0);
+    cosMat.emissiveColor = new BABYLON.Color3(0.8, 0.6, 0);
+
+    // We generate BOTH waves inside a single highly efficient loop!
+    for (let i = 0; i < numberOfNodes; i++) {
+        
+        let currentX = startX + (i * spacing);
+
+        // GENERATE THE SINE NODE (Blue - Oscillating Up/Down on the Y-Axis)
+        let sineY = (Math.sin(currentX) * amplitude) + heightOffset;
+        let sineNode = BABYLON.MeshBuilder.CreateSphere("sineNode" + i, {diameter: 0.5}, scene);
+        sineNode.position.x = currentX;
+        sineNode.position.y = sineY;
+        sineNode.position.z = 0; // Locked to the center depth
+        sineNode.material = sineMat;
+
+        // GENERATE THE COSINE NODE (Gold - Oscillating In/Out on the Z-Axis)
+        let cosZ = (Math.cos(currentX) * amplitude);
+        let cosNode = BABYLON.MeshBuilder.CreateSphere("cosNode" + i, {diameter: 0.5}, scene);
+        cosNode.position.x = currentX;
+        cosNode.position.y = heightOffset; // Locked to the center height
+        cosNode.position.z = cosZ; 
+        cosNode.material = cosMat;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: The 3D Helix </h2>
+    <p> <b>Orthogonal Frequencies:</b> In real-world physics, complex energy fields travel orthogonally (at 90-degree angles to one another). By forcing our Blue Sine wave to oscillate purely on the <strong>Y-axis</strong> and our Gold Cosine wave to oscillate purely on the <strong>Z-axis</strong>, we simulate real spatial mechanics. </p>
+    <p> <b>The Perfect Spiral:</b> Because the Cosine wave is a "phase shifted" version of the Sine wave, one frequency is always at its maximum strength while the other is at zero. If you trace the path of these two frequencies through space, they wrap around each other to form a perfect, continuous cylinder of energy. </p>
+    <p> <b>Mathematical Intervals:</b> Notice how the peaks and valleys align at perfectly predictable intervals (specifically at fractions of <code>&pi;</code>, like <code>&pi;/4</code>). This is the underlying mathematical rhythm of the universe! </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2.5, Math.PI / 2.5, 35, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfNodes = 80; 
+        const spacing = 0.3;      
+        const startX = -12;       
+        const amplitude = 3;      
+        const heightOffset = 6;   
+
+        const sineMat = new BABYLON.StandardMaterial("sineMat", scene);
+        sineMat.diffuseColor = new BABYLON.Color3(0.2, 0.6, 1);
+        sineMat.emissiveColor = new BABYLON.Color3(0.1, 0.4, 0.8);
+
+        const cosMat = new BABYLON.StandardMaterial("cosMat", scene);
+        cosMat.diffuseColor = new BABYLON.Color3(1, 0.8, 0);
+        cosMat.emissiveColor = new BABYLON.Color3(0.8, 0.6, 0);
+
+        for (let i = 0; i < numberOfNodes; i++) {
+            
+            let currentX = startX + (i * spacing);
+
+            let sineY = (Math.sin(currentX) * amplitude) + heightOffset;
+            let sineNode = BABYLON.MeshBuilder.CreateSphere("sineNode" + i, {diameter: 0.5}, scene);
+            sineNode.position.x = currentX;
+            sineNode.position.y = sineY;
+            sineNode.position.z = 0; 
+            sineNode.material = sineMat;
+
+            let cosZ = (Math.cos(currentX) * amplitude);
+            let cosNode = BABYLON.MeshBuilder.CreateSphere("cosNode" + i, {diameter: 0.5}, scene);
+            cosNode.position.x = currentX;
+            cosNode.position.y = heightOffset; 
+            cosNode.position.z = cosZ; 
+            cosNode.material = cosMat;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+

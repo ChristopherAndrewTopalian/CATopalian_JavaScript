@@ -62,6 +62,11 @@ let babylonjs3d =
         appURL: 'src/html/babylonjs/cosine_wave/cosine_wave.html'
     },
 
+    {
+        name: 'Trigonometry Sine and Cosine Waves',
+        appURL: 'src/html/babylonjs/sine_and_cosine_waves/sine_and_cosine_waves.html'
+    },
+
 ];
 
 //----//
