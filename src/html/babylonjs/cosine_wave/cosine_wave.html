@@ -1,0 +1,201 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- cosine_wave.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> Babylon.js: The Cosine Wave </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src = '../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src = '../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src = '../../../js/color_code/escapeHtml.js'></script>
+
+<script src = '../../../js/color_code/processCodeString.js'></script>
+
+<script src = '../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: The Cosine Wave </h1>
+
+<p> Every primary energy frequency requires a secondary harmonic! While the Sine wave is our foundational oscillation, the <strong>Cosine wave</strong> is its twin. In Astrometrics, we use Cosine to calculate out-of-phase shield modulations and alternating tractor beam pulses. By swapping out one single mathematical function, we completely shift the starting point of our energy ribbon! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+    // Position the camera to look straight at the wave like a 2D monitor
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+    tacticalPlane.material = gridMaterial;
+
+    // THE COSINE HARMONIC WAVE
+    const numberOfNodes = 60; 
+    const spacing = 0.4;      
+    const startX = -12;       
+    const amplitude = 4;      
+    const heightOffset = 6;   
+
+    // Create a glowing Engineering Gold material
+    const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+    waveMat.diffuseColor = new BABYLON.Color3(1, 0.8, 0);
+    waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.6, 0);
+
+    for (let i = 0; i < numberOfNodes; i++) {
+        
+        // Calculate the X position (marching in a straight line)
+        let currentX = startX + (i * spacing);
+
+        // Map the Y position to the Cosine of X!
+        // Notice we are using Math.cos() instead of Math.sin()
+        let currentY = (Math.cos(currentX) * amplitude) + heightOffset;
+
+        // Create the energy node (sphere)
+        let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.6}, scene);
+
+        // Apply the coordinates
+        energyNode.position.x = currentX;
+        energyNode.position.y = currentY;
+        energyNode.position.z = 0; 
+        
+        energyNode.material = waveMat;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: The Phase Shift </h2>
+    <p> <b>The Cosine Function:</b> At first glance, a Cosine wave looks exactly like a Sine wave. They both oscillate smoothly between high and low points. However, the secret lies in where they begin! </p>
+    <p> <b>The Starting Peak:</b> The mathematical value of <code>Math.sin(0)</code> is exactly 0. That is why a Sine wave always starts flat in the middle. But the value of <code>Math.cos(0)</code> is exactly 1! Because of this, a Cosine wave always begins at its absolute highest peak. </p>
+    <p> <b>Phase Out of Alignment:</b> Because the Cosine wave starts at its peak while the Sine wave starts at its valley, we say they are "out of phase." If you laid them directly on top of each other, they would cross over one another perfectly like a braided cable! </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.05, 0.1, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfNodes = 60; 
+        const spacing = 0.4;      
+        const startX = -12;       
+        const amplitude = 4;      
+        const heightOffset = 6;   
+
+        const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+        waveMat.diffuseColor = new BABYLON.Color3(1, 0.8, 0);
+        waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.6, 0);
+
+        for (let i = 0; i < numberOfNodes; i++) {
+            
+            let currentX = startX + (i * spacing);
+            let currentY = (Math.cos(currentX) * amplitude) + heightOffset;
+
+            let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.6}, scene);
+
+            energyNode.position.x = currentX;
+            energyNode.position.y = currentY;
+            energyNode.position.z = 0; 
+            
+            energyNode.material = waveMat;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+
