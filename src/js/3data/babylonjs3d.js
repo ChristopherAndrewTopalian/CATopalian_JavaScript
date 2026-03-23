@@ -42,6 +42,11 @@ let babylonjs3d =
         appURL: 'src/html/babylonjs/trigonometry_xy_plane/trigonometry_xy_plane.html'
     },
 
+    {
+        name: 'Trigonometry YZ Plane',
+        appURL: 'src/html/babylonjs/trigonometry_yz_plane/trigonometry_yz_plane.html'
+    },
+
 ];
 
 //----//
