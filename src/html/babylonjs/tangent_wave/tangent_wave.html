@@ -1,0 +1,204 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- tangent_wave.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Babylon.js: The Tachyon Tangent Burst </title>
+
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../css/style001.css'>
+
+<script src='../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<script src='../../../js/0engine/babylon.js'></script>
+
+<style>
+
+#renderCanvas {
+    width: 100%;
+    height: 400px;
+    touch-action: none;
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0); 
+}
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+
+<h1> Babylon.js: The Tachyon Tangent Burst </h1>
+
+<p> While Sine and Cosine represent stable, oscillating frequencies, the universe is rarely that calm. When analyzing tachyon bursts or unstable subspace rifts, Astrometrics officers must utilize the Tangent function. By unrolling <code>Math.tan()</code> across a straight line, we reveal explosive, asymptotic geometry that periodically spikes to infinity! </p>
+
+<hr>
+
+<canvas id="renderCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// Initialize Engine and Canvas
+const canvas = document.getElementById("renderCanvas");
+const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+const createScene = function () {
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0.05, 0.0, 0.05, 1); // Slight purple tint for tachyons
+
+    // Position the camera to look straight at the wave like a 2D monitor
+    const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+
+    const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.8;
+
+    // Build the Tactical Base Plane
+    const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+    const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+    gridMaterial.wireframe = true; 
+    gridMaterial.emissiveColor = new BABYLON.Color3(0.3, 0, 0); // Red alert grid
+    tacticalPlane.material = gridMaterial;
+
+    // THE TACHYON TANGENT BURST
+    const numberOfNodes = 120; // Increased node count to better see the sudden curves
+    const spacing = 0.2;      // Closer together to map the sharp spikes
+    const startX = -12;       // Start the wave on the far left of the grid
+    const amplitude = 2;      // Lower amplitude because Tangent grows incredibly fast
+    const heightOffset = 6;   // Lift the whole wave off the floor
+
+    // Create a glowing Tachyon Orange/Red material
+    const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+    waveMat.diffuseColor = new BABYLON.Color3(1, 0.4, 0.1);
+    waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.2, 0.0);
+
+    for (let i = 0; i < numberOfNodes; i++) {
+        
+        // Calculate the X position (marching in a straight line)
+        let currentX = startX + (i * spacing);
+
+        // Map the Y position to the Tangent of X!
+        let currentY = (Math.tan(currentX) * amplitude) + heightOffset;
+
+        // Create the energy node (sphere)
+        let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.4}, scene); // slightly smaller nodes
+
+        // Apply the coordinates
+        energyNode.position.x = currentX;
+        // Clamp the Y value visually so it doesn't break our camera bounds completely
+        energyNode.position.y = currentY;
+        energyNode.position.z = 0; // Lock it perfectly flat against the Z-axis
+        
+        energyNode.material = waveMat;
+    }
+
+    return scene;
+};
+
+const tacticalScene = createScene();
+
+engine.runRenderLoop(function () {
+    tacticalScene.render();
+});
+
+window.addEventListener("resize", function () {
+    engine.resize();
+});
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: The Asymptote </h2>
+    
+
+[Image of a tangent function graph]
+
+    <p> <b>The Linear X-Axis:</b> We continue to let the X-axis march forward in a straight line (<code>currentX = startX + spacing</code>), scanning across subspace. </p>
+    <p> <b>The Volatile Y-Axis:</b> Unlike Sine and Cosine, which gently roll between -1 and 1, the Tangent function divides Sine by Cosine. When Cosine reaches zero, the math divides by zero, causing the Tangent value to explode toward infinity! </p>
+    <p> <b>Visualizing the Gaps:</b> You will notice sharp, vertical spikes in the spheres, followed by empty space. These empty spaces are the "asymptotes"—the exact moments where the energy spikes so far off our sensors (infinitely high or infinitely low) that our tactical display cannot render them. </p>
+</div>
+
+</div>
+
+<script>
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, {}, true);
+
+    const createScene = function () {
+        const scene = new BABYLON.Scene(engine);
+        scene.clearColor = new BABYLON.Color4(0.05, 0.0, 0.05, 1); 
+
+        const camera = new BABYLON.ArcRotateCamera("MainCamera", Math.PI / 2, Math.PI / 2.2, 35, BABYLON.Vector3.Zero(), scene);
+        camera.attachControl(canvas, false);
+
+        const light = new BABYLON.HemisphericLight("Starlight", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.8;
+
+        const tacticalPlane = BABYLON.MeshBuilder.CreateGround("BasePlane", {width: 30, height: 10, subdivisions: 10}, scene);
+        const gridMaterial = new BABYLON.StandardMaterial("GridMat", scene);
+        gridMaterial.wireframe = true; 
+        gridMaterial.emissiveColor = new BABYLON.Color3(0.3, 0, 0); 
+        tacticalPlane.material = gridMaterial;
+
+        const numberOfNodes = 120; 
+        const spacing = 0.2;      
+        const startX = -12;       
+        const amplitude = 2;      
+        const heightOffset = 6;   
+
+        const waveMat = new BABYLON.StandardMaterial("waveMat", scene);
+        waveMat.diffuseColor = new BABYLON.Color3(1, 0.4, 0.1);
+        waveMat.emissiveColor = new BABYLON.Color3(0.8, 0.2, 0.0);
+
+        for (let i = 0; i < numberOfNodes; i++) {
+            
+            let currentX = startX + (i * spacing);
+            let currentY = (Math.tan(currentX) * amplitude) + heightOffset;
+
+            let energyNode = BABYLON.MeshBuilder.CreateSphere("node" + i, {diameter: 0.4}, scene);
+
+            energyNode.position.x = currentX;
+            energyNode.position.y = currentY;
+            energyNode.position.z = 0; 
+            
+            energyNode.material = waveMat;
+        }
+
+        return scene;
+    };
+
+    const tacticalScene = createScene();
+
+    engine.runRenderLoop(function () {
+        tacticalScene.render();
+    });
+
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
+</script>
+
+</body>
+
+</html>
+
