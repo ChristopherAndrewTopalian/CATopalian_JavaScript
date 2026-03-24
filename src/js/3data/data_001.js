@@ -1055,6 +1055,12 @@ let operators = [
         category: 'aoo_filter'
     },
 
+    {
+        name: 'True AI 16 Gon Logic Foundation',
+        urlOffline: 'src/html/true_ai/babylonjs/true_ai_16_gon_logic_foundation/true_ai_16_gon_logic_foundation.html',
+        category: 'true_ai'
+    },
+
 ];
 
 //----//

@@ -92,6 +92,7 @@ let babylonjs3d =
         appURL: 'src/html/babylonjs/tangent_wave_animated/tangent_wave_animated.html'
     },
 
+
 ];
 
 //----//

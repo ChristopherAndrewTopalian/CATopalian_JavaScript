@@ -1034,6 +1034,51 @@ function makeInterface(whichArray, whichEntry)
         };
         aooFilterDetails.append(theButton);
     }
+
+    //----//
+
+    let trueAIFilter = operators.filter(function(item)
+    {
+        return item.category === "true_ai";
+    });
+
+    let trueAIFilterDetails = ce('details');
+    trueAIFilterDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    trueAIFilterDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(trueAIFilterDetails);
+
+    //-//
+
+    let trueAIFilterSummary = ce('summary');
+    trueAIFilterSummary.textContent = 'True AI';
+    trueAIFilterDetails.append(trueAIFilterSummary);
+
+    for (let x = 0; x < trueAIFilter.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = trueAIFilter[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            //window.open(aooFilter[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = trueAIFilter[x].urlOffline;
+        };
+        trueAIFilterDetails.append(theButton);
+    }
 }
 
 //----//
