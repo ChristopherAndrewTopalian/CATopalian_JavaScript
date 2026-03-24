@@ -1061,6 +1061,12 @@ let operators = [
         category: 'true_ai'
     },
 
+    {
+        name: 'True AI 16 Gon Logic Interactive Interface',
+        urlOffline: 'src/html/true_ai/babylonjs/true_ai_16_gon_logic_interactive_interface/true_ai_16_gon_logic_interactive_interface.html',
+        category: 'true_ai'
+    },
+
 ];
 
 //----//
