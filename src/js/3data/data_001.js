@@ -1079,6 +1079,12 @@ let operators = [
         category: 'life_creation_engine',
     },
 
+    {
+        name: 'Stress Test',
+        urlOffline: 'src/html/Life_Creation_Engine/stress_test/stress_test.html',
+        category: 'life_creation_engine',
+    },
+
 ];
 
 //----//
