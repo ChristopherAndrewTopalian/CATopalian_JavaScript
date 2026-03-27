@@ -297,7 +297,12 @@ let theFunctions =
     'CreateSphere',
     'HemisphericLight',
     'runRenderLoop',
-    'StandardMaterial'
+    'StandardMaterial',
+
+    'beginPath',
+    'arc',
+    'fillText',
+    'clearRect'
 ];
 
 //----//

@@ -1079,6 +1079,51 @@ function makeInterface(whichArray, whichEntry)
         };
         trueAIFilterDetails.append(theButton);
     }
+
+    //----//
+
+    let lifeCreationEngineFilter = operators.filter(function(item)
+    {
+        return item.category === "life_creation_engine";
+    });
+
+    let lifeCreationEngineFilterDetails = ce('details');
+    lifeCreationEngineFilterDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    lifeCreationEngineFilterDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(lifeCreationEngineFilterDetails);
+
+    //-//
+
+    let lifeCreationEngineFilterSummary = ce('summary');
+    lifeCreationEngineFilterSummary.textContent = 'Life Engine';
+    lifeCreationEngineFilterDetails.append(lifeCreationEngineFilterSummary);
+
+    for (let x = 0; x < lifeCreationEngineFilter.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = lifeCreationEngineFilter[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            //window.open(lifeCreationEngineFilter[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = lifeCreationEngineFilter[x].urlOffline;
+        };
+        lifeCreationEngineFilterDetails.append(theButton);
+    }
 }
 
 //----//
