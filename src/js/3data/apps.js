@@ -731,6 +731,16 @@ let apps = [
     description: "CATopalian_JavaScript_College_of_Scripting"
 },
 
+// CATopalian JavaScript Life Creation Engine
+{
+    name: 'CATopalian JavaScript Life Creation Engine',
+    appURL: 'https://christopherandrewtopalian.github.io/CATopalian_JavaScript_Life_Creation_Engine/CATopalian_JavaScript_Life_Creation_Engine.html',
+    codeURL: 'https://github.com/ChristopherAndrewTopalian/CATopalian_JavaScript_Life_Creation_Engine',
+    textureOffline: 'src/media/textures/screenshots/CATopalian_JavaScript_Life_Creation_Engine.PNG',
+    videoURL: 'https://www.youtube.com/watch?v=Tx2u8jxaYGM',
+    category: 'game_2d'
+},
+
 ];
 
 //----//
