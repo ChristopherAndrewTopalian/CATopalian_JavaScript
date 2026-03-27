@@ -1,0 +1,87 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- canvas_test.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Canvas Test </title>
+
+<style>
+
+body
+{
+    background-color: black;
+    overflow: hidden;
+    margin: 0;
+}
+
+canvas
+{
+    display: block;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id = "gameCanvas"></canvas>
+
+<script>
+
+// shortcuts
+function ge(whichId)
+{
+    return document.getElementById(whichId);
+}
+
+const canvas = ge("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let entities = [];
+let speed = 2;
+
+// Spawn 5,000 pure math objects (No HTML elements!)
+for(let i = 0; i < 5000; i++) {
+    entities.push({
+        x: Math.random() * canvas.width, 
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * speed,
+        dy: (Math.random() - 0.5) * speed
+    });
+}
+
+function gameLoop()
+{
+    // wipe the single canvas clean
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = "cyan";
+
+    // calculate math and paint pixels instantly
+    for(let i = 0; i < entities.length; i++) {
+        let e = entities[i];
+        e.x += e.dx;
+        e.y += e.dy;
+        
+        // draw a 4x4 square of pixels
+        ctx.fillRect(e.x, e.y, 4, 4);
+    }
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
+</script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,97 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- dom_test.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Dom Test </title>
+
+<style>
+
+body
+{
+    background-color: black;
+    overflow: hidden;
+    margin: 0;
+}
+
+.entity
+{
+    position: absolute;
+    width: 4px; height: 4px;
+    background-color: red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+// shortcuts
+function ce(whichType)
+{
+    return document.createElement(whichType);
+}
+
+function ba(whichElement)
+{
+    return document.body.append(whichElement);
+}
+
+let entities = [];
+let speed = 2;
+
+// spawn 5,000 HTML Divs
+for(let i = 0; i < 5000; i++)
+{
+    let div = ce("div");
+    div.className = "entity";
+
+    // random starting positions
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    
+    div.style.left = x + "px";
+    div.style.top = y + "px";
+    
+    ba(div);
+
+    // store the math data and the physical HTML div together
+    entities.push({
+        element: div,
+        x: x, y: y,
+        dx: (Math.random() - 0.5) * speed,
+        dy: (Math.random() - 0.5) * speed
+    });
+}
+
+function gameLoop()
+{
+    // update the CSS of 5,000 DOM elements every frame
+    for(let i = 0; i < entities.length; i++)
+    {
+        let e = entities[i];
+        e.x += e.dx;
+        e.y += e.dy;
+
+        // this is what kills the CPU!
+        e.element.style.left = e.x + "px";
+        e.element.style.top = e.y + "px";
+    }
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
+</script>
+
+</body>
+
+</html>
+
