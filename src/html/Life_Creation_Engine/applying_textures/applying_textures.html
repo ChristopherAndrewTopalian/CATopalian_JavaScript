@@ -1,0 +1,363 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- applying_textures.html -->
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+<title> JavaScript Life Creation Engine: Applying Textures </title>
+
+<meta charset = 'UTF-8'>
+
+<meta name = 'viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel = 'stylesheet' href = '../../../css/style001.css'>
+
+<script src = '../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body {
+    margin: 2px;
+    background-color: rgb(30, 30, 30);
+    font-family: Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+h1
+{
+    color: rgb(170, 170, 170);
+    text-align: center;
+}
+
+p
+{
+    padding: 0px 20px;
+    line-height: 1.6;
+}
+
+#gameCanvas
+{
+    width: 100%;
+    height: 500px;
+    margin: 5px auto;
+    border: 2px solid rgb(100, 100, 150);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+    display: block;
+}
+
+hr
+{
+    border-color: rgb(70, 70, 70); margin: 20px 0;
+}
+
+.technical-specs
+{
+    background-color: rgb(40, 40, 45);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(100, 100, 150);
+    margin: 20px;
+}
+
+.technical-specs h2
+{
+    color: rgb(100, 150, 255);
+    margin-top: 0;
+}
+
+</style>
+
+</head>
+
+<body onload = 'applyCustomHighlighting(); whenLoaded();'>
+
+<div>
+
+<h1> JavaScript Life Creation Engine: Applying Textures </h1>
+
+<p> Cadets, a simulation must be visually recognizable to be fully understood. Today, we upgrade from abstract geometric circles to fully textured biological entities. We will load perfectly uniform (square) image files into our engine's memory, and then instruct our <code>Mammal</code> blueprint to paint those images onto the Canvas exactly where our physics math dictates. </p>
+
+<hr>
+
+<canvas id = "gameCanvas"></canvas>
+
+<hr>
+
+<pre><code class="custom-code">// WORLD VARIABLES & SHORTCUTS
+let canvas;
+let ctx;
+let cats = [];
+
+function ge(whichId)
+{
+    return document.getElementById(whichId);
+}
+
+// TEXTURE CACHING (The Worldwide Image Bank)
+const texMittens = new Image(); 
+texMittens.src = "../../../../src/media/textures/life/mammals/cats/Mittens.webp";
+
+const texShadow = new Image(); 
+texShadow.src = "../../../../src/media/textures/life/mammals/cats/Shadow.webp";
+
+const texSnowball = new Image(); 
+texSnowball.src = "../../../../src/media/textures/life/mammals/cats/Snowball.webp";
+
+// THE BLUEPRINT (Physics + Textures)
+class Mammal
+{
+    // Notice we removed 'color' and replaced it with 'textureData'
+    constructor(name, textureData, x, y, speed)
+    {
+        this.name = name;
+        this.texture = textureData; 
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.size = 50; 
+        
+        this.dx = (Math.random() - 0.5) * this.speed;
+        this.dy = (Math.random() - 0.5) * this.speed;
+        this.directionTimer = 0;
+    }
+
+    update(canvasWidth, canvasHeight)
+    {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        if (this.x < 0 || this.x > canvasWidth)
+        {
+            this.dx *= -1;
+        }
+
+        if (this.y < 0 || this.y > canvasHeight)
+        {
+            this.dy *= -1;
+        }
+
+        this.directionTimer++;
+
+        if (this.directionTimer > 60)
+        {
+            this.dx = (Math.random() - 0.5) * this.speed;
+            this.dy = (Math.random() - 0.5) * this.speed;
+            this.directionTimer = 0;
+        }
+    }
+
+    draw(ctx)
+    {
+        // Asynchronous Safety Check: Only draw if the image has finished downloading!
+        if (this.texture.complete && this.texture.naturalWidth !== 0)
+        {
+            // Draw the texture, centering it on the X and Y coordinates
+            ctx.drawImage(this.texture, this.x - this.size/2, this.y - this.size/2, this.size, this.size);
+        }
+        else
+        {
+            // Fallback: Draw a gray circle if the image is still loading
+            ctx.fillStyle = "gray";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Draw the name label perfectly centered above the entity
+        ctx.fillStyle = "white";
+        ctx.font = "bold 14px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(this.name, this.x, this.y - this.size + 5);
+    }
+}
+
+// THE ENGINE ROOM
+function gameLoop()
+{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    const logicalWidth = canvas.width / (window.devicePixelRatio || 1);
+    const logicalHeight = canvas.height / (window.devicePixelRatio || 1);
+
+    for (let i = 0; i < cats.length; i++)
+    {
+        cats[i].update(logicalWidth, logicalHeight);
+        cats[i].draw(ctx);
+    }
+    
+    requestAnimationFrame(gameLoop);
+}
+
+function initFullScreen()
+{
+    canvas = ge("gameCanvas");
+    ctx = canvas.getContext("2d");
+    
+    const dpr = window.devicePixelRatio || 1;
+    const STAGE_WIDTH = window.innerWidth;
+    const STAGE_HEIGHT = window.innerHeight;
+    
+    canvas.width = STAGE_WIDTH * dpr;
+    canvas.height = STAGE_HEIGHT * dpr;
+    canvas.style.width = STAGE_WIDTH + 'px';
+    canvas.style.height = STAGE_HEIGHT + 'px';
+    ctx.scale(dpr, dpr);
+
+    // Spawn our Mammals, passing the physical math and the loaded texture!
+    cats = [
+        new Mammal("Mittens", texMittens, 100, 200, 2),
+        new Mammal("Shadow", texShadow, 300, 150, 1.5),
+        new Mammal("Snowball", texSnowball, 500, 250, 2.5)
+    ];
+
+    gameLoop();
+}
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Astrometrics Math: URLs and Asynchronous Safety </h2>
+    <p> <b>The Relative Path Trap:</b> Notice the <code>../../../../src/</code> at the start of our image source. When your HTML file is buried deep inside a tutorial folder, it does not know where the main <code>src</code> folder is. Every <code>../</code> tells the browser to step backward exactly one folder level until it reaches the main directory, at which point it can successfully navigate down into the <code>media</code> files. </p>
+    <p>  </p>
+    <p> <b>Asynchronous Rendering:</b> Hard drives and network servers take time to deliver data. If the Canvas tries to draw a texture using <code>ctx.drawImage()</code> before the file finishes downloading, the entity becomes entirely invisible. By wrapping our draw command in an <code>if (this.texture.complete)</code> statement, the engine safely draws a gray geometric placeholder until the biological texture is fully materialized in memory. </p>
+</div>
+
+</div>
+
+<script>
+
+let canvas;
+let ctx;
+let cats = [];
+
+function ge(whichId)
+{
+    return document.getElementById(whichId);
+}
+
+const texMittens = new Image(); 
+texMittens.src = "../../../../src/media/textures/life/mammals/cats/Mittens.webp";
+
+const texShadow = new Image(); 
+texShadow.src = "../../../../src/media/textures/life/mammals/cats/Shadow.webp";
+
+const texSnowball = new Image(); 
+texSnowball.src = "../../../../src/media/textures/life/mammals/cats/Snowball.webp";
+
+class Mammal
+{
+    constructor(name, textureData, x, y, speed)
+    {
+        this.name = name;
+        this.texture = textureData; 
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.size = 50;
+        this.dx = (Math.random() - 0.5) * this.speed;
+        this.dy = (Math.random() - 0.5) * this.speed;
+        this.directionTimer = 0;
+    }
+
+    update(canvasWidth, canvasHeight)
+    {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        if (this.x < 0 || this.x > canvasWidth)
+        {
+            this.dx *= -1;
+        }
+
+        if (this.y < 0 || this.y > canvasHeight)
+        {
+            this.dy *= -1;
+        }
+
+        this.directionTimer++;
+
+        if (this.directionTimer > 60)
+        {
+            this.dx = (Math.random() - 0.5) * this.speed;
+            this.dy = (Math.random() - 0.5) * this.speed;
+            this.directionTimer = 0;
+        }
+    }
+
+    draw(ctx)
+    {
+        if (this.texture.complete && this.texture.naturalWidth !== 0) {
+            ctx.drawImage(this.texture, this.x - this.size/2, this.y - this.size/2, this.size, this.size);
+        }
+        else
+        {
+            ctx.fillStyle = "gray";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        ctx.fillStyle = "white";
+        ctx.font = "bold 14px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(this.name, this.x, this.y - this.size + 5);
+    }
+}
+
+function gameLoop()
+{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const logicalWidth = canvas.width / (window.devicePixelRatio || 1);
+    const logicalHeight = canvas.height / (window.devicePixelRatio || 1);
+
+    for (let i = 0; i < cats.length; i++)
+    {
+        cats[i].update(logicalWidth, logicalHeight);
+        cats[i].draw(ctx);
+    }
+    requestAnimationFrame(gameLoop);
+}
+
+function whenLoaded()
+{
+    canvas = ge("gameCanvas");
+    ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    const STAGE_WIDTH = canvas.clientWidth;
+    const STAGE_HEIGHT = canvas.clientHeight;
+    canvas.width = STAGE_WIDTH * dpr;
+    canvas.height = STAGE_HEIGHT * dpr;
+    ctx.scale(dpr, dpr);
+
+    cats = [
+        new Mammal("Mittens", texMittens, 100, 200, 2),
+        new Mammal("Shadow", texShadow, 300, 150, 1.5),
+        new Mammal("Snowball", texSnowball, 500, 250, 2.5)
+    ];
+
+    gameLoop();
+}
+
+</script>
+
+</body>
+
+</html>
+

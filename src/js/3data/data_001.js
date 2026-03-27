@@ -1085,6 +1085,12 @@ let operators = [
         category: 'life_creation_engine',
     },
 
+    {
+        name: 'Applying Textures',
+        urlOffline: 'src/html/Life_Creation_Engine/applying_textures/applying_textures.html',
+        category: 'life_creation_engine',
+    },
+
 ];
 
 //----//
