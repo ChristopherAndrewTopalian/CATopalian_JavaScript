@@ -1070,7 +1070,13 @@ let operators = [
     {
         name: 'Life Creation Engine Class Mammal',
         urlOffline: 'src/html/Life_Creation_Engine/Life_Creation_Engine_Class_Mammal/Life_Creation_Engine_Class_Mammal.html',
-        category: 'life_creation_engine'
+        category: 'life_creation_engine',
+    },
+
+    {
+        name: 'Canvas Blur Fix',
+        urlOffline: 'src/html/Life_Creation_Engine/canvas_blur_fix/canvas_blur_fix.html',
+        category: 'life_creation_engine',
     },
 
 ];

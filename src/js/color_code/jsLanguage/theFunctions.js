@@ -301,8 +301,10 @@ let theFunctions =
 
     'beginPath',
     'arc',
+    'clearRect',
     'fillText',
-    'clearRect'
+    'getContext',
+    'scale'
 ];
 
 //----//
