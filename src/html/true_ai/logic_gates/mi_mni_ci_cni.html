@@ -1,0 +1,178 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- mi_mni_ci_cni.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> True AI Architecture: Implication & Exception (MI, MNI, CI, CNI) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../css/style001.css'>
+
+<script src='../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body { margin: 2px; background-color: rgb(30, 30, 30); font-family: Arial, sans-serif; color: rgb(255, 255, 255); }
+
+h1 { color: rgb(170, 170, 170); text-align: center; }
+
+h2, h3 { color: rgb(100, 150, 255); }
+
+p { padding: 0px 20px; line-height: 1.6; }
+
+hr { border-color: rgb(70, 70, 70); margin: 20px 0; }
+
+.technical-specs { background-color: rgb(40, 40, 45); padding: 20px; border-radius: 8px; border: 1px solid rgb(100, 100, 150); margin: 20px; }
+
+.cognitive-specs { background-color: rgb(20, 30, 40); padding: 20px; border-radius: 8px; border: 1px solid rgb(50, 150, 255); margin: 20px; }
+
+/* Flexbox for Truth Tables to keep them clean */
+.table-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+
+.table-box { background-color: rgb(30, 30, 35); padding: 15px; border-radius: 5px; margin: 10px; width: 200px; text-align: center; border: 1px solid rgb(70, 70, 100); }
+
+ul { list-style-type: none; padding: 0; }
+
+li { font-family: monospace; font-size: 16px; margin-bottom: 5px; }
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+
+<h1> True AI Architecture: The Conditional Bridges (MI, MNI, CI, CNI) </h1>
+
+<p> Cadets, we now enter the realm of Cause and Effect. The Implication gates (<b>MI, CI</b>) and their mirrored Non-Implication opposites (<b>MNI, CNI</b>) are the engines of conditional logic. They establish strict "If/Then" rules for the AI and act as high-level anomaly detectors when those rules are violated. They are directional, meaning the order of the inputs (A vs. B) completely changes the outcome. </p>
+
+<hr>
+
+<pre><code class="custom-code">// ==========================================
+// GROUP A: MATERIAL IMPLICATION (Forward Rules)
+// ==========================================
+
+// GATE: MI (1101) - The Rule Enforcer (If A, then B must be true)
+function gateMi(a, b)
+{
+    if (a == 0 || b == 1) { return 1; }
+    else { return 0; }
+}
+
+// GATE: MNI (0010) - The Anomaly (A is true, but B is false!)
+function gateMni(a, b)
+{
+    if (a == 1 && b == 0) { return 1; }
+    else { return 0; }
+}
+
+// ==========================================
+// GROUP B: CONVERSE IMPLICATION (Reverse Rules)
+// ==========================================
+
+// GATE: CI (1011) - The Reverse Rule Enforcer (If B, then A must be true)
+function gateCi(a, b)
+{
+    if (a == 1 || b == 0) { return 1; }
+    else { return 0; }
+}
+
+// GATE: CNI (0100) - The Reverse Anomaly (B is true, but A is false!)
+function gateCni(a, b)
+{
+    if (a == 0 && b == 1) { return 1; }
+    else { return 0; }
+}
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Logic Gate Truth Tables </h2>
+    
+    <div class="table-container">
+        <div class="table-box">
+            <h3 style="color: rgb(255, 200, 100);"> MI (1101) </h3>
+            <p style="font-size: 12px; color: gray;">Both False, B True, or Both True</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+        
+        <div class="table-box">
+            <h3 style="color: rgb(255, 100, 255);"> MNI (0010) </h3>
+            <p style="font-size: 12px; color: gray;">Opposite of MI (A True Only)</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(255, 200, 100);"> CI (1011) </h3>
+            <p style="font-size: 12px; color: gray;">Both False, A True, or Both True</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(255, 100, 255);"> CNI (0100) </h3>
+            <p style="font-size: 12px; color: gray;">Opposite of CI (B True Only)</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="cognitive-specs">
+    <h2> The Character of the Gates: Rules and Broken Promises </h2>
+    <p> Unlike AND or OR gates, which treat inputs A and B equally, the Implication gates are strictly directional. They establish a hierarchy where one input sets a rule, and the other input must fulfill it. </p>
+
+    <h3> Cognitive Mapping: Relating to Thinking & Deciding </h3>
+    <ul>
+        <li> <b>MI in Logic (The Assumption):</b> "If it is raining (A), then the grass is wet (B)." If it is not raining (A=0), the grass could still be wet from a sprinkler (B=1), so the logic holds true. The only way this logic fails is if it is raining (A=1) but the grass is somehow completely dry (B=0). </li>
+        <li> <b>MNI in Alert Systems (The Broken Promise):</b> MNI is the ultimate exception handler. It triggers <i>only</i> when a rule fails. "If the reactor is active (A=1), the cooling pumps must be on (B=1)." If A is 1, but B is 0, the MNI gate fires a <b>1</b> to instantly trigger an emergency override. </li>
+        <li> <b>CI and CNI (The Mirrors):</b> Because these relationships are directional, CI and CNI perform the exact same cognitive tasks as MI and MNI, but they reverse the hierarchy of the inputs, checking if B implies A instead of A implying B. </li>
+    </ul>
+
+    <h3> Network Architecture: Role in the True AI Hypercube </h3>
+    <p> Observe the upper and lower diagonals of your True AI 16-Gon diagram. These gates act as the structural cross-bracing of the hypercube. Because they process directional, asymmetric data (where A and B are not equal), they allow the neural network to comprehend cause-and-effect timelines, preventing the AI from getting trapped in infinite logical loops. </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

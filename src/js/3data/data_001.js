@@ -1068,6 +1068,42 @@ let operators = [
     },
 
     {
+        name: 'Tautology/Contradiction',
+        urlOffline: 'src/html/true_ai/logic_gates/tautology_contradiction.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'XOR/XNOR',
+        urlOffline: 'src/html/true_ai/logic_gates/xor_xnor.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'AND/NAND, OR/NOR',
+        urlOffline: 'src/html/true_ai/logic_gates/and_nand_or_nor.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'MI/MNI, CI/CNI',
+        urlOffline: 'src/html/true_ai/logic_gates/mi_mni_ci_cni.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'LP/LC, RP/RC',
+        urlOffline: 'src/html/true_ai/logic_gates/lp_lc_rp_rc.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'True AI 16 gon Matrix',
+        urlOffline: 'src/html/true_ai/logic_gates/true_ai_16_gon_matrix.html',
+        category: 'true_ai'
+    },
+
+    {
         name: 'Life Creation Engine Class Mammal',
         urlOffline: 'src/html/Life_Creation_Engine/Life_Creation_Engine_Class_Mammal/Life_Creation_Engine_Class_Mammal.html',
         category: 'life_creation_engine',

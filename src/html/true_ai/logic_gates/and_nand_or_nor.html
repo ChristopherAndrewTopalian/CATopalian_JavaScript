@@ -1,0 +1,179 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- and_nand_or_nor.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> True AI Architecture: The Logic Core (AND, NAND, OR, NOR) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../css/style001.css'>
+
+<script src='../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body { margin: 2px; background-color: rgb(30, 30, 30); font-family: Arial, sans-serif; color: rgb(255, 255, 255); }
+
+h1 { color: rgb(170, 170, 170); text-align: center; }
+
+h2, h3 { color: rgb(100, 150, 255); }
+
+p { padding: 0px 20px; line-height: 1.6; }
+
+hr { border-color: rgb(70, 70, 70); margin: 20px 0; }
+
+.technical-specs { background-color: rgb(40, 40, 45); padding: 20px; border-radius: 8px; border: 1px solid rgb(100, 100, 150); margin: 20px; }
+
+.cognitive-specs { background-color: rgb(20, 30, 40); padding: 20px; border-radius: 8px; border: 1px solid rgb(50, 150, 255); margin: 20px; }
+
+/* Flexbox for Truth Tables to keep them clean */
+.table-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+
+.table-box { background-color: rgb(30, 30, 35); padding: 15px; border-radius: 5px; margin: 10px; width: 200px; text-align: center; border: 1px solid rgb(70, 70, 100); }
+
+ul { list-style-type: none; padding: 0; }
+
+li { font-family: monospace; font-size: 16px; margin-bottom: 5px; }
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+
+<h1> True AI Architecture: The Logic Core (AND, NAND, OR, NOR) </h1>
+
+<p> Attention, Cadets. We now step into the heart of the engine room: <b>The Logic Core</b>. While our poles govern absolute constants and differences, these four gates, <b>AND, NAND, OR, NOR</b>, handle the heavy lifting of everyday cognitive processing. They are the gates of strict inclusion, lenient possibility, and absolute veto. Comprehending how these four gates interact is the key to mastering biological and artificial reasoning. </p>
+
+<hr>
+
+<pre><code class="custom-code">// ==========================================
+// GROUP A: THE STRICT GATES (AND / NAND)
+// ==========================================
+
+// GATE: AND (0001) - Requires absolute perfection.
+function gateAnd(a, b)
+{
+    if (a == 1 && b == 1) { return 1; }
+    else { return 0; }
+}
+
+// GATE: NAND (1110) - The Rebellious Mirror. Output is 1 UNLESS perfect.
+function gateNand(a, b)
+{
+    if (a == 0 || b == 0) { return 1; }
+    else { return 0; }
+}
+
+// ==========================================
+// GROUP B: THE LENIENT GATES (OR / NOR)
+// ==========================================
+
+// GATE: OR (0111) - Requires mere possibility.
+function gateOr(a, b)
+{
+    if (a == 1 || b == 1) { return 1; }
+    else { return 0; }
+}
+
+// GATE: NOR (1000) - The Absolute Veto. Output is 1 ONLY if everything is false.
+function gateNor(a, b)
+{
+    if (a == 0 && b == 0) { return 1; }
+    else { return 0; }
+}
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Logic Gate Truth Tables </h2>
+    
+    <div class="table-container">
+        <div class="table-box">
+            <h3 style="color: rgb(100, 255, 100);"> AND (0001) </h3>
+            <p style="font-size: 12px; color: gray;">Both True</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+        
+        <div class="table-box">
+            <h3 style="color: rgb(255, 100, 100);"> NAND (1110) </h3>
+            <p style="font-size: 12px; color: gray;">Opposite of AND</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(100, 255, 100);"> OR (0111) </h3>
+            <p style="font-size: 12px; color: gray;">One or Both True</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(255, 100, 100);"> NOR (1000) </h3>
+            <p style="font-size: 12px; color: gray;">Opposite of OR</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="cognitive-specs">
+    <h2> The Character of the Gates: The Builders & The Gatekeepers </h2>
+    <p> This group represents the spectrum of standard human reasoning. <b>AND</b> is a strict perfectionist, demanding all conditions be met. <b>OR</b> is an optimist, searching for any possible pathway to success. Their opposites, <b>NAND</b> and <b>NOR</b>, act as powerful cosmic safety valves, shutting down systems when limits are reached. </p>
+
+    <h3> Cognitive Mapping: Relating to Thinking & Deciding </h3>
+    <ul>
+        <li> <b>AND in Deciding (The Safeguard):</b> Used for critical security. "Launch the photon torpedoes ONLY if the Captain turns their key (1) AND the First Officer turns their key (1)." If one fails, the system safely halts (0). </li>
+        <li> <b>OR in Sensing (The Alarm):</b> Used for survival. "Sound the red alert if the forward sensors detect a ship (1) OR the aft sensors detect a ship (1)." The AI does not need total confirmation; a single threat is enough to trigger action. </li>
+        <li> <b>NAND in Memory (The Capacity Limit):</b> NAND operates as an overflow protector. "Keep generating new memories (1) UNLESS Memory Bank A is full (1) AND Memory Bank B is full (1)." The moment both are full, it flips to (0) and stops the process to prevent a crash. </li>
+        <li> <b>NOR in State Control (The Ultimate Reset):</b> NOR requires absolute silence. "Enter Deep Sleep mode (1) ONLY if there is no physical movement (0) AND no auditory input (0)." Any stimulation immediately breaks the sleep cycle. </li>
+    </ul>
+
+    <h3> Network Architecture: Role in the True AI Hypercube </h3>
+    <p> Look at your True AI 16-Gon array. These four gates form the inner structural diamond of the matrix. They bridge the gap between the Absolute Poles (Tautology/Contradiction) and the Equator (XOR/XNOR). They are the fundamental routing switches, actively managing the flow of data across the entire logical web based on strict or lenient parameters. </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+

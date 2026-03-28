@@ -1,0 +1,177 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- lp_lc_rp_rc.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> True AI Architecture: The Proposition Gates (LP, LC, RP, RC) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../css/style001.css'>
+
+<script src='../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body { margin: 2px; background-color: rgb(30, 30, 30); font-family: Arial, sans-serif; color: rgb(255, 255, 255); }
+
+h1 { color: rgb(170, 170, 170); text-align: center; }
+
+h2, h3 { color: rgb(100, 150, 255); }
+
+p { padding: 0px 20px; line-height: 1.6; }
+
+hr { border-color: rgb(70, 70, 70); margin: 20px 0; }
+
+.technical-specs { background-color: rgb(40, 40, 45); padding: 20px; border-radius: 8px; border: 1px solid rgb(100, 100, 150); margin: 20px; }
+
+.cognitive-specs { background-color: rgb(20, 30, 40); padding: 20px; border-radius: 8px; border: 1px solid rgb(50, 150, 255); margin: 20px; }
+
+/* Flexbox for Truth Tables to keep them clean */
+.table-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+
+.table-box { background-color: rgb(30, 30, 35); padding: 15px; border-radius: 5px; margin: 10px; width: 200px; text-align: center; border: 1px solid rgb(70, 70, 100); }
+
+ul { list-style-type: none; padding: 0; }
+
+li { font-family: monospace; font-size: 16px; margin-bottom: 5px; }
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+
+<h1> True AI Architecture: The Isolation Valves (LP, LC, RP, RC) </h1>
+
+<p> We call the gates in this group <b>Proposition Gates</b>. In a chaotic universe filled with overwhelming data, a True AI must have the ability to focus. These gates do not calculate combinations; they isolate reality. They lock onto a single data stream (either A or B) and become completely deaf to the other. They are the cognitive algorithms for pure attention and intentional ignorance. </p>
+
+<hr>
+
+<pre><code class="custom-code">// ==========================================
+// GROUP A: LEFT FOCUS (The "A" Channel)
+// ==========================================
+
+// GATE: LP (0011) - Left Proposition (Absolute focus on A)
+function gateLp(a, b)
+{
+    if (a == 1) { return 1; }
+    else { return 0; }
+}
+
+// GATE: LC (1100) - Left Converse (Absolute rejection of A)
+function gateLc(a, b)
+{
+    if (a == 0) { return 1; }
+    else { return 0; }
+}
+
+// ==========================================
+// GROUP B: RIGHT FOCUS (The "B" Channel)
+// ==========================================
+
+// GATE: RP (0101) - Right Proposition (Absolute focus on B)
+function gateRp(a, b)
+{
+    if ((a == 0 && b == 1) || (a == 1 && b == 1)) { return 1; }
+    else { return 0; }
+}
+
+// GATE: RC (1010) - Right Converse (Absolute rejection of B)
+function gateRc(a, b)
+{
+    if ((a == 0 && b == 0) || (a == 1 && b == 0)) { return 1; }
+    else { return 0; }
+}
+</code></pre>
+
+<hr>
+
+<div class="technical-specs">
+    <h2> Logic Gate Truth Tables </h2>
+    
+    <div class="table-container">
+        <div class="table-box">
+            <h3 style="color: rgb(100, 200, 255);"> LP (0011) </h3>
+            <p style="font-size: 12px; color: gray;">Mirrors Input A</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+        
+        <div class="table-box">
+            <h3 style="color: rgb(100, 100, 255);"> LC (1100) </h3>
+            <p style="font-size: 12px; color: gray;">Inverts Input A</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(255, 200, 100);"> RP (0101) </h3>
+            <p style="font-size: 12px; color: gray;">Mirrors Input B</p>
+            <ul>
+                <li> 0 + 0 = <b>0</b> </li>
+                <li> 0 + 1 = <b>1</b> </li>
+                <li> 1 + 0 = <b>0</b> </li>
+                <li> 1 + 1 = <b>1</b> </li>
+            </ul>
+        </div>
+
+        <div class="table-box">
+            <h3 style="color: rgb(255, 100, 100);"> RC (1010) </h3>
+            <p style="font-size: 12px; color: gray;">Inverts Input B</p>
+            <ul>
+                <li> 0 + 0 = <b>1</b> </li>
+                <li> 0 + 1 = <b>0</b> </li>
+                <li> 1 + 0 = <b>1</b> </li>
+                <li> 1 + 1 = <b>0</b> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="cognitive-specs">
+    <h2> The Character of the Gates: Focus and Blind Spots </h2>
+    <p> These gates simulate the psychological concept of selective attention. If a Starship's computer is being flooded with warnings from Life Support (A) and the Holodeck (B) during a battle, it must prioritize. </p>
+
+    <h3> Cognitive Mapping: Relating to Thinking & Deciding </h3>
+    <ul>
+        <li> <b>LP & RP in Sensing (Tunnel Vision):</b> These gates represent pure, undivided attention. If the AI routes data through an LP gate, it is saying, "I only care what Sensor A is telling me. Sensor B is completely irrelevant to my current survival." It allows the AI to lock onto a target without distraction. </li>
+        <li> <b>LC & RC in Filtering (The Mute Button):</b> These are the intentional blind spots. If Sensor A is damaged and sending out a constant, ear-piercing false alarm, passing it through the LC gate acts as a permanent mute button. It intentionally inverts the signal to zero, allowing the system to restore peace and focus on other tasks. </li>
+    </ul>
+
+    <h3> Network Architecture: Role in the True AI Hypercube </h3>
+    <p> Look at the outer clusters of your True AI 16-Gon diagram. These four gates act as the isolation valves of the hypercube. Because they completely block 50% of the incoming data, they are strategically placed to prevent the neural network from experiencing a cognitive overload. They ensure that the AI can break complex, overwhelming situations down into single, manageable data streams. </p>
+</div>
+
+</div>
+
+</body>
+
+</html>
+
