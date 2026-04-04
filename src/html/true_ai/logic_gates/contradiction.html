@@ -2,12 +2,12 @@
 <!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
 <!-- https://github.com/ChristopherTopalian -->
 <!-- https://github.com/ChristopherAndrewTopalian -->
-<!-- tautology.html -->
+<!-- contradiction.html -->
 
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<title> Tautology </title>
+<title> Contradiction </title>
 
 <meta charset='UTF-8'>
 
@@ -98,120 +98,119 @@ b
 
 <div>
 
-<h1> Tautology  </h1>
+<h1> Contradiction  </h1>
 
-<div id = 'tau_container' style = 'display: flex; flex-direction: row; gap: 4px;'>
-    <div id = 'tautology_table'>
+<div id = 'con_container' style = 'display: flex; flex-direction: row; gap: 4px;'>
+    <div id = 'con_table'>
     <table>
-        <th> TAU </th>
+        <th> CON </th>
         <tr>
-            <td> 0 + 0 = <b>1</b></td> 
+            <td> 0 + 0 = <b>0</b></td> 
         </tr>
         <tr>
-            <td> 0 + 1 = <b>1</b></td>
+            <td> 0 + 1 = <b>0</b></td>
         </tr>
         <tr>
-            <td> 1 + 0 = <b>1</b></td>
+            <td> 1 + 0 = <b>0</b></td>
         </tr>
         <tr>
-            <td> 1 + 1 = <b>1</b></td>
+            <td> 1 + 1 = <b>0</b></td>
         </tr>
     </table>
     </div>
 
     <div>
-        <img src = '../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/Tautology.png' width = '200px'>
+        <img src = '../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/Contradiction.png' width = '200px'>
     </div>
 </div>
 
 <hr>
 
-<h2> OPPOSITE = Contradiction Gate</h2>
-<div id = 'tautology_table_with_flip_showing contradiction_gate'>
+<h2> OPPOSITE = Tautology Gate</h2>
+<div id = 'con_table_with_flip_showing tau_gate'>
 <table>
-    <th> Tautology Gate flipped to make Contradiction Gate
+    <th> Contradiction Gate flipped to make Tautology Gate
     <tr>
-        <td> 0 + 0 = <b>1</b> FLIPPED becomes <b>0</b></td> 
+        <td> 0 + 0 = <b>0</b> FLIPPED becomes <b>1</b></td> 
     </tr>
     <tr>
-        <td> 0 + 1 = <b>1</b> FLIPPED becomes <b>0</b></td>
+        <td> 0 + 1 = <b>0</b> FLIPPED becomes <b>1</b></td>
     </tr>
     <tr>
-        <td> 1 + 0 = <b>1</b> FLIPPED becomes <b>0</b></td>
+        <td> 1 + 0 = <b>0</b> FLIPPED becomes <b>1</b></td>
     </tr>
     <tr>
-        <td> 1 + 1 = <b>1</b> FLIPPED becomes <b>0</b></td>
+        <td> 1 + 1 = <b>0</b> FLIPPED becomes <b>1</b></td>
     </tr>
 </table>
 </div>
 
 <hr>
 
-<h2> MIRROR = Contradiction Gate </h2>
-<div id = 'tautology_table_with_mirror_showing contradiction_gate'>
+<h2> MIRROR = Tautology Gate </h2>
+<div id = 'con_table_with_mirror_showing tau_gate'>
 <table>
-    <th> Tautology Gate MIRRORED to make Contradiction Gate
+    <th> Contradiction Gate MIRRORED to make Tautology Gate
     <tr>
-        <td> 0 + 0 = <b>1</b> MIRRORED becomes <b>0</b></td> 
+        <td> 0 + 0 = <b>0</b> MIRRORED becomes <b>1</b></td> 
     </tr>
     <tr>
-        <td> 0 + 1 = <b>1</b> MIRRORED becomes <b>0</b></td>
+        <td> 0 + 1 = <b>0</b> MIRRORED becomes <b>1</b></td>
     </tr>
     <tr>
-        <td> 1 + 0 = <b>1</b> MIRRORED becomes <b>0</b></td>
+        <td> 1 + 0 = <b>0</b> MIRRORED becomes <b>1</b></td>
     </tr>
     <tr>
-        <td> 1 + 1 = <b>1</b> MIRRORED becomes <b>0</b></td>
+        <td> 1 + 1 = <b>0</b> MIRRORED becomes <b>1</b></td>
     </tr>
 </table>
 </div>
 
 <hr>
 
-<div id = 'tautology_explained'>
+<div id = 'con_explained'>
 <h2> EXPLAINED </h2>
-<span> TAUTOLOGY is the OPPOSITE and MIRROR of CONTRADICTION </span>
+<span> CONTRADICTION is the OPPOSITE and MIRROR of TAUTOLOGY </span>
 <br>
-<span> TAUTOLOGY ALWAYS RETURNS TRUE </span>
+<span> CONTRADICTION ALWAYS RETURNS FALSE </span>
 
 </div>
 
 <hr>
 
-<h2> TAU 1111 </h2>
 <h2> CON 0000 </h2>
+<h2> TAU 1111 </h2>
 
 <hr>
 
-<pre><code class = 'custom-code'> function gateTautology(a, b)
+<pre><code class = 'custom-code'> function function gateContradiction(a, b)
 {
     if ((a == 0 && b == 0) ||
         (a == 0 && b == 1) ||
         (a == 1 && b == 0) ||
         (a == 1 && b == 1))
     {
-        // One or Both False or True
-        return 1;
+        return 0;
     }
     else
     {
-        return 1;
+        return 0;
     }
 }
 
 //----//
 
 /*
-TAUTOLOGY
-1111
+CONTRADICTION
+0000
 
-A  B
-0  0  =  1
-0  1  =  1
-1  0  =  1
-1  1  =  1
+A B
+0  0  =  0
+0  1  =  0
+1  0  =  0
+1  1  =  0
 
-Opposite: CONTRADICTION
+Opposite: TAUTOLOGY
 */
 </code></pre>
 
