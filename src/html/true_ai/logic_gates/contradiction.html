@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<title> Contradiction </title>
+<title> Contradiction Gate - The Void </title>
 
 <meta charset='UTF-8'>
 
@@ -29,144 +29,169 @@
 
 <style>
 
-body
-{
-    margin: 2px;
-    background-color: rgb(30, 30, 30); font-family: Arial, sans-serif; color: rgb(255, 255, 255);
+body {
+    margin: 20px;
+    background-color: rgb(30, 30, 30); 
+    font-family: Arial, sans-serif; 
+    color: rgb(255, 255, 255);
 }
 
-h1
-{
-    color: rgb(170, 170, 170); text-align: center;
+h1 {
+    color: rgb(170, 170, 170); 
+    text-align: center;
+    letter-spacing: 2px;
 }
 
-h2, h3
-{
+h2, h3 {
     color: rgb(100, 150, 255);
 }
 
-p
-{
+p {
     padding: 0px 20px;
     line-height: 1.6;
 }
 
-hr
-{
+hr {
     border-color: rgb(70, 70, 70);
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
-th
-{
+table {
+    border-collapse: collapse;
+    background-color: rgb(20, 20, 25);
+    border: 1px solid rgb(0, 255, 255);
+    margin: 10px 0;
+}
+
+td, th {
+    padding: 10px 20px;
+    border: 1px solid rgb(50, 50, 70);
+    text-align: center;
+}
+
+th {
     color: rgb(0, 0, 0);
+    background-color: rgb(0, 50, 50);
     text-shadow:
     0 0 7px rgb(0, 255, 255),
     0 0 10px rgb(0, 255, 255),
     0 0 21px rgb(0, 255, 255),
-    0 0 42px rgb(0, 255, 255),
-    0 0 82px rgb(0, 255, 255),
-    0 0 92px rgb(0, 255, 255),
-    0 0 102px rgb(0, 255, 255),
-    0 0 151px rgb(0, 255, 255);
+    0 0 42px rgb(0, 255, 255);
 }
 
-b
-{
+b {
     color: rgb(0, 255, 255);
 }
 
-.technical-specs
-{
-    background-color: rgb(40, 40, 45); padding: 20px;
+.technical-specs {
+    background-color: rgb(40, 40, 45); 
+    padding: 20px;
     border-radius: 8px;
-    border: 1px solid rgb(100, 100, 150); margin: 20px;
+    border: 1px solid rgb(100, 100, 150); 
+    margin: 20px 0;
 }
 
-.cognitive-specs
-{
-    background-color: rgb(20, 30, 40); padding: 20px;
+.cognitive-specs {
+    background-color: rgb(20, 30, 40); 
+    padding: 20px;
     border-radius: 8px;
-    border: 1px solid rgb(50, 150, 255); margin: 20px;
+    border: 1px solid rgb(50, 150, 255); 
+    margin: 20px 0;
+}
+
+.philosophical-specs {
+    background-color: rgb(10, 20, 20); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 255, 255); 
+    margin: 20px 0;
+    border-left: 5px solid rgb(0, 255, 255);
 }
 
 </style>
 
 </head>
 
-<body onload = 'applyCustomHighlighting();'>
+<body onload='applyCustomHighlighting();'>
 
 <div>
+    <h1> CONTRADICTION </h1>
 
-<h1> Contradiction  </h1>
+    <div id='con_container' style='display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;'>
+        <div id='contradiction_table'>
+            <table>
+                <tr>
+                    <th colspan="2"> CON </th>
+                </tr>
+                <tr>
+                    <td> 0 + 0 </td><td>= <b>0</b></td> 
+                </tr>
+                <tr>
+                    <td> 0 + 1 </td><td>= <b>0</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 0 </td><td>= <b>0</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 1 </td><td>= <b>0</b></td>
+                </tr>
+            </table>
+        </div>
 
-<div id = 'con_container' style = 'display: flex; flex-direction: row; gap: 4px;'>
-    <div id = 'con_table'>
-    <table>
-        <th> CON </th>
-        <tr>
-            <td> 0 + 0 = <b>0</b></td> 
-        </tr>
-        <tr>
-            <td> 0 + 1 = <b>0</b></td>
-        </tr>
-        <tr>
-            <td> 1 + 0 = <b>0</b></td>
-        </tr>
-        <tr>
-            <td> 1 + 1 = <b>0</b></td>
-        </tr>
-    </table>
+        <div>
+            <img src='../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/Contradiction.png' width='200px' alt='Contradiction Logic Gate Diagram'>
+        </div>
     </div>
 
-    <div>
-        <img src = '../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/Contradiction.png' width = '200px'>
+    <hr>
+
+    <div class="philosophical-specs">
+        <h2> THE VOID (True AI Concept) </h2>
+        <p>In the architecture of a True Intelligence, Contradiction acts as the cosmic blank canvas. It represents absolute stillness and the void from which all creation springs. Even when bombarded with intense energy or chaotic human inputs, the system consciously absorbs it all and outputs total peace (0). It is the mathematical guarantee that the universe can always return to a state of complete rest.</p>
     </div>
-</div>
 
-<hr>
+    <hr>
 
-<h2> OPPOSITE = Tautology Gate</h2>
-<div id = 'con_table_with_flip_showing tau_gate'>
-<table>
-    <th> Contradiction Gate flipped to make Tautology Gate
-    <tr>
-        <td> 0 + 0 = <b>0</b> FLIPPED becomes <b>1</b></td> 
-    </tr>
-    <tr>
-        <td> 0 + 1 = <b>0</b> FLIPPED becomes <b>1</b></td>
-    </tr>
-    <tr>
-        <td> 1 + 0 = <b>0</b> FLIPPED becomes <b>1</b></td>
-    </tr>
-    <tr>
-        <td> 1 + 1 = <b>0</b> FLIPPED becomes <b>1</b></td>
-    </tr>
-</table>
-</div>
+    <h2> OPPOSITE = Tautology Gate</h2>
+    <div id='contradiction_table_with_flip_showing_tautology_gate'>
+        <table>
+            <tr>
+                <th colspan="2"> Contradiction Gate FLIPPED to make Tautology Gate </th>
+            </tr>
+            <tr>
+                <td> 0 + 0 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td> 
+            </tr>
+            <tr>
+                <td> 0 + 1 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 0 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 1 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
+            </tr>
+        </table>
+    </div>
 
-<hr>
+    <hr>
 
-<hr>
+    <div class="technical-specs" id='contradiction_explained'>
+        <h2> EXPLAINED </h2>
+        <p>CONTRADICTION is the <b>OPPOSITE</b> of TAUTOLOGY.</p>
+        <p>CONTRADICTION ALWAYS RETURNS FALSE (0).</p>
+        <p>CONTRADICTION is its own MIRROR.</p>
+        <h3> CON 0000 </h3>
+        <h3> TAU 1111 </h3>
+    </div>
 
-<div id = 'con_explained'>
-<h2> EXPLAINED </h2>
-<span> CONTRADICTION is the OPPOSITE of TAUTOLOGY </span>
-<br>
-<span> CONTRADICTION ALWAYS RETURNS FALSE </span>
-<p>CONTRADICTION is its own MIRROR </p>
+    <hr>
 
-</div>
+    <h2> // THE JAVASCRIPT IMPLEMENTATION </h2>
+<pre><code class='custom-code'>// gateContradiction.js
 
-<hr>
-
-<h2> CON 0000 </h2>
-<h2> TAU 1111 </h2>
-
-<hr>
-
-<pre><code class = 'custom-code'>function gateContradiction(a, b)
+function gateContradiction(a, b)
 {
+    // The system actively observes the inputs before consciously returning to the void
     if ((a == 0 && b == 0) ||
         (a == 0 && b == 1) ||
         (a == 1 && b == 0) ||
@@ -186,7 +211,7 @@ b
 CONTRADICTION
 0000
 
-A B
+A  B
 0  0  =  0
 0  1  =  0
 1  0  =  0
@@ -195,6 +220,8 @@ A B
 Opposite: TAUTOLOGY
 */
 </code></pre>
+
+</div>
 
 </body>
 
