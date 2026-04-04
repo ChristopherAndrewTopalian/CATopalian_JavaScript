@@ -1182,6 +1182,12 @@ let operators = [
     },
 
     {
+        name: 'LC',
+        urlOffline: 'src/html/true_ai/logic_gates/lc.html',
+        category: 'true_ai'
+    },
+
+    {
         name: 'Life Creation Engine Class Mammal',
         urlOffline: 'src/html/Life_Creation_Engine/Life_Creation_Engine_Class_Mammal/Life_Creation_Engine_Class_Mammal.html',
         category: 'life_creation_engine',
