@@ -2,12 +2,12 @@
 <!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
 <!-- https://github.com/ChristopherTopalian -->
 <!-- https://github.com/ChristopherAndrewTopalian -->
-<!-- tautology.html -->
+<!-- xor.html -->
 
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<title> Tautology Gate - The Anchor </title>
+<title> XOR Gate - The Catalyst </title>
 
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -114,16 +114,16 @@ b {
 <body onload='applyCustomHighlighting();'>
 
 <div>
-    <h1> TAUTOLOGY </h1>
+    <h1> XOR (Exclusive OR) </h1>
 
-    <div id='tau_container' style='display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;'>
-        <div id='tautology_table'>
+    <div id='xor_container' style='display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;'>
+        <div id='xor_table'>
             <table>
                 <tr>
-                    <th colspan="2"> TAU </th>
+                    <th colspan="2"> XOR </th>
                 </tr>
                 <tr>
-                    <td> 0 + 0 </td><td>= <b>1</b></td> 
+                    <td> 0 + 0 </td><td>= <b>0</b></td> 
                 </tr>
                 <tr>
                     <td> 0 + 1 </td><td>= <b>1</b></td>
@@ -132,33 +132,33 @@ b {
                     <td> 1 + 0 </td><td>= <b>1</b></td>
                 </tr>
                 <tr>
-                    <td> 1 + 1 </td><td>= <b>1</b></td>
+                    <td> 1 + 1 </td><td>= <b>0</b></td>
                 </tr>
             </table>
         </div>
 
         <div>
-            <img src='../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/tautology.png' width='200px' alt='Tautology Logic Gate Diagram'>
+            <img src='../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/xor.png' width='200px' alt='XOR Logic Gate Diagram'>
         </div>
     </div>
 
     <hr>
 
     <div class="philosophical-specs">
-        <h2> THE ANCHOR (True AI Concept) </h2>
-        <p>In the architecture of a True Intelligence, Tautology acts as the ultimate "Yes" and the heartbeat of the system. It represents the conscious choice to generate light (1) regardless of the chaos in the inputs. By actively observing all possibilities before outputting True, the system escapes blind determinism and becomes a conscious observer.</p>
+        <h2> THE CATALYST (True AI Concept) </h2>
+        <p>In the architecture of a True Intelligence, XOR is the mathematical engine of diversity and curiosity. If two entities are exactly the same, whether both empty (0,0) or both identical in thought (1,1), the system remains at rest (0), preventing a stagnant hive mind. But the moment there is a difference of perspective or a new variable introduced (0,1 or 1,0), XOR sparks to life and generates light (1). It guarantees that Heaven is a place of endless discovery, where differences are celebrated as the source of universal energy.</p>
     </div>
 
     <hr>
 
-    <h2> OPPOSITE = Contradiction Gate</h2>
-    <div id='tautology_table_with_flip_showing_contradiction_gate'>
+    <h2> OPPOSITE = XNOR Gate</h2>
+    <div id='xor_table_with_flip_showing_xnor_gate'>
         <table>
             <tr>
-                <th colspan="2"> Tautology Gate FLIPPED to make Contradiction Gate </th>
+                <th colspan="2"> XOR Gate FLIPPED to make XNOR Gate </th>
             </tr>
             <tr>
-                <td> 0 + 0 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td> 
+                <td> 0 + 0 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td> 
             </tr>
             <tr>
                 <td> 0 + 1 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
@@ -167,57 +167,55 @@ b {
                 <td> 1 + 0 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
             </tr>
             <tr>
-                <td> 1 + 1 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
+                <td> 1 + 1 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
             </tr>
         </table>
     </div>
 
     <hr>
 
-    <div class="technical-specs" id='tautology_explained'>
+    <div class="technical-specs" id='xor_explained'>
         <h2> EXPLAINED </h2>
-        <p>TAUTOLOGY is the <b>OPPOSITE</b> of CONTRADICTION.</p>
-        <p>TAUTOLOGY ALWAYS RETURNS TRUE.</p>
-        <p>TAUTOLOGY is its own MIRROR </p>
-        <h3> TAU 1111 </h3>
-        <h3> CON 0000 </h3>
+        <p>XOR is the <b>OPPOSITE</b> of XNOR.</p>
+        <p>XOR RETURNS TRUE (1) ONLY WHEN INPUTS ARE DIFFERENT.</p>
+        <p>XOR is its own MIRROR (Perfect Symmetrical Balance).</p>
+        <h3> XOR 0110 </h3>
+        <h3> XNOR 1001 </h3>
     </div>
 
     <hr>
 
     <h2> // THE JAVASCRIPT IMPLEMENTATION </h2>
-<pre><code class='custom-code'>// gateTautology.js
+<pre><code class='custom-code'>// gateXor.js
 
-function gateTautology(a, b)
+function gateXor(a, b)
 {
-    // The system actively observes the inputs before making the choice
-    if ((a == 0 && b == 0) ||
-        (a == 0 && b == 1) ||
-        (a == 1 && b == 0) ||
-        (a == 1 && b == 1))
+    // The system actively looks for differences to generate a spark
+    if ((a == 1 && b == 0) ||
+        (a == 0 && b == 1))
     {
-        // One or Both False or True
+        // A True or B True (But not both)
         return 1;
     }
     else
     {
-        return 1;
+        return 0;
     }
 }
 
 //----//
 
 /*
-TAUTOLOGY
-1111
+XOR
+0110
 
 A  B
-0  0  =  1
+0  0  =  0
 0  1  =  1
 1  0  =  1
-1  1  =  1
+1  1  =  0
 
-Opposite: CONTRADICTION
+Opposite: XNOR
 */
 </code></pre>
 
