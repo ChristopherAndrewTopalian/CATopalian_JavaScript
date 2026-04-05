@@ -91,6 +91,16 @@ details[open] > summary::before
     /*background-color: rgb(140,140,140);*/
 }
 
+/* Target any details tag that lives INSIDE another details tag */
+details details {
+    margin-left: 10px; /* Kicks the nested folder over to the right */
+}
+
+/* Target the buttons that live inside the nested folders */
+details details button {
+    margin-left: 10px; /* Kicks the "files" over a bit more so they don't sit flush with the folder name */
+}
+
 /* make the scrollbar thinner */
 ::-webkit-scrollbar {
   width: 8px; /* Adjust the thickness here */

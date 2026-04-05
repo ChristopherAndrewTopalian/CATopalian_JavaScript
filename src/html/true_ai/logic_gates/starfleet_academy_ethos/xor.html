@@ -1,0 +1,227 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- xor.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> XOR Gate - Secure Encryption Protocols </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../../css/style001.css'>
+
+<script src='../../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body {
+    margin: 20px;
+    background-color: rgb(30, 30, 30); 
+    font-family: Arial, sans-serif; 
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    color: rgb(170, 170, 170); 
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h2, h3 {
+    color: rgb(100, 150, 255);
+}
+
+p {
+    padding: 0px 20px;
+    line-height: 1.6;
+}
+
+hr {
+    border-color: rgb(70, 70, 70);
+    margin: 30px 0;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: rgb(20, 20, 25);
+    border: 1px solid rgb(0, 255, 255);
+    margin: 10px 0;
+}
+
+td, th {
+    padding: 10px 20px;
+    border: 1px solid rgb(50, 50, 70);
+    text-align: center;
+}
+
+th {
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 50, 50);
+    text-shadow:
+    0 0 7px rgb(0, 255, 255),
+    0 0 10px rgb(0, 255, 255),
+    0 0 21px rgb(0, 255, 255),
+    0 0 42px rgb(0, 255, 255);
+}
+
+b {
+    color: rgb(0, 255, 255);
+}
+
+.technical-specs {
+    background-color: rgb(40, 40, 45); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(100, 100, 150); 
+    margin: 20px 0;
+}
+
+.cognitive-specs {
+    background-color: rgb(20, 30, 40); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(50, 150, 255); 
+    margin: 20px 0;
+}
+
+.philosophical-specs {
+    background-color: rgb(10, 20, 20); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 255, 255); 
+    margin: 20px 0;
+    border-left: 5px solid rgb(0, 255, 255);
+}
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> XOR (Exclusive OR) </h1>
+
+    <div id='xor_container' style='display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;'>
+        <div id='xor_table'>
+            <table>
+                <tr>
+                    <th colspan="2"> XOR </th>
+                </tr>
+                <tr>
+                    <td> 0 + 0 </td><td>= <b>0</b></td> 
+                </tr>
+                <tr>
+                    <td> 0 + 1 </td><td>= <b>1</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 0 </td><td>= <b>1</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 1 </td><td>= <b>0</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <img src='../../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/xor.png' width='200px' alt='XOR Logic Gate Diagram'>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="philosophical-specs">
+        <h2> SECURE ENCRYPTION PROTOCOLS (Starfleet Academy Ethos) </h2>
+        <p>In the ethical architecture of Starfleet, XOR logic is a fundamental mathematical operation employed in secure communication and encryption protocols. For instance, in symmetric key cryptography (like foundational subspace transmissions), a data stream (Input A) is compared bit-by-bit with a secure key stream (Input B). This operation precisely detects signal *discrepancies*: identical bits yield 0 (no difference), while different bits yield 1 (generating an encrypted value). The unique mathematical properties of XOR, (including its reversibility, where applying the same key again perfectly restores the original message), demonstrate how difference detection is crucial for secure, reliable information exchange. This principle ensures operational security across wide networks, where identifying variations between expected keys and received data allows for sophisticated, symmetric cryptography essential to Federation security.</p>
+    </div>
+
+    <hr>
+
+    <h2> OPPOSITE = XNOR Gate</h2>
+    <div id='xor_table_with_flip_showing_xnor_gate'>
+        <table>
+            <tr>
+                <th colspan="2"> XOR Gate FLIPPED to make XNOR Gate </th>
+            </tr>
+            <tr>
+                <td> 0 + 0 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td> 
+            </tr>
+            <tr>
+                <td> 0 + 1 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 0 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 1 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="technical-specs" id='xor_explained'>
+        <h2> EXPLAINED </h2>
+        <p>XOR is the <b>OPPOSITE</b> of XNOR.</p>
+        <p>XOR RETURNS TRUE (1) ONLY WHEN INPUTS ARE DIFFERENT.</p>
+        <p>XOR is its own MIRROR (Perfect Symmetrical Balance).</p>
+        <h3> XOR 0110 </h3>
+        <h3> XNOR 1001 </h3>
+    </div>
+
+    <hr>
+
+    <h2> // THE JAVASCRIPT IMPLEMENTATION </h2>
+<pre><code class='custom-code'>// gateXor.js
+
+function gateXor(a, b)
+{
+    // The system detects differences between input signals, generating light (1) only when signals A and B vary. This logic is foundational for tasks like symmetric encryption discrepancies.
+    if ((a == 1 && b == 0) ||
+        (a == 0 && b == 1))
+    {
+        return 1; // Signals A and B are different
+    }
+    else
+    {
+        return 0; // Signals A and B are identical
+    }
+}
+
+//----//
+
+/*
+XOR
+0110
+
+A  B
+0  0  =  0
+0  1  =  1
+1  0  =  1
+1  1  =  0
+
+Opposite: XNOR
+*/
+</code></pre>
+
+</div>
+
+</body>
+
+</html>
+

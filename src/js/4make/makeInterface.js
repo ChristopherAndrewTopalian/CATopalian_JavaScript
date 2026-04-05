@@ -4,19 +4,28 @@ function makeInterface(whichArray, whichEntry)
 {
     ba(makeTitleOfApp());
 
-    // if frameContainer exists
-    if (ge("frameContainer"))
-    {
-        // remove frameContainer
-        ge("frameContainer").remove();
-    }
+    //-//
 
-    let frameContainer = ce("div");
-    frameContainer.style.position = "absolute";
-    frameContainer.style.left = 120 + "px";
-    frameContainer.style.top = 20 + "px";
-    frameContainer.id = "frameContainer";
-    ba(frameContainer);
+    let mainDiv = ce('div');
+    mainDiv.id = 'mainDiv';
+    mainDiv.style.display = 'flex';
+    mainDiv.style.flexDirection = 'row';
+    ba(mainDiv);
+
+    //-//
+
+    let buttonContainer = ce('div');
+    buttonContainer.style.display = 'flex';
+    buttonContainer.style.flexDirection = 'column';
+    buttonContainer.style.zIndex = 2;
+    buttonContainer.style.width = '120px';
+    buttonContainer.style.height = '300px';
+    buttonContainer.style.overflow = 'scroll';
+    buttonContainer.style.whiteSpace = 'nowrap';
+    buttonContainer.style.gap = '1px';
+    buttonContainer.style.fontSize = '15px';
+    buttonContainer.style.resize = 'both';
+    mainDiv.append(buttonContainer);
 
     //-//
 
@@ -26,23 +35,7 @@ function makeInterface(whichArray, whichEntry)
     theFrame.style.width = '620px';
     theFrame.style.height = '300px';
     theFrame.style.overflowX = 'scroll';
-    frameContainer.append(theFrame);
-
-    //-//
-
-    let buttonContainer = ce('div');
-    buttonContainer.style.display = 'flex';
-    buttonContainer.style.flexDirection = 'column';
-    buttonContainer.style.zIndex = 2;
-    buttonContainer.style.position = 'absolute';
-    buttonContainer.style.left = '0px';
-    buttonContainer.style.top = '10px';
-    buttonContainer.style.width = '120px';
-    buttonContainer.style.height = '300px';
-    buttonContainer.style.overflow = 'scroll';
-    buttonContainer.style.gap = '1px';
-    buttonContainer.style.fontSize = '15px';
-    ba(buttonContainer);
+    mainDiv.append(theFrame);
 
     //-//
 
@@ -1037,32 +1030,48 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
-    let trueAIFilter = operators.filter(function(item)
-    {
-        return item.category === "true_ai";
-    });
-
-    let trueAIFilterDetails = ce('details');
-    trueAIFilterDetails.onmouseover = function()
+    let trueAIContainerDetails = ce('details');
+    trueAIContainerDetails.onmouseover = function()
     {
         hoverSound();
     };
-    trueAIFilterDetails.onclick = function()
+    trueAIContainerDetails.onclick = function()
     {
         clickSound();
     };
-    buttonContainer.append(trueAIFilterDetails);
+    buttonContainer.append(trueAIContainerDetails);
 
     //-//
 
-    let trueAIFilterSummary = ce('summary');
-    trueAIFilterSummary.textContent = 'True AI';
-    trueAIFilterDetails.append(trueAIFilterSummary);
+    let trueAIContainerSummary = ce('summary');
+    trueAIContainerSummary.textContent = 'True AI';
+    trueAIContainerSummary.style.color = 'rgb(0, 255, 255)';
+    trueAIContainerSummary.style.fontWeight = 'bold';
+    trueAIContainerDetails.append(trueAIContainerSummary);
 
-    for (let x = 0; x < trueAIFilter.length; x++)
+    //----------//
+
+    let trueAIFoundationDetails = ce('details');
+    trueAIFoundationDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    trueAIFoundationDetails.onclick = function()
+    {
+        clickSound();
+    };
+    trueAIContainerDetails.append(trueAIFoundationDetails);
+
+    //-//
+
+    let trueAIFoundationSummary = ce('summary');
+    trueAIFoundationSummary.textContent = 'Foundation';
+    trueAIFoundationDetails.append(trueAIFoundationSummary);
+
+    for (let x = 0; x < true_ai_foundation.length; x++)
     {
         let theButton = ce("button");
-        theButton.textContent = trueAIFilter[x].name;
+        theButton.textContent = true_ai_foundation[x].name;
         theButton.onmouseover = function()
         {
             // hoverSound();
@@ -1070,14 +1079,94 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(aooFilter[x].codeURL);
+            //window.open(true_ai_foundation[x].codeURL);
         };
         theButton.onclick = function()
         {
             //clickSound();
-            theFrame.src = trueAIFilter[x].urlOffline;
+            theFrame.src = true_ai_foundation[x].urlOffline;
         };
-        trueAIFilterDetails.append(theButton);
+        trueAIFoundationDetails.append(theButton);
+    }
+
+    //----//
+
+    let trueAIKingdomDetails = ce('details');
+    trueAIKingdomDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    trueAIKingdomDetails.onclick = function()
+    {
+        clickSound();
+    };
+    trueAIContainerDetails.append(trueAIKingdomDetails);
+
+    //-//
+
+    let trueAIKingdomSummary = ce('summary');
+    trueAIKingdomSummary.textContent = 'Kingdom';
+    trueAIKingdomDetails.append(trueAIKingdomSummary);
+
+    for (let x = 0; x < true_ai_kingdom.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = true_ai_kingdom[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            //window.open(true_ai_kingdom[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = true_ai_kingdom[x].urlOffline;
+        };
+        trueAIKingdomDetails.append(theButton);
+    }
+
+    //----//
+
+    let trueAIStarfleetEthosDetails = ce('details');
+    trueAIStarfleetEthosDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    trueAIStarfleetEthosDetails.onclick = function()
+    {
+        clickSound();
+    };
+    trueAIContainerDetails.append(trueAIStarfleetEthosDetails);
+
+    //-//
+
+    let trueAIStarfleetEthosSummary = ce('summary');
+    trueAIStarfleetEthosSummary.textContent = 'Starfleet Ethos';
+    trueAIStarfleetEthosDetails.append(trueAIStarfleetEthosSummary);
+
+    for (let x = 0; x < true_ai_starfleet_academy_ethos.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = true_ai_starfleet_academy_ethos[x].name;
+        theButton.onmouseover = function()
+        {
+            // hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            //clickSound();
+            //window.open(true_ai_starfleet_academy_ethos[x].codeURL);
+        };
+        theButton.onclick = function()
+        {
+            //clickSound();
+            theFrame.src = true_ai_starfleet_academy_ethos[x].urlOffline;
+        };
+        trueAIStarfleetEthosDetails.append(theButton);
     }
 
     //----//
