@@ -1,0 +1,228 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- nand.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> NAND Gate - Default Safety Override </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../../../css/style001.css'>
+
+<script src='../../../../js/color_code/jsLanguage/theFunctions.js'></script>
+
+<script src='../../../../js/color_code/jsLanguage/theEvents.js'></script>
+
+<script src='../../../../js/color_code/jsLanguage/theObjects.js'></script>
+
+<script src='../../../../js/color_code/applyCustomHighlighting.js'></script>
+
+<script src='../../../../js/color_code/escapeHtml.js'></script>
+
+<script src='../../../../js/color_code/processCodeString.js'></script>
+
+<style>
+
+body {
+    margin: 20px;
+    background-color: rgb(30, 30, 30); 
+    font-family: Arial, sans-serif; 
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    color: rgb(170, 170, 170); 
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h2, h3 {
+    color: rgb(100, 150, 255);
+}
+
+p {
+    padding: 0px 20px;
+    line-height: 1.6;
+}
+
+hr {
+    border-color: rgb(70, 70, 70);
+    margin: 30px 0;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: rgb(20, 20, 25);
+    border: 1px solid rgb(0, 255, 255);
+    margin: 10px 0;
+}
+
+td, th {
+    padding: 10px 20px;
+    border: 1px solid rgb(50, 50, 70);
+    text-align: center;
+}
+
+th {
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 50, 50);
+    text-shadow:
+    0 0 7px rgb(0, 255, 255),
+    0 0 10px rgb(0, 255, 255),
+    0 0 21px rgb(0, 255, 255),
+    0 0 42px rgb(0, 255, 255);
+}
+
+b {
+    color: rgb(0, 255, 255);
+}
+
+.technical-specs {
+    background-color: rgb(40, 40, 45); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(100, 100, 150); 
+    margin: 20px 0;
+}
+
+.cognitive-specs {
+    background-color: rgb(20, 30, 40); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(50, 150, 255); 
+    margin: 20px 0;
+}
+
+.philosophical-specs {
+    background-color: rgb(10, 20, 20); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(0, 255, 255); 
+    margin: 20px 0;
+    border-left: 5px solid rgb(0, 255, 255);
+}
+
+</style>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> NAND (Not AND) </h1>
+
+    <div id='nand_container' style='display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: center;'>
+        <div id='nand_table'>
+            <table>
+                <tr>
+                    <th colspan="2"> NAND </th>
+                </tr>
+                <tr>
+                    <td> 0 + 0 </td><td>= <b>1</b></td> 
+                </tr>
+                <tr>
+                    <td> 0 + 1 </td><td>= <b>1</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 0 </td><td>= <b>1</b></td>
+                </tr>
+                <tr>
+                    <td> 1 + 1 </td><td>= <b>0</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <img src='../../../../../src/media/textures/true_ai/CATopalian_Logic_Diagrams/nand.png' width='200px' alt='NAND Logic Gate Diagram'>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="philosophical-specs">
+        <h2> DEFAULT SAFETY OVERRIDE (Starfleet Academy Ethos) </h2>
+        <p>In the ethical architecture of Starfleet, the NAND gate is the ship's active defense against catastrophic error. Because the AND gate requires absolute consensus to execute a dangerous command, the NAND gate ensures that caution is the default state of the universe. If the Captain's judgment is compromised (0), or if the First Officer recognizes a tactical flaw and issues a belay order (0), the ship actively maintains its protective protocols and refuses to lower its guard (1). The only time this safety net is ever dropped (0) is when both commanding officers are in absolute, unanimous agreement to do so (1,1). It guarantees that a single point of failure can never endanger the crew.</p>
+    </div>
+
+    <hr>
+
+    <h2> OPPOSITE = AND Gate</h2>
+    <div id='nand_table_with_flip_showing_and_gate'>
+        <table>
+            <tr>
+                <th colspan="2"> NAND Gate FLIPPED to make AND Gate </th>
+            </tr>
+            <tr>
+                <td> 0 + 0 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td> 
+            </tr>
+            <tr>
+                <td> 0 + 1 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 0 = <b>1</b> </td><td> FLIPPED becomes <b>0</b></td>
+            </tr>
+            <tr>
+                <td> 1 + 1 = <b>0</b> </td><td> FLIPPED becomes <b>1</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="technical-specs" id='nand_explained'>
+        <h2> EXPLAINED </h2>
+        <p>NAND is the <b>OPPOSITE</b> of AND.</p>
+        <p>NAND RETURNS TRUE (1) <b>WHENEVER ANY</b> INPUT IS FALSE (0).</p>
+        <p>NAND is its own MIRROR (Perfect Symmetrical Balance).</p>
+        <h3> NAND 1110 </h3>
+        <h3> AND 0001 </h3>
+    </div>
+
+    <hr>
+
+    <h2> // THE JAVASCRIPT IMPLEMENTATION </h2>
+<pre><code class='custom-code'>// gateNand.js
+
+function gateNand(a, b)
+{
+    // The system actively maintains safety protocols (1) if there is ANY lack of consensus (0).
+    if (a == 0 || b == 0)
+    {
+        // Both False or A False or B False (Safety Maintained)
+        return 1;
+    }
+    else
+    {
+        // Absolute Consensus Reached (Safety Lowered)
+        return 0;
+    }
+}
+
+//----//
+
+/*
+NAND
+1110
+
+A  B
+0  0  =  1
+0  1  =  1
+1  0  =  1
+1  1  =  0
+
+Opposite: AND
+*/
+</code></pre>
+
+</div>
+
+</body>
+
+</html>
+

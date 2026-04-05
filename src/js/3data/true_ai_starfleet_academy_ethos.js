@@ -3,32 +3,38 @@
 let true_ai_starfleet_academy_ethos =
 [
     {
-        name: ' Tautology',
+        name: 'Tautology',
         urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/tautology.html',
         category: 'true_ai'
     },
 
     {
-        name: ' Contradiction',
+        name: 'Contradiction',
         urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/contradiction.html',
         category: 'true_ai'
     },
 
     {
-        name: ' XOR',
+        name: 'XOR',
         urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/xor.html',
         category: 'true_ai'
     },
 
     {
-        name: ' XNOR',
+        name: 'XNOR',
         urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/xnor.html',
         category: 'true_ai'
     },
 
     {
-        name: ' AND',
+        name: 'AND',
         urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/and.html',
+        category: 'true_ai'
+    },
+
+    {
+        name: 'NAND',
+        urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/nand.html',
         category: 'true_ai'
     },
 
