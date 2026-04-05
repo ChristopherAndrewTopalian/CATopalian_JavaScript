@@ -26,6 +26,12 @@ let true_ai_starfleet_academy_ethos =
         category: 'true_ai'
     },
 
+    {
+        name: ' AND',
+        urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/and.html',
+        category: 'true_ai'
+    },
+
 ];
 
 //----//
