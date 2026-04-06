@@ -2,6 +2,12 @@
 
 let true_ai_foundation = [
     {
+        name: 'True AI 16 Gates Relationships',
+        urlOffline: 'src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships.html',
+        category: 'true_ai'
+    },
+
+    {
         name: 'True AI 16 Gon Logic Foundation',
         urlOffline: 'src/html/true_ai/babylonjs/true_ai_16_gon_logic_foundation/true_ai_16_gon_logic_foundation.html',
         category: 'true_ai'
