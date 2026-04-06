@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<title> True AI 16 Gates Relationships </title>
+<title> True AI - Master Relationships Ledger </title>
 
 <meta charset='UTF-8'>
 
@@ -67,8 +67,8 @@ table {
     background-color: rgb(20, 20, 25);
     border: 1px solid rgb(0, 255, 255);
     margin: 0 auto; /* Centers the table */
-    width: 95%;
-    max-width: 1200px;
+    width: 98%;
+    max-width: 1400px; /* Widened for the extra column */
 }
 
 td, th {
@@ -99,6 +99,8 @@ th {
 .col-mirror { color: rgb(100, 255, 100); }
 
 .col-mirropp { color: rgb(255, 150, 50); }
+
+.col-reverse { color: rgb(255, 255, 100); font-weight: bold; } /* New Yellow for Reverse */
 
 .col-dual { color: rgb(200, 100, 255); font-weight: bold; }
 
@@ -133,14 +135,15 @@ tr:hover {
         <tr>
             <th> GATE </th>
             <th> BINARY </th>
-            <th> OPPOSITE <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Inverted Output)</span></th>
-            <th> MIRROR <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Swap Input A & B)</span></th>
+            <th> OPPOSITE <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(NOT Output)</span></th>
+            <th> MIRROR <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Swap Inputs)</span></th>
             <th> MIRROR-OPPOSITE <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Swap & Invert)</span></th>
-            <th> DUAL <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Perfect Mathematical Inverse)</span></th>
+            <th> REVERSE <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Binary Backwards)</span></th>
+            <th> DUAL <br><span style="font-size:11px; font-weight:normal; text-shadow:none; color:#ccc;">(Reverse + Opposite)</span></th>
         </tr>
 
         <tr>
-            <td colspan="6" class="group-header"> GROUP 1: THE ANCHORS (Total Symmetry) </td>
+            <td colspan="7" class="group-header"> GROUP 1: THE ANCHORS (Total Symmetry) </td>
         </tr>
         <tr>
             <td class="col-gate"> TAUTOLOGY (TAU) </td>
@@ -148,6 +151,7 @@ tr:hover {
             <td class="col-opp"> CON </td>
             <td class="col-mirror"> TAU (Self) </td>
             <td class="col-mirropp"> CON </td>
+            <td class="col-reverse"> TAU (Self) </td>
             <td class="col-dual"> CON </td>
         </tr>
         <tr>
@@ -156,11 +160,12 @@ tr:hover {
             <td class="col-opp"> TAU </td>
             <td class="col-mirror"> CON (Self) </td>
             <td class="col-mirropp"> TAU </td>
+            <td class="col-reverse"> CON (Self) </td>
             <td class="col-dual"> TAU </td>
         </tr>
 
         <tr>
-            <td colspan="6" class="group-header"> GROUP 2: THE CATALYSTS (Friction & Resonance) </td>
+            <td colspan="7" class="group-header"> GROUP 2: THE CATALYSTS (Friction & Resonance) </td>
         </tr>
         <tr>
             <td class="col-gate"> XOR </td>
@@ -168,6 +173,7 @@ tr:hover {
             <td class="col-opp"> XNOR </td>
             <td class="col-mirror"> XOR (Self) </td>
             <td class="col-mirropp"> XNOR </td>
+            <td class="col-reverse"> XOR (Self) </td>
             <td class="col-dual"> XNOR </td>
         </tr>
         <tr>
@@ -176,11 +182,12 @@ tr:hover {
             <td class="col-opp"> XOR </td>
             <td class="col-mirror"> XNOR (Self) </td>
             <td class="col-mirropp"> XOR </td>
+            <td class="col-reverse"> XNOR (Self) </td>
             <td class="col-dual"> XOR </td>
         </tr>
 
         <tr>
-            <td colspan="6" class="group-header"> GROUP 3: THE SQUARE OF COMMUNITY (Symmetrical Balance) </td>
+            <td colspan="7" class="group-header"> GROUP 3: THE SQUARE OF COMMUNITY (Symmetrical Balance) </td>
         </tr>
         <tr>
             <td class="col-gate"> AND </td>
@@ -188,6 +195,7 @@ tr:hover {
             <td class="col-opp"> NAND </td>
             <td class="col-mirror"> AND (Self) </td>
             <td class="col-mirropp"> NAND </td>
+            <td class="col-reverse"> NOR </td>
             <td class="col-dual"> OR </td>
         </tr>
         <tr>
@@ -196,6 +204,7 @@ tr:hover {
             <td class="col-opp"> AND </td>
             <td class="col-mirror"> NAND (Self) </td>
             <td class="col-mirropp"> AND </td>
+            <td class="col-reverse"> OR </td>
             <td class="col-dual"> NOR </td>
         </tr>
         <tr>
@@ -204,6 +213,7 @@ tr:hover {
             <td class="col-opp"> NOR </td>
             <td class="col-mirror"> OR (Self) </td>
             <td class="col-mirropp"> NOR </td>
+            <td class="col-reverse"> NAND </td>
             <td class="col-dual"> AND </td>
         </tr>
         <tr>
@@ -212,11 +222,12 @@ tr:hover {
             <td class="col-opp"> OR </td>
             <td class="col-mirror"> NOR (Self) </td>
             <td class="col-mirropp"> OR </td>
+            <td class="col-reverse"> AND </td>
             <td class="col-dual"> NAND </td>
         </tr>
 
         <tr>
-            <td colspan="6" class="group-header"> GROUP 4: THE SQUARE OF ACCOUNTABILITY (Directional Implication) </td>
+            <td colspan="7" class="group-header"> GROUP 4: THE SQUARE OF ACCOUNTABILITY (Directional Implication) </td>
         </tr>
         <tr>
             <td class="col-gate"> MI </td>
@@ -224,6 +235,7 @@ tr:hover {
             <td class="col-opp"> MNI </td>
             <td class="col-mirror"> CI </td>
             <td class="col-mirropp"> CNI </td>
+            <td class="col-reverse"> CI </td>
             <td class="col-dual"> CNI </td>
         </tr>
         <tr>
@@ -232,6 +244,7 @@ tr:hover {
             <td class="col-opp"> MI </td>
             <td class="col-mirror"> CNI </td>
             <td class="col-mirropp"> CI </td>
+            <td class="col-reverse"> CNI </td>
             <td class="col-dual"> CI </td>
         </tr>
         <tr>
@@ -240,6 +253,7 @@ tr:hover {
             <td class="col-opp"> CNI </td>
             <td class="col-mirror"> MI </td>
             <td class="col-mirropp"> MNI </td>
+            <td class="col-reverse"> MI </td>
             <td class="col-dual"> MNI </td>
         </tr>
         <tr>
@@ -248,11 +262,12 @@ tr:hover {
             <td class="col-opp"> CI </td>
             <td class="col-mirror"> MNI </td>
             <td class="col-mirropp"> MI </td>
+            <td class="col-reverse"> MNI </td>
             <td class="col-dual"> MI </td>
         </tr>
 
         <tr>
-            <td colspan="6" class="group-header"> GROUP 5: THE PILLARS OF IDENTITY (Isolation) </td>
+            <td colspan="7" class="group-header"> GROUP 5: THE PILLARS OF IDENTITY (Isolation) </td>
         </tr>
         <tr>
             <td class="col-gate"> LP (Gate A) </td>
@@ -260,7 +275,8 @@ tr:hover {
             <td class="col-opp"> LC </td>
             <td class="col-mirror"> RP </td>
             <td class="col-mirropp"> RC </td>
-            <td class="col-dual"> LP (Self-Dual) </td>
+            <td class="col-reverse"> LC </td>
+            <td class="col-dual"> LP (Self) </td>
         </tr>
         <tr>
             <td class="col-gate"> LC (NOT A) </td>
@@ -268,7 +284,8 @@ tr:hover {
             <td class="col-opp"> LP </td>
             <td class="col-mirror"> RC </td>
             <td class="col-mirropp"> RP </td>
-            <td class="col-dual"> LC (Self-Dual) </td>
+            <td class="col-reverse"> LP </td>
+            <td class="col-dual"> LC (Self) </td>
         </tr>
         <tr>
             <td class="col-gate"> RP (Gate B) </td>
@@ -276,7 +293,8 @@ tr:hover {
             <td class="col-opp"> RC </td>
             <td class="col-mirror"> LP </td>
             <td class="col-mirropp"> LC </td>
-            <td class="col-dual"> RP (Self-Dual) </td>
+            <td class="col-reverse"> RC </td>
+            <td class="col-dual"> RP (Self) </td>
         </tr>
         <tr>
             <td class="col-gate"> RC (NOT B) </td>
@@ -284,7 +302,8 @@ tr:hover {
             <td class="col-opp"> RP </td>
             <td class="col-mirror"> LC </td>
             <td class="col-mirropp"> LP </td>
-            <td class="col-dual"> RC (Self-Dual) </td>
+            <td class="col-reverse"> RP </td>
+            <td class="col-dual"> RC (Self) </td>
         </tr>
 
     </table>
