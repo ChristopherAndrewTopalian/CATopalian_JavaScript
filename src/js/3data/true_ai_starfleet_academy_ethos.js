@@ -68,6 +68,12 @@ let true_ai_starfleet_academy_ethos =
         category: 'true_ai'
     },
 
+    {
+        name: 'CNI',
+        urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/cni.html',
+        category: 'true_ai'
+    },
+
 ];
 
 //----//
