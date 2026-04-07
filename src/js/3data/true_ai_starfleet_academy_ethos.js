@@ -74,6 +74,12 @@ let true_ai_starfleet_academy_ethos =
         category: 'true_ai'
     },
 
+    {
+        name: 'LP',
+        urlOffline: 'src/html/true_ai/logic_gates/starfleet_academy_ethos/lp.html',
+        category: 'true_ai'
+    },
+
 ];
 
 //----//
