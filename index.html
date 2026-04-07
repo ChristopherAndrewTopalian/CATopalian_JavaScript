@@ -4,111 +4,203 @@
 <!-- https://github.com/ChristopherAndrewTopalian -->
 <!-- index.html -->
 
-<html>
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-<title> index </title>
+<title> Starfleet Academy - Master Directory </title>
 
-<meta charset = 'UTF-8'>
+<meta charset='UTF-8'>
 
-<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='src/css/style001.css'>
 
 <style>
 
-body
-{
-    background-color: rgb(0, 0, 0);
-    font-family: Arial;
+body {
+    margin: 40px;
+    background-color: rgb(20, 20, 25); 
+    font-family: Arial, sans-serif; 
     color: rgb(255, 255, 255);
 }
 
+.header-container {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid rgb(0, 100, 100);
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: rgb(0, 255, 255); 
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+p.subtitle {
+    color: rgb(170, 170, 170);
+    font-size: 18px;
+    font-style: italic;
+    margin: 0;
+}
+
+/* The Grid Layout for the Folders */
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.folder-card {
+    background-color: rgb(30, 30, 35);
+    border: 1px solid rgb(50, 50, 70);
+    border-top: 4px solid rgb(0, 255, 255);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.folder-card h2 {
+    color: rgb(150, 200, 255);
+    font-size: 20px;
+    margin-top: 0;
+    border-bottom: 1px solid rgb(70, 70, 70);
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.link-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-list li {
+    margin-bottom: 12px;
+}
+
+/* Standard Anchor Tags for direct sharing */
+.link-list a {
+    color: rgb(200, 200, 200);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.link-list a::before {
+    content: "►";
+    color: rgb(0, 255, 255);
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.link-list a:hover {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 8px rgb(0, 255, 255);
+    padding-left: 5px; /* Creates a nice little hover-slide effect */
+}
+
+/* The Main App Launch Button */
+.launch-button-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.launch-button {
+    background-color: rgb(0, 50, 50);
+    color: rgb(0, 255, 255);
+    border: 1px solid rgb(0, 255, 255);
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.launch-button:hover {
+    background-color: rgb(0, 100, 100);
+    box-shadow: 0 0 15px rgb(0, 255, 255);
+}
 </style>
-
-<script>
-
-// shortcuts.js
-
-function ge(whichId)
-{
-    let result = document.getElementById(whichId);
-    return result;
-}
-
-function ce(whichType)
-{
-    let result = document.createElement(whichType);
-    return result;
-}
-
-function ba(whichElement)
-{
-    let result = document.body.append(whichElement);
-    return result;
-}
-
-function cl(whichMessage)
-{
-    let result = console.log(whichMessage);
-    return result;
-}
-
-function ct(whichText)
-{
-    let result = document.createTextNode(whichText);
-    return result;
-}
-
-function gr(whichId)
-{
-    let result =  ge(whichId).getBoundingClientRect();
-    return result;
-}
-
-//----//
-
-// Dedicated to God the Father
-// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026
-// https://github.com/ChristopherTopalian
-// https://github.com/ChristopherAndrewTopalian
-// https://sites.google.com/view/CollegeOfScripting
-
-//-//
-
-function makeAppLink()
-{
-    let theLink = 'CATopalian_JavaScript.html';
-
-    let mainDiv = ce('div');
-    mainDiv.style.display = 'flex';
-    mainDiv.style.flexDirection = 'column';
-    mainDiv.style.margin = 10 + 'px';
-    ba(mainDiv);
-
-    //-//
-
-    let instructions = ce('div');
-    instructions.textContent = 'Click on the Link Below to Open the Application';
-    mainDiv.append(instructions);
-
-    //-//
-
-    let appLink = ce('a');
-    appLink.href = theLink;
-    appLink.textContent = 'Start Application';
-    appLink.style.fontSize = 50 + 'px';
-    appLink.style.fontWeight = 'bold';
-    mainDiv.append(appLink);
-}
-
-function whenLoaded()
-{
-    makeAppLink();
-}
-
-</script>
-
 </head>
 
-<body onload = 'whenLoaded();'>
+<body>
+
+    <div class="header-container">
+        <h1> Starfleet Academy Database </h1>
+        <p class="subtitle"> Master Directory of Logic, Ethics, and Operations </p>
+    </div>
+
+    <div class="launch-button-container">
+        <a href="CATopalian_JavaScript.html" class="launch-button">Launch Interactive Terminal</a>
+    </div>
+
+    <div class="directory-grid">
+
+        <div class="folder-card">
+            <h2> Group 1: The Anchors </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/tautology.html" target="_blank">Tautology (TAU)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/contradiction.html" target="_blank">Contradiction (CON)</a></li>
+            </ul>
+        </div>
+
+        <div class="folder-card">
+            <h2> Group 2: The Catalysts </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/xor.html" target="_blank">XOR (Exclusive OR)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/xnor.html" target="_blank">XNOR (Exclusive NOR)</a></li>
+            </ul>
+        </div>
+
+        <div class="folder-card">
+            <h2> Group 3: The Community </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/and.html" target="_blank">AND (Consensus)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/nand.html" target="_blank">NAND (Safety Override)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/or.html" target="_blank">OR (Shared Discovery)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/nor.html" target="_blank">NOR (Total Isolation)</a></li>
+            </ul>
+        </div>
+
+        <div class="folder-card">
+            <h2> Group 4: Accountability </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/mi.html" target="_blank">MI (Material Implication)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/mni.html" target="_blank">MNI (Whistleblower)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/ci.html" target="_blank">CI (Converse Implication)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/cni.html" target="_blank">CNI (Sovereignty)</a></li>
+            </ul>
+        </div>
+
+        <div class="folder-card">
+            <h2> Group 5: Identity </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/lp.html" target="_blank">LP (Left Projection)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/lc.html" target="_blank">LC (Left Complementation)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/rp.html" target="_blank">RP (Right Projection)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/rc.html" target="_blank">RC (Right Complementation)</a></li>
+            </ul>
+        </div>
+
+        <div class="folder-card">
+            <h2> Master Ledgers </h2>
+            <ul class="link-list">
+                <li><a href="src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships.html" target="_blank">The 16 Gates Ledger (Table)</a></li>
+                <li><a href="src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships_listed.html" target="_blank">Cadet's Logic Ledger (List)</a></li>
+            </ul>
+        </div>
+
+    </div>
 
 </body>
 
