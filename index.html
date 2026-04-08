@@ -130,18 +130,35 @@ p.subtitle {
     background-color: rgb(0, 100, 100);
     box-shadow: 0 0 15px rgb(0, 255, 255);
 }
+
 </style>
+
 </head>
 
-<body>
+<script src = 'src/js/sound/sound.js'></script>
 
+<script src = 'src/js/sound/addAhrefSounds.js'></script>
+
+<script>
+
+function whenLoaded()
+{
+    setTimeout(function()
+    {
+        addAhrefSounds();
+    }, 1000);
+}
+
+</script>
+
+<body onload = 'whenLoaded();'>
     <div class="header-container">
         <h1> Starfleet Academy Database </h1>
         <p class="subtitle"> Master Directory of Logic, Ethics, and Operations </p>
     </div>
 
     <div class="launch-button-container">
-        <a href="CATopalian_JavaScript.html" class="launch-button">Launch Interactive Terminal</a>
+        <a href="CATopalian_JavaScript.html" class="launch-button" target = '_blank'>Launch Interactive Terminal</a>
     </div>
 
     <div class="directory-grid">
