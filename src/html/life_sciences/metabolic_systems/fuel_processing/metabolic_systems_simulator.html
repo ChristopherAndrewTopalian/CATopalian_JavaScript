@@ -1,0 +1,371 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- metabolic_systems_simulator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<title>Metabolic Systems Simulator</title>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body
+{
+    background-color: rgb(15, 15, 20);
+    color: rgb(0, 255, 255);
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1
+{
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgb(0, 150, 150);
+    padding-bottom: 0px;
+    margin: 2px 0px;
+    text-align: center;
+}
+
+.control-panel
+{
+    background-color: rgb(25, 25, 30);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 2px 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select
+{
+    background-color: rgb(10, 10, 15);
+    color: rgb(0, 255, 255);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button
+{
+    background-color: rgb(0, 100, 100);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+button:hover
+{
+    background-color: rgb(0, 150, 150);
+}
+
+#canvasContainer
+{
+    padding: 0px;
+    width: 100%;
+    max-width: 800px;
+    height: 200px; 
+    border: 1px solid rgb(0, 100, 100);
+    background-color: rgb(5, 5, 8);
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+canvas
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.diagnostic-panel
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(10, 10, 15);
+    border: 1px solid rgb(70, 70, 90);
+    padding: 1px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 1px;
+}
+
+.metric
+{
+    text-align: center;
+    width: 45%;
+}
+
+.metric-title
+{
+    font-size: 12px;
+    color: rgb(150, 150, 150);
+}
+
+.metric-value
+{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <h1>Metabolic Load & Processing</h1>
+
+    <div class="control-panel">
+        <div>
+            <label for="fuelSelector"><strong>Fuel Source: </strong></label>
+            <select id="fuelSelector">
+                <option value="potato">Clean Fuel (Potato/Complex Carb)</option>
+                <option value="soda">Liquid Strike (150g Soda)</option>
+                <option value="juice">Fast Liquid (46oz Orange Juice)</option>
+                <option value="honey">Long Drip (Honey & Peanut Butter)</option>
+            </select>
+        </div>
+        <button id="injectButton">Inject Fuel</button>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="metabolicCanvas"></canvas>
+    </div>
+
+    <div class="diagnostic-panel">
+        <div class="metric">
+            <div class="metric-title">Pancreatic Stress (Glucose)</div>
+            <div id="pancreasReadout" class="metric-value" style="color: rgb(0, 255, 255);">Nominal</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Hepatic Burden (Fructose)</div>
+            <div id="liverReadout" class="metric-value" style="color: rgb(0, 255, 255);">Optimal</div>
+        </div>
+    </div>
+
+    <script>
+        let canvas = document.getElementById("metabolicCanvas");
+        let ctx = canvas.getContext("2d");
+        let fuelSelector = document.getElementById("fuelSelector");
+        let injectButton = document.getElementById("injectButton");
+        
+        let pReadout = document.getElementById("pancreasReadout");
+        let lReadout = document.getElementById("liverReadout");
+
+        // Physics State
+        let cw, ch;
+        let particles = [];
+        let pancreasStress = 0; 
+        let liverStress = 0;
+        
+        // Active ingestion state
+        let isInjecting = false;
+        let injectTimer = 0;
+        let activeFuel = null;
+
+        // Fuel Database (Rates dictate spike speed; Duration dictates length; Glucose vs Fructose)
+        let fuelData = {
+            potato: { gRate: 2, fRate: 0, duration: 200 },  // Slow glucose, zero fructose
+            soda:   { gRate: 15, fRate: 15, duration: 40 }, // Massive spike of both
+            juice:  { gRate: 10, fRate: 10, duration: 50 }, // Big spike of both
+            honey:  { gRate: 3, fRate: 8, duration: 250 }   // Slow glucose, high long fructose drip
+        };
+
+        // Particle Class
+        function FuelParticle(yOffset, type) {
+            this.x = 0;
+            // Top half for Glucose, Bottom half for Fructose
+            this.y = yOffset + (Math.random() * 40 - 20); 
+            this.type = type; // 'glucose' or 'fructose'
+            this.speed = Math.random() * 2 + 2;
+            this.size = Math.random() * 3 + 2;
+            this.active = true;
+        }
+
+        function setupCanvas() {
+            let dpr = window.devicePixelRatio || 1;
+            let rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            cw = rect.width;
+            ch = rect.height;
+        }
+
+        injectButton.onclick = function() {
+            activeFuel = fuelData[fuelSelector.value];
+            isInjecting = true;
+            injectTimer = activeFuel.duration;
+        };
+
+        function drawOrgan(x, y, radius, label, stressLevel) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            
+            // Color shifts to red if stressed
+            if (stressLevel > 60) {
+                ctx.fillStyle = "rgba(255, 50, 50, 0.4)";
+                ctx.strokeStyle = "rgb(255, 50, 50)";
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = "red";
+            } else {
+                ctx.fillStyle = "rgba(0, 150, 150, 0.2)";
+                ctx.strokeStyle = "rgb(0, 255, 255)";
+                ctx.shadowBlur = 0;
+            }
+            
+            ctx.fill();
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Label
+            ctx.fillStyle = "white";
+            ctx.font = "14px Arial";
+            ctx.textAlign = "center";
+            ctx.shadowBlur = 0;
+            ctx.fillText(label, x, y + 4);
+        }
+
+        function drawFatBlobs(x, y, radius, amount) {
+            // Visualizes liver turning fructose into triglycerides
+            let blobCount = Math.floor(amount / 5);
+            ctx.fillStyle = "rgba(255, 200, 0, 0.8)";
+            for (let i = 0; i < blobCount; i++) {
+                let bx = x + (Math.random() * radius * 1.2 - radius * 0.6);
+                let by = y + (Math.random() * radius * 1.2 - radius * 0.6);
+                ctx.beginPath();
+                ctx.arc(bx, by, 4, 0, Math.PI*2);
+                ctx.fill();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, cw, ch);
+
+            let topPathY = ch * 0.3;
+            let bottomPathY = ch * 0.7;
+            let organX = cw - 100;
+
+            // Draw Paths
+            ctx.strokeStyle = "rgba(100, 100, 100, 0.3)";
+            ctx.lineWidth = 40;
+            ctx.beginPath(); ctx.moveTo(0, topPathY); ctx.lineTo(organX, topPathY); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, bottomPathY); ctx.lineTo(organX, bottomPathY); ctx.stroke();
+
+            // Injection Logic
+            if (isInjecting) {
+                injectTimer--;
+                
+                // Spawn Glucose
+                for (let i = 0; i < activeFuel.gRate; i++) {
+                    if (Math.random() > 0.5) particles.push(new FuelParticle(topPathY, 'glucose'));
+                }
+                // Spawn Fructose
+                for (let i = 0; i < activeFuel.fRate; i++) {
+                    if (Math.random() > 0.5) particles.push(new FuelParticle(bottomPathY, 'fructose'));
+                }
+
+                if (injectTimer <= 0) isInjecting = false;
+            }
+
+            // Update Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                let p = particles[i];
+                p.x += p.speed;
+
+                // Hit Organ Logic
+                if (p.x > organX - 30) {
+                    if (p.type === 'glucose') pancreasStress += 0.5;
+                    if (p.type === 'fructose') liverStress += 0.5;
+                    particles.splice(i, 1);
+                    continue;
+                }
+
+                // Render Particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.type === 'glucose' ? "rgb(0, 255, 255)" : "rgb(255, 150, 0)";
+                ctx.fill();
+            }
+
+            // Stress Decay (Organs slowly recover if not bombarded)
+            if (pancreasStress > 0) pancreasStress -= 0.1;
+            if (liverStress > 0) liverStress -= 0.1;
+            
+            // Cap stress visually at 100
+            let pVisStress = Math.min(pancreasStress, 100);
+            let lVisStress = Math.min(liverStress, 100);
+
+            // Draw Organs
+            drawOrgan(organX, topPathY, 40, "PANCREAS", pVisStress);
+            drawOrgan(organX, bottomPathY, 40, "LIVER", lVisStress);
+
+            // Draw Hepatic Fat Build-up
+            if (liverStress > 30) {
+                drawFatBlobs(organX, bottomPathY, 40, lVisStress);
+            }
+
+            // Update UI
+            if (pancreasStress > 70) {
+                pReadout.innerText = "BETA CELL OVERLOAD";
+                pReadout.style.color = "rgb(255, 50, 50)";
+            } else if (pancreasStress > 30) {
+                pReadout.innerText = "Elevated Insulin";
+                pReadout.style.color = "rgb(255, 200, 0)";
+            } else {
+                pReadout.innerText = "Nominal";
+                pReadout.style.color = "rgb(0, 255, 255)";
+            }
+
+            if (liverStress > 70) {
+                lReadout.innerText = "SEVERE FATTY BACKLOG";
+                lReadout.style.color = "rgb(255, 50, 50)";
+            } else if (liverStress > 30) {
+                lReadout.innerText = "Triglyceride Build-up";
+                lReadout.style.color = "rgb(255, 200, 0)";
+            } else {
+                lReadout.innerText = "Optimal";
+                lReadout.style.color = "rgb(0, 255, 255)";
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        setupCanvas();
+        animate();
+
+        window.addEventListener("resize", function() {
+            setupCanvas();
+        });
+    </script>
+
+</body>
+
+</html>
+

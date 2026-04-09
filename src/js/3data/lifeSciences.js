@@ -8,6 +8,12 @@ let lifeSciences =
         category: 'life_sciences'
     },
 
+    {
+        name: 'Metabolic Systems Simulator',
+        urlOffline: 'src/html/life_sciences/metabolic_systems/fuel_processing/metabolic_systems_simulator.html',
+        category: 'life_sciences'
+    },
+
 ];
 
 //----//
