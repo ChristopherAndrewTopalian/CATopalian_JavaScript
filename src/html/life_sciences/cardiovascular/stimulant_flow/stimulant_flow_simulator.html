@@ -1,0 +1,348 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- stimulant_flow_simulator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Cardiovascular Stimulant Flow Simulator </title>
+
+<style>
+
+body
+{
+    background-color: rgb(15, 15, 20);
+    color: rgb(0, 255, 255);
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1
+{
+    margin: 2px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgb(0, 150, 150);
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.control-panel
+{
+    background-color: rgb(25, 25, 30);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 5px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    width: 60%;
+    cursor: pointer;
+}
+
+.diagnostic-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(10, 10, 15);
+    border: 1px solid rgb(70, 70, 90);
+    padding: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.metric {
+    text-align: center;
+    width: 30%;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: color 0.3s;
+}
+
+#canvasContainer {
+    width: 100%;
+    max-width: 800px;
+    height: 160px;
+    border: 1px solid rgb(0, 100, 100);
+    background-color: rgb(5, 5, 8);
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.warning-text {
+    color: rgb(255, 50, 50);
+    text-shadow: 0 0 8px rgb(255, 0, 0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <h1> Cardiovascular Stimulant Flow Dynamics </h1>
+
+    <div class="control-panel">
+        <div class="slider-container">
+            <label for="caffeineSlider"><strong>Stimulant Load (mg):</strong></label>
+            <input type="range" id="caffeineSlider" min="0" max="1000" value="200">
+            <span id="caffeineReadout" style="font-size: 18px; font-weight: bold;">200 mg</span>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="flowCanvas"></canvas>
+    </div>
+
+    <div class="diagnostic-panel">
+        <div class="metric">
+            <div>Heart Rate (Est.)</div>
+            <div id="bpmReadout" class="metric-value" style="color: rgb(0, 255, 255);">84 BPM</div>
+        </div>
+        <div class="metric">
+            <div>Vascular State</div>
+            <div id="toneReadout" class="metric-value" style="color: rgb(255, 200, 0);">Partial Constriction</div>
+        </div>
+        <div class="metric">
+            <div>Friction/Pressure</div>
+            <div id="frictionReadout" class="metric-value" style="color: rgb(255, 200, 0);">Elevated</div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        let canvas = document.getElementById("flowCanvas");
+        let ctx = canvas.getContext("2d");
+        let slider = document.getElementById("caffeineSlider");
+        let caffeineReadout = document.getElementById("caffeineReadout");
+        let bpmReadout = document.getElementById("bpmReadout");
+        let toneReadout = document.getElementById("toneReadout");
+        let frictionReadout = document.getElementById("frictionReadout");
+
+        // System Physics Variables
+        let baseBpm = 60;
+        let currentDosage = 200; // Starts at brother's baseline
+        let arteryWidth = 800; // Will update on resize
+        let arteryHeight = 300; // Will update on resize
+        
+        let maxPipeHeight = 140; // fully open
+        let minPipeHeight = 30;  // fully constricted
+        let currentPipeHeight = maxPipeHeight - ((currentDosage / 1000) * (maxPipeHeight - minPipeHeight));
+        
+        let baseSpeed = 2;
+        let maxSpeed = 18;
+        let currentSpeed = baseSpeed + ((currentDosage / 1000) * (maxSpeed - baseSpeed));
+
+        // Particle System
+        let bloodCells = [];
+        let numCells = 150;
+
+        // The Particle Class (using standard function constructor)
+        function BloodCell(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 4 + 3;
+            // Slight vertical drift for organic feel
+            this.yVelocity = (Math.random() - 0.5) * 0.5; 
+        }
+
+        // Initialize high-DPI canvas
+        function setupCanvas() {
+            let dpr = window.devicePixelRatio || 1;
+            let rect = canvas.parentElement.getBoundingClientRect();
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            
+            ctx.scale(dpr, dpr);
+            
+            arteryWidth = rect.width;
+            arteryHeight = rect.height;
+        }
+
+        // Populate initial cells
+        function initCells() {
+            bloodCells = [];
+            for (let i = 0; i < numCells; i++) {
+                let randomX = Math.random() * arteryWidth;
+                // Keep particles inside the current pipe height
+                let pipeTop = (arteryHeight / 2) - (currentPipeHeight / 2);
+                let randomY = pipeTop + Math.random() * currentPipeHeight;
+                bloodCells.push(new BloodCell(randomX, randomY));
+            }
+        }
+
+        // Slider Input Logic
+        slider.addEventListener("input", function() {
+            currentDosage = parseInt(this.value);
+            caffeineReadout.innerText = currentDosage + " mg";
+            
+            // Calculate Physics
+            let percentage = currentDosage / 1000;
+            currentPipeHeight = maxPipeHeight - (percentage * (maxPipeHeight - minPipeHeight));
+            currentSpeed = baseSpeed + (percentage * (maxSpeed - baseSpeed));
+            let calculatedBpm = Math.round(baseBpm + (percentage * 120)); // Scales to 180 BPM
+
+            // Update Text Readouts
+            bpmReadout.innerText = calculatedBpm + " BPM";
+
+            // Determine Danger States
+            if (currentDosage < 100) {
+                toneReadout.innerText = "Nominal (Open)";
+                frictionReadout.innerText = "Optimal Flow";
+                
+                bpmReadout.style.color = "rgb(0, 255, 255)";
+                toneReadout.style.color = "rgb(0, 255, 255)";
+                frictionReadout.style.color = "rgb(0, 255, 255)";
+            } 
+            else if (currentDosage < 500) {
+                toneReadout.innerText = "Partial Constriction";
+                frictionReadout.innerText = "Elevated Pressure";
+                
+                bpmReadout.style.color = "rgb(255, 200, 0)";
+                toneReadout.style.color = "rgb(255, 200, 0)";
+                frictionReadout.style.color = "rgb(255, 200, 0)";
+            } 
+            else {
+                toneReadout.innerText = "SEVERE CONSTRICTION";
+                frictionReadout.innerText = "CRITICAL OVERLOAD";
+                
+                bpmReadout.style.color = "rgb(255, 50, 50)";
+                toneReadout.style.color = "rgb(255, 50, 50)";
+                frictionReadout.style.color = "rgb(255, 50, 50)";
+                frictionReadout.className = "metric-value warning-text";
+            }
+        });
+
+        // Animation Loop
+        function animate() {
+            // Clear screen
+            ctx.clearRect(0, 0, arteryWidth, arteryHeight);
+
+            let centerY = arteryHeight / 2;
+            let pipeTop = centerY - (currentPipeHeight / 2);
+            let pipeBottom = centerY + (currentPipeHeight / 2);
+
+            // Draw Background Blood Fluid
+            // Gets darker red as friction/dosage increases
+            let fluidIntensity = Math.floor((currentDosage / 1000) * 150);
+            ctx.fillStyle = "rgb(" + (50 + fluidIntensity) + ", 0, 0)";
+            ctx.fillRect(0, pipeTop, arteryWidth, currentPipeHeight);
+
+            // Update and Draw Blood Cells
+            for (let i = 0; i < bloodCells.length; i++) {
+                let cell = bloodCells[i];
+                
+                // Move cell horizontally
+                cell.x += currentSpeed;
+                
+                // Add slight organic vertical wobble
+                cell.y += cell.yVelocity;
+
+                // Push cell back inside if it hits the constricting walls
+                if (cell.y < pipeTop + cell.size) {
+                    cell.y = pipeTop + cell.size;
+                    cell.yVelocity *= -1;
+                }
+                if (cell.y > pipeBottom - cell.size) {
+                    cell.y = pipeBottom - cell.size;
+                    cell.yVelocity *= -1;
+                }
+
+                // If cell goes off the right screen, recycle it to the left side
+                if (cell.x > arteryWidth + cell.size) {
+                    cell.x = -cell.size;
+                    // Respawn it safely inside the current pipe bounds
+                    cell.y = pipeTop + Math.random() * currentPipeHeight;
+                }
+
+                // Draw the cell
+                ctx.beginPath();
+                ctx.arc(cell.x, cell.y, cell.size, 0, Math.PI * 2);
+                
+                // Color gets brighter and more yellow/panicked at high speeds
+                if (currentSpeed > 10) {
+                    ctx.fillStyle = "rgba(255, " + (currentSpeed * 10) + ", 50, 0.9)";
+                } else {
+                    ctx.fillStyle = "rgba(255, 50, 50, 0.8)";
+                }
+                
+                ctx.fill();
+            }
+
+            // Draw Artery Walls (The mechanical constriction)
+            ctx.strokeStyle = "rgb(150, 150, 170)";
+            ctx.lineWidth = 6;
+            ctx.beginPath();
+            
+            // Top Wall
+            ctx.moveTo(0, pipeTop);
+            ctx.lineTo(arteryWidth, pipeTop);
+            
+            // Bottom Wall
+            ctx.moveTo(0, pipeBottom);
+            ctx.lineTo(arteryWidth, pipeBottom);
+            
+            // Outer Tissue shading
+            ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+            ctx.fillRect(0, 0, arteryWidth, pipeTop); // Block out top
+            ctx.fillRect(0, pipeBottom, arteryWidth, arteryHeight - pipeBottom); // Block out bottom
+            
+            ctx.stroke();
+
+            // Loop
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize System
+        setupCanvas();
+        initCells();
+        animate();
+
+        // Handle window resizing safely
+        window.addEventListener("resize", function() {
+            setupCanvas();
+            initCells();
+        });
+
+    </script>
+
+</body>
+
+</html>
+
