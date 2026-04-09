@@ -9,11 +9,17 @@ let lifeSciences =
     },
 
     {
+        name: 'High Sodium Danger',
+        urlOffline: 'src/html/life_sciences/cardiovascular/hydraulic_pressure/hydraulic_pressure_osmotic_overload_simulator.html',
+        category: 'life_sciences'
+    },
+
+    {
         name: 'Metabolic Systems Simulator',
         urlOffline: 'src/html/life_sciences/metabolic_systems/fuel_processing/metabolic_systems_simulator.html',
         category: 'life_sciences'
     },
-
+    
 ];
 
 //----//

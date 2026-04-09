@@ -19,7 +19,7 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.flexDirection = 'column';
     buttonContainer.style.zIndex = 2;
     buttonContainer.style.width = '120px';
-    buttonContainer.style.height = '300px';
+    buttonContainer.style.height = '320px';
     buttonContainer.style.overflow = 'scroll';
     buttonContainer.style.whiteSpace = 'nowrap';
     buttonContainer.style.gap = '1px';

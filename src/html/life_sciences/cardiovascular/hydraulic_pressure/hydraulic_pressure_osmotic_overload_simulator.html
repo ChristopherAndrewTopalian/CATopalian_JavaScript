@@ -1,0 +1,380 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- hydraulic_pressure_osmotic_overload_simulator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Hydraulic Pressure & Osmotic Overload </title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body
+{
+    background-color: rgb(15, 15, 20);
+    color: rgb(0, 255, 255);
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1
+{
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgb(0, 150, 150);
+    padding-bottom: 5px;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+.control-panel
+{
+    background-color: rgb(25, 25, 30);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 8px 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select
+{
+    background-color: rgb(10, 10, 15);
+    color: rgb(0, 255, 255);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#canvasContainer
+{
+    width: 100%;
+    max-width: 800px;
+    height: 160px; 
+    border: 1px solid rgb(0, 100, 100);
+    background-color: rgb(5, 5, 8);
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+canvas
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.diagnostic-panel
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(10, 10, 15);
+    border: 1px solid rgb(70, 70, 90);
+    padding: 8px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.metric
+{
+    text-align: center; width: 32%;
+}
+
+.metric-title
+{
+    font-size: 11px;
+    color: rgb(150, 150, 150); text-transform: uppercase;
+}
+
+.metric-value
+{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 2px;
+    transition: color 0.3s;
+}
+
+.warning
+{
+    color: rgb(255, 50, 50);
+    text-shadow: 0 0 5px red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <h1> Cardiovascular Sodium Simulator </h1>
+
+    <div class="control-panel">
+        <div>
+            <label for="sodiumSelector"><strong>Sodium Intake: </strong></label>
+            <select id="sodiumSelector">
+                <option value="0">Clean Baseline (< 500mg)</option>
+                <option value="1200">Movie Pretzels (1200mg)</option>
+                <option value="1800">Fast Food Pizza (1800mg)</option>
+                <option value="2500">Soy Sauce Load (2500mg+)</option>
+            </select>
+        </div>
+        <div id="loadReadout" style="font-size: 18px; font-weight: bold;">0 mg</div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="pressureCanvas"></canvas>
+    </div>
+
+    <div class="diagnostic-panel">
+        <div class="metric">
+            <div class="metric-title">Blood Volume</div>
+            <div id="volumeReadout" class="metric-value" style="color: rgb(0, 255, 255);">Standard</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Pump Resistance</div>
+            <div id="resistanceReadout" class="metric-value" style="color: rgb(0, 255, 255);">Nominal</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Wall Tension</div>
+            <div id="tensionReadout" class="metric-value" style="color: rgb(0, 255, 255);">Safe</div>
+        </div>
+    </div>
+
+<script>
+
+    let canvas = document.getElementById("pressureCanvas");
+    let ctx = canvas.getContext("2d");
+    let selector = document.getElementById("sodiumSelector");
+    let loadReadout = document.getElementById("loadReadout");
+
+    let vReadout = document.getElementById("volumeReadout");
+    let rReadout = document.getElementById("resistanceReadout");
+    let tReadout = document.getElementById("tensionReadout");
+
+    // Simulation Constants
+    let currentSodium = 0;
+    let targetSodium = 0;
+    let time = 0;
+    let cw, ch;
+
+    // Particle Arrays
+    let particles = [];
+
+    // Particle Class definition
+    function Particle(x, y, type) {
+        this.x = x;
+        this.y = y;
+        this.type = type; // 'sodium' or 'water'
+        this.active = true;
+        
+        if (this.type === 'sodium') {
+            this.size = Math.random() * 2 + 2;
+            this.vx = Math.random() * 4 + 4; // Fast horizontal flow
+            this.vy = (Math.random() - 0.5); // Slight wobble
+        }
+        else if (this.type === 'water')
+        {
+            this.size = Math.random() * 2 + 1;
+            this.vx = Math.random() * 2 + 1; // Slower horizontal drift
+            // Flow inwards toward the center of the pipe
+            this.vy = (this.y < ch / 2) ? (Math.random() * 2 + 1) : -(Math.random() * 2 + 1);
+        }
+    }
+
+    function setupCanvas()
+    {
+        let dpr = window.devicePixelRatio || 1;
+
+        let rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        cw = rect.width;
+        ch = rect.height;
+    }
+
+    selector.onchange = function()
+    {
+        targetSodium = parseInt(this.value);
+        loadReadout.innerText = targetSodium + " mg";
+    };
+
+    function drawHeart(x, y, scale, intensity)
+    {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(scale, scale);
+        
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-20, -25, -45, 5, 0, 35);
+        ctx.bezierCurveTo(45, 5, 20, -25, 0, 0);
+        
+        // Labored pump color shifts to dark, angry red
+        let red = 150 + (intensity * 105);
+        let greenBlue = 50 - (intensity * 50);
+        ctx.fillStyle = "rgb(" + red + ", " + greenBlue + ", " + greenBlue + ")";
+        
+        if (intensity > 0.7)
+        {
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = "red";
+        }
+        else
+        {
+            ctx.shadowBlur = 0;
+        }
+
+        ctx.fill();
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function animate()
+    {
+        ctx.clearRect(0, 0, cw, ch);
+
+        // Smoothly approach target sodium
+        currentSodium += (targetSodium - currentSodium) * 0.03;
+        let pressureRatio = currentSodium / 2500;
+
+        let centerY = ch / 2;
+        let pumpX = 100;
+        let pipeX = 180;
+        
+        // Calculate Vessel Dilation (Bulging pipes)
+        let baseHeight = 50;
+        let currentHeight = baseHeight + (pressureRatio * 60);
+        let pipeTop = centerY - currentHeight/2;
+        let pipeBottom = centerY + currentHeight/2;
+
+        // Spawn Particles based on pressure ratio
+        if (Math.random() < pressureRatio * 0.8) {
+            // Spawn yellow sodium at start of pipe
+            particles.push(new Particle(pipeX, pipeTop + Math.random() * currentHeight, 'sodium'));
+        }
+        if (Math.random() < pressureRatio * 1.5) {
+            // Spawn blue water rushing in from top or bottom walls
+            let startY = Math.random() > 0.5 ? pipeTop - 20 : pipeBottom + 20;
+            let startX = pipeX + Math.random() * (cw - pipeX);
+            particles.push(new Particle(startX, startY, 'water'));
+        }
+
+        // Draw Background Blood Stream
+        ctx.fillStyle = "rgb(40, 10, 10)";
+        ctx.fillRect(pipeX, pipeTop, cw - pipeX - 50, currentHeight);
+
+        // Update and Render Particles
+        for (let i = particles.length - 1; i >= 0; i--)
+        {
+            let p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Stop water vertical movement once it's fully inside the pipe (osmosis complete)
+            if (p.type === 'water')
+            {
+                if (p.y > pipeTop + 5 && p.y < pipeBottom - 5)
+                {
+                    p.vy *= 0.8; // Slow down vertical drop
+                    p.vx += 0.1; // Catch the horizontal current
+                }
+            }
+
+            // Remove particles that go off screen
+            if (p.x > cw || p.y < -50 || p.y > ch + 50)
+            {
+                particles.splice(i, 1);
+                continue;
+            }
+
+            // Render
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+
+            if (p.type === 'sodium')
+            {
+                ctx.fillStyle = "rgba(255, 255, 0, 0.8)"; // Bright Yellow
+            }
+            else
+            {
+                ctx.fillStyle = "rgba(0, 200, 255, 0.7)"; // Cyan Water
+            }
+            ctx.fill();
+        }
+
+        // Draw Pipe Walls
+        ctx.strokeStyle = "rgb(100, 100, 120)";
+        ctx.lineWidth = 4 + (pressureRatio * 6);
+        ctx.beginPath();
+        ctx.moveTo(pipeX, pipeTop);
+        ctx.lineTo(cw - 50, pipeTop);
+        ctx.moveTo(pipeX, pipeBottom);
+        ctx.lineTo(cw - 50, pipeBottom);
+        ctx.stroke();
+
+        // Draw Cardiac Pump (labored beating)
+        // Heart beats faster and heavier as pressure increases
+        let beatSpeed = 1 + (pressureRatio * 2);
+        let beatScale = 1 + (Math.sin(time * beatSpeed * 5) * (0.1 + pressureRatio * 0.2));
+        drawHeart(pumpX, centerY, beatScale, pressureRatio);
+
+        // Update Diagnostic Dashboard Text and Colors
+        if (pressureRatio < 0.2)
+        {
+            vReadout.innerText = "Standard"; vReadout.style.color = "rgb(0, 255, 255)";
+            rReadout.innerText = "Nominal"; rReadout.style.color = "rgb(0, 255, 255)";
+            tReadout.innerText = "Safe"; tReadout.style.color = "rgb(0, 255, 255)";
+        }
+        else if (pressureRatio < 0.7)
+        {
+            vReadout.innerText = "Expanded"; vReadout.style.color = "rgb(255, 200, 0)";
+            rReadout.innerText = "High Torque"; rReadout.style.color = "rgb(255, 200, 0)";
+            tReadout.innerText = "Stretched"; tReadout.style.color = "rgb(255, 200, 0)";
+        }
+        else
+        {
+            vReadout.innerText = "CRITICAL VOLUME"; vReadout.style.color = "rgb(255, 50, 50)";
+            rReadout.innerText = "PUMP FAILURE RISK"; rReadout.style.color = "rgb(255, 50, 50)";
+            tReadout.innerText = "HYPER-TENSION"; tReadout.style.color = "rgb(255, 50, 50)";
+        }
+
+        time += 0.016; // Advance animation time
+        requestAnimationFrame(animate);
+    }
+
+    // Initialize System
+    setupCanvas();
+    animate();
+
+    // Handle Resizing safely
+    window.onresize = setupCanvas;
+
+    </script>
+
+</body>
+
+</html>
+
