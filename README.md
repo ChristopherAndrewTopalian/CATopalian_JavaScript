@@ -28,6 +28,9 @@ Use App: https://christopherandrewtopalian.github.io/CATopalian_JavaScript/CATop
 
 ![cardiovascular_stimulant_flow_simulator](src/media/textures/screenshots/hydraulic_pressure_osmotic_overload_simulator.png)
 
+![kinetic_impact_and_axonal_shearing_simulator](src/media/textures/screenshots/kinetic_impact_and_axonal_shearing_simulator.png)
+
+
 
 ---
 
