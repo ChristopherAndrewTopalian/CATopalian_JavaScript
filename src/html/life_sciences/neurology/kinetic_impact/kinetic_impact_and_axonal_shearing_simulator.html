@@ -1,0 +1,459 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- kinetic_impact_and_axonal_shearing_simulator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Kinetic Impact & Axonal Shearing Simulator</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body
+{
+    background-color: rgb(15, 15, 20);
+    color: rgb(0, 255, 255);
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1
+{
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgb(0, 150, 150);
+    padding-bottom: 0px;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+.control-panel
+{
+    background-color: rgb(25, 25, 30);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 2px 5px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select
+{
+    background-color: rgb(10, 10, 15);
+    color: rgb(0, 255, 255);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button
+{
+    background-color: rgb(200, 50, 50);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover
+{
+    background-color: rgb(255, 50, 50);
+}
+
+.canvas-wrapper
+{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 190px; 
+    margin-bottom: 5px;
+}
+
+.sim-window
+{
+    flex: 1;
+    border: 1px solid rgb(0, 100, 100);
+    background-color: rgb(5, 5, 8);
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sim-title
+{
+    text-align: center;
+    font-size: 12px;
+    color: rgb(150, 150, 150);
+    background-color: rgb(20, 20, 25);
+    padding: 3px 0;
+    border-bottom: 1px solid rgb(0, 100, 100);
+}
+
+canvas
+{
+    width: 100%;
+    flex: 1;
+    display: block;
+}
+
+.diagnostic-panel
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(10, 10, 15);
+    border: 1px solid rgb(70, 70, 90);
+    padding: 8px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.metric
+{
+    text-align: center;
+    width: 32%;
+}
+
+.metric-title
+{
+    font-size: 11px;
+    color: rgb(150, 150, 150); text-transform: uppercase;
+}
+
+.metric-value
+{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 2px;
+    transition: color 0.3s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <h1> Kinetic Neurology </h1>
+
+    <div class="control-panel">
+        <div>
+            <label for="eventSelector"><strong>Kinetic Event: </strong></label>
+            <select id="eventSelector">
+                <option value="0">Baseline (Resting)</option>
+                <option value="0.3">VR Whipping (Low G-Force)</option>
+                <option value="0.7">Trampoline (Moderate G-Force)</option>
+                <option value="1.5">Hockey/Football (High G-Force)</option>
+            </select>
+        </div>
+        <button id="executeBtn">Execute Impact</button>
+    </div>
+
+    <div class="canvas-wrapper">
+        <div class="sim-window">
+            <div class="sim-title">MACRO: Coup-Contrecoup (Skull & Brain)</div>
+            <canvas id="macroCanvas"></canvas>
+        </div>
+        <div class="sim-window">
+            <div class="sim-title">MICRO: Axonal Shearing (Neural Wiring)</div>
+            <canvas id="microCanvas"></canvas>
+        </div>
+    </div>
+
+    <div class="diagnostic-panel">
+        <div class="metric">
+            <div class="metric-title">Peak G-Force</div>
+            <div id="gforceReadout" class="metric-value" style="color: rgb(0, 255, 255);">1.0 G</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Contusion Status</div>
+            <div id="contusionReadout" class="metric-value" style="color: rgb(0, 255, 255);">Clear</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Axon Integrity</div>
+            <div id="axonReadout" class="metric-value" style="color: rgb(0, 255, 255);">Intact</div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        let macroCanvas = document.getElementById("macroCanvas");
+        let microCanvas = document.getElementById("microCanvas");
+        let ctxMacro = macroCanvas.getContext("2d");
+        let ctxMicro = microCanvas.getContext("2d");
+        
+        let selector = document.getElementById("eventSelector");
+        let executeBtn = document.getElementById("executeBtn");
+        
+        let gReadout = document.getElementById("gforceReadout");
+        let cReadout = document.getElementById("contusionReadout");
+        let aReadout = document.getElementById("axonReadout");
+
+        // Physics State Variables
+        let isAnimating = false;
+        let animTime = 0;
+        let impactForce = 0;
+        let axonSnapped = false;
+        
+        // Dimensions
+        let macW, macH, micW, micH;
+
+        function setupCanvases()
+        {
+            let dpr = window.devicePixelRatio || 1;
+            
+            // Setup Macro
+            let rectMac = macroCanvas.parentElement.getBoundingClientRect();
+            // Subtract title bar height (~22px)
+            let canvasHeight = rectMac.height - 22; 
+
+            macroCanvas.width = rectMac.width * dpr;
+            macroCanvas.height = canvasHeight * dpr;
+            ctxMacro.scale(dpr, dpr);
+            macW = rectMac.width;
+            macH = canvasHeight;
+
+            // Setup Micro
+            let rectMic = microCanvas.parentElement.getBoundingClientRect();
+            microCanvas.width = rectMic.width * dpr;
+            microCanvas.height = canvasHeight * dpr;
+            ctxMicro.scale(dpr, dpr);
+            micW = rectMic.width;
+            micH = canvasHeight;
+        }
+
+        executeBtn.onclick = function()
+        {
+            impactForce = parseFloat(selector.value);
+            if (impactForce === 0) return; // No impact on baseline
+            
+            // Reset vessel state for new simulation
+            isAnimating = true;
+            animTime = 0;
+            axonSnapped = false;
+
+            // Update UI G-Force immediately based on rough biological estimates
+            let gForceEstimate = (impactForce * 40).toFixed(1);
+            gReadout.innerText = gForceEstimate + " G";
+            
+            if (impactForce > 1.0)
+            {
+                gReadout.style.color = "rgb(255, 50, 50)";
+            }
+            else if (impactForce > 0.5)
+            {
+                gReadout.style.color = "rgb(255, 200, 0)";
+            } 
+            else
+            {
+                gReadout.style.color = "rgb(0, 255, 255)";
+            }
+        };
+
+        function drawMacro(displacement)
+        {
+            ctxMacro.clearRect(0, 0, macW, macH);
+
+            let centerX = macW / 2;
+            let centerY = macH / 2;
+
+            // Draw Skull (Static)
+            ctxMacro.beginPath();
+            ctxMacro.ellipse(centerX, centerY, 80, 60, 0, 0, Math.PI * 2);
+            ctxMacro.strokeStyle = "rgb(200, 200, 200)";
+            ctxMacro.lineWidth = 6;
+            ctxMacro.stroke();
+
+            // Draw Brain (Moving based on displacement)
+            let brainX = centerX + displacement;
+            
+            ctxMacro.beginPath();
+            ctxMacro.ellipse(brainX, centerY, 70, 50, 0, 0, Math.PI * 2);
+            ctxMacro.fillStyle = "rgba(0, 150, 150, 0.6)";
+            ctxMacro.fill();
+            ctxMacro.strokeStyle = "rgb(0, 200, 200)";
+            ctxMacro.lineWidth = 2;
+            ctxMacro.stroke();
+
+            // Contusion Logic (Flash red when brain hits skull)
+            let isCoup = displacement > 8;     // Front impact
+            let isContrecoup = displacement < -8; // Rear rebound impact
+
+            if (isCoup || isContrecoup)
+            {
+                let flashX = isCoup ? centerX + 75 : centerX - 75;
+                
+                let gradient = ctxMacro.createRadialGradient(flashX, centerY, 0, flashX, centerY, 20);
+                gradient.addColorStop(0, "rgba(255, 0, 0, 0.8)");
+                gradient.addColorStop(1, "rgba(255, 0, 0, 0)");
+                
+                ctxMacro.fillStyle = gradient;
+                ctxMacro.beginPath();
+                ctxMacro.arc(flashX, centerY, 30, 0, Math.PI * 2);
+                ctxMacro.fill();
+
+                cReadout.innerText = isCoup ? "COUP (Front)" : "CONTRECOUP (Rear)";
+                cReadout.style.color = "rgb(255, 50, 50)";
+            }
+            else if (!isAnimating)
+            {
+                cReadout.innerText = "Clear";
+                cReadout.style.color = "rgb(0, 255, 255)";
+            }
+        }
+
+        function drawMicro(shearDisplacement)
+        {
+            ctxMicro.clearRect(0, 0, micW, micH);
+            
+            let centerY = micH / 2;
+            let topY = centerY - 40;
+            let botY = centerY + 40;
+            let centerX = micW / 2;
+
+            // Gray and White matter move in opposite directions to simulate different densities
+            let grayX = centerX + shearDisplacement;
+            let whiteX = centerX - (shearDisplacement * 0.5); 
+
+            // Draw Axon (The Wire)
+            ctxMicro.lineWidth = 4;
+            
+            // Check snapping threshold
+            if (Math.abs(grayX - whiteX) > 60)
+            {
+                axonSnapped = true;
+            }
+
+            if (axonSnapped)
+            {
+                // Draw Broken Axon
+                ctxMicro.strokeStyle = "rgb(255, 50, 50)";
+                ctxMicro.beginPath();
+                ctxMicro.moveTo(grayX, topY + 15);
+                ctxMicro.lineTo(grayX - (shearDisplacement * 0.3), centerY - 5);
+                ctxMicro.stroke();
+
+                ctxMicro.beginPath();
+                ctxMicro.moveTo(whiteX, botY - 15);
+                ctxMicro.lineTo(whiteX + (shearDisplacement * 0.1), centerY + 5);
+                ctxMicro.stroke();
+
+                aReadout.innerText = "SEVERED";
+                aReadout.style.color = "rgb(255, 50, 50)";
+            }
+            else
+            {
+                // Draw Intact Stretching Axon
+                let stretchColor = Math.abs(shearDisplacement) > 15 ? "rgb(255, 200, 0)" : "rgb(0, 255, 255)";
+                ctxMicro.strokeStyle = stretchColor;
+                ctxMicro.beginPath();
+                ctxMicro.moveTo(grayX, topY + 15);
+                ctxMicro.lineTo(whiteX, botY - 15);
+                ctxMicro.stroke();
+                
+                if (Math.abs(shearDisplacement) > 15 && isAnimating)
+                {
+                    aReadout.innerText = "Stretching";
+                    aReadout.style.color = "rgb(255, 200, 0)";
+                }
+                else if (!isAnimating)
+                {
+                    aReadout.innerText = "Intact";
+                    aReadout.style.color = "rgb(0, 255, 255)";
+                }
+            }
+
+            // Draw Gray Matter (Outer cortex)
+            ctxMicro.fillStyle = "rgb(100, 100, 120)";
+            ctxMicro.fillRect(grayX - 60, topY - 15, 120, 30);
+            ctxMicro.fillStyle = "white";
+            ctxMicro.font = "12px Arial";
+            ctxMicro.textAlign = "center";
+            ctxMicro.fillText("Gray Matter", grayX, topY + 4);
+
+            // Draw White Matter (Inner layer)
+            ctxMicro.fillStyle = "rgb(180, 180, 190)";
+            ctxMicro.fillRect(whiteX - 60, botY - 15, 120, 30);
+            ctxMicro.fillStyle = "black";
+            ctxMicro.fillText("White Matter", whiteX, botY + 4);
+        }
+
+        function animate()
+        {
+            if (isAnimating)
+            {
+                // Physics: Damped sine wave simulates a collision and elastic rebound
+                let decay = Math.exp(-animTime * 4);
+                let oscillation = Math.sin(animTime * 20);
+                
+                // Base displacement scales with the selected force
+                let displacement = oscillation * 40 * impactForce * decay;
+                
+                // Micro shear is exaggerated slightly for visual clarity
+                let shearDisplacement = oscillation * 60 * impactForce * decay;
+
+                drawMacro(displacement);
+                drawMicro(shearDisplacement);
+
+                animTime += 0.016; // Approx 60fps
+
+                // Stop animation when energy dissipates
+                if (decay < 0.05)
+                {
+                    isAnimating = false;
+                    drawMacro(0); // Settle to center
+                    drawMicro(0); // Settle to center
+                }
+            }
+            else
+            {
+                // Draw idle state if not animating
+                drawMacro(0);
+                drawMicro(0);
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize System
+        setupCanvases();
+        animate(); // Kick off idle render
+        
+        // Handle window resizing safely
+        window.addEventListener("resize", function()
+        {
+            setupCanvases();
+            drawMacro(0);
+            drawMicro(0);
+        });
+
+    </script>
+
+</body>
+
+</html>
+
