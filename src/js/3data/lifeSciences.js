@@ -25,7 +25,13 @@ let lifeSciences =
         urlOffline: 'src/html/life_sciences/neurology/kinetic_impact/kinetic_impact_and_axonal_shearing_simulator.html',
         category: 'life_sciences'
     },
-    
+
+    {
+        name: 'Nutrition Science',
+        urlOffline: 'src/html/life_sciences/metabolic_systems/nutrition_matrix/vessel_nutrient_matrix.html',
+        category: 'life_sciences'
+    },
+
 ];
 
 //----//
