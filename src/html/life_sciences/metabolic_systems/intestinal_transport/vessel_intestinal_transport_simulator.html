@@ -1,0 +1,454 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- vessel_intestinal_transport_simulator.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Vessel Intestinal Transport Simulator </title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+    background-color: rgb(30, 30, 30);
+    color: rgb(0, 255, 255);
+    font-family: Arial;
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid rgb(0, 150, 150);
+    padding-bottom: 0px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.interface-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    gap: 20px;
+    margin-top: 0px;
+}
+
+.panel {
+    background-color: rgb(20, 20, 25);
+    border: 1px solid rgb(0, 150, 150);
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title {
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 100, 100);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: rgb(150, 255, 255);
+}
+
+.control-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+select, input[type=range], button {
+    background-color: rgb(10, 10, 15);
+    color: rgb(0, 255, 255);
+    border: 1px solid rgb(0, 150, 150);
+    padding: 8px;
+    font-family: Tahoma;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(0, 80, 80);
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: rgb(0, 120, 120);
+}
+
+.canvas-container {
+    flex: 2;
+    background-color: rgb(15, 15, 20);
+    border: 1px solid rgb(50, 100, 100);
+    border-radius: 8px;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    min-height: 500px;
+}
+
+.status-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgb(25, 25, 30);
+    border-left: 4px solid rgb(0, 255, 255);
+}
+
+.status-name {
+    font-size: 12px;
+    color: rgb(150, 150, 150); 
+    text-transform: uppercase;
+}
+
+.status-readout {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Dynamic UI Colors */
+.text-optimal { color: rgb(0, 255, 255) !important; }
+
+.text-caution { color: rgb(255, 200, 0) !important; }
+
+.text-danger { color: rgb(255, 50, 50) !important; }
+
+</style>
+
+</head>
+
+<body>
+
+    <h1>Intestinal Transport</h1>
+
+    <div class="interface-container">
+        
+        <div class="panel">
+            <div class="panel-title">PAYLOAD DEPLOYMENT</div>
+
+            <div class="control-group">
+                <label>Select Food Matrix:</label>
+                <select id="foodSelect">
+                    <option value="beans">Fibrous Sweeper: Beans</option>
+                    <option value="potato">Fibrous Bulk: White Potato</option>
+                    <option value="jerky">Low-Fiber Brick: Beef Jerky</option>
+                    <option value="pizza_slice">Dense Mass: Pizza Slice</option>
+                    <option value="whole_pizza">Critical Bottleneck: Whole Pizza</option>
+                    <option value="steak_cheese">Sluggish Mass: Steak & Cheese Sub</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label><span>System Hydration Level</span> <span id="valHydration">100%</span></label>
+                <input type="range" id="slHydration" min="10" max="100" value="100">
+            </div>
+
+            <button id="btnQueue">QUEUE PAYLOAD INTO SYSTEM</button>
+            <button id="btnClear" style="background-color: rgb(80, 0, 0); border-color: rgb(150, 0, 0);">FLUSH SYSTEM (RESET)</button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="transportCanvas"></canvas>
+        </div>
+
+        <div class="panel">
+            <div class="panel-title">CONVEYOR DIAGNOSTICS</div>
+            
+            <div class="status-item" id="boxStatus">
+                <div class="status-name">System Status</div>
+                <div class="status-readout text-optimal" id="outStatus">OPTIMAL: CLEAR PATH</div>
+            </div>
+
+            <div class="status-item" id="boxSpeed">
+                <div class="status-name">Average Conveyor Velocity</div>
+                <div class="status-readout text-optimal" id="outSpeed">100% (Nominal)</div>
+            </div>
+
+            <div class="status-item" id="boxPayloads">
+                <div class="status-name">Active Payloads Tracker</div>
+                <div class="status-readout text-optimal" id="outPayloads">0 Items in Transit</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // DOM Elements
+        let canvas = document.getElementById("transportCanvas");
+        let ctx = canvas.getContext("2d");
+        let btnQueue = document.getElementById("btnQueue");
+        let btnClear = document.getElementById("btnClear");
+        let foodSelect = document.getElementById("foodSelect");
+        let slHydration = document.getElementById("slHydration");
+        let valHydration = document.getElementById("valHydration");
+
+        // Diagnostics
+        let outStatus = document.getElementById("outStatus");
+        let boxStatus = document.getElementById("boxStatus");
+        let outSpeed = document.getElementById("outSpeed");
+        let boxSpeed = document.getElementById("boxSpeed");
+        let outPayloads = document.getElementById("outPayloads");
+
+        // DPI Scaling Fix for Large Monitors
+        let cw, ch;
+
+        function resizeCanvas() {
+            let rect = canvas.parentElement.getBoundingClientRect();
+            let dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = (rect.height || 500) * dpr;
+            canvas.style.width = rect.width + "px";
+            canvas.style.height = (rect.height || 500) + "px";
+            ctx.scale(dpr, dpr);
+            cw = rect.width;
+            ch = rect.height || 500;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Food Database (Physics Rules)
+        let foodData = {
+            "beans": { name: "Beans", color: "rgb(50, 200, 100)", mass: 10, fiber: 9, baseSpeed: 0.15 },
+            "potato": { name: "Potato", color: "rgb(200, 200, 100)", mass: 15, fiber: 7, baseSpeed: 0.12 },
+            "jerky": { name: "Beef Jerky", color: "rgb(139, 69, 19)", mass: 5, fiber: 0, baseSpeed: 0.03 },
+            "pizza_slice": { name: "Pizza Slice", color: "rgb(255, 140, 0)", mass: 20, fiber: 1, baseSpeed: 0.05 },
+            "whole_pizza": { name: "Whole Pizza", color: "rgb(255, 69, 0)", mass: 60, fiber: 1, baseSpeed: 0.01 },
+            "steak_cheese": { name: "Steak & Cheese", color: "rgb(160, 82, 45)", mass: 35, fiber: 1, baseSpeed: 0.03 }
+        };
+
+        // System Variables
+        let payloads = []; 
+        let currentHydration = 1.0;
+        let payloadCounter = 0; // Ensures unique IDs for visual staggering
+
+        // UI Listeners
+        slHydration.addEventListener('input', function() {
+            valHydration.innerText = slHydration.value + "%";
+            currentHydration = parseInt(slHydration.value) / 100;
+        });
+
+        btnQueue.addEventListener('click', function() {
+            let key = foodSelect.value;
+            let data = foodData[key];
+            payloadCounter++;
+            
+            payloads.push({
+                id: payloadCounter,
+                name: data.name,
+                color: data.color,
+                radius: Math.max(8, data.mass / 2),
+                mass: data.mass,
+                fiber: data.fiber,
+                baseSpeed: data.baseSpeed,
+                progress: 0,
+                currentSpeed: data.baseSpeed
+            });
+        });
+
+        btnClear.addEventListener('click', function() {
+            payloads = [];
+        });
+
+        // Path Generation Math
+        function getPathPoint(progress) {
+            let t = progress / 100; 
+            let segments = 5; 
+            let ySpace = (ch - 100) / segments;
+            let startY = 50;
+            let minX = 50;
+            let maxX = cw - 50;
+            
+            let currentSegment = Math.floor(t * segments);
+            let segmentT = (t * segments) - currentSegment; 
+            
+            if (currentSegment >= segments) {
+                return { x: cw / 2, y: ch - 20 };
+            }
+
+            let y = startY + (currentSegment * ySpace) + (segmentT * ySpace);
+            let x;
+
+            if (currentSegment % 2 === 0) {
+                x = maxX - (segmentT * (maxX - minX));
+            } else {
+                x = minX + (segmentT * (maxX - minX));
+            }
+
+            let wiggle = Math.sin(t * Math.PI * 20) * 10;
+            return { x: x, y: y + wiggle };
+        }
+
+        function setDiagnosticColor(element, box, state) {
+            element.className = "status-readout";
+            if (state === 'optimal') {
+                element.classList.add("text-optimal");
+                box.style.borderLeftColor = "rgb(0, 255, 255)";
+            } else if (state === 'caution') {
+                element.classList.add("text-caution");
+                box.style.borderLeftColor = "rgb(255, 200, 0)";
+            } else {
+                element.classList.add("text-danger");
+                box.style.borderLeftColor = "rgb(255, 50, 50)";
+            }
+        }
+
+        // Main Render & Physics Loop
+        function render() {
+            ctx.clearRect(0, 0, cw, ch);
+
+            ctx.strokeStyle = "rgba(0, 100, 100, 0.3)";
+            ctx.lineWidth = 40;
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            ctx.beginPath();
+
+            for (let i = 0; i <= 100; i += 1) {
+                let p = getPathPoint(i);
+                if (i === 0) ctx.moveTo(p.x, p.y);
+                else ctx.lineTo(p.x, p.y);
+            }
+            ctx.stroke();
+
+            let systemVelocity = 0;
+            let collisionOccurred = false;
+            let bottleneckOccurred = false;
+
+            // Sort: Furthest down the track processed first
+            payloads.sort(function(a, b) {
+                return b.progress - a.progress;
+            });
+
+            for (let i = 0; i < payloads.length; i++) {
+                let p = payloads[i];
+                
+                let hydrationPenalty = (1.0 - currentHydration); 
+                let fiberProtection = (p.fiber / 10); 
+                let actualPenalty = Math.max(0, hydrationPenalty - fiberProtection);
+
+                p.currentSpeed = p.baseSpeed * (1.0 - actualPenalty);
+
+                // Move payload
+                p.progress += p.currentSpeed;
+
+                // Check collisions AFTER moving
+                if (i > 0) {
+                    let ahead = payloads[i - 1];
+                    let collisionDistance = (p.radius + ahead.radius) / (cw / 15); 
+
+                    // Did P push past Ahead?
+                    if (p.progress > ahead.progress - collisionDistance) {
+                        collisionOccurred = true;
+                        
+                        // Fiber Push Mechanic
+                        if (p.fiber > ahead.fiber && ahead.mass > 25) {
+                            ahead.progress += (p.fiber * 0.005); // Smooth kinetic transfer
+                        }
+
+                        // Strict Boundary Clamping (Solid Wall)
+                        p.progress = ahead.progress - collisionDistance;
+                        
+                        if (ahead.mass >= 35) bottleneckOccurred = true; 
+                    }
+                }
+
+                systemVelocity += p.currentSpeed;
+
+                // Ejection
+                if (p.progress > 100) {
+                    payloads.splice(i, 1);
+                    i--;
+                }
+            }
+
+            // Draw Payloads
+            for (let i = 0; i < payloads.length; i++) {
+                let p = payloads[i];
+                let pos = getPathPoint(p.progress);
+
+                // Organic offset prevents "double vision" when stacked
+                let offsetX = Math.sin(p.id * 1234) * (p.radius * 0.4);
+                let offsetY = Math.cos(p.id * 5678) * (p.radius * 0.4);
+
+                ctx.beginPath();
+                ctx.arc(pos.x + offsetX, pos.y + offsetY, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+                ctx.stroke();
+            }
+
+            // Diagnostics update
+            outPayloads.innerText = payloads.length + " Items in Transit";
+            
+            if (payloads.length === 0) {
+                outStatus.innerText = "STANDBY: SYSTEM EMPTY";
+                setDiagnosticColor(outStatus, boxStatus, 'optimal');
+                outSpeed.innerText = "--";
+                setDiagnosticColor(outSpeed, boxSpeed, 'optimal');
+            } else {
+                let avgSpeed = systemVelocity / payloads.length;
+                let nominalSpeed = 0.10; 
+                let speedPercent = Math.round((avgSpeed / nominalSpeed) * 100);
+
+                outSpeed.innerText = speedPercent + "% Efficiency";
+
+                if (currentHydration < 0.4) {
+                    outStatus.innerText = "WARNING: SEVERE DEHYDRATION. CONVEYOR STALLED.";
+                    setDiagnosticColor(outStatus, boxStatus, 'danger');
+                    setDiagnosticColor(outSpeed, boxSpeed, 'danger');
+                } else if (bottleneckOccurred) {
+                    outStatus.innerText = "DANGER: MASSIVE LOW-FIBER BOTTLENECK DETECTED.";
+                    setDiagnosticColor(outStatus, boxStatus, 'danger');
+                    setDiagnosticColor(outSpeed, boxSpeed, 'danger');
+                } else if (collisionOccurred) {
+                    outStatus.innerText = "CAUTION: PAYLOAD COLLISION / TRAFFIC JAM";
+                    setDiagnosticColor(outStatus, boxStatus, 'caution');
+                    setDiagnosticColor(outSpeed, boxSpeed, 'caution');
+                } else if (speedPercent < 60) {
+                    outStatus.innerText = "CAUTION: SLUGGISH TRANSIT TIMES";
+                    setDiagnosticColor(outStatus, boxStatus, 'caution');
+                    setDiagnosticColor(outSpeed, boxSpeed, 'caution');
+                } else {
+                    outStatus.innerText = "OPTIMAL: PAYLOADS MOVING SMOOTHLY";
+                    setDiagnosticColor(outStatus, boxStatus, 'optimal');
+                    setDiagnosticColor(outSpeed, boxSpeed, 'optimal');
+                }
+            }
+
+            requestAnimationFrame(render);
+        }
+
+        render();
+
+    </script>
+
+</body>
+
+</html>
+

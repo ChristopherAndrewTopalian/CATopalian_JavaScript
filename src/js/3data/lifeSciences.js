@@ -32,6 +32,12 @@ let lifeSciences =
         category: 'life_sciences'
     },
 
+    {
+        name: 'Digestion Science',
+        urlOffline: 'src/html/life_sciences/metabolic_systems/intestinal_transport/vessel_intestinal_transport_simulator.html',
+        category: 'life_sciences'
+    },
+
 ];
 
 //----//
