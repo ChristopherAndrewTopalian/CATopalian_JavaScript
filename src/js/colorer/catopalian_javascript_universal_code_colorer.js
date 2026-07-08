@@ -701,8 +701,10 @@ function processCodeString(rawCode, languageKey)
     });
 
     // UNPACK THE BOX
-    // We swap the placeholders back to the raw HTML exactly in order
-    for (let i = 0; i < safeBox.length; i++) {
+    // We swap the placeholders back to the raw HTML in REVERSE order.
+    // This is critical because comments or strings might contain other placeholders,
+    // and we need to unpack the "outer" layers first before unpacking the "inner" layers.
+    for (let i = safeBox.length - 1; i >= 0; i--) {
         code = code.replace(`__PH${i}__`, safeBox[i]);
     }
 
