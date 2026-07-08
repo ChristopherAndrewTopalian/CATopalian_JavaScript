@@ -1,0 +1,110 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- object_of_objects_007.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> The Full Sensor Sweep (Logging Keys and Nested Data) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> The Full Sensor Sweep (Logging Keys and Nested Data) </h1>
+
+    <hr class="tech-divider">
+
+    <p> In our previous sweep of the database, we successfully retrieved the internal manifest for every vessel. However, there was a major tactical flaw: the computer didn't tell us <i>which</i> ship the data belonged to! </p>
+
+    <p> To generate a proper Starfleet report, we need to output the primary identifier alongside the data. By logging both our temporary variable (the <b>Key</b>) and our bracket notation query (the <b>Value</b>) inside the same loop, we can format a completely readable, ship-by-ship manifest. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    enterprise:
+    {
+        class: 'constitution',
+        status: 'active' 
+    }
+};
+
+// Run a full sensor sweep, logging the ship's name AND its data
+for (let vessel in starfleetDatabase)
+{
+    // Print the name of the ship (the Key)
+    console.log(vessel);
+    
+    // Print the ships internal manifest (the Nested Object)
+    console.log(starfleetDatabase[vessel]);
+}
+
+/*
+defiant
+Object { class: "escort", status: "docked" }
+
+class: "escort"
+
+status: "docked"
+
+<prototype>: Object { … }
+
+
+enterprise
+Object { class: "constitution", status: "active" }
+
+class: "constitution"
+
+status: "active"
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">for (let key in parentObject) { 
+    console.log(key);
+    console.log(parentObject[key]); 
+}</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Iteration (Retrieves and pairs both the string identifier and its corresponding child Object sequentially). </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is the standard procedure for rendering dynamic lists. The <code>for...in</code> loop allows us to execute multiple lines of code during each cycle. First, it grabs the top-level string (<code>let vessel</code>) and prints it to the console, acting as a header. Immediately after, it uses that exact same string inside brackets (<code>starfleetDatabase[vessel]</code>) to unlock the folder and print the contents beneath it. This ensures every piece of data remains perfectly paired with its parent identifier. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
