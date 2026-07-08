@@ -24,6 +24,12 @@ let object_flat = [
         category: 'object',
         urlOffline: 'src/html/object_flat/object_flat_004.html'
     },
+
+    {
+        name: 'Object Flat 005',
+        category: 'object',
+        urlOffline: 'src/html/object_flat/object_flat_005.html'
+    },
 ];
 
 //----//

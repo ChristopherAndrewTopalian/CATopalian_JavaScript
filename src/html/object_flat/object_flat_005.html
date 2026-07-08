@@ -1,0 +1,84 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- object_flat_005.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Decommissioning Data (Deleting Properties) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Decommissioning Data (Deleting Properties) </h1>
+
+    <hr class="tech-divider">
+
+    <p> Just as new ships are commissioned into the fleet, older vessels are eventually decommissioned or reassigned. Because JavaScript Objects are mutable, we can permanently erase a coordinate from the memory banks using the <code>delete</code> operator. </p>
+
+    <p> When we use the delete operator on a specific Key, it doesn't just empty the data, it completely destroys both the Key and the Value, removing that entry from the database entirely. Let's run a sensor sweep to verify the ship is gone. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starshipClasses = {
+    enterprise: 'constitution',
+    defiant: 'escort',
+    voyager: 'intrepid'
+};
+
+// Permanently delete a vessel from the registry
+delete starshipClasses.defiant;
+
+// Initiate a sequential sweep of the updated registry
+for (let key in starshipClasses)
+{
+    // 'key' isolates the property name
+    // starshipClasses[key] accesses the stored data
+    console.log(key + ' and ' + starshipClasses[key]);
+}
+
+/*
+enterprise and constitution
+voyager and intrepid
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">delete objectName.propertyName;</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean (Returns <code>true</code> if the property was successfully deleted, but its main purpose is to mutate the Object directly). </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>delete</code> operator is a powerful tool for memory management and data manipulation. You simply write the word <code>delete</code> followed by the direct comm link (Dot Notation) to the property you want to target. Once executed, that Key-Value pair ceases to exist within the Object. If you try to scan an Object using a <code>for...in</code> loop after a deletion, the engine will act as if that data was never there to begin with. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
