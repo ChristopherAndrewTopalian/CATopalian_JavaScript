@@ -99,9 +99,9 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = whichArray[x].name;
-            theButton.onmouseover = function()
+            theButton.oncontextmenu = function()
             {
-                //hoverSound();
+                window.open(whichArray[x].urlOffline);
             };
             theButton.onclick = function()
             {
