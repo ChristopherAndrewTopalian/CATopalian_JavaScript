@@ -285,27 +285,27 @@ function makeInterface(whichArray, whichEntry)
     //-//
 
     let objectOfObjectsDODSummary = ce('summary');
-    objectOfObjectsDODSummary.textContent = 'OoO DOD';
+    objectOfObjectsDODSummary.textContent = 'DOD';
     objectOfObjectsDODDetails.append(objectOfObjectsDODSummary);
 
-    for (let x = 0; x < object_of_objects_dod.length; x++)
+    for (let x = 0; x < data_oriented_design.length; x++)
     {
-        if (object_of_objects_dod[x].category == 'object_of_objects')
+        if (data_oriented_design[x].category == 'object_of_objects')
         {
             let theButton = ce("button");
-            theButton.textContent = object_of_objects_dod[x].name;
+            theButton.textContent = data_oriented_design[x].name;
             theButton.onmouseover = function()
             {
                 // hoverSound();
             };
             theButton.oncontextmenu = function()
             {
-                window.open(object_of_objects_dod[x].urlOffline);
+                window.open(data_oriented_design[x].urlOffline);
             };
             theButton.onclick = function()
             {
                 //clickSound();
-                theFrame.src = object_of_objects_dod[x].urlOffline;
+                theFrame.src = data_oriented_design[x].urlOffline;
             };
             objectOfObjectsDODDetails.append(theButton);
         }

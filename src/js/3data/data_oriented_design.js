@@ -1,10 +1,16 @@
-// object_of_objects_dod.js
+// data_oriented_design.js
 
-let object_of_objects_dod = [
+let data_oriented_design = [
     {
-        name: 'OoO DOD 001',
+        name: 'DOD 001',
         category: 'object_of_objects',
-        urlOffline: 'src/html/object_of_objects_dod/object_of_objects_dod_001.html'
+        urlOffline: 'src/html/data_oriented_design/dod_001.html'
+    }, 
+
+    {
+        name: 'DOD 002',
+        category: 'object_of_objects',
+        urlOffline: 'src/html/data_oriented_design/dod_002.html'
     }, 
 ];
 
