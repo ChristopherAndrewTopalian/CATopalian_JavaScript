@@ -55,6 +55,12 @@ let object_of_objects = [
         urlOffline: 'src/html/object_of_objects/object_of_objects_009.html'
     },
 
+    {
+        name: 'OoO 010',
+        category: 'object',
+        urlOffline: 'src/html/object_of_objects/object_of_objects_010.html'
+    },
+
 ];
 
 //----//
