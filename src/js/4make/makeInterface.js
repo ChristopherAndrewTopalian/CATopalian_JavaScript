@@ -142,6 +142,10 @@ function makeInterface(whichArray, whichEntry)
             {
                 // hoverSound();
             };
+            theButton.oncontextmenu = function()
+            {
+                window.open(whichArray[x].urlOffline);
+            };
             theButton.onclick = function()
             {
                 //clickSound();
@@ -180,6 +184,10 @@ function makeInterface(whichArray, whichEntry)
             {
                 // hoverSound();
             };
+            theButton.oncontextmenu = function()
+            {
+                window.open(whichArray[x].urlOffline);
+            };
             theButton.onclick = function()
             {
                 //clickSound();
@@ -217,6 +225,10 @@ function makeInterface(whichArray, whichEntry)
             theButton.onmouseover = function()
             {
                 // hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(object_flat[x].urlOffline);
             };
             theButton.onclick = function()
             {
@@ -340,6 +352,10 @@ function makeInterface(whichArray, whichEntry)
             {
                 // hoverSound();
             };
+            theButton.oncontextmenu = function()
+            {
+                window.open(whichArray[x].urlOffline);
+            };
             theButton.onclick = function()
             {
                 //clickSound();
@@ -377,6 +393,10 @@ function makeInterface(whichArray, whichEntry)
             theButton.onmouseover = function()
             {
                 // hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(whichArray[x].urlOffline);
             };
             theButton.onclick = function()
             {
@@ -1095,7 +1115,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            window.open(babylonjs3d[x].codeURL);
+            window.open(babylonjs3d[x].appURL);
         };
         theButton.onclick = function()
         {
@@ -1140,7 +1160,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(aooFilter[x].codeURL);
+            window.open(aooFilter[x].urlOffline);
         };
         theButton.onclick = function()
         {
@@ -1201,7 +1221,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(true_ai_foundation[x].codeURL);
+            window.open(true_ai_foundation[x].urlOffline);
         };
         theButton.onclick = function()
         {
@@ -1241,7 +1261,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(true_ai_kingdom[x].codeURL);
+            window.open(true_ai_kingdom[x].urlOffline);
         };
         theButton.onclick = function()
         {
@@ -1281,7 +1301,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(true_ai_starfleet_academy_ethos[x].codeURL);
+            window.open(true_ai_starfleet_academy_ethos[x].urlOffline);
         };
         theButton.onclick = function()
         {
@@ -1326,7 +1346,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(lifeCreationEngineFilter[x].codeURL);
+            window.open(lifeCreationEngineFilter[x].urlOffline);
         };
         theButton.onclick = function()
         {
@@ -1366,7 +1386,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.oncontextmenu = function()
         {
             //clickSound();
-            //window.open(lifeSciences[x].codeURL);
+            window.open(lifeSciences[x].urlOffline);
         };
         theButton.onclick = function()
         {
