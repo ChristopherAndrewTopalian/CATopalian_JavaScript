@@ -26,7 +26,7 @@
 
     <hr class="tech-divider">
 
-    <p> So far, the folders inside our multidimensional database have only held simple text strings. But a real Starfleet vessel requires complex lists—like a cargo manifest, an armaments inventory, or a crew roster. </p>
+    <p> So far, the folders inside our multidimensional database have only held simple text strings. But a real Starfleet vessel requires complex lists, like a cargo manifest, an armaments inventory, or a crew roster. </p>
 
     <p> JavaScript Objects are incredibly flexible. The <b>Value</b> assigned to a Key does not have to be a string or another Object; it can also be an <b>Array</b>. Once we use our dot notation to drill down and retrieve that Array, we can immediately use standard array loops to read the data inside. </p>
 
@@ -49,10 +49,10 @@ let starfleetDatabase = {
     }
 };
 
-// 1. Target the specific ship's crew array
+// Target the specific ship's crew array
 let enterpriseRoster = starfleetDatabase.enterprise.crew;
 
-// 2. Loop through the array using a classic ES5 function
+// Loop through the array using a classic ES5 function
 enterpriseRoster.forEach(function(officer) {
     console.log(officer);
 });
@@ -84,10 +84,10 @@ let starfleetDatabase = {
     }
 };
 
-// 1. Target the specific ship's crew array
+// Target the specific ship's crew array
 let defiantRoster = starfleetDatabase.defiant.crew;
 
-// 2. Loop through the array using ES6 Arrow Syntax
+// Loop through the array using ES6 Arrow Syntax
 defiantRoster.forEach(officer => console.log(officer));
 
 /*
