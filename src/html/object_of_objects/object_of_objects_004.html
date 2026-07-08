@@ -1,0 +1,83 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- object_of_objects_004.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Deep Scanning (Double Dot Notation) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Deep Scanning (Double Dot Notation) </h1>
+
+    <hr class="tech-divider">
+
+    <p> In the previous lesson, we retrieved the entire internal manifest for a specific starship. But what if we don't need the whole file? What if the Captain only wants to know the operational status of the Enterprise, and nothing else? </p>
+
+    <p> Because we are dealing with an Object inside of an Object, we can chain our comm links together using <b>Double Dot Notation</b>. Each dot tells the engine to step one level deeper into the memory hierarchy. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    }
+};
+
+// Drill down to the Enterprise, then retrieve just its class
+console.log(starfleetDatabase.enterprise.class);
+
+/*
+constitution
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">parentObject.childObject.propertyName;</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Variable (Returns the specific data type stored at the final deepest Key, in this case, a String). </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> Chaining dot notation is how you navigate multi-dimensional data structures. The engine reads the command from left to right. First, it locates <code>starfleetDatabase</code>. Next, the first dot tells it to open the <code>enterprise</code> folder. Finally, the second dot tells it to extract the specific value attached to the <code>class</code> Key. This precision targeting allows you to instantly extract a single data point from a massive database without loading the entire structure into active memory. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
