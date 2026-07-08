@@ -79,11 +79,11 @@ function makeInterface(whichArray, whichEntry)
     let symbolsDetails = ce('details');
     symbolsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     symbolsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(symbolsDetails);
 
@@ -103,9 +103,13 @@ function makeInterface(whichArray, whichEntry)
             {
                 window.open(whichArray[x].urlOffline);
             };
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
             symbolsDetails.append(theButton);
@@ -117,11 +121,11 @@ function makeInterface(whichArray, whichEntry)
     let arrayDetails = ce('details');
     arrayDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     arrayDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(arrayDetails);
 
@@ -140,7 +144,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.title = whichArray[x].description || '';
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -148,7 +152,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
             arrayDetails.append(theButton);
@@ -160,11 +164,11 @@ function makeInterface(whichArray, whichEntry)
     let aooDetails = ce('details');
     aooDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     aooDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(aooDetails);
 
@@ -182,7 +186,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = whichArray[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -190,7 +194,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
             aooDetails.append(theButton);
@@ -202,11 +206,11 @@ function makeInterface(whichArray, whichEntry)
     let objectFlatDetails = ce('details');
     objectFlatDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     objectFlatDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(objectFlatDetails);
 
@@ -224,7 +228,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = object_flat[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -232,7 +236,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = object_flat[x].urlOffline;
             };
             objectFlatDetails.append(theButton);
@@ -244,11 +248,11 @@ function makeInterface(whichArray, whichEntry)
     let objectOfObjectsDetails = ce('details');
     objectOfObjectsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     objectOfObjectsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(objectOfObjectsDetails);
 
@@ -266,7 +270,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = object_of_objects[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -274,7 +278,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = object_of_objects[x].urlOffline;
             };
             objectOfObjectsDetails.append(theButton);
@@ -286,11 +290,11 @@ function makeInterface(whichArray, whichEntry)
     let objectOfObjectsDODDetails = ce('details');
     objectOfObjectsDODDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     objectOfObjectsDODDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(objectOfObjectsDODDetails);
 
@@ -308,7 +312,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = data_oriented_design[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -316,7 +320,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = data_oriented_design[x].urlOffline;
             };
             objectOfObjectsDODDetails.append(theButton);
@@ -328,11 +332,11 @@ function makeInterface(whichArray, whichEntry)
     let stringDetails = ce('details');
     stringDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     stringDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(stringDetails);
 
@@ -350,7 +354,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = whichArray[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -358,7 +362,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
             stringDetails.append(theButton);
@@ -370,11 +374,11 @@ function makeInterface(whichArray, whichEntry)
     let mathDetails = ce('details');
     mathDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     mathDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(mathDetails);
 
@@ -392,7 +396,7 @@ function makeInterface(whichArray, whichEntry)
             theButton.textContent = whichArray[x].name;
             theButton.onmouseover = function()
             {
-                // hoverSound();
+                hoverSound();
             };
             theButton.oncontextmenu = function()
             {
@@ -400,7 +404,7 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
-                //clickSound();
+                clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
             mathDetails.append(theButton);
@@ -440,11 +444,11 @@ function makeInterface(whichArray, whichEntry)
     let appsMainDetails = ce('details');
     appsMainDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     appsMainDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(appsMainDetails);
 
@@ -461,11 +465,11 @@ function makeInterface(whichArray, whichEntry)
     let appsDetails = ce('details');
     appsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     appsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(appsDetails);
 
@@ -481,7 +485,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = cleanApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -490,7 +494,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = apps[x].appURL;
         };
         appsDetails.append(theButton);
@@ -506,11 +510,11 @@ function makeInterface(whichArray, whichEntry)
     let textAppsDetails = ce('details');
     textAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     textAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(textAppsDetails);
 
@@ -526,7 +530,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = textApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -535,7 +539,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = textApps[x].appURL;
         };
         textAppsDetails.append(theButton);
@@ -551,11 +555,11 @@ function makeInterface(whichArray, whichEntry)
     let trueAIAppsDetails = ce('details');
     trueAIAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     trueAIAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(trueAIAppsDetails);
 
@@ -571,7 +575,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = trueAIApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -580,7 +584,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = trueAIApps[x].appURL;
         };
         trueAIAppsDetails.append(theButton);
@@ -596,11 +600,11 @@ function makeInterface(whichArray, whichEntry)
     let videoAppsDetails = ce('details');
     videoAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     videoAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(videoAppsDetails);
 
@@ -616,7 +620,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = videoApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -625,7 +629,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = videoApps[x].appURL;
         };
         videoAppsDetails.append(theButton);
@@ -641,11 +645,11 @@ function makeInterface(whichArray, whichEntry)
     let editorAppsDetails = ce('details');
     editorAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     editorAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(editorAppsDetails);
 
@@ -661,7 +665,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = editorApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -670,7 +674,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = editorApps[x].appURL;
         };
         editorAppsDetails.append(theButton);
@@ -686,11 +690,11 @@ function makeInterface(whichArray, whichEntry)
     let timeDateAppsDetails = ce('details');
     timeDateAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     timeDateAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(timeDateAppsDetails);
 
@@ -706,7 +710,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = timeDateApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -715,7 +719,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = timeDateApps[x].appURL;
         };
         timeDateAppsDetails.append(theButton);
@@ -731,11 +735,11 @@ function makeInterface(whichArray, whichEntry)
     let game2DAppsDetails = ce('details');
     game2DAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     game2DAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(game2DAppsDetails);
 
@@ -751,7 +755,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = game2DApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -760,7 +764,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = game2DApps[x].appURL;
         };
         game2DAppsDetails.append(theButton);
@@ -776,11 +780,11 @@ function makeInterface(whichArray, whichEntry)
     let game3DAppsDetails = ce('details');
     game3DAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     game3DAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(game3DAppsDetails);
 
@@ -796,7 +800,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = game3DApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -805,7 +809,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = game3DApps[x].appURL;
         };
         game3DAppsDetails.append(theButton);
@@ -821,11 +825,11 @@ function makeInterface(whichArray, whichEntry)
     let musicAppsDetails = ce('details');
     musicAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     musicAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(musicAppsDetails);
 
@@ -841,7 +845,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = musicApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -850,7 +854,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = musicApps[x].appURL;
         };
         musicAppsDetails.append(theButton);
@@ -866,11 +870,11 @@ function makeInterface(whichArray, whichEntry)
     let scienceAppsDetails = ce('details');
     scienceAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     scienceAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(scienceAppsDetails);
 
@@ -886,7 +890,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = scienceApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -895,7 +899,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = scienceApps[x].appURL;
         };
         scienceAppsDetails.append(theButton);
@@ -911,11 +915,11 @@ function makeInterface(whichArray, whichEntry)
     let fileNavAppsDetails = ce('details');
     fileNavAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     fileNavAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(fileNavAppsDetails);
 
@@ -931,7 +935,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = fileNavApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -940,7 +944,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = fileNavApps[x].appURL;
         };
         fileNavAppsDetails.append(theButton);
@@ -956,11 +960,11 @@ function makeInterface(whichArray, whichEntry)
     let earthAppsDetails = ce('details');
     earthAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     earthAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(earthAppsDetails);
 
@@ -976,7 +980,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = earthApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -985,7 +989,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = earthApps[x].appURL;
         };
         earthAppsDetails.append(theButton);
@@ -1001,11 +1005,11 @@ function makeInterface(whichArray, whichEntry)
     let mobileAppsDetails = ce('details');
     mobileAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     mobileAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(mobileAppsDetails);
 
@@ -1021,7 +1025,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = mobileApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -1030,7 +1034,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = mobileApps[x].appURL;
         };
         mobileAppsDetails.append(theButton);
@@ -1046,11 +1050,11 @@ function makeInterface(whichArray, whichEntry)
     let interfaceAppsDetails = ce('details');
     interfaceAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     interfaceAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     appsMainDetails.append(interfaceAppsDetails);
 
@@ -1066,7 +1070,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = interfaceApps[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -1075,7 +1079,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = interfaceApps[x].appURL;
         };
         interfaceAppsDetails.append(theButton);
@@ -1090,11 +1094,11 @@ function makeInterface(whichArray, whichEntry)
     let babylonjsAppsDetails = ce('details');
     babylonjsAppsDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     babylonjsAppsDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(babylonjsAppsDetails);
 
@@ -1110,7 +1114,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = babylonjs3d[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -1119,7 +1123,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = babylonjs3d[x].appURL;
         };
         babylonjsAppsDetails.append(theButton);
@@ -1135,11 +1139,11 @@ function makeInterface(whichArray, whichEntry)
     let aooFilterDetails = ce('details');
     aooFilterDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     aooFilterDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(aooFilterDetails);
 
@@ -1155,7 +1159,7 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = aooFilter[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
@@ -1164,7 +1168,7 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = aooFilter[x].urlOffline;
         };
         aooFilterDetails.append(theButton);
@@ -1175,11 +1179,11 @@ function makeInterface(whichArray, whichEntry)
     let trueAIContainerDetails = ce('details');
     trueAIContainerDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     trueAIContainerDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(trueAIContainerDetails);
 
@@ -1196,11 +1200,11 @@ function makeInterface(whichArray, whichEntry)
     let trueAIFoundationDetails = ce('details');
     trueAIFoundationDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     trueAIFoundationDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     trueAIContainerDetails.append(trueAIFoundationDetails);
 
@@ -1216,16 +1220,16 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = true_ai_foundation[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
-            //clickSound();
+            clickSound();
             window.open(true_ai_foundation[x].urlOffline);
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = true_ai_foundation[x].urlOffline;
         };
         trueAIFoundationDetails.append(theButton);
@@ -1236,11 +1240,11 @@ function makeInterface(whichArray, whichEntry)
     let trueAIKingdomDetails = ce('details');
     trueAIKingdomDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     trueAIKingdomDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     trueAIContainerDetails.append(trueAIKingdomDetails);
 
@@ -1256,16 +1260,16 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = true_ai_kingdom[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
-            //clickSound();
+            clickSound();
             window.open(true_ai_kingdom[x].urlOffline);
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = true_ai_kingdom[x].urlOffline;
         };
         trueAIKingdomDetails.append(theButton);
@@ -1276,11 +1280,11 @@ function makeInterface(whichArray, whichEntry)
     let trueAIStarfleetEthosDetails = ce('details');
     trueAIStarfleetEthosDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     trueAIStarfleetEthosDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     trueAIContainerDetails.append(trueAIStarfleetEthosDetails);
 
@@ -1296,16 +1300,16 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = true_ai_starfleet_academy_ethos[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
-            //clickSound();
+            clickSound();
             window.open(true_ai_starfleet_academy_ethos[x].urlOffline);
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = true_ai_starfleet_academy_ethos[x].urlOffline;
         };
         trueAIStarfleetEthosDetails.append(theButton);
@@ -1321,11 +1325,11 @@ function makeInterface(whichArray, whichEntry)
     let lifeCreationEngineFilterDetails = ce('details');
     lifeCreationEngineFilterDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     lifeCreationEngineFilterDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(lifeCreationEngineFilterDetails);
 
@@ -1341,16 +1345,16 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = lifeCreationEngineFilter[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
-            //clickSound();
+            clickSound();
             window.open(lifeCreationEngineFilter[x].urlOffline);
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = lifeCreationEngineFilter[x].urlOffline;
         };
         lifeCreationEngineFilterDetails.append(theButton);
@@ -1361,11 +1365,11 @@ function makeInterface(whichArray, whichEntry)
     let lifeSciencesDetails = ce('details');
     lifeSciencesDetails.onmouseover = function()
     {
-        hoverSound();
+        //hoverSound();
     };
     lifeSciencesDetails.onclick = function()
     {
-        clickSound();
+        //clickSound();
     };
     buttonContainer.append(lifeSciencesDetails);
 
@@ -1381,16 +1385,16 @@ function makeInterface(whichArray, whichEntry)
         theButton.textContent = lifeSciences[x].name;
         theButton.onmouseover = function()
         {
-            // hoverSound();
+            hoverSound();
         };
         theButton.oncontextmenu = function()
         {
-            //clickSound();
+            clickSound();
             window.open(lifeSciences[x].urlOffline);
         };
         theButton.onclick = function()
         {
-            //clickSound();
+            clickSound();
             theFrame.src = lifeSciences[x].urlOffline;
         };
         lifeSciencesDetails.append(theButton);

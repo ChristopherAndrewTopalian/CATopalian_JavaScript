@@ -17,29 +17,39 @@ function playTone(frequency, duration, waveType, volume, detune, attackTime, rel
     gainNode.connect(pannerNode);
     pannerNode.connect(audioCtx.destination);
 
+    // Convert milliseconds to seconds for the audio context
+    let durationInSeconds = duration / 1000;
+
+    // THE ENVELOPE (Attack, Sustain, Release)
+
+    // Initialize volume at 0
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
 
-    // attack
+    // Attack: Ramp up to the target volume
     gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + attackTime);
-    gainNode.gain.linearRampToValueAtTime(0, 
 
-    // release
-    audioCtx.currentTime + duration / 1000 - releaseTime);
+    // Sustain: Hold the target volume until it is time to release
+    gainNode.gain.setValueAtTime(volume, audioCtx.currentTime + durationInSeconds - releaseTime);
 
+    // Release: Ramp the volume back down to 0
+    gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + durationInSeconds);
+
+    // Set stereo panning
     pannerNode.pan.setValueAtTime(panValue, audioCtx.currentTime);
 
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + duration / 1000);
+    // Start and stop the oscillator
+    oscillator.start(audioCtx.currentTime);
+    oscillator.stop(audioCtx.currentTime + durationInSeconds);
 }
 
 function hoverSound()
 {
     playTone(
         250,     // frequency
-        50,     // duration
+        40,      // duration
         'triangle',  // waveType
         0.01,    // volume
-        0,         // detune
+        0,       // detune
         0.01,    // attackTime
         0.01,    // releaseTime
         0.0      // panValue -0.5 is left
@@ -54,22 +64,22 @@ function hoverSound2()
         'triangle',  // waveType
         0.08,    // volume
         -200,    // detune
-        0.1,      // attackTime
-        0.1,      // releaseTime
-        0.0       // panValue -0.5 is left
+        0.1,     // attackTime
+        0.1,     // releaseTime
+        0.0      // panValue -0.5 is left
     );
 }
 
 function clickSound()
 {
     playTone(
-        300,     // frequency
-        200,     // duration
+        270,     // frequency
+        100,     // duration
         'sine',  // waveType
-        0.01,      // volume
+        0.01,    // volume
         0,       // detune
-        0.02,      // attackTime
-        0.02,      // releaseTime
+        0.01,    // attackTime
+        0.01,    // releaseTime
         0.0      // panValue -0.5 is left
     );
 }
@@ -80,10 +90,10 @@ function inputSound()
         400,     // frequency
         100,     // duration
         'triangle',  // waveType
-        0.01,      // volume
-        0,            // detune
-        0.02,      // attackTime
-        0.02,      // releaseTime
+        0.01,    // volume
+        0,       // detune
+        0.02,    // attackTime
+        0.02,    // releaseTime
         0.0      // panValue -0.5 is left
     );
 }
