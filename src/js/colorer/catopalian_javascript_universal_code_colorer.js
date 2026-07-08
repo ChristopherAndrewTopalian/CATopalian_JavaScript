@@ -52,6 +52,7 @@ const syntaxRules = {
             'acosh',
             'adoptNode',
             'alert',
+            'append',
             'appendChild',
             'asin',
             'asinh',

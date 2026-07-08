@@ -5,21 +5,21 @@
 <!-- object_flat_001.html -->
 
 <!DOCTYPE html>
-<html lang = 'en'>
+<html lang='en'>
 <head>
 <title> The Flat Object </title>
 
-<meta charset = 'UTF-8'>
+<meta charset='UTF-8'>
 
-<meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
-<link rel = 'stylesheet' href = '../../css/style001.css'>
+<link rel='stylesheet' href='../../css/style001.css'>
 
-<script src = '../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
 
 </head>
 
-<body onload = 'applyCustomHighlighting();'>
+<body onload='applyCustomHighlighting();'>
 
 <div>
     <h1> The Flat Object </h1>
@@ -28,27 +28,27 @@
 
     <p> The JavaScript <code>Object</code> is the foundational database structure of the engine. Unlike an Array that forces the computer to read through numbered rows sequentially, an Object uses a <b>Key-Value</b> pairing system. This acts like a Starfleet data registry, where every piece of data is assigned a specific, mathematical address in the RAM. </p>
 
-    <p> This means we can instantly teleport directly to the specific data we need without scanning a list. Here, we load a basic terrestrial biology manifest into the computer and log it to view its physical structure in the memory banks. </p>
+    <p> This means we can instantly teleport directly to the specific data we need without scanning a list. Here, we load a basic starship classification manifest into the computer and log it to view its physical structure in the memory banks. </p>
 
     <hr class="tech-divider">
 
     <div class="example-module">
-<pre><code class="custom-code">let pokemon = {
-    pikachu: 'electric',
-    charazar: 'fire',
-    squirtle : 'water'
+<pre><code class="custom-code" data-language="js">let starshipClasses = {
+    enterprise: 'constitution',
+    defiant: 'escort',
+    voyager: 'intrepid'
 };
 
-console.log(pokemon);
+console.log(starshipClasses);
 
 /*
-Object { pikachu: "electric", charazar: "fire", squirtle: "water" }
+Object { enterprise: "constitution", defiant: "escort", voyager: "intrepid" }
 
-charazar: "fire"
+defiant: "escort"
 
-pikachu: "electric"
+enterprise: "constitution"
 
-squirtle: "water"
+voyager: "intrepid"
 */
 </code></pre>
     </div>
@@ -57,7 +57,7 @@ squirtle: "water"
 
     <div class="technical-specs">
         <h4><b> Syntax </b></h4>
-        <pre><code class="custom-code">let objectName = { key: "value" };</code></pre>
+        <pre><code class="custom-code" data-language="js">let objectName = { key: "value" };</code></pre>
 
         <hr class="tech-divider">
 
@@ -67,7 +67,7 @@ squirtle: "water"
         <hr class="tech-divider">
 
         <h2> Description: </h2>
-        <p> The Object is the ultimate data container for instant lookups. By structuring the data flatly with string keys (like <code>pikachu</code>) pointing directly to a string value (like <code>electric</code>), the engine does not have to iterate through a loop to find a match. You provide the Key, and the engine mathematically calculates the exact coordinate of the Value, retrieving it in <b>O(1)</b> time. This flat dictionary structure is highly efficient for mapping simple identities directly to their classifications. </p>
+        <p> The Object is the ultimate data container for instant lookups. By structuring the data flatly with string keys (like <code>enterprise</code>) pointing directly to a string value (like <code>constitution</code>), the engine does not have to iterate through a loop to find a match. You provide the Key, and the engine mathematically calculates the exact coordinate of the Value, retrieving it in <b>O(1)</b> time. This flat dictionary structure is highly efficient for mapping simple identities directly to their classifications. </p>
 
         <hr class="tech-divider">
     </div>
@@ -77,3 +77,4 @@ squirtle: "water"
 </body>
 
 </html>
+
