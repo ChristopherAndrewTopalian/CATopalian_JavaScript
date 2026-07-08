@@ -256,6 +256,10 @@ function makeInterface(whichArray, whichEntry)
             {
                 // hoverSound();
             };
+            theButton.oncontextmenu = function()
+            {
+                window.open(object_of_objects[x].urlOffline);
+            };
             theButton.onclick = function()
             {
                 //clickSound();
