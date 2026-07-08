@@ -18,7 +18,7 @@ function injectHighlighterStyles()
         code.custom-code {
             display: block;
             white-space: pre; 
-            background-color: rgb(30, 30, 30);
+            background-color: rgb(0, 0, 0);
             color: white;
             padding: 20px;
             margin-bottom: 20px;
