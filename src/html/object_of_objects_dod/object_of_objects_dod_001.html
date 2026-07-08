@@ -1,0 +1,100 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- object_of_objects_dod_001.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Data-Oriented Design (Separating Logic from Data) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Data-Oriented Design (Separating Logic from Data) </h1>
+
+    <hr class="tech-divider">
+
+    <p> As our simulations grow to handle thousands of entities, we must optimize for CPU and memory efficiency. A common mistake is to place active functions (Methods) directly inside our ship objects. While this seems organized, it creates massive memory bloat because the computer must duplicate the function's code for every single ship we spawn. </p>
+
+    <p> To achieve maximum engine performance, we use <b>Data-Oriented Design (DOD)</b>. We keep our Object registries as pure, "dumb" data, and we write centralized, standalone functions (Systems) to process that data. You feed the ship into the engine, the engine modifies the ship, and the simulation continues at lightning speed. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// THE DATA: A Pure Factory Function (No Methods)
+function createStarship(shipName) {
+    return {
+        name: shipName,
+        shields: 100,
+        status: 'Active'
+    };
+}
+
+// THE SYSTEM: A Centralized Logic Engine
+// This function exists only once in memory, but can process any ship
+function applyDamage(shipObject, damageAmount) {
+    shipObject.shields -= damageAmount;
+    
+    if (shipObject.shields <= 0) {
+        shipObject.shields = 0;
+        shipObject.status = 'Disabled';
+        console.log("ALERT: " + shipObject.name + " has been disabled!");
+    } else {
+        console.log(shipObject.name + " shields holding at " + shipObject.shields + "%");
+    }
+    
+    return shipObject;
+}
+
+// THE SIMULATION: Passing Data through the System
+let starfleetDatabase = {};
+starfleetDatabase.defiant = createStarship('Defiant');
+
+// Feed the pure data object into the central damage system
+applyDamage(starfleetDatabase.defiant, 40);
+applyDamage(starfleetDatabase.defiant, 70);
+
+/*
+Defiant shields holding at 60%
+ALERT: Defiant has been disabled!
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">function centralSystem(dataObject) { /* modify and return data */ }</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Mutated Object (The centralized function processes the incoming Object and applies mathematical updates directly to its properties). </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This functional approach is the secret to high-scale game architecture. By separating your "State" (the data) from your "Logic" (the functions), your CPU cache can read the data significantly faster. Furthermore, if you need to update how damage is calculated, you only have to rewrite one single function in your entire codebase, rather than worrying about the internal structures of thousands of active objects. It keeps the engine modular, readable, and highly optimized. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

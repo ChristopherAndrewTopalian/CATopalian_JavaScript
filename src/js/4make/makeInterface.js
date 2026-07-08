@@ -271,6 +271,48 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let objectOfObjectsDODDetails = ce('details');
+    objectOfObjectsDODDetails.onmouseover = function()
+    {
+        hoverSound();
+    };
+    objectOfObjectsDODDetails.onclick = function()
+    {
+        clickSound();
+    };
+    buttonContainer.append(objectOfObjectsDODDetails);
+
+    //-//
+
+    let objectOfObjectsDODSummary = ce('summary');
+    objectOfObjectsDODSummary.textContent = 'OoO DOD';
+    objectOfObjectsDODDetails.append(objectOfObjectsDODSummary);
+
+    for (let x = 0; x < object_of_objects_dod.length; x++)
+    {
+        if (object_of_objects_dod[x].category == 'object_of_objects')
+        {
+            let theButton = ce("button");
+            theButton.textContent = object_of_objects_dod[x].name;
+            theButton.onmouseover = function()
+            {
+                // hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(object_of_objects_dod[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                //clickSound();
+                theFrame.src = object_of_objects_dod[x].urlOffline;
+            };
+            objectOfObjectsDODDetails.append(theButton);
+        }
+    }
+
+    //----//
+
     let stringDetails = ce('details');
     stringDetails.onmouseover = function()
     {
