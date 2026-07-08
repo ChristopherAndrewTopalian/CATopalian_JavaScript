@@ -24,6 +24,48 @@ function cl(whichMessage)
     return result;
 }
 
+function ct(whichText)
+{
+    let result = document.createTextNode(whichText);
+    return result;
+}
+
+function gr(whichId)
+{
+    let result =  ge(whichId).getBoundingClientRect();
+    return result;
+}
+
+// UNIVERSAL ARRAY OPERATIONS
+
+// Replaces array.push(item)
+function addToEnd(targetArray, itemToAdd)
+{
+    targetArray.push(itemToAdd);
+    return targetArray;
+}
+
+// Replaces array.pop()
+function removeLast(targetArray)
+{
+    let removedItem = targetArray.pop();
+    return removedItem;
+}
+
+// Replaces array.unshift(item)
+function addToStart(targetArray, itemToAdd)
+{
+    targetArray.unshift(itemToAdd);
+    return targetArray;
+}
+
+// Replaces array.shift()
+function removeFirst(targetArray)
+{
+    let removedItem = targetArray.shift();
+    return removedItem;
+}
+
 //----//
 
 // Dedicated to God the Father

@@ -1,0 +1,4 @@
+// mainDataArray.js
+
+let mainDataArray = [];
+

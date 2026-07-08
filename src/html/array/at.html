@@ -15,17 +15,30 @@
 
 <link rel = 'stylesheet' href = '../../css/style001.css'>
 
-<script src = '../../js/color_code/jsLanguage/theFunctions.js'></script>
+<script src = '../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
 
-<script src = '../../js/color_code/jsLanguage/theEvents.js'></script>
+<script>
 
-<script src = '../../js/color_code/jsLanguage/theObjects.js'></script>
+function copyToClipboard(elementId)
+{
+    // Grab the pure text content of the code block
+    let codeText = document.getElementById(elementId).innerText;
 
-<script src = '../../js/color_code/applyCustomHighlighting.js'></script>
+    // Push it to the user's clipboard
+    navigator.clipboard.writeText(codeText)
+        .then(function() 
+        {
+            // Success! You could change the button text here to say "Copied!"
+            console.log("Data transmission copied to clipboard.");
+        })
+        .catch(function(error) 
+        {
+            // In case the browser blocks the clipboard access
+            console.error("Transmission failed: ", error);
+        });
+}
 
-<script src = '../../js/color_code/escapeHtml.js'></script>
-
-<script src = '../../js/color_code/processCodeString.js'></script>
+</script>
 
 </head>
 
@@ -42,16 +55,17 @@
 
 <hr>
 
-<pre><code class="custom-code">let fleet = ["Enterprise", "Defiant", "Voyager"];
+<pre><code class="custom-code" id = 'code1'>let fleet = ["Enterprise", "Defiant", "Voyager"];
 
 // Target the first ship
 let flagship = fleet.at(0);
-console.log(flagship); // Result: "Enterprise"
+console.log(flagship); // Result: Enterprise
 
 // Target the very last ship in the formation
 let rearGuard = fleet.at(-1); 
-console.log(rearGuard); // Result: "Voyager"
+console.log(rearGuard); // Result: Voyager
 </code></pre>
+<button onclick = "copyToClipboard('code1')"> Copy </button>
 
 <hr>
 
