@@ -4,7 +4,7 @@ function whenLoaded()
 {
     mainDataArray = mainDataArray.concat(apps, babylonjs3d, operators, lifeSciences, object_flat, true_ai_foundation, true_ai_kingdom, true_ai_starfleet_academy_ethos);
 
-    makeInterface(beginner, 0);
+    makeInterface(operators, 0);
 
     // run the engine as soon as the page loads
     window.onload = function()
