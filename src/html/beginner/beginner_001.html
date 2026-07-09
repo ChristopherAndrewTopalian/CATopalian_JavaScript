@@ -1,0 +1,112 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- beginner_001.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Initializing the Engine (How to Run Code) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Initializing the Engine (How to Run Code) </h1>
+
+    <hr class="tech-divider">
+
+    <p> Welcome to the Academy. Before we can build deep-space tracking algorithms or multidimensional arrays, you need to know how to turn the engine on. The language of our LCARS systems is <b>JavaScript</b>. </p>
+
+    <p> Our very first command is <code>console.log()</code>. This command acts as a subspace transmission—it simply tells the computer to print a message to the screen so we can see that the engine is working. But to see this message, we need to know <i>where</i> to type the code. There are three main ways to run a JavaScript program. </p>
+
+    <hr class="tech-divider">
+
+    <h2> Method 1: The Browser Console (The Quick Diagnostic) </h2>
+    
+    <p> Every modern web browser has a built-in JavaScript engine. You can access it right now by pressing <b>F12</b> (or Right-Click -> Inspect) and clicking the "Console" tab. </p>
+
+    <p> <b>Security Protocol Override:</b> Modern browsers have high security. If you try to paste code into the console for the first time, the computer will block it. It is protecting you from executing malicious code. To bypass this, you must manually type the words <code>allow pasting</code> and hit Enter. Once authorized, you can run your first command: </p>
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Type this directly into the F12 Console and hit Enter
+console.log("Hi everyone, the Comm-Link is established!");
+
+/*
+Hi everyone, the Comm-Link is established!
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <h2> Method 2: The HTML Construct (The Visual Holodeck) </h2>
+
+    <p> If you want to build visual interfaces, buttons, and graphics, you need to link your JavaScript to a web page (an HTML file). We do this by placing our code inside a <code>&lt;script&gt;</code> tag, usually up in the <code>&lt;head&gt;</code> of the document. When you double-click the HTML file to open it in your browser, the script runs automatically. </p>
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt; My First Script &lt;/title&gt;
+    &lt;script&gt;
+        // The browser reads the file and executes this immediately
+        console.log("Hi everyone, the HTML engine is running!");
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt; Check your F12 Console! &lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <h2> Method 3: Node.js (The Engineering Core) </h2>
+
+    <p> When we build massive server architectures or raw data logic engines, we don't need a visual web browser at all. We can run JavaScript directly on our computer's operating system using a program called <b>Node.js</b>. </p>
+
+    <p> You must go to the official Node.js website, download the installer, and make sure the option to <b>"Add to PATH"</b> is checked during installation. Once installed, you can save your code in a plain text file (like <code>mission.js</code>) and execute it using your computer's command terminal. </p>
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// 1. Make a new folder named ourApp
+// 2. Save this inside a file named: mission.js
+console.log("Hi everyone, Main Engineering is online.");
+
+// 3. In the ourApp folder address bar type the letters cmd
+and then press Enter.
+This opens the folder in the command prompt.
+
+// 4. Open your command terminal and type:
+// node mission.js
+
+/*
+Hi everyone, Main Engineering is online.
+*/
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <hr class="tech-divider">
+        <h2> Summary </h2>
+        <p> Whether you use the F12 Console for quick tests, HTML for visual UI, or Node.js for heavy logic processing, the JavaScript code remains exactly the same. You are simply choosing which engine room you want to execute the commands from. </p>
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

@@ -74,7 +74,49 @@ function makeInterface(whichArray, whichEntry)
     };
     collapseExpandContainer.append(exapandAllDetailsBtn);
 
+    //----//
+
+    let beginnerDetails = ce('details');
+    beginnerDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    beginnerDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(beginnerDetails);
+
     //-//
+
+    let beginnerSummary = ce('summary');
+    beginnerSummary.textContent = 'Beginner';
+    beginnerDetails.append(beginnerSummary);
+
+    for (let x = 0; x < beginner.length; x++)
+    {
+        if (beginner[x].category == 'beginner')
+        {
+            let theButton = ce("button");
+            theButton.textContent = beginner[x].name;
+            theButton.oncontextmenu = function()
+            {
+                window.open(beginner[x].urlOffline);
+            };
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.onclick = function()
+            {
+                clickSound();
+                theFrame.src = beginner[x].urlOffline;
+            };
+            beginnerDetails.append(theButton);
+        }
+    }
+
+    //----//
 
     let symbolsDetails = ce('details');
     symbolsDetails.onmouseover = function()
