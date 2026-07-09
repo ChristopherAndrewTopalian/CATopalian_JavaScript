@@ -371,6 +371,48 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let aooVsOooDetails = ce('details');
+    aooVsOooDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    aooVsOooDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(aooVsOooDetails);
+
+    //-//
+
+    let aooVsOooSummary = ce('summary');
+    aooVsOooSummary.textContent = 'AoO vs OoO';
+    aooVsOooDetails.append(aooVsOooSummary);
+
+    for (let x = 0; x < aoo_vs_ooo.length; x++)
+    {
+        if (aoo_vs_ooo[x].category == 'aoo_vs_ooo')
+        {
+            let theButton = ce("button");
+            theButton.textContent = aoo_vs_ooo[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(aoo_vs_ooo[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                clickSound();
+                theFrame.src = aoo_vs_ooo[x].urlOffline;
+            };
+            aooVsOooDetails.append(theButton);
+        }
+    }
+
+    //----//
+
     let stringDetails = ce('details');
     stringDetails.onmouseover = function()
     {
