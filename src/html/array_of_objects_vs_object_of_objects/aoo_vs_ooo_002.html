@@ -94,12 +94,44 @@ Object.entries(objectFleet).forEach(([key, ship]) => {
 </code></pre>
     </div>
 
+        <hr class="tech-divider">
+
+        <h2> Method 4: The Hybrid Speed Loop (Array + Object) </h2>
+
+        <p> What if we want the extreme speed and explicit readability of a traditional <code>for</code> loop, but our data is trapped inside an Object? We execute a hybrid maneuver. We extract the Keys into an Array, and then run a traditional loop on that Array, using explicit bracket notation to target the database. </p>
+
+        <div class="example-module">
+    <pre><code class="custom-code" data-language="js">let objectFleet = {
+        enterprise: { lcarsVersion: 6.0 },
+        defiant: { lcarsVersion: 6.0 }
+    };
+
+    // 1. Extract the Keys into a numbered Array: ["enterprise", "defiant"]
+    let fleetKeys = Object.keys(objectFleet);
+
+    // 2. Run a blazing-fast traditional loop on the new Array
+    for (let i = 0; i < fleetKeys.length; i++) 
+    {
+        // fleetKeys[i] is the name of the ship. 
+        // objectFleet[ fleetKeys[i] ] is the direct comm-link to the data!
+        objectFleet[fleetKeys[i]].lcarsVersion = 7.4;
+        
+        console.log(fleetKeys[i] + " updated via Hybrid Loop");
+    }
+
+    /*
+    enterprise updated via Hybrid Loop
+    defiant updated via Hybrid Loop
+    */
+    </code></pre>
+        </div>
+    </div>
+
     <div class="technical-specs">
         <hr class="tech-divider">
         <h2> Engineering Summary </h2>
         <p> A true logic engineer chooses the right tool for the job. If you are building a physics engine that requires maximum processing speed, the <b>Traditional <code>for</code> loop</b> is unmatched. If you are manipulating complex, deeply nested LCARS data, the modern <b><code>Object.entries()</code></b> provides the cleanest architecture. Familiarize yourself with all protocols; you will encounter them all in the field. </p>
         <hr class="tech-divider">
-    </div>
 
 </div>
 
