@@ -1,0 +1,93 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- beginner_002.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Desktop Operations (Introducing NW.js) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Desktop Operations (Introducing NW.js) </h1>
+
+    <hr class="tech-divider">
+
+    <p> In our first lesson, we ran code inside a web browser and a basic terminal. But what if we want to build a standalone, professional desktop application? What if we want to build a fully functioning LCARS radar screen or a 3D Holodeck interface that runs directly on our ship's operating system? </p>
+
+    <p> For this, Starfleet Engineers use a framework called <b>NW.js</b>.
+    <br>
+    <a href = 'https://nwjs.io/' target = '_blank'> <b>NW.JS</b></a>
+    It is an incredible piece of technology that fuses a web browser directly with the computer's underlying file system. It allows us to build powerful desktop software using the exact same HTML, CSS, and JavaScript we already know. </p>
+
+    <hr class="tech-divider">
+
+    <h2> The Trade-Off (Size vs. Speed) </h2>
+
+    <p> In software engineering, everything is a trade-off. The NW.js engine is extremely powerful, but the base executable file is quite heavy, around <b>187 MB</b>. However, because that heavy engine does all the heavy lifting, your actual project files will be incredibly tiny! Most of the applications you write will be less than 1 Megabyte in size. </p>
+
+    <hr class="tech-divider">
+
+    <h2> Step 1: The Ship's Manifest (package.json) </h2>
+
+    <p> Every NW.js application requires a manifest file. This is a simple data file named <code>package.json</code> that tells the engine how to boot up your app, what to name the window, and which HTML file to load first. Here is a standard configuration for an advanced AI interface: </p>
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">{
+    "name": "catopalian-nwjs-true-ai",
+    "version": "3.0.0",
+    "description": "True AI - A living logical mind with persistent memory.",
+    "main": "CATopalian_NWJS_TRUE_AI.html",
+    "window":
+    {
+        "title": "CATopalian NWJS TRUE AI",
+        "icon": "src/media/textures/icons/catopalian_true_ai.png",
+        "width": 1280,
+        "height": 720,
+        "position": "center",
+        "resizable": true,
+        "frame": true
+    },
+    "nodejs": true
+}
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <h2> Step 2: The Drag-and-Drop Workflow </h2>
+
+    <p> Developing apps with NW.js is incredibly fast because you do not have to "compile" your code every time you make a change. You just drag and drop! </p>
+
+    <ul>
+        <li> <b>1. Create a Shortcut:</b> Download the NW.js engine and extract it. Find the <code>nw.exe</code> file inside, right-click it, and create a shortcut. Move that shortcut directly to your computer's Desktop. </li>
+        <li> <b>2. Build Your Folder:</b> Create a new folder for your project. Inside it, place your <code>package.json</code> file and your main HTML file. </li>
+        <li> <b>3. Launch the App:</b> Simply click and drag your entire project folder and drop it directly onto the <code>nw.exe</code> shortcut on your Desktop. The engine will instantly read your manifest and launch your custom desktop application! </li>
+    </ul>
+
+    <div class="technical-specs">
+        <hr class="tech-divider">
+        <h2> Summary </h2>
+        <p> NW.js gives you full access to the computer. Because we set <code>"nodejs": true</code> in our manifest, our JavaScript can now read and write files directly to the hard drive, interface with hardware, and process data at blazing V8 engine speeds. It is the ultimate tool for Starfleet application design. </p>
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

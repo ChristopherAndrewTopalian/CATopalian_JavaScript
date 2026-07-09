@@ -6,6 +6,12 @@ let beginner = [
         category: 'beginner',
         urlOffline: 'src/html/beginner/beginner_001.html'
     }, 
+
+    {
+        name: 'Beginner 002',
+        category: 'beginner',
+        urlOffline: 'src/html/beginner/beginner_002.html'
+    }, 
 ];
 
 //----//
