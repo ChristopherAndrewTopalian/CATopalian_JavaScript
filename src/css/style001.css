@@ -53,14 +53,13 @@ button
     /* Allow the button to grow taller as the text wraps */
     height: auto;
 
-    /* Fill the width of your resizable left panel */
-    width: 100%;
+    width: 95%;
     box-sizing: border-box;
 
     /* Adjust formatting for multiline readability */
     text-align: left; 
     line-height: 1.4;
-    padding: 8px 12px;
+    padding: 2px 4px;
 }
 
 button:hover
