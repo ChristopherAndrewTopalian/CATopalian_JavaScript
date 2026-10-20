@@ -310,6 +310,7 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = object_of_objects[x].name;
+            theButton.title = object_of_objects[x].name;
             theButton.onmouseover = function()
             {
                 hoverSound();

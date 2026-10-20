@@ -2,31 +2,31 @@
 
 let object_of_objects = [
     {
-        name: 'OoO 001',
+        name: 'OoO 001 Show All Unformatted',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_001.html'
     }, 
 
     {
-        name: 'OoO 002',
+        name: 'OoO 002 Show All JSON.stringify',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_002.html'
     },
 
     {
-        name: 'OoO 003',
+        name: 'OoO 003 Read an Entry',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_003.html'
     },
 
     {
-        name: 'OoO 004',
+        name: 'OoO 004 Read an Entries Data',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_004.html'
     },
 
     {
-        name: 'OoO 005',
+        name: 'OoO 005 Sort Data',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_005.html'
     },
