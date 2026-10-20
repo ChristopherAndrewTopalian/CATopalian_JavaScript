@@ -32,31 +32,31 @@ let object_of_objects = [
     },
 
     {
-        name: 'OoO 006',
+        name: 'OoO 006 Show All For In Loop',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_006.html'
     },
 
     {
-        name: 'OoO 007',
+        name: 'OoO 007 Show All with Key For In',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_007.html'
     },
 
     {
-        name: 'OoO 008',
+        name: 'OoO 008 Nested Arrays forEach Loop',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_008.html'
     },
 
     {
-        name: 'OoO 009',
+        name: 'OoO 009 Filter Data Efficiently',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_009.html'
     },
 
     {
-        name: 'OoO 010',
+        name: 'OoO 010 Factory Functions',
         category: 'object',
         urlOffline: 'src/html/object_of_objects/object_of_objects_010.html'
     },
