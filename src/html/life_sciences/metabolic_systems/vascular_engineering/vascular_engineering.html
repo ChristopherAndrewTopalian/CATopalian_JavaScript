@@ -1,0 +1,358 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- vascular_engineering.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vascular Engineering & Artery Shrinkers</title>
+    <style>
+        body {
+            background-color: rgb(15, 15, 20);
+            color: rgb(220, 230, 230);
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-bottom: 30px;
+        }
+        h1 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgb(0, 200, 150);
+            padding-bottom: 4px;
+            margin: 15px 0px 10px 0px;
+            text-align: center;
+            color: rgb(0, 255, 200);
+        }
+        .intro-text {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 700px;
+            padding: 0 15px;
+            margin-bottom: 15px;
+            color: rgb(180, 180, 190);
+        }
+        .highlight {
+            color: rgb(0, 255, 150);
+            font-weight: bold;
+        }
+        .danger-highlight {
+            color: rgb(255, 100, 100);
+            font-weight: bold;
+        }
+
+        .control-panel {
+            background-color: rgb(20, 20, 25);
+            border: 1px solid rgb(0, 150, 150);
+            padding: 15px;
+            border-radius: 8px;
+            width: 95%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        /* The Canvas */
+        #canvasContainer {
+            margin-top: 15px;
+            width: 95%;
+            max-width: 700px;
+            height: 250px;
+            border: 1px solid rgb(70, 70, 90);
+            background-color: rgb(10, 10, 15);
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        canvas { width: 100%; height: 100%; display: block; }
+
+        .telemetry-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            max-width: 700px;
+            background-color: rgb(15, 15, 20);
+            border: 1px solid rgb(50, 50, 70);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        .metric {
+            text-align: center;
+            flex: 1;
+            padding: 0 5px;
+            border-right: 1px solid rgb(40, 40, 50);
+        }
+        .metric:last-child { border-right: none; }
+        .metric-title { font-size: 11px; color: rgb(150, 150, 150); text-transform: uppercase;}
+        .metric-value { font-size: 16px; font-weight: bold; margin-top: 4px; height: 40px; display: flex; align-items: center; justify-content: center;}
+
+        .share-container {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .share-btn { 
+            background-color: rgb(50, 100, 200); 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .share-btn:hover { background-color: rgb(70, 120, 220); }
+
+    </style>
+</head>
+<body>
+
+    <h1>Vascular Engineering</h1>
+    
+    <div class="intro-text">
+        To understand the danger of a morning Cinnamon Bun and a Coffee, we must look at our biological plumbing. High glucose turns our blood into a thick <span class="danger-highlight">"Syrup State."</span> Caffeine and Energy Drinks act as <span class="danger-highlight">Artery Shrinkers</span>. Forcing thick syrup through a shrunken pipe requires our heart to pump at dangerous pressures, damaging the walls of our entire vascular system.
+    </div>
+
+    <div class="control-panel">
+        <div class="slider-group">
+            <div class="slider-header">
+                <span style="color: rgb(0, 255, 255);">Blood Glucose (Viscosity)</span>
+                <span id="sugarLabel">Normal (Thin)</span>
+            </div>
+            <input type="range" id="sugarSlider" min="0" max="100" value="0">
+            <div style="font-size: 11px; color: #888; display: flex; justify-content: space-between;">
+                <span>0g (Fasted)</span>
+                <span>36g (AHA Max Limit)</span>
+                <span>75g (Soda + Donut)</span>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-header" style="margin-top: 10px;">
+                <span style="color: rgb(255, 150, 0);">Artery Shrinker (Caffeine/Taurine)</span>
+                <span id="caffeineLabel">0mg (Dilated)</span>
+            </div>
+            <input type="range" id="caffeineSlider" min="0" max="100" value="0">
+            <div style="font-size: 11px; color: #888; display: flex; justify-content: space-between;">
+                <span>Water</span>
+                <span>Coffee (100mg)</span>
+                <span>Energy Drink (300mg)</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="arteryCanvas"></canvas>
+    </div>
+
+    <div class="telemetry-panel">
+        <div class="metric">
+            <div class="metric-title">Heart Pump Effort</div>
+            <div id="heartReadout" class="metric-value" style="color: rgb(0, 255, 150);">Resting</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Vascular Pressure</div>
+            <div id="pressureReadout" class="metric-value" style="color: rgb(0, 255, 150);">Optimal Flow</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Endothelial Status</div>
+            <div id="damageReadout" class="metric-value" style="color: rgb(0, 255, 150);">Healthy</div>
+        </div>
+    </div>
+
+    <div class="share-container">
+        <button class="share-btn" onclick="copyDirectLink()">Copy Direct Link</button>
+    </div>
+
+    <script>
+        let canvas = document.getElementById("arteryCanvas");
+        let ctx = canvas.getContext("2d");
+        
+        let sugarSlider = document.getElementById("sugarSlider");
+        let caffeineSlider = document.getElementById("caffeineSlider");
+        
+        let sugarLabel = document.getElementById("sugarLabel");
+        let caffeineLabel = document.getElementById("caffeineLabel");
+        
+        let hReadout = document.getElementById("heartReadout");
+        let pReadout = document.getElementById("pressureReadout");
+        let dReadout = document.getElementById("damageReadout");
+
+        let cw, ch;
+        let particles = [];
+        let animationFrameId;
+
+        // DPI fix
+        function setupCanvas() {
+            let dpr = window.devicePixelRatio || 1;
+            let rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.scale(dpr, dpr);
+            cw = rect.width;
+            ch = rect.height;
+            initParticles();
+        }
+
+        class BloodCell {
+            constructor() {
+                this.reset();
+                this.x = Math.random() * cw; // randomize start positions
+            }
+            reset() {
+                this.x = -20;
+                this.yOffset = (Math.random() - 0.5); // normalized offset from center
+                this.speedBase = Math.random() * 2 + 3;
+                this.size = Math.random() * 3 + 4;
+            }
+            update(sugarLvl, arteryWidth, flowSpeed) {
+                // Sugar makes blood sticky/slow
+                let actualSpeed = (this.speedBase * flowSpeed) / (1 + (sugarLvl * 0.02));
+                this.x += actualSpeed;
+
+                // Restrict Y movement based on shrunken artery
+                let maxDeviation = arteryWidth / 2 - this.size;
+                this.y = (ch / 2) + (this.yOffset * maxDeviation);
+
+                if (this.x > cw + 20) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(255, 50, 50, 0.8)";
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new BloodCell());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, cw, ch);
+
+            let sugarVal = parseInt(sugarSlider.value); // 0 to 100
+            let caffVal = parseInt(caffeineSlider.value); // 0 to 100
+
+            // Artery Width Calculation (Caffeine shrinks it)
+            // Max width = 120px, Min width = 40px
+            let maxArtery = 120;
+            let minArtery = 40;
+            let currentArteryWidth = maxArtery - ((caffVal / 100) * (maxArtery - minArtery));
+
+            // Pump Speed Calculation (Heart works harder when narrow OR sticky)
+            let basePump = 1.0;
+            let pumpMultiplier = basePump + (caffVal * 0.015) + (sugarVal * 0.01);
+
+            // Draw Background Tissue
+            ctx.fillStyle = "rgb(20, 10, 15)";
+            ctx.fillRect(0, 0, cw, ch);
+
+            // Draw Artery Walls
+            let wallColor = (sugarVal > 70 && caffVal > 70) ? "rgb(255, 100, 100)" : "rgb(150, 50, 50)";
+            let topWallY = (ch / 2) - (currentArteryWidth / 2);
+            let bottomWallY = (ch / 2) + (currentArteryWidth / 2);
+
+            ctx.fillStyle = wallColor;
+            // Top tissue
+            ctx.fillRect(0, 0, cw, topWallY);
+            // Bottom tissue
+            ctx.fillRect(0, bottomWallY, cw, ch - bottomWallY);
+
+            // Draw Blood Flow Area (Syrup effect changes background color)
+            let plasmaColor = `rgba(${100 + sugarVal}, 20, 20, ${0.2 + (sugarVal*0.005)})`;
+            ctx.fillStyle = plasmaColor;
+            ctx.fillRect(0, topWallY, cw, currentArteryWidth);
+
+            // Update & Draw Cells
+            for (let p of particles) {
+                p.update(sugarVal, currentArteryWidth, pumpMultiplier);
+                p.draw();
+            }
+
+            // --- Update UI Text & Telemetry ---
+            
+            // Sugar Labels
+            if (sugarVal === 0) sugarLabel.innerText = "Fasted (Thin)";
+            else if (sugarVal < 40) sugarLabel.innerText = "Normal Range";
+            else if (sugarVal < 80) sugarLabel.innerText = "Heavy Load (Thickening)";
+            else sugarLabel.innerText = "Syrup State (Highly Viscous)";
+
+            // Caffeine Labels
+            if (caffVal === 0) caffeineLabel.innerText = "0mg (Fully Dilated)";
+            else if (caffVal < 40) caffeineLabel.innerText = "~100mg (Light Constriction)";
+            else if (caffVal < 80) caffeineLabel.innerText = "~200mg (Moderate Constriction)";
+            else caffeineLabel.innerText = "300mg+ (Severe Artery Shrinkage)";
+
+            // System Telemetry Logic
+            let totalStress = sugarVal + caffVal;
+
+            if (totalStress < 50) {
+                hReadout.innerText = "Resting"; hReadout.style.color = "rgb(0, 255, 150)";
+                pReadout.innerText = "Optimal Flow"; pReadout.style.color = "rgb(0, 255, 150)";
+                dReadout.innerText = "Healthy"; dReadout.style.color = "rgb(0, 255, 150)";
+            } else if (totalStress < 120) {
+                hReadout.innerText = "Elevated RPM"; hReadout.style.color = "rgb(255, 200, 0)";
+                pReadout.innerText = "Rising Pressure"; pReadout.style.color = "rgb(255, 200, 0)";
+                dReadout.innerText = "Mild Friction"; dReadout.style.color = "rgb(255, 200, 0)";
+            } else {
+                hReadout.innerText = "DANGEROUS OVERWORK"; hReadout.style.color = "rgb(255, 50, 50)";
+                pReadout.innerText = "HYPERTENSION"; pReadout.style.color = "rgb(255, 50, 50)";
+                dReadout.innerText = "MICRO-TEARS (Plaque Risk)"; dReadout.style.color = "rgb(255, 50, 50)";
+            }
+
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        function copyDirectLink() {
+            let directUrl = window.location.href;
+            navigator.clipboard.writeText(directUrl).then(function() {
+                alert("Direct link copied! We can now share this specific simulator.");
+            });
+        }
+
+        sugarSlider.addEventListener('input', () => {});
+        caffeineSlider.addEventListener('input', () => {});
+
+        setupCanvas();
+        animate();
+        window.addEventListener("resize", setupCanvas);
+    </script>
+</body>
+</html>
+
