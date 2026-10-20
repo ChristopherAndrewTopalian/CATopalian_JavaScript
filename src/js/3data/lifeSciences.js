@@ -27,6 +27,12 @@ let lifeSciences =
     },
 
     {
+        name: 'Serving Size Illusion',
+        urlOffline: 'src/html/life_sciences/metabolic_systems/serving_size_illusion/serving_size_illusion.html',
+        category: 'life_sciences'
+    },
+
+    {
         name: 'Brain Safety',
         urlOffline: 'src/html/life_sciences/neurology/kinetic_impact/kinetic_impact_and_axonal_shearing_simulator.html',
         category: 'life_sciences'
