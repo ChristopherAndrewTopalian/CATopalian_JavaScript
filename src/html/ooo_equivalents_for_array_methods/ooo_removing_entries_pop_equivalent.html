@@ -1,0 +1,99 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_removing_entries_pop_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Removing Entries (Pop Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Object of Objects: Removing Entries (The "Pop" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, we use <code>pop()</code> to remove whatever item happens to sit at the very end of our sequence. But because a multidimensional Object has no "end" and no numbered order, we cannot simply pop the last item. </p>
+
+    <p> Instead, we are granted absolute precision. To decommission a vessel and remove it from our active registry, we use the <code>delete</code> operator. This allows us to surgically target a specific Key by its exact name and wipe both the Key and its nested manifest from the memory banks instantly. Let's decommission the original Enterprise. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    voyager: 
+    {
+        class: 'intrepid',
+        status: 'deployed'
+    }
+};
+
+// Removing an entry using the delete operator and Dot Notation
+delete starfleetDatabase.enterprise;
+
+// Removing an entry using Bracket Notation
+delete starfleetDatabase['defiant'];
+
+console.log(starfleetDatabase);
+
+/*
+Object { voyager: {…} }
+
+voyager: Object { class: "intrepid", status: "deployed" }
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">delete parentObject.targetKey;
+
+delete parentObject['targetKey'];</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean. Returns <code>true</code> if the removal was successful (or if the Key didn't exist in the first place), and <code>false</code> only if the property was mathematically locked and could not be deleted. The parent Object is permanently mutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>delete</code> operator is our surgical tool for data management. While an Array forces us to manipulate the front or back of a line, the <code>delete</code> operator allows us to instantly eradicate a Key-Value pair from anywhere within the database architecture. This completely frees up the memory that the nested Object was utilizing. We can use Dot Notation for static, known names, or Bracket Notation when we want to use dynamic variables to decide which ship to decommission. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>

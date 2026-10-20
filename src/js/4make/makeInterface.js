@@ -329,6 +329,48 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let oooDetails = ce('details');
+    oooDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    oooDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(oooDetails);
+
+    //-//
+
+    let oooSummary = ce('summary');
+    oooSummary.textContent = 'OoO Equivalents for Array Methods';
+    oooDetails.append(oooSummary);
+
+    for (let x = 0; x < ooo_equivalents_for_array_methods.length; x++)
+    {
+        if (ooo_equivalents_for_array_methods[x].category == 'ooo_equivalents_for_array_methods')
+        {
+            let theButton = ce("button");
+            theButton.textContent = ooo_equivalents_for_array_methods[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(ooo_equivalents_for_array_methods[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                clickSound();
+                theFrame.src = ooo_equivalents_for_array_methods[x].urlOffline;
+            };
+            oooDetails.append(theButton);
+        }
+    }
+
+    //----//
+
     let objectOfObjectsDODDetails = ce('details');
     objectOfObjectsDODDetails.onmouseover = function()
     {

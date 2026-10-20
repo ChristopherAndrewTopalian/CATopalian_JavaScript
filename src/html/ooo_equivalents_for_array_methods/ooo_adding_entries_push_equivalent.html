@@ -1,0 +1,102 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_adding_entries_push_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Adding Entries (Push Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Object of Objects: Adding Entries (The "Push" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, we use <code>push()</code> to add a new vessel to the very end of a sequential list. But a multidimensional Object has no "end" and no numbered sequence. </p>
+
+    <p> To add a newly commissioned starship to our active registry, we do not push. Instead, we declare a brand new Key directly on the database and assign it a complete structural manifest. If the Key does not exist, the JavaScript engine instantly creates it for us and stores the new nested Object at those coordinates. Let's add the Voyager to our database. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    }
+};
+
+// Adding a new entry using Dot Notation
+starfleetDatabase.voyager = {
+    class: 'intrepid',
+    status: 'deployed'
+};
+
+// Adding a new entry using Bracket Notation
+starfleetDatabase['discovery'] = {
+    class: 'crossfield',
+    status: 'classified'
+};
+
+console.log(starfleetDatabase);
+
+/*
+Object { enterprise: {…}, defiant: {…}, voyager: {…}, discovery: {…} }
+
+defiant: Object { class: "escort", status: "docked" }
+discovery: Object { class: "crossfield", status: "classified" }
+enterprise: Object { class: "constitution", status: "active" }
+voyager: Object { class: "intrepid", status: "deployed" }
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">parentObject.newKey = { childKey: "value" };
+
+parentObject['newKey'] = { childKey: "value" };</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> The assigned Value (in this case, the newly created nested Object). The original parent Object is permanently mutated in the memory banks to include the new entry. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This direct assignment acts as the Object equivalent to an Array's <code>push()</code> method. We can use either Dot Notation (<code>.voyager</code>) or Bracket Notation (<code>['discovery']</code>) to name the new Key. Bracket notation is especially powerful for our engineering tools because it allows us to use variables to dynamically name the Keys as we construct new ships on the fly. By simply assigning a Value to a Key that does not currently exist, the JavaScript engine automatically expands the database architecture to accommodate the new nested data. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+// ooo_equivalents_for_array_methods.js
+
+let ooo_equivalents_for_array_methods = [
+    {
+        name: 'OoO Adding Entries ("push")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_adding_entries_push_equivalent.html'
+    }, 
+
+    {
+        name: 'OoO Removing Entries ("pop")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_removing_entries_pop_equivalent.html'
+    }, 
+
+
+];
+
+//----//
+
+// Dedicated to God the Father
+// All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026
+// https://github.com/ChristopherTopalian
+// https://github.com/ChristopherAndrewTopalian
+// https://sites.google.com/view/CollegeOfScripting
+
