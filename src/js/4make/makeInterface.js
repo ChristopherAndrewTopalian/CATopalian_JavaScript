@@ -183,7 +183,6 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = whichArray[x].name;
-            theButton.title = whichArray[x].description || '';
             theButton.onmouseover = function()
             {
                 hoverSound();
@@ -310,7 +309,6 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = object_of_objects[x].name;
-            theButton.title = object_of_objects[x].name;
             theButton.onmouseover = function()
             {
                 hoverSound();
@@ -353,7 +351,6 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = ooo_equivalents_for_array_methods[x].name;
-            theButton.title = ooo_equivalents_for_array_methods[x].name;
             theButton.onmouseover = function()
             {
                 hoverSound();
@@ -396,7 +393,6 @@ function makeInterface(whichArray, whichEntry)
         {
             let theButton = ce("button");
             theButton.textContent = data_oriented_design[x].name;
-            theButton.title = data_oriented_design[x].name;
             theButton.onmouseover = function()
             {
                 hoverSound();
