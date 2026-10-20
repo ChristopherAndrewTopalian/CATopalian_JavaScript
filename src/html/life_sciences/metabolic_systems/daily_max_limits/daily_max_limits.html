@@ -1,0 +1,334 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- daily_max_limits.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Daily Biological Budget</title>
+    <style>
+        body {
+            background-color: rgb(15, 15, 20);
+            color: rgb(220, 230, 230);
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-bottom: 40px;
+        }
+        h1 {
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgb(0, 200, 150);
+            padding-bottom: 4px;
+            margin: 15px 0px 10px 0px;
+            text-align: center;
+            color: rgb(0, 255, 200);
+        }
+        .intro-text {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 700px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            color: rgb(0, 255, 150);
+            font-weight: bold;
+        }
+
+        /* Fixed Budget Tracker at the top */
+        .budget-tracker {
+            position: sticky;
+            top: 0;
+            background-color: rgb(20, 20, 25);
+            width: 100%;
+            max-width: 700px;
+            padding: 15px;
+            border: 2px solid rgb(0, 150, 150);
+            border-radius: 8px;
+            box-sizing: border-box;
+            z-index: 100;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        .budget-readout {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .progress-bar-bg {
+            width: 100%;
+            height: 24px;
+            background-color: rgb(40, 40, 50);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: rgb(0, 200, 150);
+            transition: width 0.4s ease-out, background-color 0.4s ease-out;
+        }
+        .limit-marker {
+            position: absolute;
+            top: 0;
+            left: 100%; /* Represents 36g */
+            height: 100%;
+            border-left: 3px dashed rgb(255, 50, 50);
+        }
+        .status-message {
+            margin-top: 10px;
+            font-size: 15px;
+            text-align: center;
+            min-height: 20px;
+        }
+
+        /* Item Cards */
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 95%;
+            max-width: 700px;
+        }
+        .item-card {
+            background-color: rgb(25, 25, 30);
+            border: 1px solid rgb(70, 70, 90);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+        .item-card:hover {
+            border-color: rgb(0, 150, 150);
+        }
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+        .item-sugar {
+            font-size: 15px;
+            color: rgb(255, 150, 0);
+        }
+        .add-btn {
+            background-color: rgb(0, 100, 100);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .add-btn:hover { background-color: rgb(0, 150, 150); }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            width: 95%;
+            max-width: 700px;
+            justify-content: center;
+        }
+        .reset-btn {
+            background-color: rgb(70, 70, 80);
+            padding: 12px 25px;
+        }
+        .reset-btn:hover { background-color: rgb(90, 90, 100); }
+        .share-btn {
+            background-color: rgb(50, 100, 200);
+            padding: 12px 25px;
+        }
+        .share-btn:hover { background-color: rgb(70, 120, 220); }
+
+        hr {
+            width: 95%;
+            max-width: 700px;
+            border: 0;
+            border-top: 1px solid rgb(50, 50, 60);
+            margin: 30px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Our Daily Biological Budget</h1>
+    
+    <div class="intro-text">
+        Nutrition labels often show "Serving Sizes" without telling us our daily maximum limit. To keep our biology running at its highest potential, science recommends we stay within <span class="highlight">36 grams of added sugar per day</span>. Let's explore how quickly common items use up our daily allowance. Knowledge is our greatest power.
+    </div>
+
+    <div class="budget-tracker">
+        <div class="budget-readout">
+            <span>Our Intake: <span id="currentAmount" style="color: rgb(0, 255, 200);">0g</span></span>
+            <span style="color: rgb(150, 150, 150);">Max: 36g</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div id="progressFill" class="progress-fill"></div>
+            <!-- Marker is positioned at 100% of the 36g scale -->
+            <div class="limit-marker"></div> 
+        </div>
+        <div id="statusMessage" class="status-message" style="color: rgb(0, 255, 150);">
+            Excellent. We have our full biological bandwidth available.
+        </div>
+    </div>
+
+    <div class="item-list">
+        <!-- Liquid Deliveries -->
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Can of Soda (12 oz)</span>
+                <span class="item-sugar">Liquid Delivery: 39g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(39)">Add to Our Day</button>
+        </div>
+
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Orange Juice (8 oz glass)</span>
+                <span class="item-sugar">Liquid Delivery: 22g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(22)">Add to Our Day</button>
+        </div>
+
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Apple Juice (8 oz glass)</span>
+                <span class="item-sugar">Liquid Delivery: 24g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(24)">Add to Our Day</button>
+        </div>
+
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Nutrition / Meal Shake (1 bottle)</span>
+                <span class="item-sugar">Liquid Delivery: 18g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(18)">Add to Our Day</button>
+        </div>
+
+        <!-- Syrups and Additives -->
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Maple Syrup (2 Tablespoons)</span>
+                <span class="item-sugar">Concentrated: 26g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(26)">Add to Our Day</button>
+        </div>
+
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Honey (1 Tablespoon)</span>
+                <span class="item-sugar">Concentrated: 17g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(17)">Add to Our Day</button>
+        </div>
+
+        <div class="item-card">
+            <div class="item-details">
+                <span class="item-name">Frosted Breakfast Cereal (1 Cup)</span>
+                <span class="item-sugar">Processed Carbohydrate: 15g</span>
+            </div>
+            <button class="add-btn" onclick="addSugar(15)">Add to Our Day</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="controls">
+        <button class="add-btn reset-btn" onclick="resetDay()">Reset Our Day</button>
+    </div>
+
+    <hr>
+
+    <button class="add-btn share-btn" onclick="copyDirectLink()">Copy Direct Link</button>
+
+    <script>
+        let totalSugar = 0;
+        const MAX_LIMIT = 36;
+
+        function addSugar(amount) {
+            totalSugar += amount;
+            updateUI();
+        }
+
+        function resetDay() {
+            totalSugar = 0;
+            updateUI();
+        }
+
+        function updateUI() {
+            const currentAmountEl = document.getElementById("currentAmount");
+            const fillEl = document.getElementById("progressFill");
+            const statusEl = document.getElementById("statusMessage");
+
+            currentAmountEl.innerText = totalSugar + "g";
+
+            // Calculate percentage based on 36g = 100% of the healthy zone
+            // We let the bar visually cap at 120% to show the overflow slightly
+            let percentage = (totalSugar / MAX_LIMIT) * 100;
+            let visualPercentage = Math.min(percentage, 110); 
+            
+            fillEl.style.width = visualPercentage + "%";
+
+            if (totalSugar === 0) {
+                fillEl.style.backgroundColor = "rgb(0, 200, 150)";
+                currentAmountEl.style.color = "rgb(0, 255, 200)";
+                statusEl.style.color = "rgb(0, 255, 150)";
+                statusEl.innerText = "Excellent. We have our full biological bandwidth available.";
+            } else if (totalSugar <= 12) {
+                fillEl.style.backgroundColor = "rgb(0, 200, 150)";
+                currentAmountEl.style.color = "rgb(0, 255, 200)";
+                statusEl.style.color = "rgb(0, 255, 150)";
+                statusEl.innerText = "Optimal. Our system is processing efficiently.";
+            } else if (totalSugar <= 24) {
+                fillEl.style.backgroundColor = "rgb(255, 200, 0)";
+                currentAmountEl.style.color = "rgb(255, 200, 0)";
+                statusEl.style.color = "rgb(255, 200, 0)";
+                statusEl.innerText = "Caution. We are approaching our daily processing limits.";
+            } else if (totalSugar <= MAX_LIMIT) {
+                fillEl.style.backgroundColor = "rgb(255, 120, 0)";
+                currentAmountEl.style.color = "rgb(255, 120, 0)";
+                statusEl.style.color = "rgb(255, 120, 0)";
+                statusEl.innerText = "Bandwidth nearly full. We should utilize whole foods to rest our system.";
+            } else {
+                fillEl.style.backgroundColor = "rgb(255, 50, 50)";
+                currentAmountEl.style.color = "rgb(255, 100, 100)";
+                statusEl.style.color = "rgb(255, 100, 100)";
+                statusEl.innerText = "Max Budget Exceeded. We now know exactly where the hidden load is coming from.";
+            }
+        }
+
+        function copyDirectLink() {
+            let directUrl = window.location.href;
+            navigator.clipboard.writeText(directUrl).then(function() {
+                alert("Direct link copied! We can now share this specific tutorial.");
+            }).catch(function(err) {
+                console.error("Could not copy text: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
