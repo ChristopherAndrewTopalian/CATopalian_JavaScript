@@ -33,6 +33,12 @@ let lifeSciences =
     },
 
     {
+        name: 'Metabolic Rollercoaster',
+        urlOffline: 'src/html/life_sciences/metabolic_systems/metabolic_rollercoaster/metabolic_rollercoaster.html',
+        category: 'life_sciences'
+    },
+
+    {
         name: 'Brain Safety',
         urlOffline: 'src/html/life_sciences/neurology/kinetic_impact/kinetic_impact_and_axonal_shearing_simulator.html',
         category: 'life_sciences'

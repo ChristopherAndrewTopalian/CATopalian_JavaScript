@@ -1,0 +1,319 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- metabolic_rollercoaster.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Metabolic Rollercoaster</title>
+    <style>
+        body {
+            background-color: rgb(15, 15, 20);
+            color: rgb(0, 255, 255);
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgb(0, 150, 150);
+            padding-bottom: 2px;
+            margin: 6px 0px 4px 0px;
+            text-align: center;
+        }
+        .description {
+            color: rgb(200, 200, 200);
+            font-size: 13px;
+            margin-bottom: 6px;
+            text-align: center;
+            max-width: 650px;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+        .highlight { color: rgb(255, 100, 100); font-weight: bold; }
+        
+        .control-panel {
+            background-color: rgb(25, 25, 30);
+            border: 1px solid rgb(0, 150, 150);
+            padding: 6px;
+            border-radius: 6px;
+            width: 95%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        button {
+            background-color: rgb(0, 100, 100);
+            color: white;
+            border: 1px solid rgb(0, 200, 200);
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            flex-grow: 1;
+            font-size: 11px;
+            transition: 0.2s;
+        }
+        button:hover { background-color: rgb(0, 150, 150); }
+        .danger-btn { background-color: rgb(120, 30, 30); border-color: rgb(255, 50, 50); }
+        .danger-btn:hover { background-color: rgb(180, 40, 40); }
+
+        #canvasContainer {
+            margin-top: 8px;
+            width: 95%;
+            max-width: 650px;
+            height: 260px; /* Compressed height to prevent scrolling */
+            border: 1px solid rgb(70, 70, 90);
+            background-color: rgb(5, 5, 8);
+            position: relative;
+            border-radius: 4px;
+        }
+        canvas { width: 100%; height: 100%; display: block; }
+        
+        .status-box {
+            width: 95%;
+            max-width: 650px;
+            margin-top: 6px;
+            padding: 6px;
+            background-color: rgb(20, 20, 25);
+            border: 1px solid rgb(100, 100, 100);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 13px;
+            min-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-container {
+            width: 100%;
+            max-width: 650px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgb(50, 50, 60);
+            display: flex;
+            justify-content: center;
+        }
+        .share-btn { background-color: rgb(50, 100, 200); border-color: rgb(100, 150, 255); width: 200px; }
+        .share-btn:hover { background-color: rgb(70, 120, 220); }
+    </style>
+</head>
+<body>
+
+    <h1>The Metabolic Rollercoaster</h1>
+    <div class="description">
+        Liquid sugar lacks our <span class="highlight">"Fiber Brake."</span> Without physical fiber to slow digestion, glucose floods our blood instantly. Watch how our biological machine overreacts with massive insulin dumps, causing a drop that triggers a Phantom Starvation signal.
+    </div>
+
+    <div class="control-panel">
+        <div class="btn-row">
+            <button onclick="startSimulation('realFood')">Eggs & Spinach (Fiber Brake Active)</button>
+        </div>
+        <div class="btn-row">
+            <button class="danger-btn" onclick="startSimulation('breakfast90s')">90s "Balanced" Breakfast (Cereal + OJ)</button>
+        </div>
+        <div class="btn-row">
+            <button class="danger-btn" onclick="startSimulation('syrupStack')">French Toast + Heavy Syrup</button>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="graphCanvas"></canvas>
+    </div>
+
+    <div id="statusBox" class="status-box" style="color: rgb(0, 255, 150);">
+        Awaiting meal ingestion to monitor our 4-hour blood glucose response...
+    </div>
+
+    <div class="share-container">
+        <button class="share-btn" onclick="copyDirectLink()">Copy Direct Link</button>
+    </div>
+
+    <script>
+        let canvas = document.getElementById("graphCanvas");
+        let ctx = canvas.getContext("2d");
+        let statusBox = document.getElementById("statusBox");
+        
+        let cw, ch;
+        let animationFrameId;
+        let timeStep = 0;
+        let activeProfile = null;
+        let graphPoints = [];
+
+        // Y-Axis limits for Blood Sugar (mg/dL)
+        const BG_MIN = 50; 
+        const BG_MAX = 200;
+        const BASELINE = 85;
+
+        // Empowering, Ericksonian text prompts using "We/Our"
+        const profiles = {
+            'realFood': {
+                color: 'rgb(0, 255, 150)',
+                curve: (t) => BASELINE + 20 * Math.sin(t * Math.PI) * Math.exp(-1.5 * t),
+                messages: [
+                    { t: 0.1, msg: "Fiber digesting. Steady release of stable energy for our system.", color: "rgb(0, 255, 150)" },
+                    { t: 1.5, msg: "Optimal insulin response. Our biological machine is running perfectly.", color: "rgb(0, 255, 150)" },
+                    { t: 3.0, msg: "True Homeostasis. We are fully fueled and clear-headed.", color: "rgb(0, 255, 150)" }
+                ]
+            },
+            'breakfast90s': {
+                color: 'rgb(255, 150, 0)',
+                curve: (t) => BASELINE + 90 * Math.sin(t * 1.5 * Math.PI) * Math.exp(-1.8 * t) - (t > 1.2 ? 15 * Math.sin((t-1.2)*Math.PI)*Math.exp(-t) : 0),
+                messages: [
+                    { t: 0.1, msg: "LIQUID SUGAR: Instant absorption. No fiber brake detected in our system.", color: "rgb(255, 100, 100)" },
+                    { t: 0.5, msg: "EMERGENCY RESPONSE: Massive insulin release to protect our bloodstream.", color: "rgb(255, 50, 50)" },
+                    { t: 1.8, msg: "OVERCORRECTION: Our blood sugar plummets below baseline.", color: "rgb(200, 50, 255)" },
+                    { t: 2.5, msg: "PHANTOM STARVATION: A false signal. We have the power to ignore this glitch.", color: "rgb(255, 150, 0)" }
+                ]
+            },
+            'syrupStack': {
+                color: 'rgb(255, 50, 50)',
+                curve: (t) => BASELINE + 130 * Math.sin(t * 1.6 * Math.PI) * Math.exp(-1.5 * t) - (t > 1.0 ? 25 * Math.sin((t-1.0)*Math.PI)*Math.exp(-0.8*t) : 0),
+                messages: [
+                    { t: 0.1, msg: "SEVERE PAYLOAD: Heavy liquid fructose/glucose hitting our liver.", color: "rgb(255, 50, 50)" },
+                    { t: 0.4, msg: "SYSTEM STRESS: Our machine is struggling to clear the toxic surplus.", color: "rgb(255, 0, 0)" },
+                    { t: 1.5, msg: "ENERGY CRASH: Our body sends a false exhaustion error.", color: "rgb(200, 50, 255)" },
+                    { t: 3.0, msg: "FALSE STARVATION LOOP: We can override this glitch. We do not need more fuel.", color: "rgb(255, 150, 0)" }
+                ]
+            }
+        };
+
+        // Integrated DPI fix for the big screen TV
+        function setupCanvas() {
+            let dpr = window.devicePixelRatio || 1;
+            let rect = canvas.parentElement.getBoundingClientRect();
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            
+            ctx.scale(dpr, dpr);
+            cw = rect.width;
+            ch = rect.height;
+            
+            drawBackground();
+        }
+
+        function valToY(bgValue) {
+            let range = BG_MAX - BG_MIN;
+            let normalized = (bgValue - BG_MIN) / range;
+            return ch - (normalized * ch);
+        }
+
+        function drawBackground() {
+            ctx.clearRect(0, 0, cw, ch);
+            
+            // Hyperglycemia
+            ctx.fillStyle = "rgba(255, 50, 50, 0.1)";
+            ctx.fillRect(0, 0, cw, valToY(140));
+            
+            // Hypoglycemia / False Signal
+            ctx.fillStyle = "rgba(150, 50, 255, 0.1)";
+            ctx.fillRect(0, valToY(70), cw, ch - valToY(70));
+
+            // Baseline
+            ctx.strokeStyle = "rgba(100, 200, 100, 0.5)";
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(0, valToY(BASELINE));
+            ctx.lineTo(cw, valToY(BASELINE));
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Labels with updated phrasing
+            ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            ctx.font = "10px Arial";
+            ctx.fillText("140 mg/dL (INFLAMMATION ZONE)", 10, valToY(140) - 5);
+            ctx.fillText("85 mg/dL (BASELINE)", 10, valToY(BASELINE) - 5);
+            ctx.fillText("70 mg/dL (PHANTOM STARVATION / FALSE SIGNAL)", 10, valToY(70) + 12);
+        }
+
+        function startSimulation(profileKey) {
+            if(animationFrameId) cancelAnimationFrame(animationFrameId);
+            activeProfile = profiles[profileKey];
+            timeStep = 0;
+            graphPoints = [];
+            statusBox.style.color = "white";
+            statusBox.innerText = "Ingesting meal... monitoring our telemetry.";
+            animate();
+        }
+
+        function animate() {
+            drawBackground();
+
+            let maxTime = 4.0;
+            let speed = 0.015;
+
+            if (timeStep <= maxTime) {
+                let bgValue = activeProfile.curve(timeStep);
+                let x = (timeStep / maxTime) * cw;
+                let y = valToY(bgValue);
+                
+                graphPoints.push({x, y});
+
+                activeProfile.messages.forEach(m => {
+                    if (Math.abs(timeStep - m.t) < speed) {
+                        statusBox.innerText = m.msg;
+                        statusBox.style.color = m.color;
+                    }
+                });
+
+                timeStep += speed;
+            }
+
+            if (graphPoints.length > 0) {
+                ctx.beginPath();
+                ctx.moveTo(graphPoints[0].x, graphPoints[0].y);
+                for(let i=1; i<graphPoints.length; i++) {
+                    ctx.lineTo(graphPoints[i].x, graphPoints[i].y);
+                }
+                ctx.strokeStyle = activeProfile.color;
+                ctx.lineWidth = 4;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = activeProfile.color;
+                ctx.stroke();
+                ctx.shadowBlur = 0; 
+                
+                let lastPt = graphPoints[graphPoints.length-1];
+                ctx.beginPath();
+                ctx.arc(lastPt.x, lastPt.y, 6, 0, Math.PI*2);
+                ctx.fillStyle = "white";
+                ctx.fill();
+            }
+
+            if (timeStep <= maxTime) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        }
+
+        function copyDirectLink() {
+            let directUrl = window.location.href;
+            navigator.clipboard.writeText(directUrl).then(function() {
+                alert("Direct link copied! We can now share this specific simulator.");
+            }).catch(function(err) {
+                console.error("Could not copy text: ", err);
+            });
+        }
+
+        setupCanvas();
+        window.addEventListener("resize", setupCanvas);
+    </script>
+</body>
+</html>
