@@ -80,31 +80,33 @@ details
     color: rgb(255, 255, 255);
 }
 
-summary
-{
-    color: rgb(255, 255, 255);
-}
-
-summary:hover
-{
-    color: rgb(0, 255, 255);
-}
-
-details > summary
-{
-    list-style: none; /* remove default triangle */
+/* Hide the stubborn default browser arrow */
+summary {
+    list-style: none; /* Firefox / Standard */
     cursor: pointer;
 }
-
-details > summary::before
-{
-    content: '▶️ '; /* closed icon */
+summary::-webkit-details-marker {
+    display: none; /* Chrome / Safari */
 }
 
-details[open] > summary::before
-{
-    content: '🔽 '; /* open icon */
-    /*background-color: rgb(140,140,140);*/
+/* Create our own custom arrow */
+summary::before {
+    content: '▶'; /* You can use any text/emoji arrow here */
+    display: inline-block;
+    
+    /* This controls the exact gap between the arrow and text */
+    margin-right: 3px; 
+    
+    font-size: 12px;
+    color: rgb(0, 255, 255);
+    
+    /* Optional: Smoothly animate the rotation */
+    /*transition: transform 0.2s ease-in-out; */
+}
+
+/* Rotate the arrow 90 degrees downward when opened */
+details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 /* Target any details tag that lives INSIDE another details tag */

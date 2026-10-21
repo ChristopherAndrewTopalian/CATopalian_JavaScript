@@ -18,11 +18,11 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.display = 'flex';
     buttonContainer.style.flexDirection = 'column';
     buttonContainer.style.zIndex = 2;
-    buttonContainer.style.width = '120px';
+    buttonContainer.style.width = '130px';
     buttonContainer.style.height = '320px';
     buttonContainer.style.overflow = 'scroll';
     buttonContainer.style.whiteSpace = 'nowrap';
-    buttonContainer.style.gap = '1px';
+    buttonContainer.style.gap = '0.1px';
     buttonContainer.style.fontSize = '15px';
     buttonContainer.style.resize = 'both';
     mainDiv.append(buttonContainer);
