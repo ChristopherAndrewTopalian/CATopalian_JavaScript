@@ -1,0 +1,100 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_position_lookup_at_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Positional Lookup (At Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Object of Objects: Positional Lookup (The "At" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the modern <code>at()</code> method allows us to grab an item based on its exact numerical position. It is especially famous for allowing negative numbers, like <code>at(-1)</code>, to instantly retrieve the very last item in the sequence. </p>
+
+    <p> A multidimensional Object operates on named Keys, not index numbers. But if we need to retrieve the "most recently commissioned" vessel (the last one added to the registry), we can ask <code>Object.keys()</code> for an Array of our names, use <code>at()</code> on that Array, and then use Bracket Notation to access our data. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    cerritos: 
+    {
+        class: 'california',
+        status: 'drydock'
+    }
+};
+
+// We ask JavaScript for an Array of our vessel names, 
+// and we use .at(-1) to grab the very last name in the list.
+let newestShipName = Object.keys(starfleetDatabase).at(-1);
+
+// We use Bracket Notation to retrieve the exact ship data
+let newestShipData = starfleetDatabase[newestShipName];
+
+console.log("Most Recently Added:", newestShipName);
+console.log("Vessel Specs:", newestShipData);
+
+/*
+Most Recently Added: cerritos
+
+Vessel Specs: 
+Object { class: "california", status: "drydock" }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let targetKey = Object.keys(parentObject).at(indexNumber);
+let targetData = parentObject[targetKey];</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Varies (Object, String, Number, etc). This operation returns the exact nested data stored at the targeted Key. Unlike <code>pop</code> or <code>shift</code>, this is strictly a "read-only" lookup. The original parent Object is completely untouched and unmutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This technique is the ultimate bridge between Array logic and Object logic. By generating a temporary Array of our Keys, we gain access to all of the mathematical positioning tools that Arrays possess (like the <code>at()</code> method). Once we identify the correct string name, we seamlessly pass it back into our Object using dynamic Bracket Notation. This allows us to perfectly simulate relative positional lookups (like finding the 1st, 3rd, or last entry) inside an unordered structural database. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+

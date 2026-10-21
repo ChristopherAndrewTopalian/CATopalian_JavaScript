@@ -25,6 +25,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_removing_from_the_front_shift_equivalent.html'
     },
 
+    {
+        name: 'OoO Position Lookup ("at")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_position_lookup_at_equivalent.html'
+    },
+
 ];
 
 //----//
