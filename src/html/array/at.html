@@ -17,28 +17,7 @@
 
 <script src = '../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
 
-<script>
-
-function copyToClipboard(elementId)
-{
-    // Grab the pure text content of the code block
-    let codeText = document.getElementById(elementId).innerText;
-
-    // Push it to the user's clipboard
-    navigator.clipboard.writeText(codeText)
-        .then(function() 
-        {
-            // Success! You could change the button text here to say "Copied!"
-            console.log("Data transmission copied to clipboard.");
-        })
-        .catch(function(error) 
-        {
-            // In case the browser blocks the clipboard access
-            console.error("Transmission failed: ", error);
-        });
-}
-
-</script>
+<script src = '../../js/location/copyPageURL.js'></script>
 
 </head>
 
@@ -91,6 +70,12 @@ console.log(rearGuard); // Result: Voyager
 </div>
 
 </div>
+
+<hr>
+
+<button onclick = "copyPageURL()"> Copy Page URL </button>
+
+<hr class = 'hr_spacer'>
 
 </body>
 

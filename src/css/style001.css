@@ -260,6 +260,14 @@ hr
     width: 100%;
 }
 
+.hr_spacer
+{
+    margin: 1px;
+    height: 10px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
 /* Syntax Highlighting Colors */
 
 .green
