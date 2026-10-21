@@ -37,6 +37,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_merging_objects_concat_equivalent.html'
     },
 
+    {
+        name: 'OoO Duplication ("copyWithin")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_duplication_copyWithin_equivalent.html'
+    },
+
 ];
 
 //----//

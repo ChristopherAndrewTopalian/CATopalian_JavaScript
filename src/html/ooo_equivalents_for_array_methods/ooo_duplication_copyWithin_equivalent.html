@@ -1,0 +1,94 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_duplication_copyWithin_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Internal Duplication (copyWithin Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Object of Objects: Internal Duplication (The "copyWithin" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, we use <code>copyWithin()</code> to take existing data from one position and overwrite another position inside the exact same list. </p>
+
+    <p> In a multidimensional Object, we replicate this behavior by duplicating the data from a source Key into a target Key. However, because our vessels are nested Objects, simply using the equals sign (<code>=</code>) will only create a linked reference. To safely duplicate a vessel so that it operates independently, we must use the modern <b><code>structuredClone()</code></b> command to perfectly replicate the ship's architecture before assigning it to its new registry name. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    sao_paulo: 
+    {
+        class: 'unknown',
+        status: 'under construction'
+    }
+};
+
+// We take the exact specs of the Defiant, create a true physical clone of the data, 
+// and use it to overwrite the Sao Paulos registry entry.
+starfleetDatabase.sao_paulo = structuredClone(starfleetDatabase.defiant);
+
+// To prove they are independent, we change the Sao Paulos status:
+starfleetDatabase.sao_paulo.status = 'active deployment';
+
+console.log("Original Defiant:", starfleetDatabase.defiant);
+console.log("Cloned Sao Paulo:", starfleetDatabase.sao_paulo);
+
+/*
+Original Defiant: 
+Object { class: "escort", status: "docked" }
+
+Cloned Sao Paulo: 
+Object { class: "escort", status: "active deployment" }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">parentObject.targetKey = structuredClone(parentObject.sourceKey);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> None (Assignment Operation). The assignment operation itself mutates the parent Object by either creating a brand new Key or permanently overwriting an existing one with the cloned data. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> True internal duplication requires precision memory management. If we write <code>target = source</code>, JavaScript merely points two names at the exact same memory address. By utilizing <code>structuredClone()</code>, we force the JavaScript engine to perform a "Deep Copy", physically unpacking every nested property of the source vessel and rebuilding a mathematically perfect, yet totally disconnected, replica at a new memory address. This allows us to overwrite existing database slots (just like <code>copyWithin</code>) without risking data contamination between the two vessels. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
