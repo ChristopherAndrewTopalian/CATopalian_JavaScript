@@ -13,6 +13,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_removing_entries_pop_equivalent.html'
     }, 
 
+    {
+        name: 'OoO Adding to the Front ("unshift")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_adding_to_the_front_unshift_equivalent.html'
+    },
+
 
 ];
 
