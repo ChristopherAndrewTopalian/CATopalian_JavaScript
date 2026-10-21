@@ -31,6 +31,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_position_lookup_at_equivalent.html'
     },
 
+    {
+        name: 'OoO Merging Objects ("concat")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_merging_objects_concat_equivalent.html'
+    },
+
 ];
 
 //----//
