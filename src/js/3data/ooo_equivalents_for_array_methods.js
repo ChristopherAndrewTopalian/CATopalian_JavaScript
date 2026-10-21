@@ -43,6 +43,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_duplication_copyWithin_equivalent.html'
     },
 
+    {
+        name: 'OoO Iterating Pairs ("entries")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_iterating_pairs_entries_equivalent.html'
+    },
+
 ];
 
 //----//

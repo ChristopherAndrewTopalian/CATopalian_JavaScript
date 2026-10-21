@@ -1,0 +1,109 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_iterating_pairs_entries_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Iterating Pairs (entries Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<div>
+    <h1> Object of Objects: Iterating Pairs (The "Entries" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>entries()</code> method returns a list of arrays containing the <code>[index, item]</code>. This allows us to loop through the data while knowing exactly what position we are in. </p>
+
+    <p> A multidimensional Object is notoriously difficult to loop through using standard methods. However, by using the global <b><code>Object.entries()</code></b> command, JavaScript instantly scans our database and constructs a 2D Array where each item is a pair containing <code>[stringKey, nestedObject]</code>. By combining this with a <code>for...of</code> loop and modern <b>Array Destructuring</b>, we can simultaneously extract the vessel's name and its specs on every single loop iteration. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    voyager: 
+    {
+        class: 'intrepid',
+        status: 'deployed'
+    }
+};
+
+// We use a for...of loop combined with [key, value] destructuring.
+// Object.entries() feeds us the vesselName and the nested specs simultaneously!
+for (let [vesselName, specs] of Object.entries(starfleetDatabase)) 
+{
+    console.log("Vessel Registry : " + vesselName.toUpperCase());
+    console.log("Hull Class      : " + specs.class);
+    console.log("Current Status  : " + specs.status);
+    console.log("----------------------------");
+}
+
+/*
+Vessel Registry : ENTERPRISE
+Hull Class      : constitution
+Current Status  : active
+----------------------------
+Vessel Registry : DEFIANT
+Hull Class      : escort
+Current Status  : docked
+----------------------------
+Vessel Registry : VOYAGER
+Hull Class      : intrepid
+Current Status  : deployed
+----------------------------
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">Object.entries(parentObject);
+
+// Standard Iteration Syntax:
+for (let [keyName, nestedData] of Object.entries(parentObject)) { ... }</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (2D). Returns a nested Array containing every Key-Value pair from the parent Object. Example format: <code>[["enterprise", {class: "constitution"}], ["defiant", {class: "escort"}]]</code>. The original Object is unmutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>Object.entries()</code> is the master key to rendering user interfaces from a multidimensional Object. Because DOM elements (like Buttons or Divs) usually need to be generated via a loop, this command safely unpacks the entire grid into an iterable Array format. The true magic lies in the syntax <code>let [vesselName, specs]</code> inside the loop declaration. This is called <i>Destructuring</i>. Instead of forcing us to look up data using <code>array[0]</code> and <code>array[1]</code>, JavaScript instantly assigns the string name to the first variable, and the physical data to the second variable, making our loop logic beautifully clean and readable. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+</body>
+
+</html>
