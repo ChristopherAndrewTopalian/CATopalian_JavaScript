@@ -109,6 +109,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = beginner[x].urlOffline;
             };
@@ -151,6 +163,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
@@ -193,6 +217,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
@@ -235,6 +271,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
@@ -277,6 +325,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = object_flat[x].urlOffline;
             };
@@ -319,6 +379,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = object_of_objects[x].urlOffline;
             };
@@ -361,6 +433,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = ooo_equivalents_for_array_methods[x].urlOffline;
             };
@@ -403,6 +487,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = data_oriented_design[x].urlOffline;
             };
@@ -445,6 +541,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = aoo_vs_ooo[x].urlOffline;
             };
@@ -487,6 +595,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
@@ -529,6 +649,18 @@ function makeInterface(whichArray, whichEntry)
             };
             theButton.onclick = function()
             {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
                 clickSound();
                 theFrame.src = whichArray[x].urlOffline;
             };
@@ -619,6 +751,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = apps[x].appURL;
         };
@@ -664,6 +808,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = textApps[x].appURL;
         };
@@ -709,6 +865,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+            
             clickSound();
             theFrame.src = trueAIApps[x].appURL;
         };
@@ -754,6 +922,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = videoApps[x].appURL;
         };
@@ -799,6 +979,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = editorApps[x].appURL;
         };
@@ -844,6 +1036,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+        
             clickSound();
             theFrame.src = timeDateApps[x].appURL;
         };
@@ -889,6 +1093,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = game2DApps[x].appURL;
         };
@@ -934,6 +1150,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = game3DApps[x].appURL;
         };
@@ -979,6 +1207,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = musicApps[x].appURL;
         };
@@ -1024,6 +1264,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = scienceApps[x].appURL;
         };
@@ -1069,6 +1321,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = fileNavApps[x].appURL;
         };
@@ -1114,6 +1378,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = earthApps[x].appURL;
         };
@@ -1159,6 +1435,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = mobileApps[x].appURL;
         };
@@ -1204,6 +1492,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = interfaceApps[x].appURL;
         };
@@ -1248,6 +1548,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = babylonjs3d[x].appURL;
         };
@@ -1293,6 +1605,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = aooFilter[x].urlOffline;
         };
@@ -1354,6 +1678,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = true_ai_foundation[x].urlOffline;
         };
@@ -1394,6 +1730,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = true_ai_kingdom[x].urlOffline;
         };
@@ -1434,6 +1782,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = true_ai_starfleet_academy_ethos[x].urlOffline;
         };
@@ -1479,6 +1839,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
             clickSound();
             theFrame.src = lifeCreationEngineFilter[x].urlOffline;
         };
@@ -1519,6 +1891,18 @@ function makeInterface(whichArray, whichEntry)
         };
         theButton.onclick = function()
         {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+    
             clickSound();
             theFrame.src = lifeSciences[x].urlOffline;
         };

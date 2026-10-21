@@ -58,7 +58,7 @@ button
 
     /* Adjust formatting for multiline readability */
     text-align: left; 
-    line-height: 1.4;
+    line-height: 1.1;
     padding: 2px 4px;
 }
 
@@ -69,9 +69,10 @@ button:hover
     color: rgb(0, 255, 255);
 }
 
-button:active
+button.active
 {
-    color: rgb(255, 0, 255);
+    color: rgb(255, 255, 0);
+    border-color: rgb(255, 255, 0);
 }
 
 details
