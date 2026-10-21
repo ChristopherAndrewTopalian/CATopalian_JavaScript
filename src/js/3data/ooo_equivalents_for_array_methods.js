@@ -19,6 +19,11 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_adding_to_the_front_unshift_equivalent.html'
     },
 
+    {
+        name: 'OoO Removing from the Front ("shift")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_removing_from_the_front_shift_equivalent.html'
+    },
 
 ];
 
