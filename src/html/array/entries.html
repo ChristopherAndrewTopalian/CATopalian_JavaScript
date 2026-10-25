@@ -19,6 +19,8 @@
 
 <script src = '../../js/location/copyPageURL.js'></script>
 
+<script src = '../../js/textToSpeech/readText.js'></script>
+
 </head>
 
 <body onload = 'applyCustomHighlighting();'>
@@ -28,7 +30,9 @@
 
 <hr>
 
-<p> The <code>entries()</code> method returns a special Array Iterator object. When you loop through it, it provides an array containing both the <b>Index Number</b> (the docking bay) and the <b>Value</b> (the ship name) for every single item in your fleet. </p>
+<button onclick="readText('the_entries');">Play Audio</button>
+
+<p id = 'the_entries'> The <code>entries()</code> method returns a special Array Iterator object. When you loop through it, it provides an array containing both the <b>Index Number</b> (the docking bay) and the <b>Value</b> (the ship name) for every single item in your fleet. </p>
 
 <hr>
 
@@ -67,8 +71,11 @@ for (let entry of dockingManifest) {
 
     <hr class="tech-divider">
 
-    <h2> Description: </h2>
-    <p> This command generates a complete, secure manifest of the entire fleet. Instead of just listing the ships, it creates an "Iterator" that outputs a paired data packet containing both the exact registry slot (the index) and the ship itself (the element). It is highly useful when we need to loop through a formation and require absolute confirmation of both <i>what</i> the ship is and exactly <i>where</i> it is parked. </p>
+    <button onclick="readText('description');">Play Audio</button>
+    <div id = 'description'>
+        <h2> Description: </h2>
+        <p> This command generates a complete, secure manifest of the entire fleet. Instead of just listing the ships, it creates an "Iterator" that outputs a paired data packet containing both the exact registry slot (the index) and the ship itself (the element). It is highly useful when we need to loop through a formation and require absolute confirmation of both <i>what</i> the ship is and exactly <i>where</i> it is parked. </p>
+    </div>
 
     <hr class="tech-divider">
 </div>
