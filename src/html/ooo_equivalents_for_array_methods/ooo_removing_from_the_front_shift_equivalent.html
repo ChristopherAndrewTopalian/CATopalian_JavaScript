@@ -28,6 +28,11 @@
 
     <hr class="tech-divider">
 
+<audio controls>
+<source src="ooo_removing_from_the_front_shift_equivalent_001.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
     <p> When operating an Array, we use <code>shift()</code> to remove the very first item in the sequence. Because a multidimensional Object uses named Keys instead of numbered indexes, we cannot simply tell JavaScript to "delete index 0." </p>
 
     <p> However, modern JavaScript engines remember the exact insertion order of our Keys. If we need to blindly decommission the oldest vessel in our registry, the one sitting at the absolute front of the list, we can use <code>Object.keys()</code> to find its name, and then use dynamic <b>Bracket Notation</b> to wipe it from the memory banks. </p>
@@ -95,6 +100,11 @@ delete parentObject[firstKey];</code></pre>
         <p> <b>Type:</b> Boolean (from the <code>delete</code> operator). The <code>delete</code> action itself returns <code>true</code> upon success, completely mutating the original parent Object by erasing the first entry. If we need to return the actual data (just like a standard Array <code>shift()</code> does), we simply store a copy of the data in a temporary variable before executing the deletion. </p>
 
         <hr class="tech-divider">
+
+        <audio controls>
+<source src="ooo_removing_from_the_front_shift_equivalent_002.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
         <h2> Description: </h2>
         <p> <code>Object.keys()</code> is one of our most powerful diagnostic tools. It instantly scans a multidimensional Object and returns a standard Array containing all the Keys as Strings, preserving their insertion order. By targeting index <code>[0]</code> of that generated Array, we discover the exact string name of the first Key. We then pass that dynamically discovered string into our Bracket Notation <code>delete</code> operation, effectively "shifting" the first entry out of existence without ever needing to hardcode its name. </p>
