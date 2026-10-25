@@ -19,6 +19,8 @@
 
 <script src = '../../js/location/copyPageURL.js'></script>
 
+<script src = '../../js/textToSpeech/readText.js'></script>
+
 </head>
 
 <body onload = 'applyCustomHighlighting();'>
@@ -27,15 +29,21 @@
     <hr class="tech-divider">
 
     <h2> Overview: The Fleet Formation </h2>
-    <p> In JavaScript, an array is a strictly ordered sequence of data. When managing Starfleet logistics, such as compiling a Captain's Log, tracking a fleet formation, or recording incoming sensor contacts, engineers must frequently manipulate the boundaries of this data structure. </p>
-    <p> The primary tool for adding new data to an active array is the <code>push()</code> method. </p>
+
+    <button onclick="readText('001');">Play Audio</button>
+    <p id = '001'> In JavaScript, an array is a strictly ordered sequence of data. When managing Starfleet logistics, such as compiling a Captain's Log, tracking a fleet formation, or recording incoming sensor contacts, engineers must frequently manipulate the boundaries of this data structure.
+    <br>
+    The primary tool for adding new data to an active array is the <code>push()</code> method. </p>
 
     <hr class="tech-divider">
 
+
     <h2> The Core Function: <code>push()</code> </h2>
-    <p> The <code>push()</code> method executes one highly specific command: it takes a new piece of data and attaches it to the <b>absolute end</b> (the rear) of the array. </p>
+    <button onclick="readText('002');">Play Audio</button>
+    <p id = '002'> The <code>push()</code> method executes one highly specific command: it takes a new piece of data and attaches it to the <b>absolute end</b> (the rear) of the array. 
     
-    <p> <b>Tactical Analogy:</b> Imagine a line of starships traveling in a single-file formation. If a new ship arrives to join the fleet, standard protocol dictates they fall in at the back of the line. This is exactly what <code>push()</code> does. </p>
+    <br>
+    <b>Tactical Analogy:</b> Imagine a line of starships traveling in a single-file formation. If a new ship arrives to join the fleet, standard protocol dictates they fall in at the back of the line. This is exactly what <code>push()</code> does. </p>
 
 <pre><code class="custom-code">let fleet = ["Enterprise", "Defiant"];
 
