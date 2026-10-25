@@ -19,6 +19,8 @@
 
 <script src = '../../js/location/copyPageURL.js'></script>
 
+<script src = '../../js/textToSpeech/readText.js'></script>
+
 </head>
 
 <body onload = 'applyCustomHighlighting();'>
@@ -31,7 +33,9 @@
 Your browser does not support the audio element.
 </audio>
 
-<p> When we have two separate arrays and we need to merge them into one massive list, we use <code>concat()</code>. This method does not alter our original arrays; instead, it returns a brand-new array containing all the combined data. </p>
+<button onclick="readText('when_we');">Play Audio</button>
+
+<p id = 'when_we'> When we have two separate arrays and we need to merge them into one massive list, we use <code>concat()</code>. This method does not alter our original arrays; instead, it returns a brand-new array containing all the combined data. </p>
 
 <hr>
 
@@ -71,8 +75,12 @@ console.log(grandArmada);
     Your browser does not support the audio element.
     </audio>
 
-    <h2> Description: </h2>
-    <p> This method is used to assemble a massive allied armada. It takes our original array and seamlessly merges it with one or more additional arrays. The most important tactical detail: it is completely non-destructive! It leaves the original fleets perfectly intact in their respective sectors and returns a <b>brand-new array</b> containing the combined forces. </p>
+    <button onclick="readText('description');">Play Audio</button>
+
+    <div id = 'description'>
+        <h2> Description: </h2>
+        <p> This method is used to assemble a massive allied armada. It takes our original array and seamlessly merges it with one or more additional arrays. The most important tactical detail: it is completely non-destructive! It leaves the original fleets perfectly intact in their respective sectors and returns a <b>brand-new array</b> containing the combined forces. </p>
+    </div>
 
     <hr class="tech-divider">
 </div>
