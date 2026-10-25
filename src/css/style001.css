@@ -273,6 +273,7 @@ audio {
     /* Inverts light colors to dark while keeping contrast intact */
     filter: invert(90%) hue-rotate(180deg); 
     border-radius: 50px; /* rounds the edges cleanly */
+}
 
 /* Syntax Highlighting Colors */
 
