@@ -102,6 +102,12 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_reordering_data_sort_equivalent.html'
     },
+
+    {
+        name: 'OoO Data Accumulation ("reduce")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_data_accumulation_reduce_equivalent.html'
+    },
     
     
 ];
