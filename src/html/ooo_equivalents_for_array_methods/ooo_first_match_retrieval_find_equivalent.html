@@ -1,0 +1,115 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_first_match_retrieval_find_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: First Match Retrieval (find Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: First Match Retrieval (The "Find" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>find()</code> method executes a high-speed search. It scans the sequence and returns the very first item that passes the test, immediately halting the loop to save processing power. </p>
+
+    <p> To perform a targeted search on a multidimensional Object, we chain <code>Object.entries()</code> with the standard <code>.find()</code> method. Because <code>entries()</code> converts our database into a 2D Array of Pairs, a successful search will hand us a single Array containing <code>[vesselName, vesselSpecs]</code>. If the search turns up empty, it returns <code>undefined</code>. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    pegasus: 
+    {
+        class: 'oberth',
+        status: 'missing'
+    },
+
+    equinox: 
+    {
+        class: 'nova',
+        status: 'missing'
+    }
+};
+
+// We use .find() to locate the FIRST vessel flagged as 'missing'
+let searchResult = Object.entries(starfleetDatabase).find(([vesselName, specs]) => specs.status === 'missing');
+
+// Check if the search actually found something before trying to read it!
+if (searchResult !== undefined) 
+{
+    // Destructure the returned pair into two separate variables
+    let [foundName, foundSpecs] = searchResult;
+    
+    console.log("Search and Rescue Target Acquired:");
+    console.log("Registry : " + foundName.toUpperCase());
+    console.log("Class    : " + foundSpecs.class);
+} 
+else 
+{
+    console.log("All vessels accounted for.");
+}
+
+/*
+Search and Rescue Target Acquired:
+Registry : PEGASUS
+Class    : oberth
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let result = Object.entries(parentObject).find(([key, data]) => data.property === 'condition');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (if found) or Undefined (if not found). Unlike <code>filter()</code> which returns a new Object, <code>find()</code> returns a single 2-item Array containing the matched <code>[StringKey, NestedObject]</code>. Notice how the scanner found the Pegasus and immediately stopped, never even checking the Equinox. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>find()</code> operation is designed for speed and efficiency. When managing massive databases containing tens of thousands of records, we do not want to use <code>filter()</code> if we are only looking for a single specific entry (like an ID number or a unique sensor anomaly). By pairing it with <code>Object.entries()</code>, we force JavaScript to iterate through our Object chronologically, guaranteeing that it grabs the oldest matching vessel in the registry and instantly releases the CPU to perform other tasks. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

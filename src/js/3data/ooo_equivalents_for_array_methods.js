@@ -61,6 +61,11 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_targeted_extraction_filter_equivalent.html'
     },
         
+    {
+        name: 'OoO First Match Retrieval ("find")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_first_match_retrieval_find_equivalent.html'
+    },
 
 ];
 
