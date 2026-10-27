@@ -1,0 +1,115 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_extracting_a_section_slice_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Extracting a Section (slice Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Extracting a Section (The "Slice" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>slice(start, end)</code> method copies a section of our data into a brand new Array. It begins at the <code>start</code> index and stops right before the <code>end</code> index, leaving the original list completely untouched. </p>
+
+    <p> To extract a consecutive chunk of vessels from a multidimensional Object, we chain three commands. First, we use <code>Object.entries()</code> to convert our database into a 2D Array with numerical positions. Second, we use standard <code>.slice()</code> to extract the section we want. Finally, we wrap the result in <code>Object.fromEntries()</code> to reconstruct a brand new, perfectly structured Object of Objects. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution'
+    },
+    defiant: 
+    {
+        class: 'escort'
+    },
+    voyager: 
+    {
+        class: 'intrepid'
+    },
+    cerritos: 
+    {
+        class: 'california'
+    },
+    titan: 
+    {
+        class: 'luna'
+    }
+};
+
+// We want a sub-registry containing the 2nd, 3rd, and 4th vessels.
+// We start at index 1 (defiant) and stop BEFORE index 4 (titan).
+let patrolSquadron = Object.fromEntries(
+    Object.entries(starfleetDatabase).slice(1, 4)
+);
+
+console.log("Patrol Squadron Extracted:", patrolSquadron);
+
+/*
+Patrol Squadron Extracted:
+Object { defiant: {…}, voyager: {…}, cerritos: {…} }
+
+defiant: Object { class: "escort" }
+voyager: Object { class: "intrepid" }
+cerritos: Object { class: "california" }
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let subObject = Object.fromEntries(
+    Object.entries(parentObject).slice(startIndex, endIndex)
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object. Returns a brand new multidimensional Object containing only the vessels that fell within our sliced boundary. The original parent Object is completely unmutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>slice()</code> equivalent is incredibly useful for pagination in user interfaces (e.g., "Displaying results 10 through 20"). Because modern JavaScript guarantees that Object Keys remain in the exact chronological order they were inserted, we can confidently rely on <code>Object.entries()</code> to give us an accurate numerical timeline of our database. This allows us to safely extract historical "chunks" of our fleet registry without risking data corruption. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

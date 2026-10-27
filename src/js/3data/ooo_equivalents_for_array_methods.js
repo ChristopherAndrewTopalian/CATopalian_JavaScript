@@ -84,6 +84,13 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_locating_positions_indexOf_findIndex_equivalent.html'
     },
+
+    {
+        name: 'OoO Extracting a Section ("slice")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_extracting_a_section_slice_equivalent.html'
+    },
+    
     
 ];
 
