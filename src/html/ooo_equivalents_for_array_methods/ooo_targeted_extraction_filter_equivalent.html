@@ -1,0 +1,117 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_targeted_extraction_filter_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Targeted Extraction (Filter Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Targeted Extraction (The "Filter" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>filter()</code> method allows us to sift through a massive list and extract a smaller subset of data that meets a specific condition. </p>
+
+    <p> To filter a multidimensional Object while preserving our named Keys, we must execute a three-step command chain. First, we use <code>Object.entries()</code> to convert our database into a 2D Array. Second, we use the standard <code>.filter()</code> method to isolate the vessels we want. Finally, we wrap the entire operation in <b><code>Object.fromEntries()</code></b>, which magically sews the filtered Array back together into a brand new, perfectly structured Object of Objects. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    },
+
+    voyager: 
+    {
+        class: 'intrepid',
+        status: 'active'
+    },
+    
+    cerritos: 
+    {
+        class: 'california',
+        status: 'docked'
+    }
+};
+
+// We chain three powerful commands together to create a brand new 
+// Object containing ONLY the vessels that are currently 'docked'
+let dockedVessels = Object.fromEntries(
+    Object.entries(starfleetDatabase).filter(([vesselName, specs]) => specs.status === 'docked')
+);
+
+console.log("Docked Vessels Sub-Registry:", dockedVessels);
+
+/*
+Docked Vessels Sub-Registry:
+Object { defiant: {…}, cerritos: {…} }
+
+defiant: Object { class: "escort", status: "docked" }
+cerritos: Object { class: "california", status: "docked" }
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let subObject = Object.fromEntries(
+    Object.entries(parentObject).filter(([key, data]) => data.property === 'condition')
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object. Returns a brand new multidimensional Object containing only the Key-Value pairs that passed the True/False filter test. The original parent Object is completely unmutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>Object.fromEntries()</code> is the missing link that completes the multidimensional Object lifecycle. For years, developers struggled to filter Objects because Array methods destroy the Object architecture. By chaining these commands, we essentially dismantle the ship (<code>entries</code>), run the parts through a scanner (<code>filter</code>), and reassemble the surviving pieces back into a fully operational vessel (<code>fromEntries</code>). This exact pattern is the industry standard for querying and parsing massive JSON configurations and NoSQL databases. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

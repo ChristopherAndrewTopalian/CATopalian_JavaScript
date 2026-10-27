@@ -54,7 +54,13 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_universal_verification_every_equivalent.html'
     },
-    
+
+    {
+        name: 'OoO Targeted Extraction ("filter")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_targeted_extraction_filter_equivalent.html'
+    },
+        
 
 ];
 
