@@ -1,0 +1,129 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_reordering_data_sort_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Reordering Data (Sort Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Reordering Data (The "Sort" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>sort()</code> method physically reorders the items in the list based on a mathematical comparison. </p>
+
+    <p> Multidimensional Objects cannot be sorted natively. However, because modern JavaScript preserves the insertion order of Object Keys, we can extract our database into a 2D Array using <code>Object.entries()</code>, sort that Array, and use <code>Object.fromEntries()</code> to construct a brand new Object in perfect alphabetical or tactical order. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: ES5 Version (Sorting Alphabetically by Vessel Name)
+
+let starfleetDatabase = {
+    voyager: { class: 'intrepid' },
+    defiant: { class: 'escort' },
+    enterprise: { class: 'constitution' }
+};
+
+// In a 2D Array, 'a[0]' and 'b[0]' represent the string Keys (the Names).
+// We use a classic alphabetical sorting algorithm.
+let sortedAlphabetically = Object.fromEntries(
+    Object.entries(starfleetDatabase).sort(function(a, b) {
+        if (a[0] < b[0]) { return -1; }
+        if (a[0] > b[0]) { return 1; }
+        return 0;
+    })
+);
+
+console.log("Alphabetical Registry:", sortedAlphabetically);
+/*
+Alphabetical Registry:
+Object { defiant: {…}, enterprise: {…}, voyager: {…} }
+*/
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: ES6 Version (Sorting Numerically by Nested Specs)
+
+let tacticalDatabase = {
+    enterprise: { maxWarp: 9.0 },
+    voyager: { maxWarp: 9.975 },
+    defiant: { maxWarp: 9.5 }
+};
+
+// 'a[1]' and 'b[1]' represent our nested Objects.
+// We access the maxWarp property to sort from Highest to Lowest (b - a).
+let sortedBySpeed = Object.fromEntries(
+    Object.entries(tacticalDatabase).sort((a, b) => b[1].maxWarp - a[1].maxWarp)
+);
+
+console.log("Tactical Speed Hierarchy:", sortedBySpeed);
+/*
+Tactical Speed Hierarchy:
+Object { voyager: {…}, defiant: {…}, enterprise: {…} }
+*/
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code" data-language="js">let sortedObject = Object.fromEntries(
+    Object.entries(parentObject).sort(function(a, b) {
+        // Return negative, positive, or zero
+    })
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code" data-language="js">let sortedObject = Object.fromEntries(
+    Object.entries(parentObject).sort((a, b) => b[1].number - a[1].number)
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object. Returns a brand new multidimensional Object with its internal Keys permanently reorganized into the requested chronological order. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>sort()</code> method operates by comparing two items (<code>a</code> and <code>b</code>) against each other sequentially. Because our conversion chain creates a 2D Array, <code>a</code> and <code>b</code> are actually pairs. We must explicitly tell the engine whether to compare the names at index <code>[0]</code>, or dive into the physical data at index <code>[1]</code>. This level of control allows us to instantly reorganize massive databases by date commissioned, crew size, shield capacity, or standard alphabetical registry. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

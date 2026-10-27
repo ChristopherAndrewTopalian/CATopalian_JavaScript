@@ -96,6 +96,13 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_fleet_reorganization_splice_equivalent.html'
     },
+
+    {
+        name: 'OoO Reordering Data ("sort")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_reordering_data_sort_equivalent.html'
+    },
+    
     
 ];
 
