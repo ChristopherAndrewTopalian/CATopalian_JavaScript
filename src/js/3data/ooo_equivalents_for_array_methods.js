@@ -120,6 +120,12 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_structural_lockdown_seal_unseal_equivalent.html'
     },
+
+    {
+        name: 'OoO Deep Security Scan ("hasOwn")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_deep_security_scan_hasOwn.html'
+    },
     
 ];
 

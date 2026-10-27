@@ -1,0 +1,116 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_deep_security_scan_hasOwn.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Deep Security Scan (hasOwn / hasOwnProperty) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Deep Security Scan (hasOwn vs hasOwnProperty) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating a multidimensional Object, we frequently need to verify if a specific Key (Vessel Name) exists in the registry. </p>
+
+    <p> For years, developers relied on the built-in <code>.hasOwnProperty()</code> command. However, this created a severe security vulnerability: if an enemy altered the database and named a malicious vessel "hasOwnProperty", it would overwrite the scanner and crash the system! To fix this, modern JavaScript (ES2022) introduced <b><code>Object.hasOwn()</code></b>. It is an external, bulletproof scanner that safely verifies if a Key exists without trusting the internal data of the Object itself. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: The ES5 Legacy Method (hasOwnProperty)
+
+let starfleetDatabase = {
+    enterprise: { class: 'constitution' },
+    defiant: { class: 'escort' }
+};
+
+// We ask the database to check ITSELF to see if 'defiant' exists.
+let foundDefiant = starfleetDatabase.hasOwnProperty('defiant');
+
+console.log("Defiant Registry Verified: " + foundDefiant);
+// Result: true
+
+/* 
+WARNING: If a rogue engineer injects this:
+starfleetDatabase.hasOwnProperty = false;
+The entire scanning system is now permanently broken!
+*/
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: The Modern Standard (Object.hasOwn)
+
+let secureDatabase = {
+    enterprise: { class: 'constitution' },
+    defiant: { class: 'escort' }
+};
+
+// We use the global Object scanner to look inside our database.
+// Syntax: Object.hasOwn(targetObject, 'stringKey')
+let foundEnterprise = Object.hasOwn(secureDatabase, 'enterprise');
+let foundBorg = Object.hasOwn(secureDatabase, 'cube');
+
+console.log("Enterprise Registry Verified: " + foundEnterprise);
+// Result: true
+
+console.log("Borg Cube Verified: " + foundBorg);
+// Result: false
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (Legacy ES5) </b></h4>
+        <pre><code class="custom-code" data-language="js">parentObject.hasOwnProperty('targetKey');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (Modern Standard) </b></h4>
+        <pre><code class="custom-code" data-language="js">Object.hasOwn(parentObject, 'targetKey');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean. Returns <code>true</code> if the specified String Key exists directly inside the targeted Object. Returns <code>false</code> if the Key does not exist, or if the Key is merely a "ghost" inherited from the Object's Prototype chain. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>Object.hasOwn()</code> is the ultimate Key verification tool. While you can use the simple <code>in</code> operator (e.g., <code>'enterprise' in secureDatabase</code>), the <code>in</code> operator is easily tricked by inherited properties. <code>Object.hasOwn()</code> executes a strict, physical scan of the immediate memory block. By forcing the scan to run from the global <code>Object</code> command rather than asking the database to scan itself, we completely eliminate the risk of prototype hijacking, ensuring our fleet registry remains mathematically secure. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>
