@@ -1,0 +1,121 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_locating_positions_indexOf_findIndex_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Locating Positions (indexOf / findIndex Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Locating Positions (The "indexOf" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>indexOf()</code> method searches for a specific item and returns its exact numerical position in the line (like <code>0</code>, <code>1</code>, or <code>2</code>). If the item doesn't exist, it returns <code>-1</code>. </p>
+
+    <p> Multidimensional Objects use named Keys instead of numbers. But if we need to know a vessel's numerical placement in the rendering queue, we can extract an Array using <code>Object.keys()</code> or <code>Object.values()</code>, and then run our positional scanners. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: Finding Position by Name (indexOf)
+// No callback function needed, works identically in ES5 and ES6
+
+let starfleetDatabase = {
+    enterprise: { class: 'constitution' },
+    defiant: { class: 'escort' },
+    voyager: { class: 'intrepid' }
+};
+
+// We convert the names to an Array, then find the Defiants number
+let defiantPosition = Object.keys(starfleetDatabase).indexOf('defiant');
+let pegasusPosition = Object.keys(starfleetDatabase).indexOf('pegasus');
+
+console.log("Defiant is at index: " + defiantPosition); 
+// Result: 1 (The second ship)
+
+console.log("Pegasus is at index: " + pegasusPosition); 
+// Result: -1 (Ship not found in registry)
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: Finding Position by Specs (findIndex) - ES5 Version
+
+// We need the numerical position of the first 'intrepid' class ship, 
+// but we do not know its name!
+
+let intrepidPosition = Object.values(starfleetDatabase).findIndex(function(vessel) {
+    return vessel.class === 'intrepid';
+});
+
+console.log("Intrepid class found at index: " + intrepidPosition);
+// Result: 2
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 3: Finding Position by Specs (findIndex) - ES6 Version
+
+let intrepidPositionES6 = Object.values(starfleetDatabase).findIndex(vessel => vessel.class === 'intrepid');
+
+console.log("Intrepid class found at index: " + intrepidPositionES6);
+// Result: 2
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">// When searching by Key Name:
+Object.keys(parentObject).indexOf('targetKey');
+
+// When searching by nested data:
+Object.values(parentObject).findIndex(item => item.property === 'condition');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Number (Integer). Returns the numerical index (starting at <code>0</code>) of the first matching item. If the scanner searches the entire database and finds absolutely nothing, it will always return <code>-1</code>. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> In a multidimensional Object, retrieving a numerical index is primarily useful for user interface generation (e.g., displaying "Ship 3 of 50" on a viewscreen). <code>indexOf()</code> is highly efficient but only works with flat strings, making it perfect for searching our <code>Object.keys()</code> array. When we need to search deep inside our nested vessel data, we upgrade to <code>findIndex()</code> and pass it a testing function, allowing us to find a numerical position based on a ship's class, status, or shield strength. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

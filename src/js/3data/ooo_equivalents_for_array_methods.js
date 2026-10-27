@@ -78,6 +78,12 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_verifying_existence_includes_some_equivalent.html'
     },
+
+    {
+        name: 'OoO Locating Positions ("indexOf" | "findIndex")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_locating_positions_indexOf_findIndex_equivalent.html'
+    },
     
 ];
 
