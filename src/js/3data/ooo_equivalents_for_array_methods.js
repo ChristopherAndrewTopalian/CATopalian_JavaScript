@@ -115,6 +115,11 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_security_quarantine_freeze_unfreeze_equivalent.html'
     },
      
+    {
+        name: 'OoO Structural Lockdown ("seal" | "unseal")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_structural_lockdown_seal_unseal_equivalent.html'
+    },
     
 ];
 
