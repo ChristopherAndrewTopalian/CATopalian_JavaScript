@@ -1,0 +1,119 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_fleet_reorganization_splice_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Fleet Reorganization (Splice Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Fleet Reorganization (The "Splice" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>splice()</code> method is a destructive force. It allows us to target a specific index, delete a precise number of items, and instantly inject new items into that exact empty space. </p>
+
+    <p> To execute a mid-registry reorganization in a multidimensional Object, we must convert our database into a 2D Array using <code>Object.entries()</code>. Once in Array format, we can <code>.splice()</code> the data. If we are inserting new vessels, we must pass them in as <code>['registryName', {specs}]</code> pairs. Finally, we use <code>Object.fromEntries()</code> to compile the array back into an Object, and overwrite our original database. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution'
+    },
+    pegasus: 
+    {
+        class: 'oberth'
+    },
+    voyager: 
+    {
+        class: 'intrepid'
+    }
+};
+
+// 1. Convert the database to a 2D Array
+let registryArray = Object.entries(starfleetDatabase);
+
+// 2. Perform the Splice Operation
+// Syntax: splice(startIndex, deleteCount, ...newItems)
+// We start at index 1 (pegasus), delete 1 vessel, and insert two new ones!
+registryArray.splice(1, 1, 
+    ['titan', { class: 'luna' }], 
+    ['farragut', { class: 'nebula' }]
+);
+
+// 3. Rebuild the Object and overwrite the old database
+starfleetDatabase = Object.fromEntries(registryArray);
+
+console.log("Reorganized Fleet Registry:", starfleetDatabase);
+
+/*
+Reorganized Fleet Registry:
+Object { enterprise: {…}, titan: {…}, farragut: {…}, voyager: {…} }
+
+enterprise: Object { class: "constitution" }
+titan: Object { class: "luna" }
+farragut: Object { class: "nebula" }
+voyager: Object { class: "intrepid" }
+
+<prototype>: Object { … }
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let tempArray = Object.entries(parentObject);
+
+// Remove items AND insert new [key, value] pairs
+tempArray.splice(startIndex, deleteCount, ['newKey1', {data1}], ['newKey2', {data2}]);
+
+parentObject = Object.fromEntries(tempArray);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Array (of deleted items). The <code>splice()</code> operation itself returns an Array containing whatever vessels were deleted. However, its primary purpose is "mutation", physically altering the original sequence. By wrapping it in our conversion chain, we successfully reorganize the insertion order of our primary database. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This is the most complex structural operation we can perform on a multidimensional Object. Because JavaScript modernizes Object architecture by remembering the exact chronological order Keys were inserted, <code>splice()</code> gives us the power to rewrite history. If a user interface requires a specific vessel to be rendered strictly between two other vessels, this three-step conversion chain is the only mathematically sound way to forcibly insert a new Key into the middle of an Object's timeline. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

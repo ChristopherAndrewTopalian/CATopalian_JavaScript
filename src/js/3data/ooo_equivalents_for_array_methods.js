@@ -91,6 +91,11 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_extracting_a_section_slice_equivalent.html'
     },
     
+    {
+        name: 'OoO Fleet Reorganization ("splice")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_fleet_reorganization_splice_equivalent.html'
+    },
     
 ];
 
