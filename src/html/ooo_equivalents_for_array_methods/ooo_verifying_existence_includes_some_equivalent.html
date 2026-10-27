@@ -1,0 +1,125 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_verifying_existence_includes_some_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Verifying Existence (Includes / Some Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Verifying Existence (The "Includes" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>includes()</code> method scans a list for a simple string or number and returns a <code>true</code> or <code>false</code> boolean. </p>
+
+    <p> Because a multidimensional Object contains nested data, we cannot just ask if a simple string is "included" inside it. Instead, we use <b><code>Object.values()</code></b> to extract the vessel data, and chain it with the <b><code>.some()</code></b> method. This allows us to run a high-speed boolean check across the entire registry to verify if <i>at least one</i> vessel meets our criteria. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: ES5 Version
+
+let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    }
+};
+
+// We check if our fleet includes at least one 'escort' class vessel
+let hasEscort = Object.values(starfleetDatabase).some(function(vessel) {
+    return vessel.class === 'escort';
+});
+
+console.log("Does the fleet include an escort vessel? " + hasEscort);
+// Result: Does the fleet include an escort vessel? true
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: ES6 Version
+
+let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        status: 'active' 
+    },
+    defiant: 
+    {
+        class: 'escort',
+        status: 'docked'
+    }
+};
+
+// We check if our fleet includes at least one 'escort' class vessel
+let hasEscort = Object.values(starfleetDatabase).some(vessel => vessel.class === 'escort');
+
+console.log("Does the fleet include an escort vessel? " + hasEscort);
+// Result: Does the fleet include an escort vessel? true
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (ES5 Version) </b></h4>
+        <pre><code class="custom-code" data-language="js">Object.values(parentObject).some(function(item) { 
+    return item.property === 'condition'; 
+});</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (ES6 Version) </b></h4>
+        <pre><code class="custom-code" data-language="js">Object.values(parentObject).some(item => item.property === 'condition');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean. Returns <code>true</code> if the callback function finds even a single match, and <code>false</code> if it scans the entire database without finding a match. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> The <code>.some()</code> method is the direct counterpart to <code>.every()</code>, and serves as the structural equivalent of an Array's <code>includes()</code> method. It is highly optimized for performance using "short-circuit" logic. The absolute moment it evaluates a vessel that returns <code>true</code>, it immediately halts the loop, drops the remaining queue, and reports the verification back to command. <i>Note: If you only need to know if a specific vessel's Name (Key) exists, you can bypass loops entirely and use the O(1) syntax: <code>'defiant' in starfleetDatabase</code>.</i> </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

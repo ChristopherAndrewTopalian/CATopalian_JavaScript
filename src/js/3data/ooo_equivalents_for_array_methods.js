@@ -73,6 +73,12 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_executing_orders_forEach_equivalent.html'
     },
 
+    {
+        name: 'OoO Verifying Existence ("includes" | "some")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_verifying_existence_includes_some_equivalent.html'
+    },
+    
 ];
 
 //----//
