@@ -132,6 +132,12 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_iterating_the_fleet_for_in_vs_entries.html'
     },
+
+    {
+        name: 'OoO Fleet Retrofit ("map")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_fleet_retrofit_map_equivalent.html'
+    },
         
 ];
 

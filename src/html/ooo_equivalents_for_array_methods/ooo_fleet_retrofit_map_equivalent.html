@@ -1,0 +1,135 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_fleet_retrofit_map_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Fleet Retrofit (Map Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Fleet Retrofit (The "Map" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>map()</code> method sweeps through the list, modifies every single item, and constructs a <b>brand-new array</b> out of the upgraded results without touching the original data. </p>
+
+    <p> To execute a 1-to-1 data transformation on a multidimensional Object, we chain three commands. First, <code>Object.entries()</code> breaks our database into <code>[StringKey, NestedObject]</code> pairs. Next, we use <code>.map()</code> to alter the data inside those pairs. Finally, <code>Object.fromEntries()</code> sews the pairs back together into a brand-new Object of Objects, leaving our original historical database completely unharmed. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: The ES5 Legacy Syntax
+
+let starfleetDatabase = {
+    enterprise: { class: 'constitution', shields: 100 },
+    defiant: { class: 'escort', shields: 100 }
+};
+
+// We use standard functions and Object.assign to safely copy and upgrade the data
+let retrofittedFleet = Object.fromEntries(
+    Object.entries(starfleetDatabase).map(function(shipPair) {
+        let shipName = shipPair[0];
+        let specs = shipPair[1];
+        
+        // We create a fresh copy of the specs so we don't mutate the original!
+        let upgradedSpecs = Object.assign({}, specs);
+        upgradedSpecs.shields = 200; // Double the shield capacity!
+        
+        // We return the pair in its original [Key, Value] format
+        return [shipName, upgradedSpecs];
+    })
+);
+
+console.log("Original Enterprise Shields:", starfleetDatabase.enterprise.shields);
+// Result: 100
+
+console.log("Retrofitted Enterprise Shields:", retrofittedFleet.enterprise.shields);
+// Result: 200
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: The Modern ES6 Standard
+
+let starfleetDatabase = {
+    enterprise: { class: 'constitution', shields: 100 },
+    defiant: { class: 'escort', shields: 100 }
+};
+
+// We use Array Destructuring [shipName, specs] and the Spread Syntax (...)
+// to condense the entire operation into a single, elegant command.
+let retrofittedFleet = Object.fromEntries(
+    Object.entries(starfleetDatabase).map(([shipName, specs]) => [
+        shipName, 
+        { ...specs, shields: 200 }
+    ])
+);
+
+console.log("Retrofitted Defiant Shields:", retrofittedFleet.defiant.shields);
+// Result: 200
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax (Legacy ES5 Syntax) </b></h4>
+        <pre><code class="custom-code" data-language="js">let newObject = Object.fromEntries(
+    Object.entries(parentObject).map(function(pair) {
+        let key = pair[0];
+        let data = pair[1];
+        // modify data safely here
+        return [key, data];
+    })
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h4><b> Syntax (Modern ES6) </b></h4>
+        <pre><code class="custom-code" data-language="js">let newObject = Object.fromEntries(
+    Object.entries(parentObject).map(([key, data]) => [key, { ...data, newProp: 'value' }])
+);</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object. Returns a brand-new, structurally identical multidimensional Object, but with all of the nested data transformed by your function. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>map()</code> is the ultimate tool for safe, non-destructive data mutation. Because it returns a completely new Object, it is the golden standard in modern frameworks (like React or Vue) where directly altering an original database is strictly forbidden. The ES6 version beautifully showcases the power of the Spread Syntax (<code>...specs</code>), which instantly unpacks all the old ship data into the new Object before applying our shield upgrades over the top. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>
