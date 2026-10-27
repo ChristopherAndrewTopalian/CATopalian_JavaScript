@@ -108,7 +108,13 @@ let ooo_equivalents_for_array_methods = [
         category: 'ooo_equivalents_for_array_methods',
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_data_accumulation_reduce_equivalent.html'
     },
-    
+
+    {
+        name: 'OoO Security Quarantine ("freeze" | "unfreeze")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_security_quarantine_freeze_unfreeze_equivalent.html'
+    },
+     
     
 ];
 

@@ -1,0 +1,107 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_security_quarantine_freeze_unfreeze_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Security & Quarantine (freeze & "Unfreeze") </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Object of Objects: Security & Quarantine (Freeze & "Unfreeze") </h1>
+
+    <hr class="tech-divider">
+
+    <p> Sometimes a fleet registry is classified and must be protected from accidental tampering or unauthorized edits. </p>
+
+    <p> By passing our database through <b><code>Object.freeze()</code></b>, we place it under permanent quarantine. No vessels can be added, deleted, or modified. But beware: JavaScript does <b>not</b> have an "unfreeze" command! Once frozen, that specific Object is locked forever. To restore write-access, we must "unfreeze" the data by cloning it into a brand new, unrestricted Object using the Spread Syntax (<code>...</code>). </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: Locking Down the Registry
+
+let classifiedDatabase = {
+    defiant: { class: 'escort', shields: 'maximum' },
+    pegasus: { class: 'oberth', shields: 'offline' }
+};
+
+// 1. We lock the database permanently
+Object.freeze(classifiedDatabase);
+
+// 2. An unauthorized user attempts to alter the shield data
+classifiedDatabase.pegasus.shields = 'maximum';
+
+// 3. The data remains completely unchanged!
+console.log("Pegasus Shields:", classifiedDatabase.pegasus.shields); 
+// Result: offline
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: The "Unfreeze" Workaround (Cloning)
+
+// We cannot unfreeze the original classified database.
+// Instead, we unpack its data into a brand NEW Object!
+let unrestrictedDatabase = { ...classifiedDatabase };
+
+// Now we can successfully alter the data in our new clone
+unrestrictedDatabase.pegasus.shields = 'maximum';
+
+console.log("Unrestricted Pegasus Shields:", unrestrictedDatabase.pegasus.shields);
+// Result: maximum
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">// To Freeze:
+Object.freeze(parentObject);
+
+// To "Unfreeze" (Clone):
+let newObject = { ...parentObject };</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Object. <code>Object.freeze()</code> returns the exact same object that was passed into it, but alters its internal memory permissions to strictly "Read-Only". </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>Object.freeze()</code> is a critical security measure in modern software engineering, heavily used in "State Management" to ensure that global configurations or tactical readouts cannot be accidentally mutated by rogue functions. If a script attempts to modify a frozen Object in standard JavaScript, it simply fails silently. If the script is running in "Strict Mode" (<code>'use strict';</code>), attempting to alter a frozen Object will throw a fatal error and crash the program, alerting command to the security breach. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>
