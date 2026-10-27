@@ -49,6 +49,13 @@ let ooo_equivalents_for_array_methods = [
         urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_iterating_pairs_entries_equivalent.html'
     },
 
+    {
+        name: 'OoO Universal Verification ("every")',
+        category: 'ooo_equivalents_for_array_methods',
+        urlOffline: 'src/html/ooo_equivalents_for_array_methods/ooo_universal_verification_every_equivalent.html'
+    },
+    
+
 ];
 
 //----//

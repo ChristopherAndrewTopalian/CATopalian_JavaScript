@@ -1,0 +1,113 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- ooo_universal_verification_every_equivalent.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Object of Objects: Universal Verification (every Equivalent) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+<script src = '../../js/location/copyPageURL.js'></script>
+
+<script src = '../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id = 'all'>
+
+    <h1> Object of Objects: Universal Verification (The "Every" Equivalent) </h1>
+
+    <hr class="tech-divider">
+
+    <p> When operating an Array, the <code>every()</code> method acts as a universal safety check. It runs a test on our data and returns <code>true</code> only if every single item in the sequence passes the strict condition. </p>
+
+    <p> To run this same fleet-wide diagnostic on a multidimensional Object, we utilize <b><code>Object.values()</code></b>. This command strips away the string Keys (the ship names) and generates a pure Array containing only the nested data Objects. Once we have that temporary Array, we chain the standard <code>.every()</code> method directly to it, allowing us to instantly verify if our entire fleet meets a specific operational requirement. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">let starfleetDatabase = {
+    enterprise: 
+    {
+        class: 'constitution',
+        warpCore: 'stable' 
+    },
+
+    defiant: 
+    {
+        class: 'escort',
+        warpCore: 'stable'
+    },
+
+    voyager: 
+    {
+        class: 'intrepid',
+        warpCore: 'stable'
+    }
+};
+
+// 1. We extract an Array of just the vessel specs using Object.values()
+// 2. We chain .every() to check if ALL vessels have a stable warp core
+let fleetReady = Object.values(starfleetDatabase).every(vessel => vessel.warpCore === 'stable');
+
+console.log("Is the entire fleet warp-capable? " + fleetReady);
+
+// Now, the Defiant takes battle damage
+starfleetDatabase.defiant.warpCore = 'critical';
+
+// We run the exact same diagnostic test again
+let fleetReadyNow = Object.values(starfleetDatabase).every(vessel => vessel.warpCore === 'stable');
+
+console.log("Is the fleet warp-capable after battle? " + fleetReadyNow);
+
+/*
+Is the entire fleet warp-capable? true
+Is the fleet warp-capable after battle? false
+*/
+</code></pre>
+    </div>
+
+    <hr class="tech-divider">
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code" data-language="js">let result = Object.values(parentObject).every(item => item.property === 'condition');</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Boolean. Returns <code>true</code> if the callback function returns a truthy value for every single Key-Value pair in the Object. Otherwise, it returns <code>false</code>. The original parent Object is completely unmutated. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> <code>Object.values()</code> is the third and final core diagnostic tool, sitting right alongside <code>keys()</code> and <code>entries()</code>. It is specifically designed for moments when we care about the <i>data</i>, but do not care about the <i>name</i>. The beauty of the <code>every()</code> method is its hardware efficiency: it utilizes "short-circuit" logic. The absolute nanosecond it finds a vessel with a failing warp core, it aborts the loop, immediately returns <code>false</code>, and saves the CPU from having to check the rest of the database. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick = "copyPageURL()"> Copy Page URL </button>
+
+<hr class = 'hr_spacer'>
+
+</body>
+
+</html>
