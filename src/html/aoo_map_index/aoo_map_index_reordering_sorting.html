@@ -1,0 +1,123 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- aoo_map_index_reordering_sorting.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Array of Objects: Reordering and Sorting </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+    <h1> Array of Objects: Reordering and Sorting </h1>
+
+    <hr class="tech-divider">
+
+    <p> In any large application, we inevitably need to sort our data. We might need to render a UI leaderboard, organize ships by tactical priority, or alphabetize our registry. We know that <code>Array.prototype.sort()</code> physically shuffles the rows in our Spreadsheet. </p>
+
+    <p> This raises a critical question: <strong>If we shuffle the rows in our Array, does it break our Map index?</strong> Do we have to rebuild the entire Map every time we sort the Array? </p>
+
+    <p> Because of the magic of <strong>Memory References</strong> we learned in the last tutorial, the answer is no. The Map does not store the Array's row number; it holds a direct tether to the Object itself. We can shuffle the Array as much as we want, and our 0ms Map lookup will never fail. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: Sorting the Master Array
+
+var fleetArray = [
+    { id: 'voyager', class: 'intrepid', priority: 3 },
+    { id: 'enterprise', class: 'constitution', priority: 1 },
+    { id: 'defiant', class: 'escort', priority: 2 }
+];
+
+var fleetIndex = new Map();
+
+// Build the index ONCE
+for (var i = 0; i < fleetArray.length; i++) {
+    fleetIndex.set(fleetArray[i].id, fleetArray[i]);
+}
+
+console.log("Before Sort - Row 0:", fleetArray[0].id); // Output: voyager
+
+// Sort the Array by Tactical Priority (Lowest number first)
+fleetArray.sort(function(a, b) {
+    return a.priority - b.priority;
+});
+
+console.log("After Sort - Row 0:", fleetArray[0].id);  // Output: enterprise
+console.log("After Sort - Row 2:", fleetArray[2].id);  // Output: voyager
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: The Magic Lookup Test
+
+// Our Array has been completely shuffled. 'voyager' was moved from 
+// Row 0 all the way to Row 2. Let's see if the Map still knows where it is.
+
+var targetShip = fleetIndex.get('voyager');
+
+console.log("Map found ship:", targetShip.id);
+/*
+Map found ship: voyager
+*/
+
+console.log("Map found priority:", targetShip.priority);
+/*
+Map found priority: 3
+*/
+
+// Proving they are still connected:
+// If we update the target via the Map, the sorted Array still updates!
+targetShip.priority = 99;
+
+console.log("Sorted Array updated:", fleetArray[2].priority);
+/*
+Sorted Array updated: 99
+*/
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h2> Performance & Architecture </h2>
+        <p> <b>Array Sort Speed:</b> <code>O(N log N)</code>. Sorting takes processing power, which is why we want to do it using JavaScript's highly optimized built-in Array methods rather than writing manual loops. </p>
+        <p> <b>Map Lookup Speed:</b> <code>O(1)</code>. The lookup remains perfectly instant, regardless of how the Array is sorted. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> This tutorial proves the ultimate superiority of the <strong>Indexed Array Pattern</strong> over raw Objects. If we were using an "Object of Objects," sorting would require us to extract the keys into a 2D Array, sort them, and then reconstruct an entirely new Object from scratch. By using our hybrid pattern, we just run <code>fleetArray.sort()</code> and walk away. The Array handles the UI rendering sequence, and the Map Index silently maintains perfect 0ms targeting lock on every entity. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>

@@ -13,6 +13,12 @@ let aoo_map_index = [
         urlOffline: 'src/html/aoo_map_index/aoo_map_index_instant_mutation.html'
     }, 
 
+    {
+        name: 'aoo map index reordering and sorting',
+        category: 'aoo_map_index',
+        urlOffline: 'src/html/aoo_map_index/aoo_map_index_reordering_sorting.html'
+    },
+
 ];
 
 //----//
