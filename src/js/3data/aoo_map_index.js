@@ -31,6 +31,13 @@ let aoo_map_index = [
         urlOffline: 'src/html/aoo_map_index/aoo_map_index_data_persistence.html'
     },
 
+    {
+        name: 'aoo map index upsert pattern',
+        category: 'aoo_map_index',
+        urlOffline: 'src/html/aoo_map_index/aoo_map_index_upsert_pattern.html'
+    },
+
+
 ];
 
 //----//
