@@ -292,6 +292,62 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+
+    let aooMapIndexDetails = ce('details');
+    aooMapIndexDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    aooMapIndexDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(aooMapIndexDetails);
+
+    //-//
+
+    let aooMapIndexSummary = ce('summary');
+    aooMapIndexSummary.textContent = 'AOO Map Index';
+    aooMapIndexDetails.append(aooMapIndexSummary);
+
+    for (let x = 0; x < aoo_map_index.length; x++)
+    {
+        if (aoo_map_index[x].category == 'aoo_map_index')
+        {
+            let theButton = ce("button");
+            theButton.textContent = aoo_map_index[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(aoo_map_index[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = aoo_map_index[x].urlOffline;
+            };
+            aooMapIndexDetails.append(theButton);
+        }
+    }
+
+
+    //----//
+
     let objectFlatDetails = ce('details');
     objectFlatDetails.onmouseover = function()
     {
