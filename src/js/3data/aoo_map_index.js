@@ -19,6 +19,12 @@ let aoo_map_index = [
         urlOffline: 'src/html/aoo_map_index/aoo_map_index_reordering_sorting.html'
     },
 
+    {
+        name: 'aoo map index safe deletion',
+        category: 'aoo_map_index',
+        urlOffline: 'src/html/aoo_map_index/aoo_map_index_safe_deletion.html'
+    },
+
 ];
 
 //----//
