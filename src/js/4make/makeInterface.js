@@ -1638,6 +1638,331 @@ function makeInterface(whichArray, whichEntry)
         };
         lifeSciencesDetails.append(theButton);
     }
+
+    //----//
+
+    let aooMapIndexDetails = ce('details');
+    aooMapIndexDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    aooMapIndexDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(aooMapIndexDetails);
+
+    //-//
+
+    let aooMapIndexSummary = ce('summary');
+    aooMapIndexSummary.textContent = 'AOO Map Index';
+    aooMapIndexDetails.append(aooMapIndexSummary);
+
+    for (let x = 0; x < aoo_map_index.length; x++)
+    {
+        if (aoo_map_index[x].category == 'aoo_map_index')
+        {
+            let theButton = ce("button");
+            theButton.textContent = aoo_map_index[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(aoo_map_index[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = aoo_map_index[x].urlOffline;
+            };
+            aooMapIndexDetails.append(theButton);
+        }
+    }
+
+
+    //----//
+
+    let objectFlatDetails = ce('details');
+    objectFlatDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    objectFlatDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(objectFlatDetails);
+
+    //-//
+
+    let objectFlatSummary = ce('summary');
+    objectFlatSummary.textContent = 'Object Flat';
+    objectFlatDetails.append(objectFlatSummary);
+
+    for (let x = 0; x < object_flat.length; x++)
+    {
+        if (object_flat[x].category == 'object')
+        {
+            let theButton = ce("button");
+            theButton.textContent = object_flat[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(object_flat[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = object_flat[x].urlOffline;
+            };
+            objectFlatDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let objectOfObjectsDetails = ce('details');
+    objectOfObjectsDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    objectOfObjectsDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(objectOfObjectsDetails);
+
+    //-//
+
+    let objectOfObjectsSummary = ce('summary');
+    objectOfObjectsSummary.textContent = 'OoO';
+    objectOfObjectsDetails.append(objectOfObjectsSummary);
+
+    for (let x = 0; x < object_of_objects.length; x++)
+    {
+        if (object_of_objects[x].category == 'object')
+        {
+            let theButton = ce("button");
+            theButton.textContent = object_of_objects[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(object_of_objects[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = object_of_objects[x].urlOffline;
+            };
+            objectOfObjectsDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let oooDetails = ce('details');
+    oooDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    oooDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(oooDetails);
+
+    //-//
+
+    let oooSummary = ce('summary');
+    oooSummary.textContent = 'OoO Equivalents for Array Methods';
+    oooDetails.append(oooSummary);
+
+    for (let x = 0; x < ooo_equivalents_for_array_methods.length; x++)
+    {
+        if (ooo_equivalents_for_array_methods[x].category == 'ooo_equivalents_for_array_methods')
+        {
+            let theButton = ce("button");
+            theButton.textContent = ooo_equivalents_for_array_methods[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(ooo_equivalents_for_array_methods[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = ooo_equivalents_for_array_methods[x].urlOffline;
+            };
+            oooDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let objectOfObjectsDODDetails = ce('details');
+    objectOfObjectsDODDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    objectOfObjectsDODDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(objectOfObjectsDODDetails);
+
+    //-//
+
+    let objectOfObjectsDODSummary = ce('summary');
+    objectOfObjectsDODSummary.textContent = 'DOD';
+    objectOfObjectsDODDetails.append(objectOfObjectsDODSummary);
+
+    for (let x = 0; x < data_oriented_design.length; x++)
+    {
+        if (data_oriented_design[x].category == 'object_of_objects')
+        {
+            let theButton = ce("button");
+            theButton.textContent = data_oriented_design[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(data_oriented_design[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = data_oriented_design[x].urlOffline;
+            };
+            objectOfObjectsDODDetails.append(theButton);
+        }
+    }
+
+    //----//
+
+    let aooVsOooDetails = ce('details');
+    aooVsOooDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    aooVsOooDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(aooVsOooDetails);
+
+    //-//
+
+    let aooVsOooSummary = ce('summary');
+    aooVsOooSummary.textContent = 'AoO vs OoO';
+    aooVsOooDetails.append(aooVsOooSummary);
+
+    for (let x = 0; x < aoo_vs_ooo.length; x++)
+    {
+        if (aoo_vs_ooo[x].category == 'aoo_vs_ooo')
+        {
+            let theButton = ce("button");
+            theButton.textContent = aoo_vs_ooo[x].name;
+            theButton.onmouseover = function()
+            {
+                hoverSound();
+            };
+            theButton.oncontextmenu = function()
+            {
+                window.open(aoo_vs_ooo[x].urlOffline);
+            };
+            theButton.onclick = function()
+            {
+                // Turn off the old button (if one exists)
+                if (currentActiveBtn !== null)
+                {
+                    currentActiveBtn.classList.remove('active');
+                }
+
+                // Turn on the new button
+                theButton.classList.add('active');
+
+                // Tell the tracker that THIS is the new active button
+                currentActiveBtn = theButton;
+
+                clickSound();
+                theFrame.src = aoo_vs_ooo[x].urlOffline;
+            };
+            aooVsOooDetails.append(theButton);
+        }
+    }
 }
 
 //----//
