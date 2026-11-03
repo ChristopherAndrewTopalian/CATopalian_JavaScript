@@ -33,7 +33,7 @@ function makeInterface(whichArray, whichEntry)
     theFrame.src = whichArray[whichEntry].urlOffline;
     theFrame.id = "thePdfId";
     theFrame.style.width = '620px';
-    theFrame.style.height = '315px';
+    theFrame.style.height = '100vh';
     theFrame.style.overflowX = 'scroll';
     mainDiv.append(theFrame);
 
