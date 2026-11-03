@@ -1641,6 +1641,13 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let hideOOODetails = ce('details');
+    buttonContainer.append(hideOOODetails);
+
+    let hideOOOSummary = ce('summary');
+    hideOOOSummary.textContent = 'OoO O(n^2)';
+    hideOOODetails.append(hideOOOSummary);
+
     let aooMapIndexDetails = ce('details');
     aooMapIndexDetails.onmouseover = function()
     {
@@ -1650,7 +1657,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(aooMapIndexDetails);
+    hideOOODetails.append(aooMapIndexDetails);
 
     //-//
 
@@ -1705,7 +1712,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(objectFlatDetails);
+    hideOOODetails.append(objectFlatDetails);
 
     //-//
 
@@ -1759,7 +1766,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(objectOfObjectsDetails);
+    hideOOODetails.append(objectOfObjectsDetails);
 
     //-//
 
@@ -1813,7 +1820,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(oooDetails);
+    hideOOODetails.append(oooDetails);
 
     //-//
 
@@ -1867,7 +1874,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(objectOfObjectsDODDetails);
+    hideOOODetails.append(objectOfObjectsDODDetails);
 
     //-//
 
@@ -1921,7 +1928,7 @@ function makeInterface(whichArray, whichEntry)
     {
         //clickSound();
     };
-    buttonContainer.append(aooVsOooDetails);
+    hideOOODetails.append(aooVsOooDetails);
 
     //-//
 
