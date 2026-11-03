@@ -1641,6 +1641,12 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+    let warning = ce('textarea');
+    warning.innerHTML = 'OoO is not a good pattern. It overcomplicates most things. Thus, I include it only to show you that it exists, but you should be using AOO instead, for sanity and efficiency.</pre>';
+    warning.style.backgroundColor = 'black';
+    warning.style.color = 'white';
+    buttonContainer.append(warning);
+
     let hideOOODetails = ce('details');
     buttonContainer.append(hideOOODetails);
 
