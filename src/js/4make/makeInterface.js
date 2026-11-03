@@ -1645,7 +1645,8 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.append(hideOOODetails);
 
     let hideOOOSummary = ce('summary');
-    hideOOOSummary.textContent = 'OoO O(n^2)';
+    hideOOOSummary.style.color = 'rgb(100, 100, 100)';
+    hideOOOSummary.textContent = 'OoO O(n^2) Bad';
     hideOOODetails.append(hideOOOSummary);
 
     let aooMapIndexDetails = ce('details');
