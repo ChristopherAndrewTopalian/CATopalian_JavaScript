@@ -19,7 +19,7 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.style.flexDirection = 'column';
     buttonContainer.style.zIndex = 2;
     buttonContainer.style.width = '130px';
-    buttonContainer.style.height = '320px';
+    //buttonContainer.style.height = '320px';
     buttonContainer.style.overflow = 'scroll';
     buttonContainer.style.whiteSpace = 'nowrap';
     buttonContainer.style.gap = '0.1px';
@@ -1644,12 +1644,12 @@ function makeInterface(whichArray, whichEntry)
     buttonContainer.append(ce('hr'));
 
     let warning = ce('textarea');
-    warning.innerHTML = 'OoO is not a good pattern. It overcomplicates most things. Thus, I include it only to show you that it exists, but you should be using AOO instead, for sanity and efficiency.';
+    warning.innerHTML = 'OoO is not a good pattern. It overcomplicates most things. Thus, I only include it to show you that it exists, but you should be using AOO instead, for sanity and efficiency.';
     warning.style.backgroundColor = 'black';
     warning.style.color = 'white';
     warning.style.fontWeight = 'bold';
     warning.style.padding = '2px 5px';
-    warning.style.height = '100px';
+    warning.style.height = '170px';
     buttonContainer.append(warning);
 
     let hideOOODetails = ce('details');
