@@ -1,0 +1,169 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- aoo_object_methods_fibn.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Engineering Bay: Multi-Protocol Interfaces </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+
+    <h1> Engineering Bay: Multi-Protocol Interfaces </h1>
+
+    <hr class="tech-divider">
+
+    <p> Welcome to Main Engineering. When Mr. Scott designs a tactical interface, he doesn't just want one button per system. He needs multiple protocols, like a standard diagnostic and an emergency shutdown, wired directly into the console. </p>
+
+    <p> By embedding multiple anonymous functions (Methods) into our Array of Objects, we can give every engineering system its own unique set of behaviors. We can name these methods anything we want! In this module, we will define <code>runDiagnostic</code> and <code>emergencyShutdown</code>. We will also deploy our high-speed <code>fibn</code> (Find Index By Name) scanner to locate specific systems in the database and trigger their protocols on command. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 1: The Warp Core Array with Multiple Embedded Methods
+
+// Predefined Worldwide Engineering Commands
+function scanPlasmaFlow()
+{
+    console.log("Scanning EPS conduits... Flow normal.");
+}
+
+function dumpCore()
+{
+    console.log("WARNING: Warp Core Ejected!");
+}
+
+function resetInhibitors()
+{
+    console.log("Inertial dampers reset and holding.");
+}
+
+// The Database: Notice our custom method names
+let engineeringSystems = [
+    {
+        name: 'Warp Core',
+        status: 'Online',
+        // We can name our method anything. Here, it is 'runDiagnostic'
+        runDiagnostic: function() {
+            scanPlasmaFlow();
+        },
+        // We can attach as many methods as we need
+        emergencyShutdown: function() {
+            dumpCore();
+        }
+    },
+    {
+        name: 'Inertial Dampers',
+        status: 'Online',
+        runDiagnostic: function() {
+            console.log("Dampers at 100% capacity.");
+        },
+        emergencyShutdown: function() {
+            resetInhibitors();
+        }
+    }
+];
+
+// We can manually trigger these custom methods at any time:
+engineeringSystems[0].runDiagnostic();
+// Result: "Scanning EPS conduits... Flow normal."
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code" data-language="js">// Example 2: The Tactical Locator (fibn) and Interface Generation
+
+// The High-Speed Data Scanner
+// This allows us to find any systems index by searching for its name.
+function fibn(whichArray, whichName)
+{
+    let count = whichArray.length;
+    for (let i = 0; i < count; i++)
+    {
+        if (whichArray[i].name === whichName) 
+        {
+            return i;
+        }
+    }
+    return -1; // Return -1 if the system is not found
+}
+
+// Generating the Engineering Console
+function makeInterface() 
+{
+    for (let i = 0; i < engineeringSystems.length; i++) 
+    {
+        // Generate the Diagnostic Button
+        let diagBtn = document.createElement('button');
+        diagBtn.textContent = engineeringSystems[i].name + " Diagnostic";
+        
+        diagBtn.onclick = function() 
+        {
+            // Execute the specific diagnostic method!
+            engineeringSystems[i].runDiagnostic(); 
+        };
+        
+        document.body.append(diagBtn);
+
+        // Generate the Emergency Button
+        let emergBtn = document.createElement('button');
+        emergBtn.textContent = engineeringSystems[i].name + " SHUTDOWN";
+        emergBtn.style.backgroundColor = "#cc0000"; // Red Alert styling
+        
+        emergBtn.onclick = function() 
+        {
+            // We use our fibn scanner to find the exact index securely before triggering!
+            let targetIndex = fibn(engineeringSystems, engineeringSystems[i].name);
+            
+            if (targetIndex !== -1)
+            {
+                engineeringSystems[targetIndex].emergencyShutdown();
+            }
+        };
+        
+        document.body.append(emergBtn);
+        
+        // Add a line break after each system's control cluster
+        document.body.append(document.createElement('br'));
+        document.body.append(document.createElement('br'));
+    }
+}
+
+makeInterface();
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h2> Description: </h2>
+        <p> This architecture is the bedrock of professional interface design. By separating our data into distinct components (like the Warp Core and Inertial Dampers) and embedding custom methods directly inside them, we create a highly modular system. The <code>fibn</code> scanner adds an essential layer of tactical security: instead of blindly trusting the <code>i</code> loop index during an emergency shutdown, we actively scan the array to verify the system's precise location in memory before executing a critical command. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+</body>
+
+</html>
