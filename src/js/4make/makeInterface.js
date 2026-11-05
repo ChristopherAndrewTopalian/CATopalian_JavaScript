@@ -349,6 +349,61 @@ function makeInterface(whichArray, whichEntry)
 
     //----//
 
+
+
+    let aooObjectMethodsDetails = ce('details');
+    aooObjectMethodsDetails.onmouseover = function()
+    {
+        //hoverSound();
+    };
+    aooObjectMethodsDetails.onclick = function()
+    {
+        //clickSound();
+    };
+    buttonContainer.append(aooObjectMethodsDetails);
+
+    //-//
+
+    let aooObjectMethodsSummary = ce('summary');
+    aooObjectMethodsSummary.textContent = 'AOO Object Methods';
+    aooObjectMethodsDetails.append(aooObjectMethodsSummary);
+
+    for (let x = 0; x < aooObjectMethods.length; x++)
+    {
+        let theButton = ce("button");
+        theButton.textContent = aooObjectMethods[x].name;
+        theButton.onmouseover = function()
+        {
+            hoverSound();
+        };
+        theButton.oncontextmenu = function()
+        {
+            window.open(aooObjectMethods[x].urlOffline);
+        };
+        theButton.onclick = function()
+        {
+            // Turn off the old button (if one exists)
+            if (currentActiveBtn !== null)
+            {
+                currentActiveBtn.classList.remove('active');
+            }
+
+            // Turn on the new button
+            theButton.classList.add('active');
+
+            // Tell the tracker that THIS is the new active button
+            currentActiveBtn = theButton;
+
+            clickSound();
+            theFrame.src = aooObjectMethods[x].urlOffline;
+        };
+        aooObjectMethodsDetails.append(theButton);
+    }
+
+
+
+    //----//
+
     let stringDetails = ce('details');
     stringDetails.onmouseover = function()
     {

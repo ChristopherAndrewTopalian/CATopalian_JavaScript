@@ -1,0 +1,162 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- aoo_object_methods.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> Embedded Action Protocols (Methods) </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+<script src='../../js/location/copyPageURL.js'></script>
+
+<script src='../../js/textToSpeech/readText.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+
+    <h1> Embedded Action Protocols (Methods) </h1>
+
+    <hr class="tech-divider">
+
+    <p> In JavaScript, Objects aren't just filing cabinets for static data like text or numbers. They can also store living instructions. When a function is placed inside an Object, it is called a <b>Method</b>. </p>
+
+    <p> By embedding anonymous functions directly inside our Array of Objects, we can give every vessel its own unique behavior or communication protocol. This perfectly binds our data to our actions and completely eliminates the need for dangerous legacy commands like <code>eval()</code>, keeping our fleet secure and our codebase perfectly organized. </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 1: Defining the Fleets Action Protocols
+
+// We predefine our worldwide command functions
+function redAlert() 
+{
+    console.log("Shields up! Weapons online!");
+}
+
+function standardHail() 
+{
+    console.log("Hailing on all frequencies...");
+}
+
+function transmit(message) 
+{
+    console.log("Transmission sent: " + message);
+}
+
+// We embed anonymous functions into the action property of each ship
+let starfleet = [
+    {
+        registry: "Enterprise",
+        class: "Cruiser",
+        action: function() {
+            standardHail();
+        }
+    },
+    {
+        registry: "Defiant",
+        class: "Escort",
+        action: function() {
+            redAlert();
+        }
+    },
+    {
+        registry: "Voyager",
+        class: "Intrepid",
+        action: function() {
+            transmit("Janeway to Starfleet Command. We are home.");
+        }
+    }
+];
+
+// If we manually call the Defiants action, it triggers redAlert()
+starfleet[1].action();
+// Result: Shields up! Weapons online!
+</code></pre>
+    </div>
+
+    <hr class="largeDivider">
+
+    <div class="example-module">
+<pre><code class="custom-code">// Example 2: Generating a Tactical Control Panel
+
+function makeInterface() 
+{
+    // We use a traditional, high-speed for loop to read the registry
+    for (let i = 0; i < starfleet.length; i++) 
+    {
+        // We create a button for the current ship
+        let shipBtn = document.createElement('button');
+        shipBtn.textContent = "Command " + starfleet[i].registry;
+        
+        // We bind the button click directly to the ships embedded action
+        shipBtn.onclick = function() 
+        {
+            starfleet[i].action(); 
+        };
+        
+        // We append the button to the interface
+        document.body.append(shipBtn);
+    }
+}
+
+makeInterface();
+/* 
+Result: 3 Interface Buttons are generated on the screen.
+Clicking "Command Enterprise" outputs: "Hailing on all frequencies..."
+Clicking "Command Defiant" outputs: "Shields up! Weapons online!"
+Clicking "Command Voyager" outputs: "Transmission sent: Janeway to Starfleet Command. We are home."
+*/
+</code></pre>
+    </div>
+
+    <div class="technical-specs">
+        <h4><b> Syntax </b></h4>
+        <pre><code class="custom-code">let objectName = {
+    propertyName: "String Data",
+    methodName: function() {
+        // Execute commands here
+    }
+};
+
+objectName.methodName();</code></pre>
+
+        <hr class="tech-divider">
+
+        <h2> Return Value </h2>
+        <p> <b>Type:</b> Varies. The method will return whatever the embedded function is programmed to return. If there is no explicit <code>return</code> statement, it simply executes the code and returns <code>undefined</code>. </p>
+
+        <hr class="tech-divider">
+
+        <h2> Description: </h2>
+        <p> Embedding anonymous functions into Objects is the bedrock of modern User Interface design. Instead of writing massive, complex <code>if/else</code> statements to figure out which button was clicked, we simply tell the button to look at its corresponding Object and execute whatever protocol is stored inside the <code>action</code> property. This makes the code highly modular, if we add 100 new ships to the array, the <code>for</code> loop automatically generates 100 new working buttons without us having to write a single extra line of logic! </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>
+
