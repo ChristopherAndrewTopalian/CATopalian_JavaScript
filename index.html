@@ -7,219 +7,586 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<title> Starfleet Academy - Master Directory </title>
-
-<meta charset='UTF-8'>
-
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-<link rel='stylesheet' href='src/css/style001.css'>
-
+<title> Starfleet Academy Index </title>
 <style>
-
-body {
-    margin: 40px;
-    background-color: rgb(20, 20, 25); 
-    font-family: Arial, sans-serif; 
-    color: rgb(255, 255, 255);
-}
-
-.header-container {
-    text-align: center;
-    margin-bottom: 50px;
-    border-bottom: 2px solid rgb(0, 100, 100);
-    padding-bottom: 20px;
-}
-
-h1 {
-    color: rgb(0, 255, 255); 
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-p.subtitle {
-    color: rgb(170, 170, 170);
-    font-size: 18px;
-    font-style: italic;
-    margin: 0;
-}
-
-/* The Grid Layout for the Folders */
-.directory-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.folder-card {
-    background-color: rgb(30, 30, 35);
-    border: 1px solid rgb(50, 50, 70);
-    border-top: 4px solid rgb(0, 255, 255);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.folder-card h2 {
-    color: rgb(150, 200, 255);
-    font-size: 20px;
-    margin-top: 0;
-    border-bottom: 1px solid rgb(70, 70, 70);
-    padding-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.link-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.link-list li {
-    margin-bottom: 12px;
-}
-
-/* Standard Anchor Tags for direct sharing */
-.link-list a {
-    color: rgb(200, 200, 200);
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-}
-
-.link-list a::before {
-    content: "►";
-    color: rgb(0, 255, 255);
-    font-size: 12px;
-    margin-right: 10px;
-}
-
-.link-list a:hover {
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 8px rgb(0, 255, 255);
-    padding-left: 5px; /* Creates a nice little hover-slide effect */
-}
-
-/* The Main App Launch Button */
-.launch-button-container {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.launch-button {
-    background-color: rgb(0, 50, 50);
-    color: rgb(0, 255, 255);
-    border: 1px solid rgb(0, 255, 255);
-    padding: 15px 40px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.launch-button:hover {
-    background-color: rgb(0, 100, 100);
-    box-shadow: 0 0 15px rgb(0, 255, 255);
-}
-
+body { background-color: rgb(20, 20, 25); color: white; font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; }
+h1 { color: #00ffcc; border-bottom: 1px solid #444; padding-bottom: 10px; }
+ul { list-style-type: none; padding-left: 20px; border-left: 1px solid #333; }
+li { margin: 8px 0px; }
+.folder_title { font-weight: bold; color: #ffcc00; font-size: 18px; }
+a { color: #0088ff; text-decoration: none; font-size: 16px; transition: color 0.2s; }
+a:hover { color: rgb(0, 255, 255); }
 </style>
-
 </head>
-
-<script src = 'src/js/sound/sound.js'></script>
-
-<script src = 'src/js/sound/addAhrefSounds.js'></script>
-
-<script>
-
-function whenLoaded()
-{
-    setTimeout(function()
-    {
-        addAhrefSounds();
-    }, 1000);
-}
-
-</script>
-
-<body onload = 'whenLoaded();'>
-    <div class="header-container">
-        <h1> Starfleet Academy Database </h1>
-        <p class="subtitle"> Master Directory of Logic, Ethics, and Operations </p>
-    </div>
-
-    <div class="launch-button-container">
-        <a href="CATopalian_JavaScript.html" class="launch-button" target = '_blank'>Launch Interactive Terminal</a>
-    </div>
-
-    <div class="directory-grid">
-
-        <div class="folder-card">
-            <h2> Group 1: The Anchors </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/tautology.html" target="_blank">Tautology (TAU)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/contradiction.html" target="_blank">Contradiction (CON)</a></li>
-            </ul>
-        </div>
-
-        <div class="folder-card">
-            <h2> Group 2: The Catalysts </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/xor.html" target="_blank">XOR (Exclusive OR)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/xnor.html" target="_blank">XNOR (Exclusive NOR)</a></li>
-            </ul>
-        </div>
-
-        <div class="folder-card">
-            <h2> Group 3: The Community </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/and.html" target="_blank">AND (Consensus)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/nand.html" target="_blank">NAND (Safety Override)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/or.html" target="_blank">OR (Shared Discovery)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/nor.html" target="_blank">NOR (Total Isolation)</a></li>
-            </ul>
-        </div>
-
-        <div class="folder-card">
-            <h2> Group 4: Accountability </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/mi.html" target="_blank">MI (Material Implication)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/mni.html" target="_blank">MNI (Whistleblower)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/ci.html" target="_blank">CI (Converse Implication)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/cni.html" target="_blank">CNI (Sovereignty)</a></li>
-            </ul>
-        </div>
-
-        <div class="folder-card">
-            <h2> Group 5: Identity </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/lp.html" target="_blank">LP (Left Projection)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/lc.html" target="_blank">LC (Left Complementation)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/rp.html" target="_blank">RP (Right Projection)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/starfleet_academy_ethos/rc.html" target="_blank">RC (Right Complementation)</a></li>
-            </ul>
-        </div>
-
-        <div class="folder-card">
-            <h2> Master Ledgers </h2>
-            <ul class="link-list">
-                <li><a href="src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships.html" target="_blank">The 16 Gates Ledger (Table)</a></li>
-                <li><a href="src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships_listed.html" target="_blank">Cadet's Logic Ledger (List)</a></li>
-            </ul>
-        </div>
-
-    </div>
-
+<body>
+<h1> Starfleet Academy Tutorial Database Index </h1>
+<ul>
+<li><span class='folder_title'>Aoo Map Index</span>
+<ul>
+<li><a href='src/html/aoo_map_index/aoo_map_index_data_persistence.html'>Aoo Map Index Data Persistence</a></li>
+<li><a href='src/html/aoo_map_index/aoo_map_index_instant_mutation.html'>Aoo Map Index Instant Mutation</a></li>
+<li><a href='src/html/aoo_map_index/aoo_map_index_pattern.html'>Aoo Map Index Pattern</a></li>
+<li><a href='src/html/aoo_map_index/aoo_map_index_reordering_sorting.html'>Aoo Map Index Reordering Sorting</a></li>
+<li><a href='src/html/aoo_map_index/aoo_map_index_safe_deletion.html'>Aoo Map Index Safe Deletion</a></li>
+<li><a href='src/html/aoo_map_index/aoo_map_index_upsert_pattern.html'>Aoo Map Index Upsert Pattern</a></li>
+<li><span class='folder_title'>New Folder</span>
+<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Aoo Object Methods</span>
+<ul>
+<li><a href='src/html/aoo_object_methods/aoo_object_methods.html'>Aoo Object Methods</a></li>
+<li><a href='src/html/aoo_object_methods/aoo_object_methods_002.html'>Aoo Object Methods 002</a></li>
+<li><a href='src/html/aoo_object_methods/aoo_object_methods_fibn.html'>Aoo Object Methods Fibn</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Array</span>
+<ul>
+<li><a href='src/html/array/array.html'>Array</a></li>
+<li><a href='src/html/array/array_methods.html'>Array Methods</a></li>
+<li><a href='src/html/array/array_push_pop_unshift_shift.html'>Array Push Pop Unshift Shift</a></li>
+<li><a href='src/html/array/at.html'>At</a></li>
+<li><a href='src/html/array/concat.html'>Concat</a></li>
+<li><a href='src/html/array/copyWithin.html'>CopyWithin</a></li>
+<li><a href='src/html/array/entries.html'>Entries</a></li>
+<li><a href='src/html/array/every.html'>Every</a></li>
+<li><a href='src/html/array/fill.html'>Fill</a></li>
+<li><a href='src/html/array/filter.html'>Filter</a></li>
+<li><a href='src/html/array/find.html'>Find</a></li>
+<li><a href='src/html/array/findIndex.html'>FindIndex</a></li>
+<li><a href='src/html/array/findLast.html'>FindLast</a></li>
+<li><a href='src/html/array/findLastIndex.html'>FindLastIndex</a></li>
+<li><a href='src/html/array/flat.html'>Flat</a></li>
+<li><a href='src/html/array/flatMap.html'>FlatMap</a></li>
+<li><a href='src/html/array/forEach.html'>ForEach</a></li>
+<li><a href='src/html/array/from.html'>From</a></li>
+<li><a href='src/html/array/includes.html'>Includes</a></li>
+<li><a href='src/html/array/indexOf.html'>IndexOf</a></li>
+<li><a href='src/html/array/isArray.html'>IsArray</a></li>
+<li><a href='src/html/array/join.html'>Join</a></li>
+<li><a href='src/html/array/keys.html'>Keys</a></li>
+<li><a href='src/html/array/lastIndexOf.html'>LastIndexOf</a></li>
+<li><a href='src/html/array/map.html'>Map</a></li>
+<li><a href='src/html/array/of.html'>Of</a></li>
+<li><a href='src/html/array/pop.html'>Pop</a></li>
+<li><a href='src/html/array/push.html'>Push</a></li>
+<li><a href='src/html/array/reduce.html'>Reduce</a></li>
+<li><a href='src/html/array/reduceRight.html'>ReduceRight</a></li>
+<li><a href='src/html/array/reverse.html'>Reverse</a></li>
+<li><a href='src/html/array/shift.html'>Shift</a></li>
+<li><a href='src/html/array/slice.html'>Slice</a></li>
+<li><a href='src/html/array/some.html'>Some</a></li>
+<li><a href='src/html/array/sort.html'>Sort</a></li>
+<li><a href='src/html/array/splice.html'>Splice</a></li>
+<li><a href='src/html/array/toLocaleString.html'>ToLocaleString</a></li>
+<li><a href='src/html/array/toReversed.html'>ToReversed</a></li>
+<li><a href='src/html/array/toSorted.html'>ToSorted</a></li>
+<li><a href='src/html/array/toSpliced.html'>ToSpliced</a></li>
+<li><a href='src/html/array/toString.html'>ToString</a></li>
+<li><a href='src/html/array/unshift.html'>Unshift</a></li>
+<li><a href='src/html/array/valueOf.html'>ValueOf</a></li>
+<li><a href='src/html/array/with.html'>With</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Array Of Objects</span>
+<ul>
+<li><a href='src/html/array_of_objects/array_of_objects.html'>Array Of Objects</a></li>
+<li><a href='src/html/array_of_objects/at.html'>At</a></li>
+<li><a href='src/html/array_of_objects/concat.html'>Concat</a></li>
+<li><a href='src/html/array_of_objects/copyWithin.html'>CopyWithin</a></li>
+<li><a href='src/html/array_of_objects/entries.html'>Entries</a></li>
+<li><a href='src/html/array_of_objects/every.html'>Every</a></li>
+<li><a href='src/html/array_of_objects/fill.html'>Fill</a></li>
+<li><span class='folder_title'>Filter</span>
+<ul>
+<li><a href='src/html/array_of_objects/filter/filter.html'>Filter</a></li>
+<li><a href='src/html/array_of_objects/filter/filterAfterDate.html'>FilterAfterDate</a></li>
+<li><a href='src/html/array_of_objects/filter/filterBeforeDate.html'>FilterBeforeDate</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByDate.html'>FilterByDate</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByDateTime.html'>FilterByDateTime</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByMonth.html'>FilterByMonth</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByMonthDay.html'>FilterByMonthDay</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByName.html'>FilterByName</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByYear.html'>FilterByYear</a></li>
+<li><a href='src/html/array_of_objects/filter/filterByYearMonth.html'>FilterByYearMonth</a></li>
+<li><a href='src/html/array_of_objects/filter/showAllDates.html'>ShowAllDates</a></li>
+<li><a href='src/html/array_of_objects/filter/showAllNames.html'>ShowAllNames</a></li>
+<li><a href='src/html/array_of_objects/filter/showAllNamesAndDates.html'>ShowAllNamesAndDates</a></li>
+</ul>
+</li>
+<li><a href='src/html/array_of_objects/filter.html'>Filter</a></li>
+<li><a href='src/html/array_of_objects/find.html'>Find</a></li>
+<li><a href='src/html/array_of_objects/findIndex.html'>FindIndex</a></li>
+<li><a href='src/html/array_of_objects/findLast.html'>FindLast</a></li>
+<li><a href='src/html/array_of_objects/findLastIndex.html'>FindLastIndex</a></li>
+<li><a href='src/html/array_of_objects/flat.html'>Flat</a></li>
+<li><a href='src/html/array_of_objects/flatMap.html'>FlatMap</a></li>
+<li><a href='src/html/array_of_objects/forEach.html'>ForEach</a></li>
+<li><a href='src/html/array_of_objects/from.html'>From</a></li>
+<li><a href='src/html/array_of_objects/includes.html'>Includes</a></li>
+<li><a href='src/html/array_of_objects/indexOf.html'>IndexOf</a></li>
+<li><a href='src/html/array_of_objects/isArray.html'>IsArray</a></li>
+<li><a href='src/html/array_of_objects/join.html'>Join</a></li>
+<li><a href='src/html/array_of_objects/keys.html'>Keys</a></li>
+<li><a href='src/html/array_of_objects/lastIndexOf.html'>LastIndexOf</a></li>
+<li><a href='src/html/array_of_objects/map.html'>Map</a></li>
+<li><a href='src/html/array_of_objects/of.html'>Of</a></li>
+<li><a href='src/html/array_of_objects/pop.html'>Pop</a></li>
+<li><a href='src/html/array_of_objects/push.html'>Push</a></li>
+<li><a href='src/html/array_of_objects/reduce.html'>Reduce</a></li>
+<li><a href='src/html/array_of_objects/reduceRight.html'>ReduceRight</a></li>
+<li><a href='src/html/array_of_objects/reverse.html'>Reverse</a></li>
+<li><a href='src/html/array_of_objects/shift.html'>Shift</a></li>
+<li><a href='src/html/array_of_objects/slice.html'>Slice</a></li>
+<li><a href='src/html/array_of_objects/some.html'>Some</a></li>
+<li><a href='src/html/array_of_objects/sort.html'>Sort</a></li>
+<li><a href='src/html/array_of_objects/splice.html'>Splice</a></li>
+<li><a href='src/html/array_of_objects/toLocaleString.html'>ToLocaleString</a></li>
+<li><a href='src/html/array_of_objects/toReversed.html'>ToReversed</a></li>
+<li><a href='src/html/array_of_objects/toSorted.html'>ToSorted</a></li>
+<li><a href='src/html/array_of_objects/toSpliced.html'>ToSpliced</a></li>
+<li><a href='src/html/array_of_objects/toString.html'>ToString</a></li>
+<li><a href='src/html/array_of_objects/unshift.html'>Unshift</a></li>
+<li><a href='src/html/array_of_objects/valueOf.html'>ValueOf</a></li>
+<li><a href='src/html/array_of_objects/values.html'>Values</a></li>
+<li><a href='src/html/array_of_objects/with.html'>With</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Array Of Objects Vs Object Of Objects</span>
+<ul>
+<li><a href='src/html/array_of_objects_vs_object_of_objects/aoo_vs_ooo_001.html'>Aoo Vs Ooo 001</a></li>
+<li><a href='src/html/array_of_objects_vs_object_of_objects/aoo_vs_ooo_002.html'>Aoo Vs Ooo 002</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Babylonjs</span>
+<ul>
+<li><span class='folder_title'>Animation And Patrol Routes</span>
+<ul>
+<li><a href='src/html/babylonjs/animation_and_patrol_routes/animation_and_patrol_routes.html'>Animation And Patrol Routes</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Animation And Patrol Routes With Outer Perimeter</span>
+<ul>
+<li><a href='src/html/babylonjs/animation_and_patrol_routes_with_outer_perimeter/animation_and_patrol_routes_with_outer_perimeter.html'>Animation And Patrol Routes With Outer Perimeter</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Cosine Wave</span>
+<ul>
+<li><a href='src/html/babylonjs/cosine_wave/cosine_wave.html'>Cosine Wave</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Cosine Wave Animated</span>
+<ul>
+<li><a href='src/html/babylonjs/cosine_wave_animated/cosine_wave_animated.html'>Cosine Wave Animated</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Initializing Plane</span>
+<ul>
+<li><a href='src/html/babylonjs/initializing_plane/initializing_plane.html'>Initializing Plane</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Interfaces And Interactivity</span>
+<ul>
+<li><a href='src/html/babylonjs/interfaces_and_interactivity/interfaces_and_interactivity.html'>Interfaces And Interactivity</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Materials And Grid</span>
+<ul>
+<li><a href='src/html/babylonjs/materials_and_grid/materials_and_grid.html'>Materials And Grid</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Sine And Cosine Waves</span>
+<ul>
+<li><a href='src/html/babylonjs/sine_and_cosine_waves/sine_and_cosine_waves.html'>Sine And Cosine Waves</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Sine And Cosine Waves Animated</span>
+<ul>
+<li><a href='src/html/babylonjs/sine_and_cosine_waves_animated/sine_and_cosine_waves_animated.html'>Sine And Cosine Waves Animated</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Sine Wave</span>
+<ul>
+<li><a href='src/html/babylonjs/sine_wave/sine_wave.html'>Sine Wave</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Sine Wave Animated</span>
+<ul>
+<li><a href='src/html/babylonjs/sine_wave_animated/sine_wave_animated.html'>Sine Wave Animated</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Tangent Wave</span>
+<ul>
+<li><a href='src/html/babylonjs/tangent_wave/tangent_wave.html'>Tangent Wave</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Tangent Wave Animated</span>
+<ul>
+<li><a href='src/html/babylonjs/tangent_wave_animated/tangent_wave_animated.html'>Tangent Wave Animated</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Textures And Security</span>
+<ul>
+<li><span class='folder_title'>Textures</span>
+<ul>
+</ul>
+</li>
+<li><a href='src/html/babylonjs/textures_and_security/textures_and_security.html'>Textures And Security</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Trigonometry Sphere</span>
+<ul>
+<li><a href='src/html/babylonjs/trigonometry_sphere/trigonometry_sphere.html'>Trigonometry Sphere</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Trigonometry Xy Plane</span>
+<ul>
+<li><a href='src/html/babylonjs/trigonometry_xy_plane/trigonometry_xy_plane.html'>Trigonometry Xy Plane</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Trigonometry Xz Plane</span>
+<ul>
+<li><a href='src/html/babylonjs/trigonometry_xz_plane/trigonometry_xz_plane.html'>Trigonometry Xz Plane</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Trigonometry Yz Plane</span>
+<ul>
+<li><a href='src/html/babylonjs/trigonometry_yz_plane/trigonometry_yz_plane.html'>Trigonometry Yz Plane</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Beginner</span>
+<ul>
+<li><a href='src/html/beginner/beginner_001.html'>Beginner 001</a></li>
+<li><a href='src/html/beginner/beginner_002.html'>Beginner 002</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Data Oriented Design</span>
+<ul>
+<li><a href='src/html/data_oriented_design/dod_001.html'>Dod 001</a></li>
+<li><a href='src/html/data_oriented_design/dod_002.html'>Dod 002</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Life Creation Engine</span>
+<ul>
+<li><span class='folder_title'>Applying Textures</span>
+<ul>
+<li><a href='src/html/Life_Creation_Engine/applying_textures/applying_textures.html'>Applying Textures</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Canvas Blur Fix</span>
+<ul>
+<li><a href='src/html/Life_Creation_Engine/canvas_blur_fix/canvas_blur_fix.html'>Canvas Blur Fix</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Life Creation Engine Class Mammal</span>
+<ul>
+<li><a href='src/html/Life_Creation_Engine/Life_Creation_Engine_Class_Mammal/Life_Creation_Engine_Class_Mammal.html'>Life Creation Engine Class Mammal</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Stress Test</span>
+<ul>
+<li><a href='src/html/Life_Creation_Engine/stress_test/stress_test.html'>Stress Test</a></li>
+<li><span class='folder_title'>Test</span>
+<ul>
+<li><a href='src/html/Life_Creation_Engine/stress_test/test/canvas_test.html'>Canvas Test</a></li>
+<li><a href='src/html/Life_Creation_Engine/stress_test/test/dom_test.html'>Dom Test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Life Sciences</span>
+<ul>
+<li><span class='folder_title'>Cardiovascular</span>
+<ul>
+<li><span class='folder_title'>Hydraulic Pressure</span>
+<ul>
+<li><a href='src/html/life_sciences/cardiovascular/hydraulic_pressure/hydraulic_pressure_osmotic_overload_simulator.html'>Hydraulic Pressure Osmotic Overload Simulator</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Stimulant Flow</span>
+<ul>
+<li><a href='src/html/life_sciences/cardiovascular/stimulant_flow/stimulant_flow_simulator.html'>Stimulant Flow Simulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Metabolic Systems</span>
+<ul>
+<li><span class='folder_title'>Daily Max Limits</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/daily_max_limits/daily_max_limits.html'>Daily Max Limits</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Fuel Processing</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/fuel_processing/metabolic_systems_simulator.html'>Metabolic Systems Simulator</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Intestinal Transport</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/intestinal_transport/vessel_intestinal_transport_simulator.html'>Vessel Intestinal Transport Simulator</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Metabolic Daily Maximums</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/metabolic_daily_maximums/metabolic_daily_maximums_simulator.html'>Metabolic Daily Maximums Simulator</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Metabolic Rollercoaster</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/metabolic_rollercoaster/metabolic_rollercoaster.html'>Metabolic Rollercoaster</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Nutrition Matrix</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/nutrition_matrix/vessel_nutrient_matrix.html'>Vessel Nutrient Matrix</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Serving Size Illusion</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/serving_size_illusion/serving_size_illusion.html'>Serving Size Illusion</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Vascular Engineering</span>
+<ul>
+<li><a href='src/html/life_sciences/metabolic_systems/vascular_engineering/vascular_engineering.html'>Vascular Engineering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Neurology</span>
+<ul>
+<li><span class='folder_title'>Kinetic Impact</span>
+<ul>
+<li><a href='src/html/life_sciences/neurology/kinetic_impact/kinetic_impact_and_axonal_shearing_simulator.html'>Kinetic Impact And Axonal Shearing Simulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Math</span>
+<ul>
+<li><a href='src/html/math/abs.html'>Abs</a></li>
+<li><a href='src/html/math/acos.html'>Acos</a></li>
+<li><a href='src/html/math/acosh.html'>Acosh</a></li>
+<li><a href='src/html/math/asin.html'>Asin</a></li>
+<li><a href='src/html/math/asinh.html'>Asinh</a></li>
+<li><a href='src/html/math/atan.html'>Atan</a></li>
+<li><a href='src/html/math/atan2.html'>Atan2</a></li>
+<li><a href='src/html/math/atanh.html'>Atanh</a></li>
+<li><a href='src/html/math/cbrt.html'>Cbrt</a></li>
+<li><a href='src/html/math/ceil.html'>Ceil</a></li>
+<li><a href='src/html/math/clz32.html'>Clz32</a></li>
+<li><a href='src/html/math/cos.html'>Cos</a></li>
+<li><a href='src/html/math/cosh.html'>Cosh</a></li>
+<li><a href='src/html/math/exp.html'>Exp</a></li>
+<li><a href='src/html/math/expm1.html'>Expm1</a></li>
+<li><a href='src/html/math/floor.html'>Floor</a></li>
+<li><span class='folder_title'>Formulas</span>
+<ul>
+<li><span class='folder_title'>Time</span>
+<ul>
+<li><a href='src/html/math/formulas/time/time.html'>Time</a></li>
+<li><a href='src/html/math/formulas/time/time_to_intercept.html'>Time To Intercept</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='src/html/math/fround.html'>Fround</a></li>
+<li><a href='src/html/math/hypot.html'>Hypot</a></li>
+<li><a href='src/html/math/imul.html'>Imul</a></li>
+<li><a href='src/html/math/log.html'>Log</a></li>
+<li><a href='src/html/math/log10.html'>Log10</a></li>
+<li><a href='src/html/math/log1p.html'>Log1p</a></li>
+<li><a href='src/html/math/log2.html'>Log2</a></li>
+<li><a href='src/html/math/max.html'>Max</a></li>
+<li><a href='src/html/math/min.html'>Min</a></li>
+<li><a href='src/html/math/pow.html'>Pow</a></li>
+<li><a href='src/html/math/random.html'>Random</a></li>
+<li><a href='src/html/math/round.html'>Round</a></li>
+<li><a href='src/html/math/sign.html'>Sign</a></li>
+<li><a href='src/html/math/sin.html'>Sin</a></li>
+<li><a href='src/html/math/sinh.html'>Sinh</a></li>
+<li><a href='src/html/math/sqrt.html'>Sqrt</a></li>
+<li><a href='src/html/math/tan.html'>Tan</a></li>
+<li><a href='src/html/math/tanh.html'>Tanh</a></li>
+<li><a href='src/html/math/trunc.html'>Trunc</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Object Flat</span>
+<ul>
+<li><a href='src/html/object_flat/object_flat_001.html'>Object Flat 001</a></li>
+<li><a href='src/html/object_flat/object_flat_002.html'>Object Flat 002</a></li>
+<li><a href='src/html/object_flat/object_flat_003.html'>Object Flat 003</a></li>
+<li><a href='src/html/object_flat/object_flat_004.html'>Object Flat 004</a></li>
+<li><a href='src/html/object_flat/object_flat_005.html'>Object Flat 005</a></li>
+<li><a href='src/html/object_flat/object_flat_pokemon_001.html'>Object Flat Pokemon 001</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Object Of Objects</span>
+<ul>
+<li><a href='src/html/object_of_objects/object_of_objects_001.html'>Object Of Objects 001</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_002.html'>Object Of Objects 002</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_003.html'>Object Of Objects 003</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_004.html'>Object Of Objects 004</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_005.html'>Object Of Objects 005</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_006.html'>Object Of Objects 006</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_007.html'>Object Of Objects 007</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_008.html'>Object Of Objects 008</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_009.html'>Object Of Objects 009</a></li>
+<li><a href='src/html/object_of_objects/object_of_objects_010.html'>Object Of Objects 010</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Ooo Equivalents For Array Methods</span>
+<ul>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_adding_entries_push_equivalent.html'>Ooo Adding Entries Push Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_adding_to_the_front_unshift_equivalent.html'>Ooo Adding To The Front Unshift Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_data_accumulation_reduce_equivalent.html'>Ooo Data Accumulation Reduce Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_deep_security_scan_hasOwn.html'>Ooo Deep Security Scan HasOwn</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_duplication_copyWithin_equivalent.html'>Ooo Duplication CopyWithin Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_executing_orders_forEach_equivalent.html'>Ooo Executing Orders ForEach Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_extracting_a_section_slice_equivalent.html'>Ooo Extracting A Section Slice Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_first_match_retrieval_find_equivalent.html'>Ooo First Match Retrieval Find Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_fleet_reorganization_splice_equivalent.html'>Ooo Fleet Reorganization Splice Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_fleet_retrofit_map_equivalent.html'>Ooo Fleet Retrofit Map Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_iterating_pairs_entries_equivalent.html'>Ooo Iterating Pairs Entries Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_iterating_the_fleet_for_in_vs_entries.html'>Ooo Iterating The Fleet For In Vs Entries</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_locating_positions_indexOf_findIndex_equivalent.html'>Ooo Locating Positions IndexOf FindIndex Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_merging_objects_concat_equivalent.html'>Ooo Merging Objects Concat Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_position_lookup_at_equivalent.html'>Ooo Position Lookup At Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_removing_entries_pop_equivalent.html'>Ooo Removing Entries Pop Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_removing_from_the_front_shift_equivalent.html'>Ooo Removing From The Front Shift Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_reordering_data_sort_equivalent.html'>Ooo Reordering Data Sort Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_security_quarantine_freeze_unfreeze_equivalent.html'>Ooo Security Quarantine Freeze Unfreeze Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_structural_lockdown_seal_unseal_equivalent.html'>Ooo Structural Lockdown Seal Unseal Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_targeted_extraction_filter_equivalent.html'>Ooo Targeted Extraction Filter Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_universal_verification_every_equivalent.html'>Ooo Universal Verification Every Equivalent</a></li>
+<li><a href='src/html/ooo_equivalents_for_array_methods/ooo_verifying_existence_includes_some_equivalent.html'>Ooo Verifying Existence Includes Some Equivalent</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>Operators</span>
+<ul>
+<li><a href='src/html/operators/arithmetic_operators.html'>Arithmetic Operators</a></li>
+<li><a href='src/html/operators/assignment_operators.html'>Assignment Operators</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>String</span>
+<ul>
+<li><a href='src/html/string/at.html'>At</a></li>
+<li><a href='src/html/string/charAt.html'>CharAt</a></li>
+<li><a href='src/html/string/charCodeAt.html'>CharCodeAt</a></li>
+<li><a href='src/html/string/codePointAt.html'>CodePointAt</a></li>
+<li><a href='src/html/string/concat.html'>Concat</a></li>
+<li><a href='src/html/string/endsWith.html'>EndsWith</a></li>
+<li><a href='src/html/string/includes.html'>Includes</a></li>
+<li><a href='src/html/string/indexOf.html'>IndexOf</a></li>
+<li><a href='src/html/string/isWellFormed.html'>IsWellFormed</a></li>
+<li><a href='src/html/string/lastIndexOf.html'>LastIndexOf</a></li>
+<li><a href='src/html/string/localeCompare.html'>LocaleCompare</a></li>
+<li><a href='src/html/string/match.html'>Match</a></li>
+<li><a href='src/html/string/matchAll.html'>MatchAll</a></li>
+<li><a href='src/html/string/normalize.html'>Normalize</a></li>
+<li><a href='src/html/string/padEnd.html'>PadEnd</a></li>
+<li><a href='src/html/string/padStart.html'>PadStart</a></li>
+<li><a href='src/html/string/repeat.html'>Repeat</a></li>
+<li><a href='src/html/string/replace.html'>Replace</a></li>
+<li><a href='src/html/string/replaceAll.html'>ReplaceAll</a></li>
+<li><a href='src/html/string/search.html'>Search</a></li>
+<li><a href='src/html/string/slice.html'>Slice</a></li>
+<li><a href='src/html/string/split.html'>Split</a></li>
+<li><a href='src/html/string/startsWith.html'>StartsWith</a></li>
+<li><a href='src/html/string/String_fromCharCode.html'>String FromCharCode</a></li>
+<li><a href='src/html/string/String_fromCodePoint.html'>String FromCodePoint</a></li>
+<li><a href='src/html/string/substring.html'>Substring</a></li>
+<li><a href='src/html/string/toLocaleLowerCase.html'>ToLocaleLowerCase</a></li>
+<li><a href='src/html/string/toLocaleUpperCase.html'>ToLocaleUpperCase</a></li>
+<li><a href='src/html/string/toLowerCase.html'>ToLowerCase</a></li>
+<li><a href='src/html/string/toString.html'>ToString</a></li>
+<li><a href='src/html/string/toUpperCase.html'>ToUpperCase</a></li>
+<li><a href='src/html/string/toWellFormed.html'>ToWellFormed</a></li>
+<li><a href='src/html/string/trim.html'>Trim</a></li>
+<li><a href='src/html/string/trimEnd.html'>TrimEnd</a></li>
+<li><a href='src/html/string/trimStart.html'>TrimStart</a></li>
+<li><a href='src/html/string/valueOf.html'>ValueOf</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>True Ai</span>
+<ul>
+<li><span class='folder_title'>Babylonjs</span>
+<ul>
+<li><span class='folder_title'>True Ai 16 Gon Logic Foundation</span>
+<ul>
+<li><a href='src/html/true_ai/babylonjs/true_ai_16_gon_logic_foundation/true_ai_16_gon_logic_foundation.html'>True Ai 16 Gon Logic Foundation</a></li>
+</ul>
+</li>
+<li><span class='folder_title'>True Ai 16 Gon Logic Interactive Interface</span>
+<ul>
+<li><a href='src/html/true_ai/babylonjs/true_ai_16_gon_logic_interactive_interface/true_ai_16_gon_logic_interactive_interface.html'>True Ai 16 Gon Logic Interactive Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class='folder_title'>Logic Gates</span>
+<ul>
+<li><a href='src/html/true_ai/logic_gates/and.html'>And</a></li>
+<li><a href='src/html/true_ai/logic_gates/and_nand_or_nor.html'>And Nand Or Nor</a></li>
+<li><a href='src/html/true_ai/logic_gates/ci.html'>Ci</a></li>
+<li><a href='src/html/true_ai/logic_gates/cni.html'>Cni</a></li>
+<li><a href='src/html/true_ai/logic_gates/contradiction.html'>Contradiction</a></li>
+<li><span class='folder_title'>Foundation</span>
+<ul>
+<li><a href='src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships.html'>True Ai 16 Gates Relationships</a></li>
+<li><a href='src/html/true_ai/logic_gates/foundation/true_ai_16_gates_relationships_listed.html'>True Ai 16 Gates Relationships Listed</a></li>
+</ul>
+</li>
+<li><a href='src/html/true_ai/logic_gates/lc.html'>Lc</a></li>
+<li><a href='src/html/true_ai/logic_gates/lp.html'>Lp</a></li>
+<li><a href='src/html/true_ai/logic_gates/lp_lc_rp_rc.html'>Lp Lc Rp Rc</a></li>
+<li><a href='src/html/true_ai/logic_gates/mi.html'>Mi</a></li>
+<li><a href='src/html/true_ai/logic_gates/mi_mni_ci_cni.html'>Mi Mni Ci Cni</a></li>
+<li><a href='src/html/true_ai/logic_gates/mni.html'>Mni</a></li>
+<li><a href='src/html/true_ai/logic_gates/nand.html'>Nand</a></li>
+<li><a href='src/html/true_ai/logic_gates/nor.html'>Nor</a></li>
+<li><a href='src/html/true_ai/logic_gates/or.html'>Or</a></li>
+<li><a href='src/html/true_ai/logic_gates/rc.html'>Rc</a></li>
+<li><a href='src/html/true_ai/logic_gates/rp.html'>Rp</a></li>
+<li><span class='folder_title'>Starfleet Academy Ethos</span>
+<ul>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/and.html'>And</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/ci.html'>Ci</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/cni.html'>Cni</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/contradiction.html'>Contradiction</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/lc.html'>Lc</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/lp.html'>Lp</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/mi.html'>Mi</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/mni.html'>Mni</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/nand.html'>Nand</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/nor.html'>Nor</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/or.html'>Or</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/rc.html'>Rc</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/rp.html'>Rp</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/tautology.html'>Tautology</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/xnor.html'>Xnor</a></li>
+<li><a href='src/html/true_ai/logic_gates/starfleet_academy_ethos/xor.html'>Xor</a></li>
+</ul>
+</li>
+<li><a href='src/html/true_ai/logic_gates/tautology.html'>Tautology</a></li>
+<li><a href='src/html/true_ai/logic_gates/tautology_contradiction.html'>Tautology Contradiction</a></li>
+<li><a href='src/html/true_ai/logic_gates/true_ai_16_gon_matrix.html'>True Ai 16 Gon Matrix</a></li>
+<li><a href='src/html/true_ai/logic_gates/xnor.html'>Xnor</a></li>
+<li><a href='src/html/true_ai/logic_gates/xor.html'>Xor</a></li>
+<li><a href='src/html/true_ai/logic_gates/xor_xnor.html'>Xor Xnor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </body>
-
 </html>
-
