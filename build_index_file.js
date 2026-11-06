@@ -7,7 +7,7 @@ const path = require('path');
 let targetFolder = path.join(__dirname, 'src', 'html');
 
 // The file we want to create
-let outputFile = path.join(__dirname, 'index2.html');
+let outputFile = path.join(__dirname, 'index.html');
 
 // Helper function to format names (turns "aoo_object_methods.html" into "Aoo Object Methods")
 function formatName(rawName) 
