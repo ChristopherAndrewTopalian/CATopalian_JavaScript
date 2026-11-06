@@ -18,6 +18,12 @@ let aooObjectMethods = [
         category: 'aoo_object_methods',
         urlOffline: 'src/html/aoo_object_methods/aoo_object_methods_002.html'
     }, 
+
+    {
+        name: 'aoo object methods 003',
+        category: 'aoo_object_methods',
+        urlOffline: 'src/html/aoo_object_methods/aoo_object_methods_003.html'
+    }, 
 ];
 
 //----//

@@ -1,0 +1,158 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- aoo_object_methods_003.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> AOO Object Methods </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/1shortcuts/shortcuts.js'></script>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+
+<script src='../../js/location/copyPageURL.js'></script>
+
+<script src='../../js/textToSpeech/readText.js'></script>
+
+<script src='../../js/window/openCodeInWindow.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+
+    <h1> AOO Object Methods </h1>
+
+    <hr class="tech-divider">
+
+    <p> // aoo_object_methods_002 </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code id='a' class="custom-code" data-language="js">&lt;!DOCTYPE html&gt;
+&lt;html lang='en'&gt;
+&lt;head&gt;
+&lt;title&gt; Paradigm &lt;/title&gt;
+&lt;meta charset='UTF-8'&gt;
+&lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;
+
+&lt;style&gt;
+
+body
+{
+    background-color: rgb(30, 80, 40); 
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+&lt;/style&gt;
+
+&lt;script&gt;
+
+function hi()
+{
+    console.log('hi');
+}
+
+function howdy()
+{
+    console.log('howdy');
+}
+
+function sayThis(whichMessage)
+{
+    console.log(whichMessage);
+}
+
+let people = [
+    {
+        name: 'Montgomery Scott',
+        score: 98,
+        action: function() {
+            hi();
+        }
+    },
+
+    {
+        name: 'James Kirk',
+        score: 93,
+        action: function() {
+            howdy();
+        }
+    },
+
+    {
+        name: 'Leonard McCoy',
+        score: 97,
+        action: function() {
+            sayThis('Hi Everyone');
+        }
+    }
+
+];
+
+function whenLoaded()
+{
+    // Notice that even the less-than sign in our for loop must be escaped!
+    for (let i = 0; i &lt; people.length; i++)
+    {
+        let theBtn = document.createElement('button');
+        theBtn.textContent = people[i].name;
+        theBtn.onclick = function()
+        {
+            people[i].action(); 
+        };
+        document.body.append(theBtn);
+    }
+}
+
+&lt;/script&gt;
+
+&lt;/head&gt;
+
+&lt;body onload = 'whenLoaded();'&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<button onclick="openCodeInWindow('a');"> CODE </button>
+    </div>
+
+    <hr class="largeDivider">
+    </div>
+
+    <div class="technical-specs">
+        <h2> Description: </h2>
+        <p> A complete, standalone HTML interface demonstrating embedded Action Protocols for the Starfleet crew. </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick="copyPageURL()"> Copy Page URL </button>
+
+<hr class='hr_spacer'>
+
+</body>
+
+</html>
+
