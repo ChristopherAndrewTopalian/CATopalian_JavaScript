@@ -1,0 +1,122 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2026 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- aoo_object_methods_fibn.html -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title> AOO Object Methods </title>
+
+<meta charset='UTF-8'>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<link rel='stylesheet' href='../../css/style001.css'>
+
+<script src='../../js/1shortcuts/shortcuts.js'></script>
+
+<script src='../../js/colorer/catopalian_javascript_universal_code_colorer.js'></script>
+<script src='../../js/location/copyPageURL.js'></script>
+<script src='../../js/textToSpeech/readText.js'></script>
+
+<script src='../../js/window/openCodeInWindow.js'></script>
+
+</head>
+
+<body onload='applyCustomHighlighting();'>
+
+<button onclick="readText('all');">Play Audio - READ PAGE </button>
+
+<div id='all'>
+
+    <h1> AOO Object Methods </h1>
+
+    <hr class="tech-divider">
+
+    <p> // aoo_object_methods_002 </p>
+
+    <hr class="tech-divider">
+
+    <div class="example-module">
+<pre><code id = 'a' class="custom-code" data-language="js">function hi()
+{
+    console.log('hi');
+}
+
+function howdy()
+{
+    console.log('howdy');
+}
+
+function sayThis(whichMessage)
+{
+    console.log(whichMessage);
+}
+
+let people = [
+    {
+        name: 'Montgomery Scott',
+        score: 98,
+        action: function() {
+            hi();
+        }
+    },
+
+    {
+        name: 'James Kirk',
+        score: 93,
+        action: function() {
+            howdy();
+        }
+    },
+
+    {
+        name: 'Leonard McCoy',
+        score: 97,
+        action: function() {
+            sayThis('Hi Everyone');
+        }
+    }
+
+];
+
+for (let i = 0; i < people.length; i++)
+{
+    people[i].action(); 
+}
+
+//----//
+
+/*
+hi
+howdy
+Hi Everyone
+*/
+</code></pre>
+<button onclick = "openCodeInWindow('a');"> CODE </button>
+    </div>
+
+    <hr class="largeDivider">
+    </div>
+
+    <div class="technical-specs">
+        <h2> Description: </h2>
+        <p>  </p>
+
+        <hr class="tech-divider">
+    </div>
+
+</div>
+
+<hr>
+
+<button onclick = "copyPageURL()"> Copy Page URL </button>
+
+<hr class = 'hr_spacer'>
+
+</body>
+
+</html>
+
